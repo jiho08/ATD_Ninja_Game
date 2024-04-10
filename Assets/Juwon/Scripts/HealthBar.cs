@@ -9,17 +9,15 @@ public class HealthBar : MonoBehaviour
     private float _curHpValue = 100;
     [SerializeField] private HealthManager health;
 
-
-    private void Start() 
-    {
-        //_maxHpValue = health.maxHealth;
+    private void Start() {
+        _maxHpValue = health.GetHp();
     }
 
-    void Update()
+    void LateUpdate()
     {
-        //만약 맞았다면
-        
-        hpBarObj.transform.localScale = new Vector3(_curHpValue / _maxHpValue * 5, 0.5f, 0.5f); //healthManager에서 최대체력과 현재 체력 넣기
-        if(_curHpValue <= 0) _curHpValue = 0;
+        _curHpValue = health.GetHp();
+        //만약 맞았다면 if로 넣기
+        hpBarObj.transform.localScale = new Vector3(_curHpValue / _maxHpValue * 5f, 0.5f, 0.5f); //healthManager에서 최대체력과 현재 체력 넣기
+        if(_curHpValue <= 0) health.SetHp(0);
     }
 }

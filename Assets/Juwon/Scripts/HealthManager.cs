@@ -6,8 +6,8 @@ public class HealthManager : MonoBehaviour
 {
     //Hp가 들어가는 유닛에 넣기
 
-    [HideInInspector] public float maxHealth = 10f;
-    private float curHealth;
+    private float maxHealth = 10f;
+    [SerializeField] private float curHealth;
 
     private void Start() 
     {
@@ -17,6 +17,10 @@ public class HealthManager : MonoBehaviour
     public float GetHp()
     {
         return curHealth;
+    }
+    public float SetHp(float value)
+    {
+        return curHealth = value;
     }
 
     public void Damage(float value)
