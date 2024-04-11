@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Jiho/Scenes/Jiho2.unity
+    guid: e8189af7796572b4fa443ea9159a3199
   m_configObjects: {}
