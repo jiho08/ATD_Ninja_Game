@@ -5,16 +5,10 @@ using UnityEngine;
 
 public class PoolManager : MonoBehaviour
 {
-    public static PoolManager Instance;
 
     [SerializeField] private GameObject[] prefabs;
     List<GameObject>[] pools;
 
-
-    private void Awake() 
-    {
-        Instance = this;
-    }
 
     public GameObject Get(int index)
     {
