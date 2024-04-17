@@ -35,7 +35,7 @@ public class PlayerUnit : MonoBehaviour
 
     private void Update()
     {
-        float _speed = Mathf.Abs(_Rigid.velocity.x);
+        float _speed = _Rigid.velocity.x;
 
         if (_speed > _AttackSpeed)
         {
