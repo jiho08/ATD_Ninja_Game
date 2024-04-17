@@ -7,7 +7,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] PoolManager enemyPool;
     [SerializeField] SpawnManager spawnM;
 
-    [SerializeField] int stageNum;
+    int stageNum;
 
     /* private float createTime = 0;
     private float currentTime = 0;
@@ -23,7 +23,7 @@ public class EnemySpawner : MonoBehaviour
             spawnM.SetDefaultCounts(0, 10); //생성수 제한
         }
         else if(stageNum == 2) {
-
+            
         }
         else if(stageNum == 3) {
             
