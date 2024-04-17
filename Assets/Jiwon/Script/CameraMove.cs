@@ -4,41 +4,37 @@ using UnityEngine;
 
 public class CameraMove : MonoBehaviour
 {
-    private Camera mainCam;
+    private Vector3 mousePositiion;
+    private Vector3 wordPosition;
 
-    [SerializeField]
-    private float cameraSpeed;
-
+    private Camera camera;
     private void Start()
     {
-        mainCam = Camera.main;
+        camera = Camera.main;
         
 
     }
 
     private void Update()
     {
-        Vector2 mounseXY = mainCam.ScreenToWorldPoint(Input.mousePosition);
+        
+
         if (Input.GetKey(KeyCode.C))
         {
-            if (mounseXY.x < -5)
-            {
-                transform.position += Vector3.left * cameraSpeed * Time.deltaTime;
-            }
-            else if (mounseXY.x > 5)
-            {
-                transform.position += Vector3.right * cameraSpeed * Time.deltaTime;
-            }
-            else
-            {
-                transform.position += Vector3.zero;
-            }
+            ScrenentoWorld();
+            transform.position = wordPosition;
         }
         else
         {
-            transform.position += Vector3.zero;
+            
         }
+    }
 
+    private void ScrenentoWorld()
+    {
+        mousePositiion = Input.mousePosition;
+
+        wordPosition = Camera.main.ScreenToWorldPoint(mousePositiion + new Vector3(0, 0, 10));
     }
 
     
