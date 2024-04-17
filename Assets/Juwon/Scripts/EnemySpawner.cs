@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] PoolManager enemyPool;
+    [SerializeField] SpawnManager spawnM;
 
     [SerializeField] int stageNum;
 
@@ -18,7 +19,8 @@ public class EnemySpawner : MonoBehaviour
     {
         //createTime = Random.Range(minTime, maxTime);
         if(stageNum == 1) {
-            FirstStage();
+            StartCoroutine(FirstStage());
+            spawnM.SetDefaultCounts(0, 10); //생성수 제한
         }
         else if(stageNum == 2) {
 
