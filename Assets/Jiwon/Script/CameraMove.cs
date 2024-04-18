@@ -7,26 +7,24 @@ public class CameraMove : MonoBehaviour
     private Vector3 mousePositiion;
     private Vector3 wordPosition;
 
-    [SerializeField] private float _minX;
-    [SerializeField] private float _maxX;
-
-    private Camera camera;
-    private void Start()
-    {
-        camera = Camera.main;
-
-
-    }
+    private Vector3 ScreenCenter;
+   
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.C))
+        if (Input.GetKey(KeyCode.Mouse2))
         {
-            // x축 방향으로 1만큼 이동 후 제한 적용
-            float newX = Mathf.Clamp(transform.position.x + 1, _minX, _maxX);
+            ScrenentoWorld();
 
-            // 새로운 x값을 이용해 카메라의 위치 업데이트
-            transform.position = new Vector3(newX, transform.position.y, transform.position.z);
+            transform.position = wordPosition;
+            
+        }
+        
+        else
+        {
+            ScreenCenter = Camera.main.ScreenToWorldPoint(new Vector3(Camera.main.pixelWidth / 2, Camera.main.pixelHeight / 2));
+            
+            transform.position = new Vector3(ScreenCenter.x,ScreenCenter.y,0);
         }
 
 
