@@ -14,12 +14,15 @@ public class EnemyAttackCollider : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Player")
+        if(collision != null && collision.tag == "Player")
         {
             PlayerUnit player = collision.gameObject.GetComponent<PlayerUnit>();
 
-            player.TakeDamage(_damage);
-            enemy.GetCoroutine();
+            if(player != null)
+            {
+                player.TakeDamage(_damage);
+                enemy.GetCoroutine();
+            }
         }
     }
 }

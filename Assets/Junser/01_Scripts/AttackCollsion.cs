@@ -14,7 +14,7 @@ public class AttackCollsion : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Enemy")
+        if (collision != null && collision.tag == "Enemy")
         {
             EnemyScript player = collision.gameObject.GetComponent<EnemyScript>();
 
