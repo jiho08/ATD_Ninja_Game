@@ -24,14 +24,17 @@ public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
     public void OnDrag(PointerEventData eventData)
     {
+        
+
         transform.position = new Vector3(eventData.position.x, eventData.position.y, 0);
         //Debug.Log(eventData);
+        
 
     }
 
     public void OnDrop(PointerEventData eventData)
     {
-        
+        Debug.Log(eventData);
         //if (eventData == target)
         //{
         //    Debug.Log("함정카드 발동");
