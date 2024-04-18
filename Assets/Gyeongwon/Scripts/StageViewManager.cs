@@ -26,7 +26,7 @@ public class StageViewManager : MonoBehaviour
 
   
 
-    public void SetStage6()
+    public void SetStageView6()
     {
         Stage1.SetActive(false);
         Stage2.SetActive(false);
@@ -35,7 +35,7 @@ public class StageViewManager : MonoBehaviour
         Stage5.SetActive(false);
         Stage6.SetActive(true);
     }
-    public void SetStage5()
+    public void SetStageView5()
     {
         Stage1.SetActive(false);
         Stage2.SetActive(false);
@@ -44,7 +44,7 @@ public class StageViewManager : MonoBehaviour
         Stage5.SetActive(true);
         Stage6.SetActive(false);
     }
-    public void SetStage4()
+    public void SetStageView4()
     {
         Stage1.SetActive(false);
         Stage2.SetActive(false);
@@ -53,7 +53,7 @@ public class StageViewManager : MonoBehaviour
         Stage5.SetActive(false);
         Stage6.SetActive(false);
     }
-    public void SetStage3()
+    public void SetStageView3()
     {
         Stage1.SetActive(false);
         Stage2.SetActive(false);
@@ -62,7 +62,7 @@ public class StageViewManager : MonoBehaviour
         Stage5.SetActive(false);
         Stage6.SetActive(false);
     }
-    public void SetStage2()
+    public void SetStageView2()
     {
         Stage1.SetActive(false);
         Stage2.SetActive(true);
@@ -71,7 +71,7 @@ public class StageViewManager : MonoBehaviour
         Stage5.SetActive(false);
         Stage6.SetActive(false);
     }
-    public void SetStage1()
+    public void SetStageView1()
     {
         Stage1.SetActive(true);
         Stage2.SetActive(false);
@@ -80,4 +80,6 @@ public class StageViewManager : MonoBehaviour
         Stage5.SetActive(false);
         Stage6.SetActive(false);
     }
+
+
 }
