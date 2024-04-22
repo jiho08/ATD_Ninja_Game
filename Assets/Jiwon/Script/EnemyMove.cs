@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMovemate : MonoBehaviour
+public class EnemyMove : MonoBehaviour
 {
     private Rigidbody2D rigid;
     public float Movespeed;
@@ -18,8 +18,5 @@ public class EnemyMovemate : MonoBehaviour
          rigid.velocity = Vector3.right * Movespeed;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        //if (collision.gameObject.)
-    }
+    
 }

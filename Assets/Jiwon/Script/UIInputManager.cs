@@ -5,14 +5,16 @@ using UnityEngine.EventSystems;
 
 public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler
 {
-    public GameObject target;
+    public GameObject Unit;
     public GameObject Clone;
+
+    
 
     private BoxCollider2D collider;
 
 
     [SerializeField]
-    private EnemyMovemate EnemyMovemate2; // 유닛의 움직임 스크립트
+    private EnemyMove EnemyMovemate2; // 유닛의 움직임 스크립트
 
     private SpriteRenderer _cloneRenderer; //유닛의 색변경을 위한 스프라이트 렌더러
     
@@ -34,9 +36,9 @@ public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     public void OnBeginDrag(PointerEventData eventData)
     {
         Debug.Log("지금 클릭당함");
-        Clone = Instantiate(target);
+        Clone = Instantiate(Unit);
         _cloneRenderer = Clone.GetComponent<SpriteRenderer>();
-        EnemyMovemate2 = Clone.GetComponent<EnemyMovemate>();
+        EnemyMovemate2 = Clone.GetComponent<EnemyMove>();
         collider = Clone.GetComponent<BoxCollider2D>();
 
         Color32 c = _cloneRenderer.color;
@@ -71,7 +73,7 @@ public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     public void OnEndDrag(PointerEventData eventData)
     {
 
-        if (RailInput.instance.GetOnRail())
+        if (RailInput.onRail)
         {
             EnemyMovemate2.enabled = true;
             Color32 c = _cloneRenderer.color;
@@ -81,7 +83,7 @@ public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
         }
 
-        else if(!RailInput.instance.GetOnRail())
+        else if(!RailInput.onRail)
         {
             Destroy(Clone);
             Debug.Log("whwehlTek");

@@ -4,9 +4,29 @@ using UnityEngine;
 
 public class RailInput : MonoBehaviour
 {
+    public static bool onRail;
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Unit"))
+        {
+            onRail = true;
+
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Unit"))
+        {
+            onRail = false;
+
+        }
+    }
+
     //public GameObject my;
     //public static RailInput instance = null;
-    
+
 
     //public bool onRail;
 
@@ -38,4 +58,6 @@ public class RailInput : MonoBehaviour
     //{
     //    return (onRail);
     //}
+
+
 }
