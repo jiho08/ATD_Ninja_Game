@@ -11,18 +11,20 @@ public class RailInput : MonoBehaviour
         if (collision.gameObject.CompareTag("Unit"))
         {
             onRail = true;
+            Debug.Log("%7§”¿’");
 
         }
+  
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Unit"))
-        {
-            onRail = false;
+    //private void OnTriggerExit2D(Collider2D collision)
+    //{
+    //    if (collision.gameObject.CompareTag("Unit"))
+    //    {
+    //        onRail = false;
 
-        }
-    }
+    //    }
+    //}
 
     //public GameObject my;
     //public static RailInput instance = null;

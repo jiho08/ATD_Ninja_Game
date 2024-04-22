@@ -8,7 +8,7 @@ public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     public GameObject Unit;
     public GameObject Clone;
 
-    
+
 
     private BoxCollider2D collider;
 
@@ -17,7 +17,7 @@ public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     private EnemyMove EnemyMovemate2; // 유닛의 움직임 스크립트
 
     private SpriteRenderer _cloneRenderer; //유닛의 색변경을 위한 스프라이트 렌더러
-    
+
 
     private Vector3 targetPosition;
 
@@ -26,8 +26,8 @@ public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     private void Awake()
     {
         //camera = Camera.main;
-        
-        
+
+
     }
     private void Start()
     {
@@ -53,7 +53,7 @@ public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     {
         targetPosition = Camera.main.ScreenToWorldPoint(eventData.position);
 
-        Clone.transform.position = new Vector3(targetPosition.x,targetPosition.y,0);
+        Clone.transform.position = new Vector3(targetPosition.x, targetPosition.y, 0);
         //transform.position = new Vector3(eventData.position.x, eventData.position.y, 0);
         //Debug.Log(eventData);
 
@@ -80,10 +80,11 @@ public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
             _cloneRenderer.color = new Color32(c.r, c.g, c.b, 255);
             Debug.Log("qudtls");
             collider.isTrigger = false;
+            RailInput.onRail = false;
 
         }
 
-        else if(!RailInput.onRail)
+        else if (!RailInput.onRail)
         {
             Destroy(Clone);
             Debug.Log("whwehlTek");
@@ -92,5 +93,5 @@ public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
 
 
-    
+
 }
