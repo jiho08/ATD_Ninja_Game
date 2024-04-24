@@ -81,7 +81,7 @@ public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
             
             collider.isTrigger = false;
             RailInput.onRail = false;
-
+            Clone.transform.position = new Vector3(RailInput.raillTrans.x,RailInput.raillTrans.y,0);
         }
 
         else if (!RailInput.onRail)
@@ -91,7 +91,7 @@ public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         }
     }
 
-
+    
 
 
 }

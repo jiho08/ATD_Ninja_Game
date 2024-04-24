@@ -6,12 +6,14 @@ public class RailInput : MonoBehaviour
 {
     public static bool onRail;
 
+    public static Vector2 raillTrans;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Unit"))
         {
             onRail = true;
-            
+            raillTrans = new Vector2(transform.position.x,transform.position.y);
 
         }
   
