@@ -38,8 +38,10 @@ public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
-
         Clone = spawnM.UnitSpawn(UnitCode);
+
+        if (Clone == null) return;
+
         _cloneRenderer = Clone.GetComponent<SpriteRenderer>();
         EnemyMovemate2 = Clone.GetComponent<EnemyMove>();
         collider = Clone.GetComponent<BoxCollider2D>();
@@ -54,6 +56,8 @@ public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
     public void OnDrag(PointerEventData eventData)
     {
+        if (Clone == null) return;
+
         targetPosition = Camera.main.ScreenToWorldPoint(eventData.position);
 
         Clone.transform.position = new Vector3(targetPosition.x, targetPosition.y, 0);
@@ -66,6 +70,7 @@ public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        if (Clone == null) return;
 
         if (RailInput.onRail)
         {
