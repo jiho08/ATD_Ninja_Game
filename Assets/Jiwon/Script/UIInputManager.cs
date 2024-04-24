@@ -35,7 +35,7 @@ public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
-        Debug.Log("지금 클릭당함");
+        
         Clone = Instantiate(Unit);
         _cloneRenderer = Clone.GetComponent<SpriteRenderer>();
         EnemyMovemate2 = Clone.GetComponent<EnemyMove>();
@@ -78,7 +78,7 @@ public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
             EnemyMovemate2.enabled = true;
             Color32 c = _cloneRenderer.color;
             _cloneRenderer.color = new Color32(c.r, c.g, c.b, 255);
-            Debug.Log("qudtls");
+            
             collider.isTrigger = false;
             RailInput.onRail = false;
 
@@ -87,7 +87,7 @@ public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         else if (!RailInput.onRail)
         {
             Destroy(Clone);
-            Debug.Log("whwehlTek");
+            
         }
     }
 
