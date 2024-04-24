@@ -327,18 +327,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2062860764}
-        m_TargetAssemblyTypeName: StageViewManager, Assembly-CSharp
-        m_MethodName: SetStage5
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1241356305}
         m_TargetAssemblyTypeName: WorldMapManager, Assembly-CSharp
         m_MethodName: SetTargetStage5
@@ -606,18 +594,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2062860764}
-        m_TargetAssemblyTypeName: StageViewManager, Assembly-CSharp
-        m_MethodName: SetStage2
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1241356305}
         m_TargetAssemblyTypeName: WorldMapManager, Assembly-CSharp
         m_MethodName: SetTargetStage2
@@ -926,18 +902,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2062860764}
-        m_TargetAssemblyTypeName: StageViewManager, Assembly-CSharp
-        m_MethodName: SetStage6
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1241356305}
         m_TargetAssemblyTypeName: WorldMapManager, Assembly-CSharp
         m_MethodName: SetTargetStage6
@@ -1957,18 +1921,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2062860764}
-        m_TargetAssemblyTypeName: StageViewManager, Assembly-CSharp
-        m_MethodName: SetStage4
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1241356305}
         m_TargetAssemblyTypeName: WorldMapManager, Assembly-CSharp
         m_MethodName: SetTargetStage4
@@ -3140,18 +3092,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2062860764}
-        m_TargetAssemblyTypeName: StageViewManager, Assembly-CSharp
-        m_MethodName: SetStage3
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1241356305}
         m_TargetAssemblyTypeName: WorldMapManager, Assembly-CSharp
         m_MethodName: SetTargetStage3
@@ -3414,6 +3354,18 @@ MonoBehaviour:
   - {fileID: 590092940}
   - {fileID: 33915525}
   - {fileID: 190145794}
+  open1: 1
+  open2: 1
+  open3: 1
+  open4: 1
+  open5: 1
+  open6: 1
+  Stage1: {fileID: 290751335}
+  Stage2: {fileID: 1398449413}
+  Stage3: {fileID: 783770680}
+  Stage4: {fileID: 1478195270}
+  Stage5: {fileID: 1705767444}
+  Stage6: {fileID: 1434690429}
 --- !u!4 &1241356306
 Transform:
   m_ObjectHideFlags: 0
@@ -6135,56 +6087,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2051248073}
   m_CullTransparentMesh: 1
---- !u!1 &2062860762
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2062860763}
-  - component: {fileID: 2062860764}
-  m_Layer: 0
-  m_Name: StageViewManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2062860763
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2062860762}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1380.8936, y: 463.84717, z: 6.8448806}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2062860764
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2062860762}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a29e5462de0494341a367be09bd281a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Stage1: {fileID: 290751335}
-  Stage2: {fileID: 1398449413}
-  Stage3: {fileID: 783770680}
-  Stage4: {fileID: 1478195270}
-  Stage5: {fileID: 1705767444}
-  Stage6: {fileID: 1434690429}
 --- !u!1 &2108808513
 GameObject:
   m_ObjectHideFlags: 0
@@ -6480,18 +6382,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2062860764}
-        m_TargetAssemblyTypeName: StageViewManager, Assembly-CSharp
-        m_MethodName: SetStage1
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1241356305}
         m_TargetAssemblyTypeName: WorldMapManager, Assembly-CSharp
         m_MethodName: SetTargetStage1
@@ -6548,7 +6438,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 2108808516}
   - {fileID: 841478911}
-  - {fileID: 2062860763}
   - {fileID: 1922149655}
   - {fileID: 892446830}
   - {fileID: 1504123646}
