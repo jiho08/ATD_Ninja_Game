@@ -28,7 +28,7 @@ public class EnemySpawner : MonoBehaviour
             case 5:
                 break;
         }
-        getSpawn.ReadSpawnFile(stageNum-1); //스테이지에 맞는 txt읽기
+        getSpawn.ReadSpawn(stageNum-1); //스테이지에 맞는 txt읽기
         runningCoroutine = StartCoroutine("StartStage"); //스테이지 시작
     }
 

@@ -185,7 +185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnM: {fileID: 864169389}
   getSpawn: {fileID: 1228118955}
-  stageNum: 1
+  stageNum: 2
 --- !u!4 &270616152
 Transform:
   m_ObjectHideFlags: 0
@@ -480,6 +480,9 @@ MonoBehaviour:
   - {fileID: 4900000, guid: 9bdcfb4be97f1bc458866890f95eb5fe, type: 3}
   - {fileID: 4900000, guid: 9bdcfb4be97f1bc458866890f95eb5fe, type: 3}
   - {fileID: 4900000, guid: 9bdcfb4be97f1bc458866890f95eb5fe, type: 3}
+  spawnsSO:
+  - {fileID: 11400000, guid: ad47f281d436a1c4f8fa7f09a573ef9f, type: 2}
+  - {fileID: 11400000, guid: 5d6022c158f2dc248856ef57df2fbda0, type: 2}
 --- !u!4 &1228118956
 Transform:
   m_ObjectHideFlags: 0
