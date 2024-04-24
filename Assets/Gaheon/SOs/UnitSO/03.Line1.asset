@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e6b68f8217fbb794d8fb92e2ef23a237, type: 3}
-  m_Name: 02.Mugunghwa
+  m_Name: 03.Line1
   m_EditorClassIdentifier: 
-  TrainID: 1
+  TrainID: 2
   TrainFront: {fileID: 7482667652216324306, guid: feee428fed62f454b8c08b1fa95c0ec0, type: 3}
   TrainBack: {fileID: 7482667652216324306, guid: feee428fed62f454b8c08b1fa95c0ec0, type: 3}
-  TrainName: "\uBB34\uAD81\uD654\uD638"
-  TrainDesc: "\uBB34\uAD81\uD654\uB2F9"
-  TrainRole: "\uD0F1\uCEE4"
-  Hp: 50
-  Atk: 7
+  TrainName: "1\uD638\uC120"
+  TrainDesc: "1\uD638\uC120\uC774\uB2F9"
+  TrainRole: "\uC6D0\uAC70\uB9AC \uB51C\uB7EC"
+  Hp: 55
+  Atk: 5
   Speed: 2

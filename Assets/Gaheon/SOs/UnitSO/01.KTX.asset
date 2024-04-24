@@ -18,6 +18,6 @@ MonoBehaviour:
   TrainName: KTX
   TrainDesc: "KTX\uB2F9"
   TrainRole: "\uB51C\uB7EC"
-  Hp: 60
-  Atk: 15
-  Speed: 10
+  Hp: 35
+  Atk: 9
+  Speed: 5

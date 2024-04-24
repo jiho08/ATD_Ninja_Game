@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 using TMPro;
 
 public class SelectManager : MonoBehaviour
@@ -16,6 +16,8 @@ public class SelectManager : MonoBehaviour
     [SerializeField] UnitDataSO line1SO;
 
     public UnitDataSO selectedSO; //바에서도 사용 할 듯 
+
+    [SerializeField] UnityEvent OnSelectChanged;
 
     public static SelectManager selectInstance;
     private void Awake()
@@ -35,6 +37,8 @@ public class SelectManager : MonoBehaviour
         nameText.text = selectedSO.TrainName;
         descText.text = selectedSO.TrainDesc;
         roleText.text = selectedSO.TrainRole;
+
+        OnSelectChanged.Invoke();
     }
     public void KTX()
     {
