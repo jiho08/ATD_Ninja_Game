@@ -8,40 +8,48 @@ using TMPro;
 public class SelectManager : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI nameText;
-    [SerializeField] TextMeshProUGUI infoText;
-    [SerializeField] TextMeshProUGUI classText;
-    #region 이름/정보/역할 등...
-    string[] trainNames = {"KTX", "무궁화호", "1호선"};
-    string[] trainInfo = {"매우 귀엽고 사랑스러운 테바이를 친 7명 제발 사랑해주시고 보든어주시고 제발제발어머니", "연어초밥", "간장게장"};
-    string[] trainRole = {"딜러", "탱커", "원거리 딜러"};
-    #endregion
+    [SerializeField] TextMeshProUGUI descText;
+    [SerializeField] TextMeshProUGUI roleText;
+
+    [SerializeField] UnitDataSO ktxSO;
+    [SerializeField] UnitDataSO mghSO;
+    [SerializeField] UnitDataSO line1SO;
+
+    public UnitDataSO selectedSO; //바에서도 사용 할 듯 
+
+    public static SelectManager selectInstance;
+    private void Awake()
+    {
+        if(selectInstance == null)
+        {
+            selectInstance = this;
+        }
+    }
     void Start()
     {
-        Selecting(0);
+        Selecting();
     }
 
-    void Update()
+    void Selecting()
     {
-        
+        nameText.text = selectedSO.TrainName;
+        descText.text = selectedSO.TrainDesc;
+        roleText.text = selectedSO.TrainRole;
     }
-
-    void Selecting(int trainNum)
+    public void KTX()
     {
-        nameText.text = trainNames[trainNum];
-        infoText.text = trainInfo[trainNum];
-        classText.text = trainRole[trainNum];
+        selectedSO = ktxSO;
+        Selecting();
     }
-    public void TestTrain()
+    public void MGH()
     {
-        Selecting(0);
+        selectedSO = mghSO;
+        Selecting();
     }
-    public void TestTrain1()
+    public void Line1()
     {
-        Selecting(1);
-    }
-    public void TestTrain2()
-    {
-        Selecting(2);
+        selectedSO = line1SO;
+        Selecting();
     }
 
 }

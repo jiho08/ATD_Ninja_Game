@@ -860,7 +860,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Strength
+  m_text: 'Atk
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: aec4c944b0cf748438cbea4d68eb6294, type: 2}
   m_sharedMaterial: {fileID: 3517856969361820782, guid: aec4c944b0cf748438cbea4d68eb6294, type: 2}
@@ -887,8 +889,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 46
-  m_fontSizeBase: 46
+  m_fontSize: 48
+  m_fontSizeBase: 48
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2714,7 +2716,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1651251588}
         m_TargetAssemblyTypeName: SelectManager, Assembly-CSharp
-        m_MethodName: TestTrain1
+        m_MethodName: MGH
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3265,7 +3267,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1651251588}
         m_TargetAssemblyTypeName: SelectManager, Assembly-CSharp
-        m_MethodName: TestTrain
+        m_MethodName: KTX
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3963,8 +3965,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameText: {fileID: 1814975303}
-  infoText: {fileID: 1771683059}
-  classText: {fileID: 1798114457}
+  descText: {fileID: 1771683059}
+  roleText: {fileID: 1798114457}
+  ktxSO: {fileID: 11400000, guid: 3ec462b879e23d742b3ad185bc81a1d7, type: 2}
+  mghSO: {fileID: 11400000, guid: 216d321d6357719439ce3acb8ea62134, type: 2}
+  line1SO: {fileID: 11400000, guid: 14440fb98775e844c8829b3481f60046, type: 2}
+  selectedSO: {fileID: 11400000, guid: 3ec462b879e23d742b3ad185bc81a1d7, type: 2}
 --- !u!4 &1651251589
 Transform:
   m_ObjectHideFlags: 0
@@ -4422,7 +4428,7 @@ GameObject:
   - component: {fileID: 1771683060}
   - component: {fileID: 1771683059}
   m_Layer: 5
-  m_Name: Info
+  m_Name: Desc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5128,7 +5134,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1651251588}
         m_TargetAssemblyTypeName: SelectManager, Assembly-CSharp
-        m_MethodName: TestTrain2
+        m_MethodName: Line1
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
