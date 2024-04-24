@@ -4,57 +4,57 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] PoolManager enemyPool;
     [SerializeField] SpawnManager spawnM;
+    [SerializeField] GetSpawnEnemy getSpawn;
 
-    [SerializeField] int stageNum;
-
-    /* private float createTime = 0;
-    private float currentTime = 0;
-    private float minTime = 4f;
-    private float maxTime = 10f; */
+    [SerializeField] int stageNum = 0;
+    int stageEnemyCount = 0;
+    public Coroutine runningCoroutine = null;
 
 
     private void Start() 
     {
-        //createTime = Random.Range(minTime, maxTime);
-        if(stageNum == 1) {
-            StartCoroutine(FirstStage());
-            spawnM.SetDefaultCounts(0, 10); //생성수 제한
+        //원하는 유닛의 생성수 제한
+        switch (stageNum){
+            case 1:
+                spawnM.SetDefaultCounts(0, 10);
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            case 5:
+                break;
         }
-        else if(stageNum == 2) {
+        getSpawn.ReadSpawn(stageNum-1); //스테이지에 맞는 txt읽기
+        runningCoroutine = StartCoroutine("StartStage"); //스테이지 시작
+    }
 
+    private int typeToInt(string str) //type을 int로 변환하여 전송
+    {
+        switch(str) {
+            case "M":
+                return 0;
         }
-        else if(stageNum == 3) {
-            
-        }
-        else if(stageNum == 4) {
-            
-        }
-        else if(stageNum == 5) {
-            
+        return 0;
+    }
+
+    IEnumerator StartStage()
+    {
+        yield return new WaitForSeconds(getSpawn.GetSpawnsList()[stageEnemyCount].delay); //적 생성 딜레이
+        spawnM.EnemySpawn(typeToInt(getSpawn.GetSpawnsList()[stageEnemyCount].type), getSpawn.GetSpawnsList()[stageEnemyCount].point); //적 생성
+
+        stageEnemyCount++; 
+
+        //스테이지에 적의 수가 넘으면 멈추기
+        if(getSpawn.GetSpawnsList().Count <= stageEnemyCount) {
+            stageEnemyCount = 0;
+            StopCoroutine(runningCoroutine);
         }
         else {
-            
+            StartCoroutine(StartStage());
         }
-    }
-    private void Update()
-    {
-        //랜덤
-        /* currentTime += Time.deltaTime;
-        if(currentTime > createTime) {
-            enemyPool.Get(0); //Random.Range(0, 4);
-
-
-            currentTime = 0;
-            createTime = Random.Range(minTime, maxTime);
-        } */
-    }
-
-    IEnumerator FirstStage()
-    {
-        yield return new WaitForSeconds(1);
-
-        //적 원하는데로 생성
     }
 }
