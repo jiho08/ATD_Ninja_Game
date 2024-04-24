@@ -13,6 +13,10 @@ public class StateManager : MonoBehaviour
     {
         Instance = this;
     }
+    private void Start() 
+    {
+        DontDestroyOnLoad(gameObject);
+    }
 
      //체력 설정
     public void SetUnitHP(int value, float hp)
@@ -49,7 +53,7 @@ public class StateManager : MonoBehaviour
 [Serializable]
 public class UnitStats
 {
-    public float health = 10f; //체력
+    public float health = 100f; //체력
     public float speed = 10f; //속도
     public float atk = 20f; //공격력
     public float coolTime = 10f; //쿨타임
