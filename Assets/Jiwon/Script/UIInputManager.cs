@@ -42,7 +42,7 @@ public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         collider = Clone.GetComponent<BoxCollider2D>();
 
         Color32 c = _cloneRenderer.color;
-        _cloneRenderer.color = new Color32(c.r, c.g, c.b, 30);
+        _cloneRenderer.color = new Color32(c.r, c.g, c.b, 100);
 
         EnemyMovemate2.enabled = false;
 
