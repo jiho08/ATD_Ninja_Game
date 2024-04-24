@@ -12,7 +12,7 @@ public class BarManager : MonoBehaviour
     [SerializeField] Image currentSpeedBar;
     [SerializeField] Image previewSpeedBar;
 
-    int[] level1States = {}
+    //int[] level1States = {}
     void Start()
     {
         //Debug.Log(currentHpBar.rectTransform.sizeDelta);
