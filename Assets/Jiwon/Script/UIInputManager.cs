@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler //,IDropHandler
 {
     public int UnitCode; //진짜 유닛
-    public GameObject Clone; //임시로 유닛 담을거
+    private GameObject Clone; //임시로 유닛 담을거
 
 
 
@@ -72,7 +72,7 @@ public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
             EnemyMovemate2.enabled = true;
             Color32 c = _cloneRenderer.color;
             _cloneRenderer.color = new Color32(c.r, c.g, c.b, 255);
-            
+
             collider.isTrigger = false;
             RailInput.onRail = false;
             Clone.transform.position = new Vector3(RailInput.raillTrans.x,RailInput.raillTrans.y,0);
@@ -80,7 +80,7 @@ public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
         else if (!RailInput.onRail)
         {
-            Destroy(Clone);
+            Clone.SetActive(false);
             
         }
     }

@@ -18,6 +18,7 @@ public class EnemySpawner : MonoBehaviour
         switch (stageNum){
             case 1:
                 spawnM.SetDefaultCounts(0, 10);
+                spawnM.SetDefaultCounts(1, 10);
                 break;
             case 2:
                 break;
