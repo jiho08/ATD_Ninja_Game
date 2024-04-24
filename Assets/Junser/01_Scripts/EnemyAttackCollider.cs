@@ -24,8 +24,8 @@ public class EnemyAttackCollider : MonoBehaviour
             {
                 _playerHealth.Health = _playerHealth.Health - _damage;
 
-                player.GetCoroutine();
-                _enemy.GetCoroutine();
+                player.TakeDamage();
+                _enemy.TakeDamage();
             }
         }
     }

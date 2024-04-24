@@ -26,9 +26,9 @@ public class AttackCollsion : MonoBehaviour
             if (_playerUnit != null)
             {
                 _playerHealth.Health = _playerHealth.Health - _damage;
-                _enemy.GetCoroutine();
+                _enemy.TakeDamage();
 
-                _playerUnit.GetCoroutine();
+                _playerUnit.TakeDamage();
             }
         }
     }

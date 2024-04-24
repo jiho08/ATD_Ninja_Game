@@ -48,21 +48,40 @@ public class EnemyScript : MonoBehaviour
         _Rigid.velocity = new Vector2(1, 0) * Accelation;
     }
 
-    public void GetCoroutine()
+    public void TakeDamage()
+    {
+        StartCoroutine(BackAway());
+    }
+    public void Dealy()
     {
         StartCoroutine(AttackDealy());
+    }
+    IEnumerator BackAway()
+    {
+        yield return new WaitForSecondsRealtime(0.1f);
+
+        transform.rotation = Quaternion.Euler(0, 0, -35);
+
+
+        Accelation = -DefaltAcclation*2;
+        yield return new WaitForSecondsRealtime(_DealayTime);
+
+        transform.rotation = Quaternion.Euler(0, 0, 0);
+
+
+        Accelation = DefaltAcclation;
     }
 
     IEnumerator AttackDealy()
     {
         yield return new WaitForSecondsRealtime(0.1f);
 
+        Accelation = -DefaltAcclation * 2;
 
 
-        Accelation = -DefaltAcclation*2;
         yield return new WaitForSecondsRealtime(_DealayTime);
-
-
         Accelation = DefaltAcclation;
+
+
     }
 }
