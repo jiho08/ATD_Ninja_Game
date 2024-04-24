@@ -264,7 +264,7 @@ GameObject:
   - component: {fileID: 112602751}
   - component: {fileID: 112602750}
   m_Layer: 5
-  m_Name: TrainBar
+  m_Name: MghBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -340,7 +340,7 @@ GameObject:
   - component: {fileID: 156778838}
   - component: {fileID: 156778837}
   m_Layer: 5
-  m_Name: TestTrainLevel
+  m_Name: MghLevel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -475,7 +475,7 @@ GameObject:
   - component: {fileID: 214094400}
   - component: {fileID: 214094399}
   m_Layer: 5
-  m_Name: Button
+  m_Name: UpgradeButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -544,7 +544,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 214094400}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1287707685}
+        m_TargetAssemblyTypeName: UpgradeManager, Assembly-CSharp
+        m_MethodName: Upgrade
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &214094400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -800,6 +812,7 @@ Transform:
   m_Children:
   - {fileID: 1651251589}
   - {fileID: 34072296}
+  - {fileID: 1287707684}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &240167803
@@ -2438,7 +2451,7 @@ GameObject:
   - component: {fileID: 840716290}
   - component: {fileID: 840716289}
   m_Layer: 5
-  m_Name: TestTrainImage
+  m_Name: MghImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3107,6 +3120,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1249894795}
   m_CullTransparentMesh: 1
+--- !u!1 &1287707683
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1287707684}
+  - component: {fileID: 1287707685}
+  m_Layer: 0
+  m_Name: UpgradeManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1287707684
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1287707683}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 235852231}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1287707685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1287707683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4421220a4e98201489d27b343ef7a8a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ktxLevelText: {fileID: 792381053}
+  mghLevelText: {fileID: 156778837}
+  line1LevelText: {fileID: 1511468504}
 --- !u!1 &1302424626
 GameObject:
   m_ObjectHideFlags: 0
@@ -3326,7 +3386,7 @@ GameObject:
   - component: {fileID: 1391366154}
   - component: {fileID: 1391366153}
   m_Layer: 5
-  m_Name: TrainBar
+  m_Name: Line1Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3402,7 +3462,7 @@ GameObject:
   - component: {fileID: 1485656718}
   - component: {fileID: 1485656717}
   m_Layer: 5
-  m_Name: TestTrainImage
+  m_Name: Line1Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3571,7 +3631,7 @@ GameObject:
   - component: {fileID: 1511468505}
   - component: {fileID: 1511468504}
   m_Layer: 5
-  m_Name: TestTrainLevel
+  m_Name: Line1Level
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3966,9 +4026,13 @@ MonoBehaviour:
   nameText: {fileID: 1814975303}
   descText: {fileID: 1771683059}
   roleText: {fileID: 1798114457}
+  ktxLevelSO: {fileID: 11400000, guid: 80f8b5f329da2994dbce4aca55831e5e, type: 2}
+  mghLevelSO: {fileID: 11400000, guid: 6245268898e8ada4c9291b8541c271ff, type: 2}
+  line1LevelSO: {fileID: 11400000, guid: 1f246b78dfaca40429ac6fdd72fc8539, type: 2}
   ktxSO: {fileID: 11400000, guid: 3ec462b879e23d742b3ad185bc81a1d7, type: 2}
   mghSO: {fileID: 11400000, guid: 216d321d6357719439ce3acb8ea62134, type: 2}
   line1SO: {fileID: 11400000, guid: 14440fb98775e844c8829b3481f60046, type: 2}
+  selectedUnitLevel: {fileID: 11400000, guid: 80f8b5f329da2994dbce4aca55831e5e, type: 2}
   selectedSO: {fileID: 11400000, guid: 3ec462b879e23d742b3ad185bc81a1d7, type: 2}
   OnSelectChanged:
     m_PersistentCalls:

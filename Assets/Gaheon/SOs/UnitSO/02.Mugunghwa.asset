@@ -18,6 +18,8 @@ MonoBehaviour:
   TrainName: "\uBB34\uAD81\uD654\uD638"
   TrainDesc: "\uBB34\uAD81\uD654\uB2F9"
   TrainRole: "\uD0F1\uCEE4"
-  Hp: 25
-  Atk: 2
+  level: 1
+  length: 1
+  Hp: 35
+  Atk: 4
   Speed: 2

@@ -11,6 +11,8 @@ public class UnitDataSO : ScriptableObject
     public string TrainName;
     public string TrainDesc;
     public string TrainRole;
+    public int level;
+    public int length;
     public float Hp;
     public float Atk;
     public float Speed;

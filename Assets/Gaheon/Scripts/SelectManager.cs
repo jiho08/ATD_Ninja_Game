@@ -11,10 +11,15 @@ public class SelectManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI descText;
     [SerializeField] TextMeshProUGUI roleText;
 
-    [SerializeField] UnitDataSO ktxSO;
-    [SerializeField] UnitDataSO mghSO;
-    [SerializeField] UnitDataSO line1SO;
+    [SerializeField] UnitLevelUpSO ktxLevelSO;
+    [SerializeField] UnitLevelUpSO mghLevelSO;
+    [SerializeField] UnitLevelUpSO line1LevelSO;
 
+    public UnitDataSO ktxSO;
+    public UnitDataSO mghSO;
+    public UnitDataSO line1SO;
+
+    public UnitLevelUpSO selectedUnitLevel;
     public UnitDataSO selectedSO; //바에서도 사용 할 듯 
 
     [SerializeField] UnityEvent OnSelectChanged;
@@ -22,7 +27,7 @@ public class SelectManager : MonoBehaviour
     public static SelectManager selectInstance;
     private void Awake()
     {
-        if(selectInstance == null)
+        if (selectInstance == null)
         {
             selectInstance = this;
         }
@@ -32,8 +37,11 @@ public class SelectManager : MonoBehaviour
         Selecting();
     }
 
-    void Selecting()
+    public void Selecting()
     {
+        selectedSO.Hp = selectedUnitLevel.Hp[selectedSO.level - 1];
+        selectedSO.Atk = selectedUnitLevel.Atk[selectedSO.level - 1];
+        selectedSO.Speed = selectedUnitLevel.Speed[selectedSO.level - 1];
         nameText.text = selectedSO.TrainName;
         descText.text = selectedSO.TrainDesc;
         roleText.text = selectedSO.TrainRole;
@@ -43,16 +51,19 @@ public class SelectManager : MonoBehaviour
     public void KTX()
     {
         selectedSO = ktxSO;
+        selectedUnitLevel = ktxLevelSO;
         Selecting();
     }
     public void MGH()
     {
         selectedSO = mghSO;
+        selectedUnitLevel = mghLevelSO;
         Selecting();
     }
     public void Line1()
     {
         selectedSO = line1SO;
+        selectedUnitLevel = line1LevelSO;
         Selecting();
     }
 
