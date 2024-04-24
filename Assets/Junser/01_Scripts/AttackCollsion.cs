@@ -16,9 +16,9 @@ public class AttackCollsion : MonoBehaviour
     {
         if (collision != null && collision.tag == "Enemy")
         {
-            EnemyScript player = collision.gameObject.GetComponent<EnemyScript>();
+            EnemyScript enemy = collision.gameObject.GetComponent<EnemyScript>();
 
-            player.TakeDamage(_damage);
+            enemy.TakeDamage(_damage);
             player1.GetCoroutine();
         }
     }

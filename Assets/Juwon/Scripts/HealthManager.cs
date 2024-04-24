@@ -18,9 +18,9 @@ public class HealthManager : MonoBehaviour
     {
         return curHealth;
     }
-    public float SetHp(float value)
+    public void SetHp(float value)
     {
-        return curHealth = value;
+        curHealth = value;
     }
 
     public void Damage(float value)
