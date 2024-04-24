@@ -5,21 +5,31 @@ using UnityEngine;
 public class AttackCollsion : MonoBehaviour
 {
     public float _damage = 1;
-    private PlayerUnit player1;
+    private PlayerUnit _playerUnit;
+    private HealthManager _playerHealth;
+
 
     private void Awake()
     {
-        player1 = GetComponentInParent<PlayerUnit>();
+        _playerUnit = GetComponentInParent<PlayerUnit>();
 
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision != null && collision.tag == "Enemy")
         {
-            EnemyScript enemy = collision.gameObject.GetComponent<EnemyScript>();
+            _playerHealth = collision.gameObject.GetComponent<HealthManager>();
 
-            enemy.TakeDamage(_damage);
-            player1.GetCoroutine();
+            EnemyScript _enemy = collision.gameObject.GetComponent<EnemyScript>();
+
+
+            if (_playerUnit != null)
+            {
+                _playerHealth.Health = _playerHealth.Health - _damage;
+                _enemy.GetCoroutine();
+
+                _playerUnit.GetCoroutine();
+            }
         }
     }
 }

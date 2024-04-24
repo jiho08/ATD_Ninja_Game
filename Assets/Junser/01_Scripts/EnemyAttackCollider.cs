@@ -5,23 +5,27 @@ using UnityEngine;
 public class EnemyAttackCollider : MonoBehaviour
 {
     public float _damage = 1;
-    private EnemyScript enemy;
+    private EnemyScript _enemy;
+    private HealthManager _playerHealth;
 
     private void Awake()
     {
-        enemy = GetComponentInParent<EnemyScript>();
-        
+        _enemy = GetComponentInParent<EnemyScript>();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision != null && collision.tag == "Player")
         {
+            _playerHealth = collision.gameObject.GetComponent<HealthManager>();
+
             PlayerUnit player = collision.gameObject.GetComponent<PlayerUnit>();
 
             if(player != null)
             {
-                player.TakeDamage(_damage);
-                enemy.GetCoroutine();
+                _playerHealth.Health = _playerHealth.Health - _damage;
+
+                player.GetCoroutine();
+                _enemy.GetCoroutine();
             }
         }
     }

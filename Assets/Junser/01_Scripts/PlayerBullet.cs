@@ -9,6 +9,7 @@ public class PlayerBullet : MonoBehaviour
     [SerializeField]
     private float _damage;
     private PlayerUnit _playerUnit;
+    private HealthManager _playerHealth;
 
     private void Awake()
     {
@@ -24,11 +25,15 @@ public class PlayerBullet : MonoBehaviour
     {
         if (collision != null&& collision.tag == "Enemy")
         {
-            EnemyScript player = collision.gameObject.GetComponent<EnemyScript>();
+            EnemyScript _enemy = collision.gameObject.GetComponent<EnemyScript>();
+            _playerHealth = collision.gameObject.GetComponent<HealthManager>();
 
-            if(player != null && collision != null)
+
+            if (_enemy != null)
             {
-                player.TakeDamage(_damage);
+                _playerHealth.Health = _playerHealth.Health - _damage;
+                _enemy.GetCoroutine();
+
             }
         }
     }

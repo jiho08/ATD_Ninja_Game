@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerADUnit : MonoBehaviour
+public class EnemyAdUnit : MonoBehaviour
 {
     RaycastHit2D _rangeFinder;
     [SerializeField]
@@ -17,22 +17,22 @@ public class PlayerADUnit : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.DrawRay(transform.position + new Vector3(1.25f, 0), Vector3.right*_fireRange, Color.green);
-        _rangeFinder = Physics2D.Raycast(transform.position, Vector2.right, _fireRange, LayerMask.GetMask("Enemy"));
+        Debug.DrawRay(transform.position + new Vector3(1.25f, 0), Vector3.right * _fireRange, Color.green);
+        _rangeFinder = Physics2D.Raycast(transform.position, Vector2.right, _fireRange, LayerMask.GetMask("Player"));
 
 
-        if(_rangeFinder.collider != null &&_rangeFinder.collider.gameObject.tag == "Enemy")
+        if (_rangeFinder.collider != null && _rangeFinder.collider.gameObject.tag == "Player")
         {
             if (_isFire)
             {
                 StartCoroutine(Colltime());
-                
+
             }
         }
     }

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6431806042819731784}
   - component: {fileID: 2274646147468819600}
   - component: {fileID: 5977187493157873196}
+  - component: {fileID: 3961507324100938754}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -178,6 +179,18 @@ MonoBehaviour:
   DefaltAcclation: 4
   _AttackCollision: {fileID: 6000538367989265758}
   _DealayTime: 1
+--- !u!114 &3961507324100938754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967265577594567063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30f18eaf22a931240b8511474e448a1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6000538367989265758
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class EnemyScript : MonoBehaviour
 {
-    public float _MaxHp = 5;
-    private float _CurrentHpPoint;
     //HP관련 변수
 
     [SerializeField]
@@ -28,8 +26,6 @@ public class EnemyScript : MonoBehaviour
 
     private void Awake()
     {
-        _CurrentHpPoint = _MaxHp;
-
         _Rigid = GetComponent<Rigidbody2D>();
     }
 
@@ -52,20 +48,6 @@ public class EnemyScript : MonoBehaviour
         _Rigid.velocity = new Vector2(1, 0) * Accelation;
     }
 
-    public void TakeDamage(float _GetDamage)
-    {
-        _CurrentHpPoint -= _GetDamage;
-        GetCoroutine();
-
-
-        Debug.Log("피격");
-
-        if (_CurrentHpPoint <= 0)
-        {
-            Destroy(gameObject);
-        }
-    }
-
     public void GetCoroutine()
     {
         StartCoroutine(AttackDealy());
@@ -77,7 +59,7 @@ public class EnemyScript : MonoBehaviour
 
 
 
-        Accelation = -DefaltAcclation;
+        Accelation = -DefaltAcclation*2;
         yield return new WaitForSecondsRealtime(_DealayTime);
 
 

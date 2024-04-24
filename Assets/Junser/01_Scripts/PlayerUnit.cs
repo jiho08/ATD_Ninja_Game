@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PlayerUnit : MonoBehaviour
 {
-    public float _MaxHp = 5;
-    private float _CurrentHpPoint;
     //HP관련 변수
 
     [SerializeField]
@@ -28,7 +26,6 @@ public class PlayerUnit : MonoBehaviour
 
     private void Awake()
     {
-        _CurrentHpPoint = _MaxHp;
 
         _Rigid = GetComponent<Rigidbody2D>();
     }
@@ -51,18 +48,6 @@ public class PlayerUnit : MonoBehaviour
     {
         _Rigid.velocity = new Vector2(1, 0) * Accelation;
     }
-    
-    public void TakeDamage(float _GetDamage)
-    {
-        _CurrentHpPoint -= _GetDamage;
-
-        GetCoroutine();
-
-        if (_CurrentHpPoint <= 0)
-        {
-            Destroy(gameObject);
-        }
-    }
 
     public void GetCoroutine()
     {
@@ -74,7 +59,7 @@ public class PlayerUnit : MonoBehaviour
 
         yield return new WaitForSecondsRealtime(0.1f);
 
-        Accelation = -DefaltAcclation;
+        Accelation = -DefaltAcclation*2;
         yield return new WaitForSecondsRealtime(_DealayTime);
 
 

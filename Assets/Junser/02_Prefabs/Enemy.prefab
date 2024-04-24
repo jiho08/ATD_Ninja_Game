@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7707106487863066834}
   - component: {fileID: 4930744095931996914}
   - component: {fileID: 5725023998318947986}
+  - component: {fileID: -4766673309490735270}
   m_Layer: 3
   m_Name: Enemy
   m_TagString: Enemy
@@ -178,6 +179,18 @@ MonoBehaviour:
   DefaltAcclation: -1
   _AttackCollision: {fileID: 6812799936799525467}
   _DealayTime: 0.5
+--- !u!114 &-4766673309490735270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1405501123353516920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30f18eaf22a931240b8511474e448a1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6812799936799525467
 GameObject:
   m_ObjectHideFlags: 0
