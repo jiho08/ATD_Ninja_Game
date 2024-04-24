@@ -272,6 +272,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 1405501123353516920, guid: 2053c36c978f6b24aaf04fdf2b0f8d96, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4047579576619478550, guid: 2053c36c978f6b24aaf04fdf2b0f8d96, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.7326956
@@ -311,6 +315,14 @@ PrefabInstance:
     - target: {fileID: 4047579576619478550, guid: 2053c36c978f6b24aaf04fdf2b0f8d96, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6812799936799525467, guid: 2053c36c978f6b24aaf04fdf2b0f8d96, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6812799936799525467, guid: 2053c36c978f6b24aaf04fdf2b0f8d96, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -376,6 +388,10 @@ PrefabInstance:
     - target: {fileID: 4709611393114278875, guid: 2b70d18c879e0f342b51696cced6b67c, type: 3}
       propertyPath: _fireRange
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4709611393114278875, guid: 2b70d18c879e0f342b51696cced6b67c, type: 3}
+      propertyPath: _shotColltime
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
