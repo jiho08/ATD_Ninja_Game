@@ -616,7 +616,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UnitCode: 1
-  EnemyMovemate2: {fileID: 0}
+  UnitMovemate2: {fileID: 0}
   spawnM: {fileID: 1563860189}
 --- !u!114 &294616823
 MonoBehaviour:
@@ -631,7 +631,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.010226965, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1005,7 +1005,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UnitCode: 0
-  EnemyMovemate2: {fileID: 0}
+  UnitMovemate2: {fileID: 0}
   spawnM: {fileID: 1563860189}
 --- !u!114 &1616620425
 MonoBehaviour:
@@ -1020,7 +1020,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.43921572, g: 0.54509807, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1345,8 +1345,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabs:
-  - {fileID: 1456123859654677551, guid: 2475e08fd0b518041b68c24181c6300f, type: 3}
-  - {fileID: 1456123859654677551, guid: 1cb4c309fe37c0b45b191a145a4e7506, type: 3}
+  - {fileID: 967265577594567063, guid: 0893cc5a1923c4547853af1d0970be3a, type: 3}
+  - {fileID: 967265577594567063, guid: 2b70d18c879e0f342b51696cced6b67c, type: 3}
 --- !u!4 &2096688478
 Transform:
   m_ObjectHideFlags: 0

@@ -77,7 +77,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -5177388603050735206, guid: 8884154dfe85442a3a3578be807dbcdf, type: 3}
   m_Color: {r: 0.43710685, g: 0.5465667, b: 1, a: 1}
   m_FlipX: 0
@@ -173,12 +173,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d1ad6e7ea43e6f488e80560a0e9e0b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _MaxHp: 2
   _AttackSpeed: 0.5
   Accelation: 4
   DefaltAcclation: 4
+  _trainLength: 0
   _AttackCollision: {fileID: 6000538367989265758}
   _DealayTime: 1
+  _train: {fileID: 0}
 --- !u!114 &3961507324100938754
 MonoBehaviour:
   m_ObjectHideFlags: 0
