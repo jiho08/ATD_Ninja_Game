@@ -4,15 +4,15 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Rail
-  - Unit
+  - Enemy
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Enemy
   - Water
   - UI
+  - Player
   - 
   - 
   - 
@@ -25,8 +25,7 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - TestLayer
   - 
   - 
   - 
@@ -42,4 +41,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Train
+    uniqueID: 273088991
     locked: 0
