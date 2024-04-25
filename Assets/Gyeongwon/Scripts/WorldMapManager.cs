@@ -1,52 +1,47 @@
 using DG.Tweening;
 using UnityEngine;
+using System.Collections.Generic;
+using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class WorldMapManager : MonoBehaviour
 {
     GameObject currentStage;
-    GameObject targetStage;
     public GameObject train;
-    public GameObject[] stages;
-    [SerializeField] public bool open1 = false;
-    [SerializeField] public bool open2 = false;
-    [SerializeField] public bool open3 = false;
-    [SerializeField] public bool open4 = false;
-    [SerializeField] public bool open5 = false;
-    [SerializeField] public bool open6 = false;
-    public GameObject Stage1;
-    public GameObject Stage2;
-    public GameObject Stage3;
-    public GameObject Stage4;
-    public GameObject Stage5;
-    public GameObject Stage6;
     int currentIndex;
     int targetIndex;
+    public GameObject[] stages;
+    public bool[] isOpenStages;
+    public GameObject[] stageViews;
+    private Dictionary<int, GameObject> objDic;
 
-    //private Coroutine currentRoutine;
+    IEnumerator coroutine;
 
+    private void Awake()
+    {
+        objDic = new Dictionary<int, GameObject>();
+    }
     void Start()
     {
         currentStage = stages[0];
         train.transform.position = currentStage.transform.position;
         currentIndex = 0;
-        Stage1.SetActive(false);
-        Stage2.SetActive(false);
-        Stage3.SetActive(false);
-        Stage4.SetActive(false);
-        Stage5.SetActive(false);
-        Stage6.SetActive(false);
-        
+        for (int i = 0; i < stageViews.Length; ++i)
+        {
+            objDic.Add(i, stageViews[i]);
+            objDic[i].SetActive(false);
+        }
+        stageViews[0].SetActive(true);
     }
 
     private void Update()
     {
-        
-        stages[0].SetActive(open1);
-        stages[1].SetActive(open2);
-        stages[2].SetActive(open3);
-        stages[3].SetActive(open4);
-        stages[4].SetActive(open5);
-        stages[5].SetActive(open6);
+        stages[0].SetActive(isOpenStages[0]);
+        stages[1].SetActive(isOpenStages[1]);
+        stages[2].SetActive(isOpenStages[2]);
+        stages[3].SetActive(isOpenStages[3]);
+        stages[4].SetActive(isOpenStages[4]);
+        stages[5].SetActive(isOpenStages[5]);
     }
 
     public void SetTargetStage1()
@@ -61,8 +56,9 @@ public class WorldMapManager : MonoBehaviour
                 moveStage.Append(train.transform.DOMove(stages[i].transform.position, 1));
             }
         }
-        Invoke("SetStageView1", Mathf.Abs(currentIndex - targetIndex));
+        coroutine = SetStageView(0, Mathf.Abs(currentIndex - targetIndex));
         currentIndex = 0;
+        StartCoroutine(coroutine);
     }
 
     public void SetTargetStage2()
@@ -85,8 +81,9 @@ public class WorldMapManager : MonoBehaviour
                 moveStage.Append(train.transform.DOMove(stages[i].transform.position, 1));
             }
         }
-        Invoke("SetStageView2", Mathf.Abs(currentIndex - targetIndex));
+        coroutine = SetStageView(1, Mathf.Abs(currentIndex - targetIndex));
         currentIndex = 1;
+        StartCoroutine(coroutine);
     }
 
     public void SetTargetStage3()
@@ -95,7 +92,7 @@ public class WorldMapManager : MonoBehaviour
         targetIndex = 2;
         if (currentIndex < 2)
         {
-            for (int i = currentIndex; i<2; )
+            for (int i = currentIndex; i < 2;)
             {
                 i++;
                 moveStage.Append(train.transform.DOMove(stages[i].transform.position, 1));
@@ -109,8 +106,9 @@ public class WorldMapManager : MonoBehaviour
                 moveStage.Append(train.transform.DOMove(stages[i].transform.position, 1));
             }
         }
-        Invoke("SetStageView3", Mathf.Abs(currentIndex - targetIndex));
+        coroutine = SetStageView(2, Mathf.Abs(currentIndex - targetIndex));
         currentIndex = 2;
+        StartCoroutine(coroutine);
     }
 
     public void SetTargetStage4()
@@ -133,8 +131,9 @@ public class WorldMapManager : MonoBehaviour
                 moveStage.Append(train.transform.DOMove(stages[i].transform.position, 1));
             }
         }
-        Invoke("SetStageView4", Mathf.Abs(currentIndex - targetIndex));
+        coroutine = SetStageView(3, Mathf.Abs(currentIndex - targetIndex));
         currentIndex = 3;
+        StartCoroutine(coroutine);
     }
 
     public void SetTargetStage5()
@@ -147,7 +146,6 @@ public class WorldMapManager : MonoBehaviour
             {
                 i++;
                 moveStage.Append(train.transform.DOMove(stages[i].transform.position, 1));
-                Debug.Log(train.transform.position);
             }
         }
         else if (currentIndex > 4)
@@ -159,8 +157,9 @@ public class WorldMapManager : MonoBehaviour
                 moveStage.Append(train.transform.DOMove(stages[i].transform.position, 1));
             }
         }
-        Invoke("SetStageView5", Mathf.Abs(currentIndex - targetIndex));
+        coroutine = SetStageView(4, Mathf.Abs(currentIndex - targetIndex));
         currentIndex = 4;
+        StartCoroutine(coroutine);
     }
 
     public void SetTargetStage6()
@@ -183,66 +182,41 @@ public class WorldMapManager : MonoBehaviour
                 moveStage.Append(train.transform.DOMove(stages[i].transform.position, 1));
             }
         }
-        Invoke("SetStageView6", Mathf.Abs(currentIndex-targetIndex));
+        coroutine = SetStageView(5, Mathf.Abs(currentIndex - targetIndex));
         currentIndex = 5;
+        StartCoroutine(coroutine);
     }
 
+    public void QuitBtn()
+    {
+        stageViews[0].SetActive(false);
+        stageViews[1].SetActive(false);
+        stageViews[2].SetActive(false);
+        stageViews[3].SetActive(false);
+        stageViews[4].SetActive(false);
+        stageViews[5].SetActive(false);
+        SceneManager.LoadScene("MainMenu");
 
-
-    private void SetStageView6()
-    {
-        Stage1.SetActive(false);
-        Stage2.SetActive(false);
-        Stage3.SetActive(false);
-        Stage4.SetActive(false);
-        Stage5.SetActive(false);
-        Stage6.SetActive(true);
     }
-    private void SetStageView5()
+    private void SetStageView(int idx)
     {
-        Stage1.SetActive(false);
-        Stage2.SetActive(false);
-        Stage3.SetActive(false);
-        Stage4.SetActive(false);
-        Stage5.SetActive(true);
-        Stage6.SetActive(false);
-    }
-    private void SetStageView4()
-    {
-        Stage1.SetActive(false);
-        Stage2.SetActive(false);
-        Stage3.SetActive(false);
-        Stage4.SetActive(true);
-        Stage5.SetActive(false);
-        Stage6.SetActive(false);
-    }
-    private void SetStageView3()
-    {
-        Stage1.SetActive(false);
-        Stage2.SetActive(false);
-        Stage3.SetActive(true);
-        Stage4.SetActive(false);
-        Stage5.SetActive(false);
-        Stage6.SetActive(false);
-    }
-    private void SetStageView2()
-    {
-        Stage1.SetActive(false);
-        Stage2.SetActive(true);
-        Stage3.SetActive(false);
-        Stage4.SetActive(false);
-        Stage5.SetActive(false);
-        Stage6.SetActive(false);
-    }
-    private void SetStageView1()
-    {
-        Stage1.SetActive(true);
-        Stage2.SetActive(false);
-        Stage3.SetActive(false);
-        Stage4.SetActive(false);
-        Stage5.SetActive(false);
-        Stage6.SetActive(false);
+        for (int i = 0; i < stageViews.Length; i++)
+        {
+            if (idx == i)
+                objDic[i].SetActive(true);
+            else
+                objDic[i].SetActive(false);
+        }
     }
 
-
+    IEnumerator SetStageView(int idx, float delay)
+    {
+        if (coroutine != null)
+        {
+            coroutine = null;
+        }
+        yield return new WaitForSeconds(delay);
+        SetStageView(idx);
+        yield break;
+    }
 }
