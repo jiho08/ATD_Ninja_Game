@@ -11,6 +11,9 @@ public class PlayerUnit : MonoBehaviour
     public float Accelation;
     [SerializeField]
     private float DefaltAcclation;
+
+    [SerializeField]
+    private int _trainLength;
     //이동 관련 변수
 
 
@@ -24,10 +27,23 @@ public class PlayerUnit : MonoBehaviour
     private float _DealayTime;
     //코루틴
 
+    [SerializeField]
+    private GameObject _train;
+
     private void Awake()
     {
-
+        
         _Rigid = GetComponent<Rigidbody2D>();
+    }
+
+    private void Start()
+    {
+        //for (int i = 1; i <= _trainLength; i++)
+        //{
+        //    GameObject _Line = Instantiate(_train);
+        //    _Line.transform.SetParent(transform, false);
+        //    _Line.transform.position = transform.position + new Vector3((i * -2.5f),0);
+        //}
     }
 
     private void Update()
@@ -67,10 +83,12 @@ public class PlayerUnit : MonoBehaviour
         Accelation = -DefaltAcclation*2;
 
         transform.rotation = Quaternion.Euler(0, 0, 35);
+        transform.position = new Vector3(transform.position.x, 0.53522833687f);
 
         yield return new WaitForSecondsRealtime(_DealayTime);
 
         transform.rotation = Quaternion.Euler(0, 0, 0);
+        transform.position = new Vector3(transform.position.x, 0);
 
         Accelation = DefaltAcclation;
 
