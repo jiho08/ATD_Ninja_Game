@@ -7,7 +7,7 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] PoolManager unitPool;
     [SerializeField] PoolManager enemyPool;
 
-    [SerializeField] private Transform[] unitSpawnPos; //스폰 위치 3개 관리
+    //[SerializeField] private Transform[] unitSpawnPos; //스폰 위치 3개 관리
     [SerializeField] private Transform[] enemySpawnPos;
 
     private int[] defaultSpawnCounts = new int[10]; //유닛 수만큼 넣기 (0 : 무궁화, 1 : 무언가, 2 : 등등)
@@ -15,13 +15,13 @@ public class SpawnManager : MonoBehaviour
 
 
     //원하는 유닛과 위치 생성
-    public GameObject UnitSpawn(int value, int pos)
+    public GameObject UnitSpawn(int value)
     {
         if(getSpawnCounts[value] > defaultSpawnCounts[value]) return null; //정해진 수보다 많아지면 리턴
         
         GameObject unit = unitPool.Get(value);
-        unit.transform.position = unitSpawnPos[pos-1].position; //정해진 소환할 위치에 소환(우선 정함)
-        unit.GetComponent<HealthManager>().SetHp(StateManager.Instance.GetUnitHP(value)); //HP설정
+        //unit.transform.position = unitSpawnPos[pos-1].position; //정해진 소환할 위치에 소환(우선 정함)
+        unit.GetComponent<HealthManager>().Health = StateManager.Instance.GetUnitHP(value); //HP설정
 
         getSpawnCounts[value]++;
         return unit;
