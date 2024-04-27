@@ -10,8 +10,9 @@ public class RailInput : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Unit"))
+        if (collision.gameObject.CompareTag("Player"))
         {
+            Debug.Log("tbdnt");
             onRail = true;
             raillTrans = new Vector2(transform.position.x,transform.position.y);
 

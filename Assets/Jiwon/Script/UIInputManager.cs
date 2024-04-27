@@ -14,7 +14,7 @@ public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
 
     [SerializeField]
-    private EnemyMove EnemyMovemate2; // 유닛의 움직임 스크립트
+    private PlayerUnit UnitMovemate2; // 유닛의 움직임 스크립트
     [SerializeField]
     private SpawnManager spawnM; // 유닛 소환 스크립트
 
@@ -43,13 +43,13 @@ public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         if (Clone == null) return;
 
         _cloneRenderer = Clone.GetComponent<SpriteRenderer>();
-        EnemyMovemate2 = Clone.GetComponent<EnemyMove>();
+        UnitMovemate2 = Clone.GetComponent<PlayerUnit>();
         collider = Clone.GetComponent<BoxCollider2D>();
 
         Color32 c = _cloneRenderer.color;
         _cloneRenderer.color = new Color32(c.r, c.g, c.b, 100);
 
-        EnemyMovemate2.enabled = false;
+        UnitMovemate2.enabled = false;
 
         collider.isTrigger = true;
     }
@@ -74,7 +74,7 @@ public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
         if (RailInput.onRail)
         {
-            EnemyMovemate2.enabled = true;
+            UnitMovemate2.enabled = true;
             Color32 c = _cloneRenderer.color;
             _cloneRenderer.color = new Color32(c.r, c.g, c.b, 255);
 
