@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: a52e80c6211c2594c828a7fbf93f9323
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - nameText: {instanceID: 0}
+  - descText: {instanceID: 0}
+  - roleText: {instanceID: 0}
+  - ktxSO: {fileID: 11400000, guid: 3ec462b879e23d742b3ad185bc81a1d7, type: 2}
+  - mghSO: {fileID: 11400000, guid: 216d321d6357719439ce3acb8ea62134, type: 2}
+  - line1SO: {fileID: 11400000, guid: 14440fb98775e844c8829b3481f60046, type: 2}
+  - selectedSO: {fileID: 11400000, guid: 3ec462b879e23d742b3ad185bc81a1d7, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
