@@ -124,10 +124,10 @@ MonoBehaviour:
   _AttackSpeed: 1
   Accelation: 1
   DefaltAcclation: 1
-  _trainLength: 0
+  _trainLength: 2
   _AttackCollision: {fileID: 6000538367989265758}
   _DealayTime: 1
-  _train: {fileID: 0}
+  _train: {fileID: 5472984915105490721, guid: 2a160d64ba4d80944a5ea3c8499f8e52, type: 3}
 --- !u!114 &1127476165599421729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,6 +151,7 @@ GameObject:
   - component: {fileID: 1255264678588062109}
   - component: {fileID: 8999585294189093520}
   - component: {fileID: 7847219036334229315}
+  - component: {fileID: 7728759886300191662}
   m_Layer: 6
   m_Name: Arvarta
   m_TagString: Untagged
@@ -238,8 +239,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fireRange: 8
-  poolM: {fileID: 0}
   _shotColltime: 4
+--- !u!114 &7728759886300191662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5692304542896622938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e10faca6b53d494a924e3875b1a273a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dealayTime: 2
 --- !u!1 &6000538367989265758
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,19 +12,21 @@ public class PlayerUnit : MonoBehaviour
     [SerializeField]
     private float DefaltAcclation;
 
+    //열차 길이
+
     [SerializeField]
     private int _trainLength;
+
     //이동 관련 변수
 
 
     [SerializeField]
     private GameObject _AttackCollision;
     private Rigidbody2D _Rigid;
+    private Firsttrain _firstTrain;
     //컴포넌트 받아와야하는것들
 
-    private bool _isDealay;
-    [SerializeField]
-    private float _DealayTime;
+    public float _DealayTime;
     //코루틴
 
     [SerializeField]
@@ -32,24 +34,28 @@ public class PlayerUnit : MonoBehaviour
 
     private void Awake()
     {
-        
+        //컴포넌트 받는 부분
         _Rigid = GetComponent<Rigidbody2D>();
+        _firstTrain = GetComponentInChildren<Firsttrain>();
     }
 
     private void Start()
     {
-        //for (int i = 1; i <= _trainLength; i++)
-        //{
-        //    GameObject _Line = Instantiate(_train);
-        //    _Line.transform.SetParent(transform, false);
-        //    _Line.transform.position = transform.position + new Vector3((i * -2.5f),0);
-        //}
+        //열차 길이 설정
+        for (int i = 1; i <= _trainLength; i++)
+        {
+            GameObject _Line = Instantiate(_train);
+            _Line.transform.SetParent(transform, false);
+            _Line.transform.position = transform.position + new Vector3((i * -2.5f), transform.position.y);
+        }
     }
 
     private void Update()
     {
+        //현재 속도
         float _speed = _Rigid.velocity.x;
 
+        //이동 속도 제한
         if (_speed > _AttackSpeed)
         {
             _AttackCollision.SetActive(true);
@@ -62,39 +68,35 @@ public class PlayerUnit : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        //이동
         _Rigid.velocity = new Vector2(1, 0) * Accelation;
     }
 
-    public void TakeDamage()
+    public void TakeDamage()//피격 메서드
     {
         StartCoroutine(BackAway());
+        StartCoroutine(_firstTrain.HitBehave());
     }
 
-    public void Dealy()
+    public void Dealy()//공격 딜레이
     {
         StartCoroutine(AttackDealy());
     }
 
-    IEnumerator BackAway()
+    IEnumerator BackAway()//피격 행동 코루틴
     {
 
         yield return new WaitForSecondsRealtime(0.1f);
 
         Accelation = -DefaltAcclation*2;
 
-        transform.rotation = Quaternion.Euler(0, 0, 35);
-        transform.position = new Vector3(transform.position.x, 0.53522833687f);
-
         yield return new WaitForSecondsRealtime(_DealayTime);
-
-        transform.rotation = Quaternion.Euler(0, 0, 0);
-        transform.position = new Vector3(transform.position.x, 0);
 
         Accelation = DefaltAcclation;
 
     }
 
-    IEnumerator AttackDealy()
+    IEnumerator AttackDealy()// 공격 딜레이 코루틴
     {
         yield return new WaitForSecondsRealtime(0.1f);
 

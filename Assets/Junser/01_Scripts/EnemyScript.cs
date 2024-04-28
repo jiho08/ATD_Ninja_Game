@@ -26,11 +26,13 @@ public class EnemyScript : MonoBehaviour
 
     private void Awake()
     {
+        //컴포넌트 받기
         _Rigid = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
     {
+
         float _speed = _Rigid.velocity.x;
 
         if (_speed < _AttackSpeed)

@@ -43,7 +43,7 @@ public class EnemyAdUnit : MonoBehaviour
 
         GameObject _spawnedBullet = poolM.Get(0);
 
-        _spawnedBullet.transform.rotation = Quaternion.Euler(0, 0, 90);
+        _spawnedBullet.transform.rotation = Quaternion.Euler(0, 0, -90);
         _spawnedBullet.transform.position = transform.position;
 
         yield return new WaitForSecondsRealtime(_shotColltime);
