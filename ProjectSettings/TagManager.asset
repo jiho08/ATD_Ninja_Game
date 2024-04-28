@@ -41,6 +41,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Floor
+    uniqueID: 217646153
+    locked: 0
+  - name: Decorations
+    uniqueID: 337382141
+    locked: 0
+  - name: Rail
+    uniqueID: 1778598125
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
