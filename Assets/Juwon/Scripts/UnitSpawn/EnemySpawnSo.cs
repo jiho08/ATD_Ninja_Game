@@ -1,10 +1,9 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName ="SO/Enemy/StageSpawn")]
-public class EnemySpawnSO : ScriptableObject
+public class EnemySpawnSo : ScriptableObject
 {
     public List<EnemySpawn> enemySpawns;
 }
