@@ -12,7 +12,6 @@ public class RailInput : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("tbdnt");
             onRail = true;
             raillTrans = new Vector2(transform.position.x,transform.position.y);
 
