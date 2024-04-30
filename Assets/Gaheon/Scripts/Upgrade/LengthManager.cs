@@ -41,8 +41,8 @@ public class LengthManager : MonoBehaviour
 
         //trainPos[0] = new Vector3((selectManager.trainCollider[0].size / 2 * (selectManager.selectedSO.length - 1)).x, trainTransform[0].position.y, 0);
         if (selectManager.selectedSO.length >= 2)
-        
-        trainTransform[0].DOMove(trainPos[0], moveSpeed);
+
+            trainTransform[0].DOMove(trainPos[0], moveSpeed);
         trainTransform[1].DOMove(trainPos[1], moveSpeed);
         trainTransform[2].DOMove(trainPos[2], moveSpeed);
 

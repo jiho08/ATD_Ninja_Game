@@ -63,7 +63,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &2274646147468819600
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -252,7 +252,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e10faca6b53d494a924e3875b1a273a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dealayTime: 2
 --- !u!1 &6000538367989265758
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,7 +261,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3945381157470223344}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: AttackCollision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
