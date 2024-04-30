@@ -20,6 +20,6 @@ MonoBehaviour:
   TrainRole: "\uB51C\uB7EC"
   level: 1
   length: 1
-  Hp: 35
-  Atk: 9
-  Speed: 5
+  Hp: 45
+  Atk: 11
+  Speed: 7

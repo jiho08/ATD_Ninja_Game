@@ -5,8 +5,6 @@ using TMPro;
 
 public class UpgradeManager : MonoBehaviour
 {
-    [SerializeField] SelectManager selectManager;
-
     [SerializeField] TextMeshProUGUI ktxLevelText;
     [SerializeField] TextMeshProUGUI mghLevelText;
     [SerializeField] TextMeshProUGUI line1LevelText;
@@ -18,18 +16,18 @@ public class UpgradeManager : MonoBehaviour
 
     public void Upgrade()
     {
-        if (selectManager.selectedSO.level < 5)
+        if (SelectManager.selectInstance.selectedSO.level < 5)
         {
-            selectManager.selectedSO.level++;
-            selectManager.Selecting();
+            SelectManager.selectInstance.selectedSO.level++;
+            SelectManager.selectInstance.Selecting();
             ChangeLevelText();
         }
     }
 
     void ChangeLevelText()
     {
-        ktxLevelText.text = $"{selectManager.ktxSO.level}/5";
-        mghLevelText.text = $"{selectManager.mghSO.level}/5";
-        line1LevelText.text = $"{selectManager.line1SO.level}/5";
+        ktxLevelText.text = $"{SelectManager.selectInstance.ktxSO.level}/5";
+        mghLevelText.text = $"{SelectManager.selectInstance.mghSO.level}/5";
+        line1LevelText.text = $"{SelectManager.selectInstance.line1SO.level}/5";
     }
 }
