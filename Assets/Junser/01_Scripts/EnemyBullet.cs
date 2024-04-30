@@ -25,7 +25,7 @@ public class EnemyBullet : MonoBehaviour
     {
         if (collision != null && collision.tag == "Player")
         {
-            EnemyScript _enemy = collision.gameObject.GetComponent<EnemyScript>();
+            PlayerUnit _enemy = collision.gameObject.GetComponent<PlayerUnit>();
             _playerHealth = collision.gameObject.GetComponent<HealthManager>();
 
 
