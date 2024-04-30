@@ -99,7 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fireRange: 9
   poolM: {fileID: 0}
-  _shotColltime: 4
+  _shotColltime: 2
 --- !u!1 &3923778504687555852
 GameObject:
   m_ObjectHideFlags: 0
