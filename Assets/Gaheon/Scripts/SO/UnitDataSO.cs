@@ -6,8 +6,8 @@ using UnityEngine;
 public class UnitDataSO : ScriptableObject
 {
     public int TrainID;
-    public Sprite TrainFront; //기차 앞부분
-    public Sprite TrainBack; //기차 추가된 부분
+    public Sprite TrainHead; //기차 앞부분
+    public Sprite TrainBody; //기차 추가된 부분
     public string TrainName;
     public string TrainDesc;
     public string TrainRole;
