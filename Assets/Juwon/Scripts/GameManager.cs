@@ -1,14 +1,8 @@
-using System;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject gameOverPanel;
-
-    private void Start()
-    {
-        //AudioManager.Instance.PlayBgm(true);
-    }
 
     public void StageClear()
     {
