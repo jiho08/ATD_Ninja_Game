@@ -23,7 +23,7 @@ public class EnemyAdUnit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.DrawRay(transform.position + new Vector3(1.25f, 0), Vector3.right * _fireRange, Color.green);
+        Debug.DrawRay(transform.position + new Vector3(-1.25f, 0), Vector3.left * _fireRange, Color.green);
         _rangeFinder = Physics2D.Raycast(transform.position, Vector2.right, _fireRange, LayerMask.GetMask("Player"));
 
 
@@ -31,6 +31,8 @@ public class EnemyAdUnit : MonoBehaviour
         {
             if (_isFire)
             {
+
+                Debug.Log("À¸¾Ç");
                 StartCoroutine(Colltime());
 
             }

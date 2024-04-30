@@ -46,7 +46,7 @@ public class PlayerUnit : MonoBehaviour
         {
             GameObject _Line = Instantiate(_train);
             _Line.transform.SetParent(transform, false);
-            _Line.transform.position = transform.position + new Vector3((i * -2.5f), transform.position.y);
+            _Line.transform.position = transform.position + new Vector3((i * -2.5f), 0);
         }
     }
 
