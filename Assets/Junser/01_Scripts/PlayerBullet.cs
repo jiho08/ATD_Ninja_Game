@@ -16,6 +16,10 @@ public class PlayerBullet : MonoBehaviour
         _playerUnit = GetComponentInParent<PlayerUnit>();
 
     }
+    private void Start()
+    {
+        _damage = _playerUnit._GetDamage;
+    }
 
     void FixedUpdate()
     {

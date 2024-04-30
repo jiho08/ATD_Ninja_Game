@@ -12,7 +12,9 @@ public class EnemyScript : MonoBehaviour
     [SerializeField]
     private float DefaltAcclation;
     //이동 관련 변수
-
+    [SerializeField]
+    private float _damage;
+    public float _GetDamage { get { return _damage; } set { _damage = value; } }
 
     [SerializeField]
     private GameObject _AttackCollision;
