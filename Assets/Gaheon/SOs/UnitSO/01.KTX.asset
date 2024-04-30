@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: 01.KTX
   m_EditorClassIdentifier: 
   TrainID: 0
-  TrainFront: {fileID: -2084933957, guid: 0152a3ae924a46e499637c0f02c01db0, type: 3}
-  TrainBack: {fileID: -1220089785, guid: 0152a3ae924a46e499637c0f02c01db0, type: 3}
+  TrainHead: {fileID: -2084933957, guid: 0152a3ae924a46e499637c0f02c01db0, type: 3}
+  TrainBody: {fileID: -1220089785, guid: 0152a3ae924a46e499637c0f02c01db0, type: 3}
   TrainName: KTX
   TrainDesc: "KTX\uB2F9"
   TrainRole: "\uB51C\uB7EC"

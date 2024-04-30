@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: 03.Line1
   m_EditorClassIdentifier: 
   TrainID: 2
-  TrainFront: {fileID: -1550702478, guid: 0152a3ae924a46e499637c0f02c01db0, type: 3}
-  TrainBack: {fileID: -386129950, guid: 0152a3ae924a46e499637c0f02c01db0, type: 3}
+  TrainHead: {fileID: -1550702478, guid: 0152a3ae924a46e499637c0f02c01db0, type: 3}
+  TrainBody: {fileID: -386129950, guid: 0152a3ae924a46e499637c0f02c01db0, type: 3}
   TrainName: "1\uD638\uC120"
   TrainDesc: "1\uD638\uC120\uC774\uB2F9"
   TrainRole: "\uC6D0\uAC70\uB9AC \uB51C\uB7EC"
