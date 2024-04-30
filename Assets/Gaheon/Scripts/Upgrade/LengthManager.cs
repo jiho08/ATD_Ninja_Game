@@ -8,46 +8,71 @@ public class LengthManager : MonoBehaviour
 {
     [SerializeField] SelectManager selectManager;
     [SerializeField] TextMeshProUGUI lengthTxt;
-    [SerializeField] GameObject[] Trains;
+    [SerializeField] GameObject[] trains;
     [SerializeField] Transform[] trainTransform;
 
     [SerializeField] float moveSpeed;
 
     Vector3[] trainPos = new Vector3[3];
+    Vector3 startPos = new Vector3(-20, 0, 0);
     private void Start()
     {
-        WhenLengthChange();
+        ResetTrainPos();
+
     }
     public void LengthChange()
     {
         if (selectManager.selectedSO.length < 3)
         {
             selectManager.selectedSO.length++;
-            WhenLengthChange();
+            ResetTrainPos();
         }
     }
-    public void WhenLengthChange()
+
+    public void ResetTrainPos()
     {
+        foreach (Transform item in trainTransform)
+        {
+            item.localPosition = startPos;
+        }
+        OnLengthChange();
+    }
+    void OnLengthChange()
+    {
+
         lengthTxt.text = $"기차 칸 수 : {selectManager.selectedSO.length}/3";
 
         for (int i = 0; i < selectManager.selectedSO.length; i++)
         {
-            Trains[i].SetActive(true);
+            trains[i].SetActive(true);
         }
         for (int i = 2; i > selectManager.selectedSO.length - 1; i--)
         {
-            Trains[i].SetActive(false);
+            trains[i].SetActive(false);
         }
 
-        //trainPos[0] = new Vector3((selectManager.trainCollider[0].size / 2 * (selectManager.selectedSO.length - 1)).x, trainTransform[0].position.y, 0);
-        if (selectManager.selectedSO.length >= 2)
-
-            trainTransform[0].DOMove(trainPos[0], moveSpeed);
-        trainTransform[1].DOMove(trainPos[1], moveSpeed);
-        trainTransform[2].DOMove(trainPos[2], moveSpeed);
-
-        for (int i = 0; i < selectManager.selectedSO.length - 1; i++)
+        //노가다 ^_^... 
+        if (selectManager.selectedSO.length == 1)
         {
+            trainPos[0] = new Vector3((selectManager.trainCollider[0].size / 2 * 0).x, trainTransform[0].position.y, 0);
+            trainTransform[0].DOMove(trainPos[0], moveSpeed);
         }
+        else if (selectManager.selectedSO.length == 2)
+        {
+            trainPos[0] = new Vector3((selectManager.trainCollider[0].size / 2 * 1).x, trainTransform[0].position.y, 0);
+            trainPos[1] = new Vector3((selectManager.trainCollider[1].size / 2 * -1).x, trainTransform[0].position.y, 0);
+            trainTransform[0].DOMove(trainPos[0], moveSpeed);
+            trainTransform[1].DOMove(trainPos[1], moveSpeed);
+        }
+        else if (selectManager.selectedSO.length == 3)
+        {
+            trainPos[0] = new Vector3(((selectManager.trainCollider[0].size / 2 * 1).x + (selectManager.trainCollider[1].size / 2 * 1).x), trainTransform[0].position.y, 0);
+            trainPos[1] = new Vector3((selectManager.trainCollider[1].size / 2 * 0).x, trainTransform[0].position.y, 0);
+            trainPos[2] = new Vector3((selectManager.trainCollider[1].size / 2 * -2).x, trainTransform[0].position.y, 0);
+            trainTransform[0].DOMove(trainPos[0], moveSpeed);
+            trainTransform[1].DOMove(trainPos[1], moveSpeed);
+            trainTransform[2].DOMove(trainPos[2], moveSpeed);
+        }
+
     }
 }
