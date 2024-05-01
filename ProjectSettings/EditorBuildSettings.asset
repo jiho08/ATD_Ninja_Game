@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Gyeongwon/00.Scenes/WorldMap.unity
     guid: 9bc5aa3dac47e6b4abeb8f46b0620735
+  - enabled: 1
+    path: Assets/Jiho/Scenes/Jiho3.unity
+    guid: ab76028768c259240818ff70e4e26138
   m_configObjects: {}
