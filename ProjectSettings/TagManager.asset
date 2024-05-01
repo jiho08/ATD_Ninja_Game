@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - Rail
+  - Unit
   layers:
   - Default
   - TransparentFX
@@ -39,6 +41,18 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Floor
+    uniqueID: 217646153
+    locked: 0
+  - name: Decorations
+    uniqueID: 337382141
+    locked: 0
+  - name: Rail
+    uniqueID: 1778598125
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Train
+    uniqueID: 273088991
     locked: 0
