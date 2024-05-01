@@ -36,6 +36,7 @@ public class PlayerBullet : MonoBehaviour
             {
                 _playerHealth.Health = _playerHealth.Health - _damage;
                 _enemy.TakeDamage();
+                gameObject.SetActive(false);
 
             }
         }

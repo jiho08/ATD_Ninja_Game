@@ -14,8 +14,9 @@ public class PlayerUnit : MonoBehaviour
     [SerializeField]
     private float _AttackSpeed;
     public float Accelation;
-    [SerializeField]
-    private float DefaltAcclation;
+
+
+    public float DefaltAcclation;
 
     //열차 길이
 
@@ -51,7 +52,7 @@ public class PlayerUnit : MonoBehaviour
         {
             GameObject _Line = Instantiate(_train);
             _Line.transform.SetParent(transform, false);
-            _Line.transform.position = transform.position + new Vector3((i * -2.5f), 0);
+            _Line.transform.position = transform.position + new Vector3((i * -2f), 0);
         }
     }
 
@@ -96,6 +97,9 @@ public class PlayerUnit : MonoBehaviour
 
         Accelation = -DefaltAcclation*2;
 
+        _AttackCollision.gameObject.SetActive(false);
+
+
         yield return new WaitForSecondsRealtime(_DealayTime);
 
         Accelation = DefaltAcclation;
@@ -111,7 +115,10 @@ public class PlayerUnit : MonoBehaviour
 
         yield return new WaitForSecondsRealtime(_DealayTime);
 
+        _AttackCollision.gameObject.SetActive(true);
 
         Accelation = DefaltAcclation;
+
+        
     }
 }

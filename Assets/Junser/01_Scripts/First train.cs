@@ -5,9 +5,11 @@ using UnityEngine;
 public class Firsttrain : MonoBehaviour
 {
     private float _dealayTime;
+    private float _defaltPos;
     void Start()
     {
         _dealayTime = GetComponentInParent<PlayerUnit>()._DealayTime;
+        _defaltPos = transform.position.y;
     }
 
     // Update is called once per frame
@@ -22,11 +24,15 @@ public class Firsttrain : MonoBehaviour
 
 
         transform.rotation = Quaternion.Euler(0, 0, 35);
-        transform.position = new Vector3(transform.position.x, transform.position.y+0.53522833687f);
+        transform.position = new Vector3(transform.position.x, _defaltPos + 0.53522833687f);
+
 
         yield return new WaitForSecondsRealtime(_dealayTime);
 
         transform.rotation = Quaternion.Euler(0, 0, 0);
-        transform.position = new Vector3(transform.position.x, transform.position.y - 0.53522833687f);
+        transform.position = new Vector3(transform.position.x, _defaltPos);
+
+        _defaltPos = transform.position.y;
+
     }
 }
