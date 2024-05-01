@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: 02.Mugunghwa
   m_EditorClassIdentifier: 
   TrainID: 1
+  TrainAnimation: {fileID: 7108339969198208228, guid: da94e0f1a75f33845aa1cb441691e147, type: 3}
   TrainHead: {fileID: -1692468722, guid: 0152a3ae924a46e499637c0f02c01db0, type: 3}
   TrainBody: {fileID: -994634887, guid: 0152a3ae924a46e499637c0f02c01db0, type: 3}
   TrainName: "\uBB34\uAD81\uD654\uD638"
-  TrainDesc: "\uBB34\uAD81\uD654\uB2F9"
+  TrainDesc: "\uB290\uB9AC\uC9C0\uB9CC \uC800\uB834\uD55C \uADC0\uC5EC\uC6B4 \uBB34\uAD81\uD654\uD638\uB2E4."
   TrainRole: "\uD0F1\uCEE4"
   level: 1
   length: 1

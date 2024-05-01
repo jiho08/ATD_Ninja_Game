@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.U2D.Animation;
 using UnityEngine.Events;
 using TMPro;
 
@@ -19,10 +20,12 @@ public class SelectManager : MonoBehaviour
     [SerializeField] UnitLevelUpSO line1LevelSO;
 
     [Header("기차 스프라이트")]
+    [SerializeField] SpriteLibrary trainHeadAnimation;
+    [SerializeField] SpriteLibrary[] trainBodyAnimation;
     [SerializeField] SpriteRenderer trainHead;
     [SerializeField] SpriteRenderer[] trainBody;
     public BoxCollider2D[] trainCollider;
-    
+
     [Header("SO")]
     public UnitDataSO ktxSO;
     public UnitDataSO mghSO;
@@ -46,9 +49,9 @@ public class SelectManager : MonoBehaviour
         descText.text = selectedSO.TrainDesc;
         roleText.text = selectedSO.TrainRole;
 
-        trainHead.sprite = selectedSO.TrainHead;
-        trainBody[0].sprite = selectedSO.TrainBody;
-        trainBody[1].sprite = selectedSO.TrainBody;
+        trainHeadAnimation.spriteLibraryAsset = selectedSO.TrainAnimation;
+        trainBodyAnimation[0].spriteLibraryAsset = selectedSO.TrainAnimation;
+        trainBodyAnimation[1].spriteLibraryAsset = selectedSO.TrainAnimation;
 
         trainCollider[0].size = trainHead.bounds.size;
         trainCollider[1].size = trainBody[0].bounds.size;

@@ -1,0 +1,1183 @@
+fileFormatVersion: 2
+guid: f2c5022e2ca642b4eba6a9fbb1841afd
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Train_ALL-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 356
+        width: 56
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42c0b23483efa474ba02dd760bd01af9
+      internalID: 210807131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Train_ALL-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 356
+        width: 56
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3d7f0060d576a3449e57c95caf38c85
+      internalID: 946612468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Train_ALL-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 356
+        width: 56
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7627c38f772e3de42b7ccf16084424da
+      internalID: 473713046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Train_ALL-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 356
+        width: 56
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf8301292e460f441a2d232d2415e336
+      internalID: 225689417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Train_ALL-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 324
+        width: 56
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d9f1c16865cd5f41af1daf29419e7ac
+      internalID: 103006653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Train_ALL-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 324
+        width: 56
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 865f4a43c91e1bf48a93e7d9ee3518b4
+      internalID: 55133842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Train_ALL-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 324
+        width: 56
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0d8528fd8d67dc44abb756800544ce3
+      internalID: 1180688432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Train_ALL-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 324
+        width: 56
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 613f879e8fc00fc42875dfa71fb7bea9
+      internalID: 1254630861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Train_ALL-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 292
+        width: 56
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cc5d363bc71f2041ace216d1dc3a1ae
+      internalID: -41495545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Train_ALL-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 292
+        width: 56
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3ea806de893de542a35d3e9663be62e
+      internalID: 354500030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Train_ALL-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 292
+        width: 56
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed71f6567bda57849b3a76d3003577fa
+      internalID: -1809998540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Train_ALL-Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 292
+        width: 56
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b63787f7d04a674a819adddb1e61759
+      internalID: 1961219118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Train_ALL-Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 260
+        width: 56
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 943c1db67e409e540a6a828bdb3753b2
+      internalID: 9439551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Train_ALL-Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 260
+        width: 56
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08ca33ad39b819648986afecdfa078a3
+      internalID: 899067486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Train_ALL-Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 260
+        width: 56
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4394a288bd6fc748a029070972e9915
+      internalID: 1820551698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Train_ALL-Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 260
+        width: 56
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 749dfa13da6a41541b34ac8bf5cf034f
+      internalID: 1686542748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Train_ALL-Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 228
+        width: 42
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 000fd82cff0f0e84bab3924116d5d3b2
+      internalID: -523590759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Train_ALL-Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 228
+        width: 42
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebdf3eb73186f0b489147116eae8b009
+      internalID: 1021466427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Train_ALL-Sheet_18
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 228
+        width: 42
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43d73f80dba4da248ae3520c69b38870
+      internalID: 429169567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Train_ALL-Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 228
+        width: 42
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19d3fc13c88d427478e10296fe2b6229
+      internalID: 1375633085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Train_ALL-Sheet_20
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 196
+        width: 58
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5ec7c2cf9d120c428c6bd42f8187ac2
+      internalID: 267592341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Train_ALL-Sheet_21
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 196
+        width: 58
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acae8a636a50f894e82ac3ef570c89ea
+      internalID: -1030887129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Train_ALL-Sheet_22
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 196
+        width: 58
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06e9ec84329682a458246ecf225ed553
+      internalID: 295148632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Train_ALL-Sheet_23
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 196
+        width: 58
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f4cf8ecf9a64e34db80e892efaf84fb
+      internalID: -850413054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Train_ALL-Sheet_24
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 164
+        width: 42
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 515edd799875a67489107e90dfc0c00a
+      internalID: -821141795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Train_ALL-Sheet_25
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 164
+        width: 42
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d76eb45e8f060084cb3a3c136e2a815a
+      internalID: 1492882235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Train_ALL-Sheet_26
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 164
+        width: 42
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a2ca70596c444043bd44989718a93ba
+      internalID: -1104802763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Train_ALL-Sheet_27
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 164
+        width: 42
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b9ca43ec49175146884f03e278cdb44
+      internalID: -1180434456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Train_ALL-Sheet_28
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 132
+        width: 58
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d260717cbbd2770498432c0c080ae428
+      internalID: 1161478503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Train_ALL-Sheet_29
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 132
+        width: 58
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 188d289d68559bc4a9c0c72b4974a860
+      internalID: -1283788027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Train_ALL-Sheet_30
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 132
+        width: 58
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abab66d09e38e9c4fb3e0449ab7cde5d
+      internalID: -490015014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Train_ALL-Sheet_31
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 132
+        width: 58
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a019256b34214b48b30a2e9fd5f1fdc
+      internalID: 1072165169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Train_ALL-Sheet_32
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 100
+        width: 50
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49d3b0c71a3e91d4dab135f130d48625
+      internalID: -1229448097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Train_ALL-Sheet_33
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 100
+        width: 50
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26bc185ce21dc4e4dabfb6d35ac500c0
+      internalID: -1520814480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Train_ALL-Sheet_34
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 100
+        width: 50
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 935d018a8153dde478d7947cc09d0ec1
+      internalID: -1277691702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Train_ALL-Sheet_35
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 100
+        width: 50
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2269cdeaa607cea41af49f14a3eb4d00
+      internalID: -1081287481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Train_ALL-Sheet_36
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 68
+        width: 58
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9de0773d406354046b2c618944d2ab66
+      internalID: 460259003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Train_ALL-Sheet_37
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 68
+        width: 58
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6bf64174863d5843b8e18c1c23bb356
+      internalID: -98092416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Train_ALL-Sheet_38
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 68
+        width: 58
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3259ab4efa3814a438a8ec3d10fa3b39
+      internalID: 1435254350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Train_ALL-Sheet_39
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 68
+        width: 58
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4405b9e59b96df748a915c2944a7d74d
+      internalID: 1953829513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Train_ALL-Sheet_40
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 36
+        width: 50
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f94b3ab015357047bbe741b8e69ff60
+      internalID: 129599956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Train_ALL-Sheet_41
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 36
+        width: 50
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27dee16fd356cae4eb6148f5c466c1d4
+      internalID: 282187773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Train_ALL-Sheet_42
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 36
+        width: 50
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d803b7f922befb24fae4ba5faa2bc592
+      internalID: 1147519242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Train_ALL-Sheet_43
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 36
+        width: 50
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4efa69e241cc1464fa339d45cc97462f
+      internalID: 2019964975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Train_ALL-Sheet_44
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 4
+        width: 58
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68830f8dfd0e14c4c9dc3e54199c57ab
+      internalID: 744557276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Train_ALL-Sheet_45
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 4
+        width: 58
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8877e643e3cae564b936aaad4492253c
+      internalID: -983665851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Train_ALL-Sheet_46
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 4
+        width: 58
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6f138f01b0a85f4ab7836e82164f9f7
+      internalID: 187454056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Train_ALL-Sheet_47
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 4
+        width: 58
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18fdd7dacdf883442899ddd3fe225d4b
+      internalID: -1738919556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Train_ALL-Sheet_0: 210807131
+      Train_ALL-Sheet_1: 946612468
+      Train_ALL-Sheet_10: -1809998540
+      Train_ALL-Sheet_11: 1961219118
+      Train_ALL-Sheet_12: 9439551
+      Train_ALL-Sheet_13: 899067486
+      Train_ALL-Sheet_14: 1820551698
+      Train_ALL-Sheet_15: 1686542748
+      Train_ALL-Sheet_16: -523590759
+      Train_ALL-Sheet_17: 1021466427
+      Train_ALL-Sheet_18: 429169567
+      Train_ALL-Sheet_19: 1375633085
+      Train_ALL-Sheet_2: 473713046
+      Train_ALL-Sheet_20: 267592341
+      Train_ALL-Sheet_21: -1030887129
+      Train_ALL-Sheet_22: 295148632
+      Train_ALL-Sheet_23: -850413054
+      Train_ALL-Sheet_24: -821141795
+      Train_ALL-Sheet_25: 1492882235
+      Train_ALL-Sheet_26: -1104802763
+      Train_ALL-Sheet_27: -1180434456
+      Train_ALL-Sheet_28: 1161478503
+      Train_ALL-Sheet_29: -1283788027
+      Train_ALL-Sheet_3: 225689417
+      Train_ALL-Sheet_30: -490015014
+      Train_ALL-Sheet_31: 1072165169
+      Train_ALL-Sheet_32: -1229448097
+      Train_ALL-Sheet_33: -1520814480
+      Train_ALL-Sheet_34: -1277691702
+      Train_ALL-Sheet_35: -1081287481
+      Train_ALL-Sheet_36: 460259003
+      Train_ALL-Sheet_37: -98092416
+      Train_ALL-Sheet_38: 1435254350
+      Train_ALL-Sheet_39: 1953829513
+      Train_ALL-Sheet_4: 103006653
+      Train_ALL-Sheet_40: 129599956
+      Train_ALL-Sheet_41: 282187773
+      Train_ALL-Sheet_42: 1147519242
+      Train_ALL-Sheet_43: 2019964975
+      Train_ALL-Sheet_44: 744557276
+      Train_ALL-Sheet_45: -983665851
+      Train_ALL-Sheet_46: 187454056
+      Train_ALL-Sheet_47: -1738919556
+      Train_ALL-Sheet_5: 55133842
+      Train_ALL-Sheet_6: 1180688432
+      Train_ALL-Sheet_7: 1254630861
+      Train_ALL-Sheet_8: -41495545
+      Train_ALL-Sheet_9: 354500030
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
