@@ -18,6 +18,7 @@ public class SelectManager : MonoBehaviour
     [SerializeField] UnitLevelUpSO ktxLevelSO;
     [SerializeField] UnitLevelUpSO mghLevelSO;
     [SerializeField] UnitLevelUpSO line1LevelSO;
+    public UnitLevelUpSO selectedUnitLevel;
 
     [Header("기차 스프라이트")]
     [SerializeField] SpriteLibrary trainHeadAnimation;
@@ -30,9 +31,14 @@ public class SelectManager : MonoBehaviour
     public UnitDataSO ktxSO;
     public UnitDataSO mghSO;
     public UnitDataSO line1SO;
-
-    public UnitLevelUpSO selectedUnitLevel;
     public UnitDataSO selectedSO; //바에서도 사용 할 듯 
+
+    [Header("PriceSO")]
+    [SerializeField] UnitPriceSO ktxPriceSO;
+    [SerializeField] UnitPriceSO mghPriceSO;
+    [SerializeField] UnitPriceSO line1PriceSO;
+
+    public UnitPriceSO selectedPriceSO;
 
     [SerializeField] UnityEvent OnSelectChanged;
 
@@ -71,18 +77,22 @@ public class SelectManager : MonoBehaviour
     {
         selectedSO = ktxSO;
         selectedUnitLevel = ktxLevelSO;
+        selectedPriceSO = ktxPriceSO;
+        selectedPriceSO = ktxPriceSO;
         Selecting();
     }
     public void MGH()
     {
         selectedSO = mghSO;
         selectedUnitLevel = mghLevelSO;
+        selectedPriceSO = mghPriceSO;
         Selecting();
     }
     public void Line1()
     {
         selectedSO = line1SO;
         selectedUnitLevel = line1LevelSO;
+        selectedPriceSO = line1PriceSO;
         Selecting();
     }
 

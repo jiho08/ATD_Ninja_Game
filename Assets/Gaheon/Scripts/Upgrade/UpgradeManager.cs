@@ -7,10 +7,13 @@ public class UpgradeManager : MonoBehaviour
 {
     [SerializeField] SelectManager selectManager;
     [SerializeField] BarManager barManager;
+    [SerializeField] ResourceTxtManager resourceTxtManager;
 
     [SerializeField] TextMeshProUGUI ktxLevelText;
     [SerializeField] TextMeshProUGUI mghLevelText;
     [SerializeField] TextMeshProUGUI line1LevelText;
+
+    float currentMoney;
 
     private void Start()
     {
@@ -19,11 +22,14 @@ public class UpgradeManager : MonoBehaviour
 
     public void Upgrade()
     {
+        currentMoney = ResourceManager.instance.GetRsc();
         if (selectManager.selectedSO.level < 5)
         {
             selectManager.selectedSO.level++;
             barManager.ChangeBar();
             ChangeLevelText();
+            ResourceManager.instance.SetRsc(-(selectManager.selectedPriceSO.TrainPrice[selectManager.selectedSO.level - 1]));
+            resourceTxtManager.ChangeResourceTxt();
         }
     }
 
