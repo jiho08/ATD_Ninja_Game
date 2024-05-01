@@ -20,7 +20,7 @@ public class SpawnManager : MonoBehaviour
         
         GameObject unit = unitPool.Get(value);
         //unit.transform.position = unitSpawnPos[pos-1].position; //정해진 소환할 위치에 소환(우선 정함)
-        unit.GetComponent<HealthManager>().Health = unitData.Hp; //HP설정
+        //unit.GetComponent<HealthManager>().Health = unitData.Hp; //HP설정
         //unit.GetComponent<PlayerUnit>(). //플레이어 
 
         _getSpawnCounts[value]++;
