@@ -3,18 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
 public class BlackSceneFade : MonoBehaviour
 {
-    Image blackPanel;
+    [SerializeField]Image blackPanel;
 
     public float fadeSpeed = 1.5f;
 
     void Start()
     {
-        blackPanel = GetComponent<Image>();
         blackPanel.color = new Color(0f, 0f, 0f, 1f);
         FadeOut();
     }
@@ -30,12 +30,13 @@ public class BlackSceneFade : MonoBehaviour
 
     IEnumerator FadeInCo()
     {
+        blackPanel.transform.localScale = Vector3.one;
         while (blackPanel.color.a < 1)
         {
             blackPanel.color += new Color(0, 0, 0, Time.deltaTime * fadeSpeed);
             yield return null;
         }
-        gameObject.SetActive(true);
+        SceneManager.LoadScene("Jiho3");
     }
 
     IEnumerator FadeOutCo()
@@ -45,6 +46,10 @@ public class BlackSceneFade : MonoBehaviour
             blackPanel.color -= new Color(0, 0, 0, Time.deltaTime * fadeSpeed);
             yield return null;
         }
-        gameObject.SetActive(false);
+        blackPanel.transform.localScale = Vector3.zero;
+    }
+    public void ExitScene()
+    {
+        StartCoroutine(FadeInCo());
     }
 }
