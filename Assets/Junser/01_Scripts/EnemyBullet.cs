@@ -2,38 +2,38 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackCollsion : MonoBehaviour
+public class EnemyBullet : MonoBehaviour
 {
-    public float _damage = 1;
+    [SerializeField]
+    private float _fireSpeed;
+    [SerializeField]
+    private float _damage;
     private PlayerUnit _playerUnit;
     private HealthManager _playerHealth;
-    private PoolManager _poolM;
 
     private void Awake()
     {
         _playerUnit = GetComponentInParent<PlayerUnit>();
-        
+
     }
 
-    private void Start()
+    void FixedUpdate()
     {
-        _damage = _playerUnit._GetDamage;
+        transform.position += Vector3.left * _fireSpeed;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision != null && collision.tag == "Enemy")
+        if (collision != null && collision.tag == "Player")
         {
+            PlayerUnit _enemy = collision.gameObject.GetComponent<PlayerUnit>();
             _playerHealth = collision.gameObject.GetComponent<HealthManager>();
 
-            EnemyScript _enemy = collision.gameObject.GetComponent<EnemyScript>();
 
-
-            if (_playerUnit != null)
+            if (_enemy != null)
             {
                 _playerHealth.Health = _playerHealth.Health - _damage;
                 _enemy.TakeDamage();
 
-                _playerUnit.TakeDamage();
             }
         }
     }

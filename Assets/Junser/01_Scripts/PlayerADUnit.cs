@@ -7,26 +7,26 @@ public class PlayerADUnit : MonoBehaviour
     RaycastHit2D _rangeFinder;
     [SerializeField]
     private float _fireRange;
-    [SerializeField]
+
     private PoolManager poolM;
 
     [SerializeField]
     private float _shotColltime;
 
     bool _isFire = true;
-    // Start is called before the first frame update
-    void Start()
+
+    private void Awake()
     {
-        
+        poolM = GameObject.Find("Pool").GetComponent<PoolManager>();//풀 매니저 받아오기
     }
 
-    // Update is called once per frame
     void Update()
     {
+        //레이캐스트
         Debug.DrawRay(transform.position + new Vector3(1.25f, 0), Vector3.right*_fireRange, Color.green);
         _rangeFinder = Physics2D.Raycast(transform.position, Vector2.right, _fireRange, LayerMask.GetMask("Enemy"));
 
-
+        //사격 알고리즘
         if(_rangeFinder.collider != null &&_rangeFinder.collider.gameObject.tag == "Enemy")
         {
             if (_isFire)
@@ -37,12 +37,13 @@ public class PlayerADUnit : MonoBehaviour
         }
     }
 
-    IEnumerator Colltime()
+    IEnumerator Colltime()//발사 코루틴
     {
         _isFire = false;
 
         GameObject _spawnedBullet = poolM.Get(0);
 
+        _spawnedBullet.transform.SetParent(this.transform, true);
         _spawnedBullet.transform.rotation = Quaternion.Euler(0, 0, 90);
         _spawnedBullet.transform.position = transform.position;
 

@@ -12,7 +12,9 @@ public class EnemyScript : MonoBehaviour
     [SerializeField]
     private float DefaltAcclation;
     //이동 관련 변수
-
+    [SerializeField]
+    private float _damage;
+    public float _GetDamage { get { return _damage; } set { _damage = value; } }
 
     [SerializeField]
     private GameObject _AttackCollision;
@@ -26,11 +28,13 @@ public class EnemyScript : MonoBehaviour
 
     private void Awake()
     {
+        //컴포넌트 받기
         _Rigid = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
     {
+
         float _speed = _Rigid.velocity.x;
 
         if (_speed < _AttackSpeed)
@@ -61,14 +65,14 @@ public class EnemyScript : MonoBehaviour
         yield return new WaitForSecondsRealtime(0.1f);
 
         transform.rotation = Quaternion.Euler(0, 0, -35);
-        transform.position = new Vector3(transform.position.x, 0.53522833687f);
+        transform.position += new Vector3(0, 0.53522833687f);
 
 
         Accelation = -DefaltAcclation*2;
         yield return new WaitForSecondsRealtime(_DealayTime);
 
         transform.rotation = Quaternion.Euler(0, 0, 0);
-        transform.position = new Vector3(transform.position.x, 0);
+        transform.position -= new Vector3(0, 0.53522833687f);
 
 
         Accelation = DefaltAcclation;
