@@ -114,7 +114,7 @@ public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         else if (!RailInput.onRail)
         {
             Clone.SetActive(false);
-
+            AudioManager.Instance.PlaySfx(AudioManager.Sfx.Warning);
         }
     }
 

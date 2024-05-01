@@ -23,13 +23,11 @@ public class RailInput : MonoBehaviour
     
     private void OnMouseEnter()
     {
-        Debug.Log("¾ÆÀÕ");
         onRail = true;
         raillTrans = new Vector2(bounds.min.x, bounds.center.y);
     }
     private void OnMouseExit()
     {
-        Debug.Log("¾î");
         onRail = false;
     }
 
