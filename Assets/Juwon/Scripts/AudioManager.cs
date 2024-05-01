@@ -19,7 +19,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] int channels;
     private int _channelIndex;
     
-    public enum Sfx { Hit, Dead }
+    public enum Sfx { Hit, Btn, Warning, Tower, Level, Victory, Defeat }
     
     private void Awake()
     {
