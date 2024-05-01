@@ -13,7 +13,6 @@ public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     private BoxCollider2D collider; // 유닛의 콜라이더 
 
 
-    [SerializeField]
     private PlayerUnit UnitMovemate2; // 유닛의 움직임 스크립트
     [SerializeField]
     private SpawnManager spawnM; // 유닛 소환 스크립트
