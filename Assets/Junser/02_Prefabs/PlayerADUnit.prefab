@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2274646147468819600}
   - component: {fileID: 2869426308981959259}
   - component: {fileID: 1127476165599421729}
+  - component: {fileID: 9188588497209706504}
   m_Layer: 6
   m_Name: PlayerADUnit
   m_TagString: Player
@@ -121,6 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d1ad6e7ea43e6f488e80560a0e9e0b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _damage: 4
   _AttackSpeed: 1
   Accelation: 1
   DefaltAcclation: 1
@@ -140,6 +142,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30f18eaf22a931240b8511474e448a1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &9188588497209706504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967265577594567063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f10b946e2d1414b42bfa8e328802222d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fireRange: 9
+  _shotColltime: 4
 --- !u!1 &5692304542896622938
 GameObject:
   m_ObjectHideFlags: 0
@@ -150,7 +166,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1255264678588062109}
   - component: {fileID: 8999585294189093520}
-  - component: {fileID: 7847219036334229315}
   - component: {fileID: 7728759886300191662}
   m_Layer: 6
   m_Name: Arvarta
@@ -226,20 +241,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7847219036334229315
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5692304542896622938}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f10b946e2d1414b42bfa8e328802222d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _fireRange: 8
-  _shotColltime: 4
 --- !u!114 &7728759886300191662
 MonoBehaviour:
   m_ObjectHideFlags: 0

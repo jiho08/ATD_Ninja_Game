@@ -5,9 +5,10 @@ using UnityEngine;
 public class PlayerUnit : MonoBehaviour
 {
     //HP관련 변수
+
     [SerializeField]
     private float _damage;
-    public float _GetDamage { get { return _damage; } set { _damage = value; } }
+    public float _GetDamage { get { return _damage; } }
 
 
     [SerializeField]
@@ -40,7 +41,6 @@ public class PlayerUnit : MonoBehaviour
     {
         //컴포넌트 받는 부분
         _Rigid = GetComponent<Rigidbody2D>();
-        _healthM = GetComponent<HealthManager>();
         _firstTrain = GetComponentInChildren<Firsttrain>();
     }
 

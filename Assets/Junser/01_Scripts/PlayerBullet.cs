@@ -13,11 +13,10 @@ public class PlayerBullet : MonoBehaviour
 
     private void Awake()
     {
-        _playerUnit = GetComponentInParent<PlayerUnit>();
-
     }
     private void Start()
     {
+        _playerUnit = GetComponentInParent<PlayerUnit>();
         _damage = _playerUnit._GetDamage;
     }
 

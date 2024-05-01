@@ -43,7 +43,7 @@ public class PlayerADUnit : MonoBehaviour
 
         GameObject _spawnedBullet = poolM.Get(0);
 
-        _spawnedBullet.transform.SetParent(this.transform, false);
+        _spawnedBullet.transform.SetParent(this.transform, true);
         _spawnedBullet.transform.rotation = Quaternion.Euler(0, 0, 90);
         _spawnedBullet.transform.position = transform.position;
 
