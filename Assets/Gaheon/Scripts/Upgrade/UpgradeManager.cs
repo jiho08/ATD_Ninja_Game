@@ -6,6 +6,7 @@ using TMPro;
 public class UpgradeManager : MonoBehaviour
 {
     [SerializeField] SelectManager selectManager;
+    [SerializeField] BarManager barManager;
 
     [SerializeField] TextMeshProUGUI ktxLevelText;
     [SerializeField] TextMeshProUGUI mghLevelText;
@@ -21,7 +22,7 @@ public class UpgradeManager : MonoBehaviour
         if (selectManager.selectedSO.level < 5)
         {
             selectManager.selectedSO.level++;
-            selectManager.Selecting();
+            barManager.ChangeBar();
             ChangeLevelText();
         }
     }

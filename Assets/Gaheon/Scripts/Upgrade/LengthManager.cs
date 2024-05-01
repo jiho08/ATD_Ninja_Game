@@ -25,7 +25,7 @@ public class LengthManager : MonoBehaviour
         if (selectManager.selectedSO.length < 3)
         {
             selectManager.selectedSO.length++;
-            ResetTrainPos();
+            OnLengthChange();
         }
     }
 

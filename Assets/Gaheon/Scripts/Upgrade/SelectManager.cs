@@ -40,10 +40,8 @@ public class SelectManager : MonoBehaviour
 
     public void Selecting()
     {
-        selectedSO.Hp = selectedUnitLevel.Hp[selectedSO.level - 1];
-        selectedSO.Atk = selectedUnitLevel.Atk[selectedSO.level - 1];
-        selectedSO.Speed = selectedUnitLevel.Speed[selectedSO.level - 1];
-        
+        ChangeValue();
+
         nameText.text = selectedSO.TrainName;
         descText.text = selectedSO.TrainDesc;
         roleText.text = selectedSO.TrainRole;
@@ -57,6 +55,14 @@ public class SelectManager : MonoBehaviour
         trainCollider[2].size = trainBody[0].bounds.size;
 
         OnSelectChanged.Invoke();
+    }
+
+    public void ChangeValue()
+    {
+        selectedSO.Hp = selectedUnitLevel.Hp[selectedSO.level - 1];
+        selectedSO.Atk = selectedUnitLevel.Atk[selectedSO.level - 1];
+        selectedSO.Speed = selectedUnitLevel.Speed[selectedSO.level - 1];
+
     }
     public void KTX()
     {
