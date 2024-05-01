@@ -422,6 +422,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitPool: {fileID: 1340747709}
   enemyPool: {fileID: 1036719650}
+  unitData: {fileID: 0}
   enemySpawnPos:
   - {fileID: 958747250}
   - {fileID: 652381340}
@@ -516,9 +517,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5813f5dcbc40e894aa8afa7089f2f7d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bgmClip: {fileID: 0}
-  bgmVolume: 0.2
-  sfxClip: []
+  bgmClip: {fileID: 8300000, guid: ff99ef36a573a804c9f422fd43975a3a, type: 3}
+  bgmVolume: 0.35
+  sfxClip:
+  - {fileID: 8300000, guid: 5fed7333b63026f44916818824c7f981, type: 3}
+  - {fileID: 8300000, guid: 53dade11583801342ae4f0dffe7b12bf, type: 3}
+  - {fileID: 8300000, guid: f8c85803a3a63b2499adf91d555255ca, type: 3}
+  - {fileID: 8300000, guid: 26e01913a2d733e4eb3c3440581bb519, type: 3}
+  - {fileID: 8300000, guid: 0a6b8acbd18e2b340bf80e84249f4a7a, type: 3}
+  - {fileID: 8300000, guid: 6610bd3668b07f84d955c6b39be7eb81, type: 3}
+  - {fileID: 8300000, guid: 46f1b2caed55bfe4aa3461f315fe9d32, type: 3}
   sfxVolume: 0.5
   channels: 6
 --- !u!1 &1036719648
