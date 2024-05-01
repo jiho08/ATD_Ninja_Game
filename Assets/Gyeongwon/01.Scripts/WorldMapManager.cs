@@ -34,7 +34,6 @@ public class WorldMapManager : MonoBehaviour
             objDic[i].SetActive(false);
         }
         stageViews[0].SetActive(true);
-        stageViews[0].SetActive(false);
     }
 
     private void Update()
