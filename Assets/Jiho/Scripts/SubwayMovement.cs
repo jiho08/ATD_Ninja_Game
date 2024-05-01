@@ -27,13 +27,11 @@ public class SubwayMovement : MonoBehaviour
         {
             transform.rotation = Quaternion.AngleAxis(_angle, Vector3.forward);
             _rigid.velocity = new Vector2(_speed, -30);
-            _rigid.gravityScale = 100;
         }
         if (transform.position.x < 115)
         {
             transform.rotation = Quaternion.AngleAxis(0, Vector3.forward);
             _rigid.velocity = new Vector2(_speed, 0);
-            _rigid.gravityScale = 0;
         }
     }
 }
