@@ -9,26 +9,16 @@ using UnityEngine.UI;
 
 public class BlackSceneFade : MonoBehaviour
 {
-    [SerializeField]Image blackPanel;
+    [SerializeField] Image blackPanel;
 
-    public float fadeSpeed = 1.5f;
+    public float fadeSpeed = 1f;
 
     void Start()
-    {
-        blackPanel.color = new Color(0f, 0f, 0f, 1f);
-        FadeOut();
-    }
-
-    void FadeIn()
-    {
-        StartCoroutine(FadeInCo());
-    }
-    void FadeOut()
     {
         StartCoroutine(FadeOutCo());
     }
 
-    IEnumerator FadeInCo()
+    IEnumerator FadeInCo(string sceneName)
     {
         blackPanel.transform.localScale = Vector3.one;
         while (blackPanel.color.a < 1)
@@ -36,11 +26,12 @@ public class BlackSceneFade : MonoBehaviour
             blackPanel.color += new Color(0, 0, 0, Time.deltaTime * fadeSpeed);
             yield return null;
         }
-        SceneManager.LoadScene("Jiho3");
+        SceneManager.LoadScene(sceneName);
     }
 
     IEnumerator FadeOutCo()
     {
+        blackPanel.color = new Color(0f, 0f, 0f, 1f);
         while (blackPanel.color.a > 0)
         {
             blackPanel.color -= new Color(0, 0, 0, Time.deltaTime * fadeSpeed);
@@ -48,8 +39,8 @@ public class BlackSceneFade : MonoBehaviour
         }
         blackPanel.transform.localScale = Vector3.zero;
     }
-    public void ExitScene()
+    public void ExitScene(string scneneName)
     {
-        StartCoroutine(FadeInCo());
+        StartCoroutine(FadeInCo(scneneName));
     }
 }
