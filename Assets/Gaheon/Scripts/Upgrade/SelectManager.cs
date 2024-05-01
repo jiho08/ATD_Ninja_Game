@@ -7,14 +7,23 @@ using TMPro;
 
 public class SelectManager : MonoBehaviour
 {
+    [Header("Info")]
     [SerializeField] TextMeshProUGUI nameText;
     [SerializeField] TextMeshProUGUI descText;
     [SerializeField] TextMeshProUGUI roleText;
 
+
+    [Header("Level SO")]
     [SerializeField] UnitLevelUpSO ktxLevelSO;
     [SerializeField] UnitLevelUpSO mghLevelSO;
     [SerializeField] UnitLevelUpSO line1LevelSO;
 
+    [Header("기차 스프라이트")]
+    [SerializeField] SpriteRenderer trainHead;
+    [SerializeField] SpriteRenderer[] trainBody;
+    public BoxCollider2D[] trainCollider;
+    
+    [Header("SO")]
     public UnitDataSO ktxSO;
     public UnitDataSO mghSO;
     public UnitDataSO line1SO;
@@ -24,14 +33,6 @@ public class SelectManager : MonoBehaviour
 
     [SerializeField] UnityEvent OnSelectChanged;
 
-    public static SelectManager selectInstance;
-    private void Awake()
-    {
-        if (selectInstance == null)
-        {
-            selectInstance = this;
-        }
-    }
     void Start()
     {
         Selecting();
@@ -39,14 +40,29 @@ public class SelectManager : MonoBehaviour
 
     public void Selecting()
     {
-        selectedSO.Hp = selectedUnitLevel.Hp[selectedSO.level - 1];
-        selectedSO.Atk = selectedUnitLevel.Atk[selectedSO.level - 1];
-        selectedSO.Speed = selectedUnitLevel.Speed[selectedSO.level - 1];
+        ChangeValue();
+
         nameText.text = selectedSO.TrainName;
         descText.text = selectedSO.TrainDesc;
         roleText.text = selectedSO.TrainRole;
 
+        trainHead.sprite = selectedSO.TrainHead;
+        trainBody[0].sprite = selectedSO.TrainBody;
+        trainBody[1].sprite = selectedSO.TrainBody;
+
+        trainCollider[0].size = trainHead.bounds.size;
+        trainCollider[1].size = trainBody[0].bounds.size;
+        trainCollider[2].size = trainBody[0].bounds.size;
+
         OnSelectChanged.Invoke();
+    }
+
+    public void ChangeValue()
+    {
+        selectedSO.Hp = selectedUnitLevel.Hp[selectedSO.level - 1];
+        selectedSO.Atk = selectedUnitLevel.Atk[selectedSO.level - 1];
+        selectedSO.Speed = selectedUnitLevel.Speed[selectedSO.level - 1];
+
     }
     public void KTX()
     {
