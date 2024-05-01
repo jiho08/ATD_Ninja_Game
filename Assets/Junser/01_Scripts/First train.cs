@@ -9,7 +9,6 @@ public class Firsttrain : MonoBehaviour
     void Start()
     {
         _dealayTime = GetComponentInParent<PlayerUnit>()._DealayTime;
-        _defaltPos = transform.position.y;
     }
 
     // Update is called once per frame
@@ -20,6 +19,7 @@ public class Firsttrain : MonoBehaviour
 
     public IEnumerator HitBehave()
     {
+        _defaltPos = transform.position.y;
         yield return null;
 
 
