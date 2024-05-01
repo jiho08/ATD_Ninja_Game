@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ResourceManager : MonoBehaviour
 {
-    private static int oddments = 0;
+    private static int resource = 0;
     public static ResourceManager instance = null;
     private void Awake()
     {
@@ -16,22 +16,22 @@ public class ResourceManager : MonoBehaviour
 
     private void Start()
     {
-        oddments = PlayerPrefs.GetInt("Oddments",0);
+        resource = PlayerPrefs.GetInt("Resource",0);
     }
 
     public void SetRsc(int value)
     {
-        oddments += value;
-        PlayerPrefs.SetInt("Oddments", oddments);
+        resource += value;
+        PlayerPrefs.SetInt("Resource", resource);
     }
     public int GetRsc()
     {
-        return oddments;
+        return resource;
     }
     public void ResetRsc()
     {
-        oddments = 0;
-        PlayerPrefs.SetInt("Oddments", oddments);
+        resource = 0;
+        PlayerPrefs.SetInt("Resource", resource);
     }
 
 }

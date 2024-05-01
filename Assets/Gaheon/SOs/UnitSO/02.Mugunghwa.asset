@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: 02.Mugunghwa
   m_EditorClassIdentifier: 
   TrainID: 1
-  TrainFront: {fileID: 7482667652216324306, guid: feee428fed62f454b8c08b1fa95c0ec0, type: 3}
-  TrainBack: {fileID: 7482667652216324306, guid: feee428fed62f454b8c08b1fa95c0ec0, type: 3}
+  TrainHead: {fileID: -1692468722, guid: 0152a3ae924a46e499637c0f02c01db0, type: 3}
+  TrainBody: {fileID: -994634887, guid: 0152a3ae924a46e499637c0f02c01db0, type: 3}
   TrainName: "\uBB34\uAD81\uD654\uD638"
   TrainDesc: "\uBB34\uAD81\uD654\uB2F9"
   TrainRole: "\uD0F1\uCEE4"
   level: 1
   length: 1
-  Hp: 35
-  Atk: 4
+  Hp: 25
+  Atk: 2
   Speed: 2

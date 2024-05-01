@@ -16,12 +16,19 @@ public class BlackSceneFade : MonoBehaviour
     {
         blackPanel = GetComponent<Image>();
         blackPanel.color = new Color(0f, 0f, 0f, 1f);
-        StartCoroutine(FadeOut());
+        FadeOut();
     }
 
+    void FadeIn()
+    {
+        StartCoroutine(FadeInCo());
+    }
+    void FadeOut()
+    {
+        StartCoroutine(FadeOutCo());
+    }
 
-
-    IEnumerator FadeIn()
+    IEnumerator FadeInCo()
     {
         while (blackPanel.color.a < 1)
         {
@@ -31,7 +38,7 @@ public class BlackSceneFade : MonoBehaviour
         gameObject.SetActive(true);
     }
 
-    IEnumerator FadeOut()
+    IEnumerator FadeOutCo()
     {
         while (blackPanel.color.a > 0)
         {
