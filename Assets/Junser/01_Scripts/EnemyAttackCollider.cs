@@ -22,7 +22,7 @@ public class EnemyAttackCollider : MonoBehaviour
 
             if(player != null)
             {
-                _playerHealth.Health = _playerHealth.Health - _damage;
+                _playerHealth.Health = _playerHealth.Health - _playerHealth.Damage;
 
                 player.TakeDamage();
                 _enemy.TakeDamage();

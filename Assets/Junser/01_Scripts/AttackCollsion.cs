@@ -30,7 +30,7 @@ public class AttackCollsion : MonoBehaviour
 
             if (_playerUnit != null)
             {
-                _playerHealth.Health = _playerHealth.Health - _damage;
+                _playerHealth.Health = _playerHealth.Health - _playerHealth.Damage;
                 _enemy.TakeDamage();
 
                 _playerUnit.TakeDamage();

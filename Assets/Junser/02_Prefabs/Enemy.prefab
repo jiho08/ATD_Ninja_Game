@@ -178,7 +178,7 @@ MonoBehaviour:
   DefaltAcclation: -1
   _damage: 0
   _AttackCollision: {fileID: 6812799936799525467}
-  _DealayTime: 0.5
+  _DealayTime: 1
 --- !u!114 &-4766673309490735270
 MonoBehaviour:
   m_ObjectHideFlags: 0
