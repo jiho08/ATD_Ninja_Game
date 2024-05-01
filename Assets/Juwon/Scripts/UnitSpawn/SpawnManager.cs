@@ -5,7 +5,7 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private PoolManager unitPool;
     [SerializeField] private PoolManager enemyPool;
 
-    [SerializeField] private UnitDataSO unitData; //유닛에 레벨에 맞게 스탯 가져오기
+    [SerializeField] private UnitDataSO[] unitData; //유닛에 레벨에 맞게 스탯 가져오기
 
     //[SerializeField] private Transform[] unitSpawnPos; //스폰 위치 3개 관리
     [SerializeField] private Transform[] enemySpawnPos;
@@ -20,8 +20,10 @@ public class SpawnManager : MonoBehaviour
         
         GameObject unit = unitPool.Get(value);
         //unit.transform.position = unitSpawnPos[pos-1].position; //정해진 소환할 위치에 소환(우선 정함)
-        unit.GetComponent<HealthManager>().Health = unitData.Hp; //HP설정
-        //unit.GetComponent<PlayerUnit>(). //플레이어 
+        HealthManager unitHealth = unit.GetComponent<HealthManager>(); //HP설정
+        unitHealth.Health = unitData[value].Hp; //HP설정
+        unitHealth.Damage = unitData[value].Atk; //데미지 설정
+        //unit.GetComponent<PlayerUnit>().
 
         _getSpawnCounts[value]++;
         return unit;
