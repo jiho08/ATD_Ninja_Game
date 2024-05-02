@@ -5,7 +5,7 @@ using UnityEngine;
 public class ResourceManager : MonoBehaviour
 {
     public static ResourceManager instance = null;
-    private static int resource = 100;
+    private static int resource = 200;
 
     private void Awake()
     {
