@@ -5,5 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "SO/ResoucrePriceData")]
 public class UnitPriceSO : ScriptableObject
 {
-    public int[] TrainPrice;
+    public int[] UpgradePrice;
+    public int[] AddPrice;
 }

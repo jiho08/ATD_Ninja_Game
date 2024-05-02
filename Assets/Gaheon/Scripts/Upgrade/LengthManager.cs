@@ -7,6 +7,7 @@ using TMPro;
 public class LengthManager : MonoBehaviour
 {
     [SerializeField] SelectManager selectManager;
+    [SerializeField] ResourceTxtManager resourceTxtManger;
     [SerializeField] TextMeshProUGUI lengthTxt;
     [SerializeField] GameObject[] trains;
     [SerializeField] Transform[] trainTransform;
@@ -25,10 +26,13 @@ public class LengthManager : MonoBehaviour
     }
     public void LengthChange()
     {
-        if (selectManager.selectedSO.length < 3)
+        if (selectManager.selectedSO.length < 3 && ResourceManager.instance.GetRsc() >= selectManager.selectedPriceSO.AddPrice[selectManager.selectedSO.length - 1])
         {
             selectManager.selectedSO.length++;
             OnLengthChange();
+            resourceTxtManger.ChangeAddPrice();
+            ResourceManager.instance.SetRsc(-(selectManager.selectedPriceSO.AddPrice[selectManager.selectedSO.length - 1]));
+            resourceTxtManger.ChangeResource();
         }
     }
 

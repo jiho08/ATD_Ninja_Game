@@ -23,13 +23,14 @@ public class UpgradeManager : MonoBehaviour
     public void Upgrade()
     {
         currentMoney = ResourceManager.instance.GetRsc();
-        if (selectManager.selectedSO.level < 5)
+        if (selectManager.selectedSO.level < 5 && ResourceManager.instance.GetRsc() >= selectManager.selectedPriceSO.UpgradePrice[selectManager.selectedSO.level - 1])
         {
             selectManager.selectedSO.level++;
             barManager.ChangeBar();
             ChangeLevelText();
-            ResourceManager.instance.SetRsc(-(selectManager.selectedPriceSO.TrainPrice[selectManager.selectedSO.level - 1]));
-            resourceTxtManager.ChangeResourceTxt();
+            ResourceManager.instance.SetRsc(-(selectManager.selectedPriceSO.UpgradePrice[selectManager.selectedSO.level - 1]));
+            resourceTxtManager.ChangeResource();
+            resourceTxtManager.ChangeUpgradePrice();
         }
     }
 
