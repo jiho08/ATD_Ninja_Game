@@ -20,21 +20,18 @@ public class RailInput : MonoBehaviour
         bounds = collider.bounds;
         raillTrans = new Vector2(bounds.min.x, bounds.center.y);
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    
+    private void OnMouseEnter()
     {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            onRail = true;
-            raillTrans = new Vector2(bounds.min.x, bounds.center.y);
-
-        }
-  
+        onRail = true;
+        raillTrans = new Vector2(bounds.min.x, bounds.center.y);
     }
-
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnMouseExit()
     {
         onRail = false;
     }
+
+
 
     //private void OnTriggerExit2D(Collider2D collision)
     //{
