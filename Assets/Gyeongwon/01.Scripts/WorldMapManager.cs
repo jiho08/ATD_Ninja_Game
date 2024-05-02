@@ -15,7 +15,6 @@ public class WorldMapManager : MonoBehaviour
     public bool[] isOpenStages;
     public GameObject[] stageViews;
     private Dictionary<int, GameObject> objDic;
-    public Image Flag;
 
     IEnumerator coroutine;
 
