@@ -94,7 +94,7 @@ public class WorldMapManager : MonoBehaviour
         stageViews[3].SetActive(false);
         stageViews[4].SetActive(false);
         stageViews[5].SetActive(false);
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene(4);
 
     }
     private void SetStageView(int idx)
