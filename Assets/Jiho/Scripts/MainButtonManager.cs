@@ -5,13 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class MainButtonManager : MonoBehaviour
 {
-    CameraMovement _moveSetting;
-    CameraMovement _moveMain;
+    CameraMovement _moveCameraSetting;
+
 
     private void Awake()
     {
-        _moveSetting = GameObject.Find("Main Camera").GetComponent<CameraMovement>();
-        _moveMain = GameObject.Find("Main Camera").GetComponent<CameraMovement>();
+        _moveCameraSetting = Camera.main.GetComponent<CameraMovement>();
     }
 
     public void GameStart()
@@ -26,11 +25,11 @@ public class MainButtonManager : MonoBehaviour
 
     public void Setting()
     {
-        _moveSetting.ClickSetting();
+        _moveCameraSetting.ClickSetting();
     }
 
     public void Back()
     {
-        _moveMain.ClickMain();
+        _moveCameraSetting.ClickMain();
     }
 }
