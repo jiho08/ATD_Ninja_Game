@@ -11,7 +11,7 @@ public class BlackSceneFade : MonoBehaviour
 {
     [SerializeField] Image blackPanel;
 
-    public float fadeSpeed = 1f;
+    public float fadeSpeed = 0.25f;
 
     void Start()
     {
