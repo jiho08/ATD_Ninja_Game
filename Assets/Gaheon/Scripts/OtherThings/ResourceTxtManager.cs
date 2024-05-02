@@ -20,7 +20,7 @@ public class ResourceTxtManager : MonoBehaviour
 
     public void ChangeResource()
     {
-        resourceTxt.text = $"재화 : { ResourceManager.instance.GetRsc()}";
+        resourceTxt.text = $"고철 : { ResourceManager.instance.GetRsc()}";
     }
     public void ChangeUpgradePrice()
     {
@@ -30,7 +30,7 @@ public class ResourceTxtManager : MonoBehaviour
         }
         else
         {
-            upgradePriceTxt.text = $"필요 재화 : {selectManager.selectedPriceSO.UpgradePrice[selectManager.selectedSO.level - 1]}";
+            upgradePriceTxt.text = $"필요 고철 : {selectManager.selectedPriceSO.UpgradePrice[selectManager.selectedSO.level - 1]}";
         }
     }
 
@@ -42,7 +42,7 @@ public class ResourceTxtManager : MonoBehaviour
         }
         else
         {
-            addPriceTxt.text = $"필요 재화 : {selectManager.selectedPriceSO.AddPrice[selectManager.selectedSO.length - 1]}";
+            addPriceTxt.text = $"필요 고철 : {selectManager.selectedPriceSO.AddPrice[selectManager.selectedSO.length - 1]}";
 
         }
     }
