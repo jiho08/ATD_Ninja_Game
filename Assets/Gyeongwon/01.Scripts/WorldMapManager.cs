@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine.SceneManagement;
 using Microsoft.Unity.VisualStudio.Editor;
+using System;
 
 public class WorldMapManager : MonoBehaviour
 {
@@ -52,14 +53,10 @@ public class WorldMapManager : MonoBehaviour
             Sequence moveStage = DOTween.Sequence();
             targetIndex = value;
             float startIndex = currentIndex;
-            float moveDelay;
-            if (startIndex == 5+1)
+            float moveDelay = 0;
+            if (train.transform.position == stages[currentIndex].transform.position)
             {
-                moveDelay = 0.25f; 
-            }
-            else
-            {
-                moveDelay = 1f / Mathf.Abs(startIndex - targetIndex);
+                moveDelay = SetMoveDelay(startIndex, value);
             }
 
             if (currentIndex < value)
@@ -82,6 +79,19 @@ public class WorldMapManager : MonoBehaviour
             coroutine = SetStageView(value, moveDelay * Mathf.Abs(targetIndex - startIndex));
             currentIndex = value;
             StartCoroutine(coroutine);
+
+        }
+    }
+
+    private float SetMoveDelay(float startIndex, int value)
+    {
+        if (startIndex == 5 + 1)
+        {
+            return 0.25f;
+        }
+        else
+        {
+            return 1f / Mathf.Abs(startIndex - targetIndex);
         }
     }
 
