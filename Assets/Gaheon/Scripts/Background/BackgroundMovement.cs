@@ -6,7 +6,7 @@ public class BackgroundMovement : MonoBehaviour
 {
     [SerializeField] GameObject otehrBg;
     [SerializeField] float bgMoveSpeed;
-    float moveRange = 36;
+    [SerializeField] float moveRange = 36;
     void FixedUpdate()
     {
         transform.position += Vector3.left * bgMoveSpeed * Time.deltaTime;

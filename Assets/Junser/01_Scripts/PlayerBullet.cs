@@ -13,8 +13,11 @@ public class PlayerBullet : MonoBehaviour
 
     private void Awake()
     {
+    }
+    private void Start()
+    {
         _playerUnit = GetComponentInParent<PlayerUnit>();
-
+        _damage = _playerUnit._GetDamage;
     }
 
     void FixedUpdate()
@@ -31,8 +34,10 @@ public class PlayerBullet : MonoBehaviour
 
             if (_enemy != null)
             {
-                _playerHealth.Health = _playerHealth.Health - _damage;
+                _playerHealth.Health = _playerHealth.Health - _playerHealth.Damage;
+
                 _enemy.TakeDamage();
+                gameObject.SetActive(false);
 
             }
         }

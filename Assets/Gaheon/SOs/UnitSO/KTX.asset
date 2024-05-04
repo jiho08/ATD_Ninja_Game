@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6b68f8217fbb794d8fb92e2ef23a237, type: 3}
+  m_Name: KTX
+  m_EditorClassIdentifier: 
+  TrainID: 1
+  TrainAnimation: {fileID: 7108339969198208228, guid: 4240f05d04b3b014ab5d6184e7e75c16, type: 3}
+  TrainHead: {fileID: -2084933957, guid: 0152a3ae924a46e499637c0f02c01db0, type: 3}
+  TrainBody: {fileID: -1220089785, guid: 0152a3ae924a46e499637c0f02c01db0, type: 3}
+  TrainName: KTX
+  TrainDesc: "\uB2E4\uB978 \uAE30\uCC28\uB4E4\uC740 \uB2E4 \uC0B4\uC544\uC9C4 \uBC14\uB78C\uC5D0
+    \uC138\uC0C1\uC5D0\uC11C \uC81C\uC77C \uBE60\uB978 \uAE30\uCC28\uAC00 \uB41C
+    KTX\uB2E4."
+  TrainRole: "\uB51C\uB7EC"
+  level: 1
+  length: 1
+  Hp: 60
+  Atk: 15
+  Speed: 10

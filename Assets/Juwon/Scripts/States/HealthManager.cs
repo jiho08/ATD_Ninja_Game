@@ -1,29 +1,27 @@
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class HealthManager : MonoBehaviour
 {
     //Hp가 들어가는 유닛에 넣기
-
-    private readonly float _maxHealth = 10f;
-    [FormerlySerializedAs("_curHealth")] [SerializeField] private float curHealth;
+    [SerializeField] private float curHealth = 1;
 
     public float Health
     {
         get => curHealth;
-        set => curHealth = value;
+        set
+        {
+            curHealth = value;
+            
+            if (curHealth <= 0)
+            {
+                gameObject.SetActive(false);
+            }
+            
+        }
     }
 
-
-    private void Start()
-    {
-        curHealth = _maxHealth;
-    }
-
-    public void Damage(float value)
-    {
-        curHealth -= value;
-    }
+    public float Damage { get; set; }
 
     //자신의 HP가 0이라면 비활성화
+    
 }
