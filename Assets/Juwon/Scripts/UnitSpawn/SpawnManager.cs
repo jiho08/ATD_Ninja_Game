@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
@@ -13,18 +14,31 @@ public class SpawnManager : MonoBehaviour
     private readonly int[] _defaultSpawnCounts = new int[10]; //유닛 수만큼 넣기 (0 : 무궁화, 1 : 무언가, 2 : 등등)
     private readonly int[] _getSpawnCounts = new int[10]; //소환된 유닛 수만큼 넣기 (0 : 무궁화, 1 : 무언가, 2 : 등등)
 
+    private HealthManager _unitHealth; //생성한 Unit의 HealthManager
+    private HealthManager _enemyHealth; //생성한 Enemy의 HealthManager
+    private Coroutine _inCorout;
+    private int _unitCode;
+    
+
     //원하는 유닛과 위치 생성
     public GameObject UnitSpawn(int value)
     {
-        if(_getSpawnCounts[value] > _defaultSpawnCounts[value]) return null; //정해진 수보다 많아지면 리턴
+        _unitCode = value;
+        if(_getSpawnCounts[value] > _defaultSpawnCounts[value]) 
+        {
+            AudioManager.Instance.PlaySfx(AudioManager.Sfx.Warning);
+            return null; //정해진 수보다 많아지면 리턴
+        }
         
         GameObject unit = unitPool.Get(value);
         //unit.transform.position = unitSpawnPos[pos-1].position; //정해진 소환할 위치에 소환(우선 정함)
-        HealthManager unitHealth = unit.GetComponent<HealthManager>(); //HP설정
-        unitHealth.Health = unitData[value].Hp; //HP설정
-        unitHealth.Damage = unitData[value].Atk; //데미지 설정
-        //unit.GetComponent<PlayerUnit>().
+        _unitHealth = unit.GetComponent<HealthManager>();
+        _unitHealth.Health = unitData[value].Hp; //HP설정
+        _unitHealth.Damage = unitData[value].Atk; //데미지 설정
+        unit.GetComponent<PlayerUnit>().DefaltAcclation = unitData[value].Speed; //Speed 설정
 
+        this._unitHealth.OnUnitRepairCool += HandleRepairCoolTime;
+        
         _getSpawnCounts[value]++;
         return unit;
     }
@@ -33,8 +47,29 @@ public class SpawnManager : MonoBehaviour
     public GameObject EnemySpawn(int value, int pos)
     {
         GameObject enemy = enemyPool.Get(value);
+        _enemyHealth = enemy.GetComponent<HealthManager>();
+        _enemyHealth.Health = unitData[value].Hp; //HP설정
+        
         enemy.transform.position = enemySpawnPos[pos-1].position;
+        
         return enemy;
+    }
+    
+    //유닛이 부셔지고 일정 시간이 지나면 다시 생성할 수 있게 변경
+    private void HandleRepairCoolTime()
+    {
+        _inCorout = StartCoroutine(UnitCool(_unitCode));
+        
+        this._unitHealth.OnUnitRepairCool -= HandleRepairCoolTime;
+    }
+    
+    private IEnumerator UnitCool(int value)
+    {
+        yield return new WaitForSeconds(10f);
+
+        _getSpawnCounts[value]--;
+
+        StopCoroutine(_inCorout);
     }
 
     public void SetDefaultCounts(int value, int count) //value의 번호에 유닛 제한수를 count로 제한
