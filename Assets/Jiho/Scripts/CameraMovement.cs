@@ -6,7 +6,7 @@ public class CameraMovement : MonoBehaviour
 {
     [SerializeField] Transform _SettingPosition;
     [SerializeField] Transform _MainPosition;
-    bool check;
+    bool check = false;
 
     private void FixedUpdate()
     {

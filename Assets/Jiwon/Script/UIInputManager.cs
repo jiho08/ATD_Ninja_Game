@@ -42,7 +42,7 @@ public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
         if (Clone == null) return;
 
-        _cloneRenderer = Clone.GetComponent<SpriteRenderer>();
+        _cloneRenderer = Clone.GetComponentInChildren<SpriteRenderer>();
         UnitMovemate2 = Clone.GetComponent<PlayerUnit>();
         collider = Clone.GetComponent<BoxCollider2D>();
 

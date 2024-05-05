@@ -7,12 +7,17 @@ public class AttackCollsion : MonoBehaviour
     public float _damage = 1;
     private PlayerUnit _playerUnit;
     private HealthManager _playerHealth;
-
+    private PoolManager _poolM;
 
     private void Awake()
     {
         _playerUnit = GetComponentInParent<PlayerUnit>();
+        
+    }
 
+    private void Start()
+    {
+        _damage = _playerUnit._GetDamage;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -25,7 +30,7 @@ public class AttackCollsion : MonoBehaviour
 
             if (_playerUnit != null)
             {
-                _playerHealth.Health = _playerHealth.Health - _damage;
+                _playerHealth.Health = _playerHealth.Health - _playerHealth.Damage;
                 _enemy.TakeDamage();
 
                 _playerUnit.TakeDamage();

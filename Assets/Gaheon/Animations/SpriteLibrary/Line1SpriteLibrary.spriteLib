@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5e6fedc2472449cead18ef23b5cb30d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Library:
+  - m_Name: Head
+    m_Hash: 130111906
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Train_ALL-Sheet_0
+      m_Hash: 564516687
+      m_Sprite: {fileID: 210807131, guid: f2c5022e2ca642b4eba6a9fbb1841afd, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -1229448097, guid: f2c5022e2ca642b4eba6a9fbb1841afd, type: 3}
+    - m_Name: Train_ALL-Sheet_1
+      m_Hash: 379774937
+      m_Sprite: {fileID: 946612468, guid: f2c5022e2ca642b4eba6a9fbb1841afd, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -1520814480, guid: f2c5022e2ca642b4eba6a9fbb1841afd, type: 3}
+    - m_Name: Train_ALL-Sheet_2
+      m_Hash: 262911587
+      m_Sprite: {fileID: 473713046, guid: f2c5022e2ca642b4eba6a9fbb1841afd, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -1277691702, guid: f2c5022e2ca642b4eba6a9fbb1841afd, type: 3}
+    - m_Name: Train_ALL-Sheet_3
+      m_Hash: 950830837
+      m_Sprite: {fileID: 225689417, guid: f2c5022e2ca642b4eba6a9fbb1841afd, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -1081287481, guid: f2c5022e2ca642b4eba6a9fbb1841afd, type: 3}
+    m_FromMain: 1
+    m_EntryOverrideCount: 4
+  - m_Name: Body
+    m_Hash: 999990412
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Train_ALL-Sheet_4
+      m_Hash: 650646358
+      m_Sprite: {fileID: 103006653, guid: f2c5022e2ca642b4eba6a9fbb1841afd, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 460259003, guid: f2c5022e2ca642b4eba6a9fbb1841afd, type: 3}
+    - m_Name: Train_ALL-Sheet_5
+      m_Hash: 298787776
+      m_Sprite: {fileID: 55133842, guid: f2c5022e2ca642b4eba6a9fbb1841afd, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -98092416, guid: f2c5022e2ca642b4eba6a9fbb1841afd, type: 3}
+    - m_Name: Train_ALL-Sheet_6
+      m_Hash: 147223162
+      m_Sprite: {fileID: 1180688432, guid: f2c5022e2ca642b4eba6a9fbb1841afd, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 1435254350, guid: f2c5022e2ca642b4eba6a9fbb1841afd, type: 3}
+    - m_Name: Train_ALL-Sheet_7
+      m_Hash: 1069630188
+      m_Sprite: {fileID: 1254630861, guid: f2c5022e2ca642b4eba6a9fbb1841afd, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 1953829513, guid: f2c5022e2ca642b4eba6a9fbb1841afd, type: 3}
+    m_FromMain: 1
+    m_EntryOverrideCount: 4
+  m_PrimaryLibraryGUID: 4240f05d04b3b014ab5d6184e7e75c16
+  m_ModificationHash: 638501856457757999
+  m_Version: 1

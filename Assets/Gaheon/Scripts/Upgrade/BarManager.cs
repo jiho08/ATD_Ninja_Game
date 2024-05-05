@@ -43,9 +43,6 @@ public class BarManager : MonoBehaviour
         currentHpBar.transform.DOScale(new Vector3(currentHp, 1, 0), 1f);
         currentAtkBar.transform.DOScale(new Vector3(currentAtk, 1, 0), 1f);
         currentSpeedBar.transform.DOScale(new Vector3(currentSpeed, 1, 0), 1f);
-        //currentHpBar.rectTransform.sizeDelta = new Vector2(currentHp * 6.4f, barHeight);
-        //currentAtkBar.rectTransform.sizeDelta = new Vector2(currentAtk * 32, barHeight);
-        //currentSpeedBar.rectTransform.sizeDelta = new Vector2(currentSpeed * 64, barHeight);
 
         if (currentLv < 5)
         {
@@ -57,9 +54,6 @@ public class BarManager : MonoBehaviour
             previewHpBar.transform.DOScale(new Vector3(previewHp, 1, 0), 1f);
             previewAtkBar.transform.DOScale(new Vector3(previewAtk, 1, 0), 1f);
             previewSpeedBar.transform.DOScale(new Vector3(previewSpeed, 1, 0), 1f);
-            //previewHpBar.rectTransform.sizeDelta = new Vector2(previewHp * 6.4f, barHeight);
-            //previewAtkBar.rectTransform.sizeDelta = new Vector2(previewAtk * 32, barHeight);
-            //previewSpeedBar.rectTransform.sizeDelta = new Vector2(previewSpeed * 64, barHeight);
         }
     }
 }
