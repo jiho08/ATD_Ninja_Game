@@ -15,7 +15,7 @@ public class MainButtonManager : MonoBehaviour
 
     public void GameStart()
     {
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene(0);
     }
 
     public void Quit()
