@@ -1,16 +1,20 @@
-using System.Collections;
+using TMPro;
 using UnityEngine;
+
 
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private SpawnManager spawnM;
     [SerializeField] private GetSpawnEnemy getSpawn;
+    [SerializeField]private EnemyAlgorithm enemyAl;
 
     [SerializeField] private GetStageNumberSo getStageNumSo;
 
     [SerializeField] private int getStageCount;
     private int _stageEnemyCount;
     private Coroutine _runningCoroutine;
+
+    [SerializeField] private TextMeshProUGUI[] getSpawnEnemyNumTxts;
 
 
     private void Start()
@@ -32,11 +36,21 @@ public class EnemySpawner : MonoBehaviour
             case 5:
                 break;
         }
-        getSpawn.ReadSpawn(getStageCount-1); //스테이지에 맞는 Stage읽기
-        _runningCoroutine = StartCoroutine(StartStage()); //스테이지 시작
-    }
+        //getSpawn.ReadSpawn(getStageCount-1); //스테이지에 맞는 Stage읽기
+        //_runningCoroutine = StartCoroutine(StartStage()); //스테이지 시작
 
-    private int TypeToInt(string str) //type을 int로 변환하여 전송
+    }
+    
+    //최대 수 표시
+    /*private void LateUpdate()
+    {
+        getSpawnEnemyNumTxts[0].text = $"{spawnM.GetSpawnCountNum(0)} / {spawnM.GetDefaultCountNum(0)}";
+        getSpawnEnemyNumTxts[1].text = $"{spawnM.GetSpawnCountNum(1)} / {spawnM.GetDefaultCountNum(1)}";
+        getSpawnEnemyNumTxts[2].text = $"{spawnM.GetSpawnCountNum(2)} / {spawnM.GetDefaultCountNum(2)}";
+    }*/
+    
+    //원하는 대로 생성 (지금은 알고리즘으로 돌려서 안씀)
+    /*private int TypeToInt(string str) //type을 int로 변환하여 전송
     {
         switch(str) {
             case "M":
@@ -60,5 +74,5 @@ public class EnemySpawner : MonoBehaviour
         else {
             StartCoroutine(StartStage());
         }
-    }
+    }*/
 }
