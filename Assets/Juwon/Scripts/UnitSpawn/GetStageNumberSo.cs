@@ -5,4 +5,5 @@ using UnityEngine;
 public class GetStageNumberSo : ScriptableObject
 {
     public int stageNumber;
+    public float timer;
 }
