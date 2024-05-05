@@ -431,6 +431,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3ec462b879e23d742b3ad185bc81a1d7, type: 2}
   - {fileID: 11400000, guid: 216d321d6357719439ce3acb8ea62134, type: 2}
   - {fileID: 11400000, guid: 14440fb98775e844c8829b3481f60046, type: 2}
+  enemyData: {fileID: 11400000, guid: ad65fb9c1cbf04c46b04b630460e00f5, type: 2}
   enemySpawnPos:
   - {fileID: 958747250}
   - {fileID: 652381340}
@@ -528,7 +529,7 @@ MonoBehaviour:
   bgmClip:
   - {fileID: 8300000, guid: ab34f189a62f1d34a83cb36151f42b89, type: 3}
   - {fileID: 8300000, guid: ff99ef36a573a804c9f422fd43975a3a, type: 3}
-  bgmVolume: 0.35
+  _bgmVolume: 0.35
   sfxClip:
   - {fileID: 8300000, guid: 5fed7333b63026f44916818824c7f981, type: 3}
   - {fileID: 8300000, guid: 53dade11583801342ae4f0dffe7b12bf, type: 3}
@@ -537,7 +538,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 0a6b8acbd18e2b340bf80e84249f4a7a, type: 3}
   - {fileID: 8300000, guid: 6610bd3668b07f84d955c6b39be7eb81, type: 3}
   - {fileID: 8300000, guid: 46f1b2caed55bfe4aa3461f315fe9d32, type: 3}
-  sfxVolume: 0.5
+  _sfxVolume: 0.5
   channels: 6
 --- !u!1 &1036719648
 GameObject:
@@ -1139,6 +1140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _curHealth: 1
+  unitCode: 0
   isOnEntity: 
 --- !u!114 &2085436672
 MonoBehaviour:
