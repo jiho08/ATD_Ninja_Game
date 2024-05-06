@@ -61,11 +61,13 @@ public class EnemyScript : MonoBehaviour
 
     public void TakeDamage()
     {
-        StartCoroutine(BackAway());
+        if(gameObject != null)
+            StartCoroutine(BackAway());
     }
     public void Dealy()
     {
-        StartCoroutine(AttackDealy());
+        if (gameObject != null)
+            StartCoroutine(AttackDealy());
     }
     IEnumerator BackAway()
     {

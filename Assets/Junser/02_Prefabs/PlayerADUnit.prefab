@@ -124,8 +124,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damage: 4
   _AttackSpeed: 1
-  Accelation: 1
-  DefaltAcclation: 1
+  Accelation: 0.05
+  DefaltAcclation: 2
   _trainLength: 2
   _AttackCollision: {fileID: 6000538367989265758}
   _DealayTime: 1

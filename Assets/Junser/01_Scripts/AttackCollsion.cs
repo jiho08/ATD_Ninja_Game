@@ -8,11 +8,12 @@ public class AttackCollsion : MonoBehaviour
     private PlayerUnit _playerUnit;
     private HealthManager _playerHealth;
     private PoolManager _poolM;
-
+    private ParticleSystem _particle;
     private void Awake()
     {
         _playerUnit = GetComponentInParent<PlayerUnit>();
-        
+        _particle = GetComponentInChildren<ParticleSystem>();
+
     }
 
     private void Start()
@@ -34,6 +35,8 @@ public class AttackCollsion : MonoBehaviour
                 _enemy.TakeDamage();
 
                 _playerUnit.TakeDamage();
+                _particle.Play();
+
             }
         }
     }

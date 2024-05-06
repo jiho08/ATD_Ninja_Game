@@ -7,10 +7,13 @@ public class EnemyAttackCollider : MonoBehaviour
     public float _damage = 1;
     private EnemyScript _enemy;
     private HealthManager _playerHealth;
+    private ParticleSystem _particle;
 
     private void Awake()
     {
+        
         _enemy = GetComponentInParent<EnemyScript>();
+        _particle = GetComponentInChildren<ParticleSystem>();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -26,6 +29,7 @@ public class EnemyAttackCollider : MonoBehaviour
 
                 player.TakeDamage();
                 _enemy.TakeDamage();
+                _particle.Play();
             }
         }
     }
