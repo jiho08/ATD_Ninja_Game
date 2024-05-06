@@ -7,6 +7,7 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private PoolManager enemyPool;
 
     [SerializeField] private UnitDataSO[] unitData; //유닛에 레벨에 맞게 스탯 가져오기
+    [SerializeField] private EnemyStatsSo enemyData;
 
     //[SerializeField] private Transform[] unitSpawnPos; //스폰 위치 3개 관리
     [SerializeField] private Transform[] enemySpawnPos;
@@ -17,13 +18,11 @@ public class SpawnManager : MonoBehaviour
     private HealthManager _unitHealth; //생성한 Unit의 HealthManager
     private HealthManager _enemyHealth; //생성한 Enemy의 HealthManager
     private Coroutine _inCorout;
-    private int _unitCode;
     
 
     //원하는 유닛과 위치 생성
     public GameObject UnitSpawn(int value)
     {
-        _unitCode = value;
         if(_getSpawnCounts[value] > _defaultSpawnCounts[value]) 
         {
             AudioManager.Instance.PlaySfx(AudioManager.Sfx.Warning);
@@ -48,7 +47,7 @@ public class SpawnManager : MonoBehaviour
     {
         GameObject enemy = enemyPool.Get(value);
         _enemyHealth = enemy.GetComponent<HealthManager>();
-        _enemyHealth.Health = unitData[value].Hp; //HP설정
+        _enemyHealth.Health = enemyData.enemysData[value].hp; //HP설정
         
         enemy.transform.position = enemySpawnPos[pos-1].position;
         
@@ -56,11 +55,11 @@ public class SpawnManager : MonoBehaviour
     }
     
     //유닛이 부셔지고 일정 시간이 지나면 다시 생성할 수 있게 변경
-    private void HandleRepairCoolTime()
+    private void HandleRepairCoolTime(int value)
     {
-        _inCorout = StartCoroutine(UnitCool(_unitCode));
-        
         this._unitHealth.OnUnitRepairCool -= HandleRepairCoolTime;
+        
+        _inCorout = StartCoroutine(UnitCool(value));
     }
     
     private IEnumerator UnitCool(int value)

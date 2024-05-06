@@ -82,7 +82,7 @@ public class EnemyAlgorithm : MonoBehaviour
 
         if (rand < 2)
         {
-            if (_stageNum == 0) rand = 1;
+            if (_stageNum == 0) _stageNum = 1;
             
             rand = Random.Range(0, _stageNum);
             _enemyNum = rand;
@@ -92,10 +92,18 @@ public class EnemyAlgorithm : MonoBehaviour
                 GameObject enemy = _spawnM.EnemySpawn(rand, Random.Range(1, 4));
                 
                 _setSpawnCounts[rand]++;
-                _enemyList[_enemyNum].Add(enemy);
 
                 _enemyHealth = enemy.GetComponent<HealthManager>();
                 _enemyHealth.OnEnemyRepairCool += HandleRepairCoolTime;
+                
+                foreach (GameObject item in _enemyList[_enemyNum])
+                {
+                    if (item == enemy)
+                    {
+                        return;
+                    }
+                }
+                _enemyList[_enemyNum].Add(enemy);
             }
         }
 
@@ -114,19 +122,17 @@ public class EnemyAlgorithm : MonoBehaviour
         StopCoroutine(_spawnCoolCoru);
     }*/
     
-    private void HandleRepairCoolTime()
+    private void HandleRepairCoolTime(int value)
     {
         _enemyHealth.OnEnemyRepairCool -= HandleRepairCoolTime;
-        _inCoolCoru = EnemyCool(_enemyNum);
+        _inCoolCoru = EnemyCool(value);
         
-        foreach (GameObject item in _enemyList[_enemyNum])
+        foreach (GameObject item in _enemyList[value])
         {
-            if (item.activeSelf == false)
-            {
-                _enemyList[_enemyNum].Remove(item);
-                StartCoroutine(_inCoolCoru);
-                break;
-            }
+            if (!item.activeSelf) continue;
+            
+            StartCoroutine(_inCoolCoru);
+            break;
         }
     }
     
@@ -134,7 +140,6 @@ public class EnemyAlgorithm : MonoBehaviour
     {
         yield return new WaitForSeconds(10f);
         _setSpawnCounts[value]--;
-        
         StopCoroutine(_inCoolCoru);
     }
 }

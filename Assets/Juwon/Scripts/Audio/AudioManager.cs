@@ -9,18 +9,42 @@ public class AudioManager : MonoBehaviour
     
     [Header("#BGM")]
     [SerializeField] private AudioClip[] bgmClip;
-    [SerializeField] private float bgmVolume;
+    [SerializeField] private float _bgmVolume;
     private AudioSource _bgmPlayer;
     
     [Header("#SFX")]
     [SerializeField] private AudioClip[] sfxClip;
-    [SerializeField] private float sfxVolume;
+
+    [SerializeField]private float _sfxVolume;
     private AudioSource[] _sfxPlayers;
 
     [SerializeField] int channels;
     private int _channelIndex;
     
     public enum Sfx { Hit, Btn, Warning, Tower, Level, Victory, Defeat }
+
+    public float BgmVolume
+    {
+        get => _bgmVolume;
+        set
+        {
+            _bgmVolume = value;
+            _bgmPlayer.volume = _bgmVolume;
+        }
+    }
+    
+    public float SfxVolume
+    {
+        get => _sfxVolume;
+        set
+        {
+            _sfxVolume = value;
+            foreach (AudioSource item in _sfxPlayers)
+            {
+                item.volume = _bgmVolume;
+            }
+        }
+    }
     
     private void Awake()
     {
@@ -42,7 +66,7 @@ public class AudioManager : MonoBehaviour
         _bgmPlayer = bgmObj.AddComponent<AudioSource>();
         _bgmPlayer.playOnAwake = false;
         _bgmPlayer.loop = true;
-        _bgmPlayer.volume = bgmVolume;
+        _bgmPlayer.volume = _bgmVolume;
         _bgmPlayer.clip = bgmClip[0];
         
         //효과음 플레이어 초기화
@@ -54,7 +78,7 @@ public class AudioManager : MonoBehaviour
         {
             _sfxPlayers[i] = sfxObj.AddComponent<AudioSource>();
             _sfxPlayers[i].playOnAwake = false;
-            _sfxPlayers[i].volume = sfxVolume;
+            _sfxPlayers[i].volume = _sfxVolume;
         }
     }
 
