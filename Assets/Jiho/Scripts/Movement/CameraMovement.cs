@@ -8,6 +8,11 @@ public class CameraMovement : MonoBehaviour
     [SerializeField] Transform _MainPosition;
     bool check = false;
 
+    private void Start()
+    {
+        AudioManager.Instance.PlayBgm(true, 0);
+    }
+
     private void FixedUpdate()
     {
         if (check) // == check == ture
@@ -20,7 +25,7 @@ public class CameraMovement : MonoBehaviour
         }
     }
     public void ClickSetting()
-    {
+    {   
         check = true;
     }
     public void ClickMain()
