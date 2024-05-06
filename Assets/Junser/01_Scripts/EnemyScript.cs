@@ -17,6 +17,7 @@ public class EnemyScript : MonoBehaviour
     [SerializeField]
     private float _damage;
     public float _GetDamage { get { return _damage; } set { _damage = value; } }
+    private ParticleSystem _particle;
 
     [SerializeField]
     private GameObject _AttackCollision;
@@ -28,10 +29,13 @@ public class EnemyScript : MonoBehaviour
     private float _DealayTime;
     //코루틴
 
+    
+
     private void Awake()
     {
         //컴포넌트 받기
         _Rigid = GetComponent<Rigidbody2D>();
+        _particle = GetComponentInChildren<ParticleSystem>();
     }
 
     private void Start()
@@ -61,15 +65,22 @@ public class EnemyScript : MonoBehaviour
 
     public void TakeDamage()
     {
-        StartCoroutine(BackAway());
+        if (this.gameObject.activeSelf)
+        {
+            StartCoroutine(BackAway());
+            _particle.Play();
+        }
+
+
     }
     public void Dealy()
     {
-        StartCoroutine(AttackDealy());
+        if (gameObject != null)
+            StartCoroutine(AttackDealy());
     }
     IEnumerator BackAway()
     {
-        yield return new WaitForSecondsRealtime(0.1f);
+
 
         transform.rotation = Quaternion.Euler(0, 0, -35);
         transform.position = new Vector3(transform.position.x, _defaltPos + 0.53522833687f);
@@ -87,7 +98,6 @@ public class EnemyScript : MonoBehaviour
 
     IEnumerator AttackDealy()
     {
-        yield return new WaitForSecondsRealtime(0.1f);
 
         Accelation = -DefaltAcclation * 2;
 

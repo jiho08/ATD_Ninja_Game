@@ -5,10 +5,13 @@ public class HealthManager : MonoBehaviour
     //Hp가 들어가는 유닛에 넣기
     [SerializeField] private float _curHealth = 1;
 
-    public delegate void RepairCool();
+    public delegate void RepairEnemyCool(int value);
+    public delegate void RepairUnitCool();
+    
+    public RepairUnitCool OnUnitRepairCool;
+    public RepairEnemyCool OnEnemyRepairCool;
 
-    public RepairCool OnUnitRepairCool;
-    public RepairCool OnEnemyRepairCool;
+    [SerializeField] private int unitCode;
     [SerializeField] bool[] isOnEntity; //0:unit, 1:Enemy, 2:tower
 
     public float Health
@@ -27,7 +30,7 @@ public class HealthManager : MonoBehaviour
             }
             else if (_curHealth <= 0 && isOnEntity[1])
             {
-                OnEnemyRepairCool?.Invoke();
+                OnEnemyRepairCool?.Invoke(unitCode);
                 gameObject.SetActive(false);
             }
             

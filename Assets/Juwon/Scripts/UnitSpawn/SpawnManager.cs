@@ -7,6 +7,7 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private PoolManager enemyPool;
 
     [SerializeField] private UnitDataSO[] unitData; //유닛에 레벨에 맞게 스탯 가져오기
+    [SerializeField] private EnemyStatsSo enemyData;
 
     //[SerializeField] private Transform[] unitSpawnPos; //스폰 위치 3개 관리
     [SerializeField] private Transform[] enemySpawnPos;
@@ -35,7 +36,7 @@ public class SpawnManager : MonoBehaviour
         _unitHealth = unit.GetComponent<HealthManager>();
         _unitHealth.Health = unitData[value].Hp; //HP설정
         _unitHealth.Damage = unitData[value].Atk; //데미지 설정
-        unit.GetComponent<PlayerUnit>().DefaltAcclation = unitData[value].Speed; //Speed 설정
+        unit.GetComponent<PlayerUnit>()._maxSpeed = unitData[value].Speed; //Speed 설정
 
         this._unitHealth.OnUnitRepairCool += HandleRepairCoolTime;
         
@@ -48,7 +49,7 @@ public class SpawnManager : MonoBehaviour
     {
         GameObject enemy = enemyPool.Get(value);
         _enemyHealth = enemy.GetComponent<HealthManager>();
-        _enemyHealth.Health = unitData[value].Hp; //HP설정
+        _enemyHealth.Health = enemyData.enemysData[value].hp; //HP설정
         
         enemy.transform.position = enemySpawnPos[pos-1].position;
         
@@ -58,9 +59,9 @@ public class SpawnManager : MonoBehaviour
     //유닛이 부셔지고 일정 시간이 지나면 다시 생성할 수 있게 변경
     private void HandleRepairCoolTime()
     {
-        _inCorout = StartCoroutine(UnitCool(_unitCode));
-        
         this._unitHealth.OnUnitRepairCool -= HandleRepairCoolTime;
+        
+        _inCorout = StartCoroutine(UnitCool(_unitCode));
     }
     
     private IEnumerator UnitCool(int value)
