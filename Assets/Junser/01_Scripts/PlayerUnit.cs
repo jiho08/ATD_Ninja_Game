@@ -129,7 +129,7 @@ public class PlayerUnit : MonoBehaviour
 
         _AttackCollision.gameObject.SetActive(false);
 
-        yield return new WaitForSecondsRealtime(_DealayTime);
+        yield return new WaitForSeconds(_DealayTime);
 
         Accelation = _maxSpeed;
         _accel = 0;
@@ -146,7 +146,7 @@ public class PlayerUnit : MonoBehaviour
 
         Accelation = -_maxSpeed;
 
-        yield return new WaitForSecondsRealtime(_DealayTime);
+        yield return new WaitForSeconds(_DealayTime);
 
         _AttackCollision.gameObject.SetActive(true);
 

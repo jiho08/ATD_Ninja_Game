@@ -30,7 +30,7 @@ public class Firsttrain : MonoBehaviour
         transform.position = new Vector3(transform.position.x, _defaltPos + 0.53522833687f);
 
 
-        yield return new WaitForSecondsRealtime(_dealayTime);
+        yield return new WaitForSeconds(_dealayTime);
 
         transform.rotation = Quaternion.Euler(0, 0, 0);
         transform.position = new Vector3(transform.position.x, _defaltPos);
