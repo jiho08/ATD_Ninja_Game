@@ -16,6 +16,11 @@ public class HealthBar : MonoBehaviour
         _curHpValue = health.Health;
         //만약 맞았다면 if로 넣기
         hpBarObj.transform.localScale = new Vector3(_curHpValue / _maxHpValue * 5f, 0.5f, 0.5f); //healthManager에서 최대체력과 현재 체력 넣기
-        if(_curHpValue <= 0) health.Health = 0;
+        //if(_curHpValue <= 0) health.Health = 0;
+
+        if (Input.GetButtonDown("Jump"))
+        {
+            health.Health = 0;
+        }
     }
 }

@@ -5,9 +5,15 @@ using TMPro;
 
 public class UpgradeManager : MonoBehaviour
 {
+    [SerializeField] SelectManager selectManager;
+    [SerializeField] BarManager barManager;
+    [SerializeField] ResourceTxtManager resourceTxtManager;
+
     [SerializeField] TextMeshProUGUI ktxLevelText;
     [SerializeField] TextMeshProUGUI mghLevelText;
     [SerializeField] TextMeshProUGUI line1LevelText;
+
+    float currentMoney;
 
     private void Start()
     {
@@ -16,18 +22,22 @@ public class UpgradeManager : MonoBehaviour
 
     public void Upgrade()
     {
-        if (SelectManager.selectInstance.selectedSO.level < 5)
+        currentMoney = ResourceManager.instance.GetRsc();
+        if (selectManager.selectedSO.level < 5 && ResourceManager.instance.GetRsc() >= selectManager.selectedPriceSO.UpgradePrice[selectManager.selectedSO.level - 1])
         {
-            SelectManager.selectInstance.selectedSO.level++;
-            SelectManager.selectInstance.Selecting();
+            selectManager.selectedSO.level++;
+            barManager.ChangeBar();
             ChangeLevelText();
+            ResourceManager.instance.SetRsc(-(selectManager.selectedPriceSO.UpgradePrice[selectManager.selectedSO.level - 1]));
+            resourceTxtManager.ChangeResource();
+            resourceTxtManager.ChangeUpgradePrice();
         }
     }
 
     void ChangeLevelText()
     {
-        ktxLevelText.text = $"{SelectManager.selectInstance.ktxSO.level}/5";
-        mghLevelText.text = $"{SelectManager.selectInstance.mghSO.level}/5";
-        line1LevelText.text = $"{SelectManager.selectInstance.line1SO.level}/5";
+        ktxLevelText.text = $"{selectManager.ktxSO.level}/5";
+        mghLevelText.text = $"{selectManager.mghSO.level}/5";
+        line1LevelText.text = $"{selectManager.line1SO.level}/5";
     }
 }
