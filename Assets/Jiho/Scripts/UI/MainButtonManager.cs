@@ -16,7 +16,7 @@ public class MainButtonManager : MonoBehaviour
     public void GameStart()
     {
         AudioManager.Instance.PlaySfx(AudioManager.Sfx.Btn);
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     public void Quit()
