@@ -30,10 +30,11 @@ Transform:
   m_GameObject: {fileID: 1405501123353516920}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.55, y: 0.01, z: 0}
-  m_LocalScale: {x: 2.5, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1384346485705597818}
   - {fileID: 859180225392857997}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -173,12 +174,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e439050a6460d6a43b9c3390403b42a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _AttackSpeed: 0.5
+  _AttackSpeed: 5
   Accelation: -1
-  DefaltAcclation: -1
+  DefaltAcclation: -2
   _damage: 0
   _AttackCollision: {fileID: 6812799936799525467}
-  _DealayTime: 1
+  _DealayTime: 2
 --- !u!114 &-4766673309490735270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,7 +192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30f18eaf22a931240b8511474e448a1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  curHealth: 0
+  curHealth: 4
 --- !u!1 &6812799936799525467
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,7 +204,7 @@ GameObject:
   - component: {fileID: 859180225392857997}
   - component: {fileID: 7346868599315637095}
   - component: {fileID: 4175962778030224397}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: EnemyAttackCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -222,8 +223,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1384346485705597818}
+  m_Children: []
   m_Father: {fileID: 4047579576619478550}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &7346868599315637095
@@ -290,7 +290,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 859180225392857997}
+    m_TransformParent: {fileID: 4047579576619478550}
     m_Modifications:
     - target: {fileID: 2864449849505924606, guid: dbe6cc6a5f7922545babac882773b1b0, type: 3}
       propertyPath: m_LocalScale.x
@@ -298,7 +298,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2864449849505924606, guid: dbe6cc6a5f7922545babac882773b1b0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.52
+      value: -0.5200001
       objectReference: {fileID: 0}
     - target: {fileID: 2864449849505924606, guid: dbe6cc6a5f7922545babac882773b1b0, type: 3}
       propertyPath: m_LocalPosition.y
@@ -363,6 +363,10 @@ PrefabInstance:
     - target: {fileID: 8885453305831910123, guid: dbe6cc6a5f7922545babac882773b1b0, type: 3}
       propertyPath: m_Name
       value: Particle System
+      objectReference: {fileID: 0}
+    - target: {fileID: 8885453305831910123, guid: dbe6cc6a5f7922545babac882773b1b0, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

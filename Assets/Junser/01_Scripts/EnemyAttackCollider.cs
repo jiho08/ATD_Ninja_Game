@@ -13,7 +13,6 @@ public class EnemyAttackCollider : MonoBehaviour
     {
         
         _enemy = GetComponentInParent<EnemyScript>();
-        _particle = GetComponentInChildren<ParticleSystem>();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -25,11 +24,9 @@ public class EnemyAttackCollider : MonoBehaviour
 
             if(player != null)
             {
-                _playerHealth.Health = _playerHealth.Health - _playerHealth.Damage;
+                _playerHealth.Health = _playerHealth.Health - _damage;
 
                 player.TakeDamage();
-                _enemy.TakeDamage();
-                _particle.Play();
             }
         }
     }

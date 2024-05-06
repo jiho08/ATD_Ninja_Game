@@ -8,11 +8,9 @@ public class AttackCollsion : MonoBehaviour
     private PlayerUnit _playerUnit;
     private HealthManager _playerHealth;
     private PoolManager _poolM;
-    private ParticleSystem _particle;
     private void Awake()
     {
         _playerUnit = GetComponentInParent<PlayerUnit>();
-        _particle = GetComponentInChildren<ParticleSystem>();
 
     }
 
@@ -22,22 +20,19 @@ public class AttackCollsion : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision != null && collision.tag == "Enemy")
+        if (collision.tag == "Enemy")
         {
+
             _playerHealth = collision.gameObject.GetComponent<HealthManager>();
 
             EnemyScript _enemy = collision.gameObject.GetComponent<EnemyScript>();
 
 
-            if (_playerUnit != null)
-            {
-                _playerHealth.Health = _playerHealth.Health - _playerHealth.Damage;
-                _enemy.TakeDamage();
+            _playerHealth.Health = _playerHealth.Health - _damage;
 
-                _playerUnit.TakeDamage();
-                _particle.Play();
+            _enemy.TakeDamage();
 
-            }
+
         }
     }
 }

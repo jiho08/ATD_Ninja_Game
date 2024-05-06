@@ -24,7 +24,6 @@ public class Firsttrain : MonoBehaviour
     private IEnumerator HitBehaveCoroutine()
     {
         _defaltPos = transform.position.y;
-        yield return null;
 
 
         transform.rotation = Quaternion.Euler(0, 0, 35);

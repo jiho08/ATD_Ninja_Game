@@ -11,7 +11,7 @@ public class HealthManager : MonoBehaviour
         set
         {
             curHealth = value;
-            
+
             if (curHealth <= 0)
             {
                 gameObject.SetActive(false);

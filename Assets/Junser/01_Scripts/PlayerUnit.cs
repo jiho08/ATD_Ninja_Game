@@ -33,6 +33,9 @@ public class PlayerUnit : MonoBehaviour
     private Rigidbody2D _Rigid;
     private Firsttrain _firstTrain;
     private HealthManager _playerHealth;
+    private ParticleSystem _particle;
+    private TrailRenderer _tail;
+
     //컴포넌트 받아와야하는것들
 
     public float _DealayTime;
@@ -48,7 +51,10 @@ public class PlayerUnit : MonoBehaviour
         _Rigid = GetComponent<Rigidbody2D>();
         _firstTrain = GetComponentInChildren<Firsttrain>();
         _playerHealth = GetComponent<HealthManager>();
+        _particle = GetComponentInChildren<ParticleSystem>();
     }
+
+    
 
     private void Start()
     {
@@ -86,27 +92,42 @@ public class PlayerUnit : MonoBehaviour
         _Rigid.velocity = new Vector2(1, 0) * _accel;
     }
 
+    public int GetTrainLength()
+    {
+        return _trainLength;
+    }
+
+    public float GetTrainAttackSpeed()
+    {
+        return _AttackSpeed;
+    }
+
     public void TakeDamage()//피격 메서드
     {
-        StartCoroutine("BackAway");
+        if (this.gameObject.activeSelf)
+        {
+            _particle.Play();
+            StartCoroutine("BackAway");
+            _firstTrain.HitBehave();
+        }
 
-        _firstTrain.HitBehave();
     }
 
     public void Dealy()//공격 딜레이
     {
-        StartCoroutine(AttackDealy());
+        if (this.gameObject.activeSelf)
+        {
+            StartCoroutine(AttackDealy());
+        }
     }
 
     IEnumerator BackAway()//피격 행동 코루틴
     {
         _accel = 0;
-        yield return new WaitForSecondsRealtime(0.1f);
 
         Accelation = -_maxSpeed * 2;
 
         _AttackCollision.gameObject.SetActive(false);
-
 
         yield return new WaitForSecondsRealtime(_DealayTime);
 
@@ -119,9 +140,8 @@ public class PlayerUnit : MonoBehaviour
 
     IEnumerator AttackDealy()// 공격 딜레이 코루틴
     {
-        _accel = 0;
 
-        yield return new WaitForSecondsRealtime(0.1f);
+        _accel = 0;
 
 
         Accelation = -_maxSpeed;
