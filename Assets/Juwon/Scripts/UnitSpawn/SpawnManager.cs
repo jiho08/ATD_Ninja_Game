@@ -36,7 +36,7 @@ public class SpawnManager : MonoBehaviour
         _unitHealth = unit.GetComponent<HealthManager>();
         _unitHealth.Health = unitData[value].Hp; //HP설정
         _unitHealth.Damage = unitData[value].Atk; //데미지 설정
-        unit.GetComponent<PlayerUnit>().DefaltAcclation = unitData[value].Speed; //Speed 설정
+        unit.GetComponent<PlayerUnit>()._maxSpeed = unitData[value].Speed; //Speed 설정
 
         this._unitHealth.OnUnitRepairCool += HandleRepairCoolTime;
         
