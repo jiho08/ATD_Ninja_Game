@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
@@ -6,6 +5,8 @@ public class SpawnManager : MonoBehaviour
 {
     [SerializeField] private PoolManager unitPool;
     [SerializeField] private PoolManager enemyPool;
+
+    [SerializeField] private UIInputManager[] uiInputM;
 
     [SerializeField] private UnitDataSO[] unitData; //유닛에 레벨에 맞게 스탯 가져오기
     [SerializeField] private EnemyStatsSo enemyData;
@@ -31,6 +32,9 @@ public class SpawnManager : MonoBehaviour
     private void Start()
     {
         currentUnitNum.Value = _defaultSpawnCounts[0];
+        uiInputM[0].OnUnitNumChange += HandleUnitSpawn;
+        uiInputM[1].OnUnitNumChange += HandleUnitSpawn;
+        uiInputM[2].OnUnitNumChange += HandleUnitSpawn;
     }
 
     //원하는 유닛과 위치 생성
@@ -51,8 +55,6 @@ public class SpawnManager : MonoBehaviour
 
         this._unitHealth.OnUnitRepairCool += HandleRepairCoolTime;
         
-        _getSpawnCounts[value]++;
-        currentUnitNum.Value = GetSpawnCounts[value];
         return unit;
     }
 
@@ -75,7 +77,12 @@ public class SpawnManager : MonoBehaviour
         
         _inCorout = StartCoroutine(UnitCool(value));
     }
-    
+
+    private void HandleUnitSpawn(int value)
+    {
+        _getSpawnCounts[value]++;
+        currentUnitNum.Value = GetSpawnCounts[value];
+    }
     private IEnumerator UnitCool(int value)
     {
         yield return new WaitForSeconds(10f);
