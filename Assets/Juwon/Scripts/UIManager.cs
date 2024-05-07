@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour
     
     [SerializeField] private TextMeshProUGUI[] getSpawnEnemyNumTxts;
     
+    [SerializeField] private GameObject gameclearPanel;
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private TextMeshProUGUI curTimerScore;
     [SerializeField] private TextMeshProUGUI clearTimerScore;
@@ -46,6 +47,4 @@ public class UIManager : MonoBehaviour
     {
         clearTimerScore.text = $"{value / 60} : {value % 60}";
     }
-
-
 }
