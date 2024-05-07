@@ -14,8 +14,8 @@ public class TutorialUI : MonoBehaviour
     [SerializeField] private GameObject butten;
     [SerializeField] private Text text;
     [SerializeField] private GameObject cam;
-    [SerializeField] private GameObject enemyPos;
-    [SerializeField] private GameObject playerPod;
+    [SerializeField] private Transform enemyPos;
+    [SerializeField] private Transform playerPod;
 
     [SerializeField] private string[] tuto;
     [SerializeField] private float[] tutoNum;
@@ -31,7 +31,9 @@ public class TutorialUI : MonoBehaviour
         spawnM.currentUnitNum.OnValueChanged += Tutorial02Start;
         count = 0;
         Off();
+        
         StartCoroutine(Tutorial01());
+
     }
 
     private void Update()
@@ -68,9 +70,12 @@ public class TutorialUI : MonoBehaviour
             case 3:
                 StartCoroutine(Tutorial04());
                 break;
-            case 5:
-                StartCoroutine(Tutorial06());
+            case 4:
+                StartCoroutine(Tutorial05());
                 break;
+            //case 5:
+            //    StartCoroutine(Tutorial06());
+            //    break;
         }
     }
 
@@ -90,11 +95,13 @@ public class TutorialUI : MonoBehaviour
 
     private void Tutorial02Start(int prev, int next)
     {
-        StartCoroutine(Tutorial05());
+        StartCoroutine(Tutorial06());
     }
 
     IEnumerator Tutorial01()
     {
+        Debug.Log("tlatlago");
+        cam.transform.position = Vector3.Lerp(cam.transform.position, new Vector3(enemyPos.transform.position.x, cam.transform.position.y, cam.transform.position.z), 1f);
         yield return new WaitForSecondsRealtime(2);
         Debug.Log(1);
         On();
@@ -105,7 +112,6 @@ public class TutorialUI : MonoBehaviour
     }
     IEnumerator Tutorial02() 
     {
-        cam.transform.DOMove(new Vector3(enemyPos.transform.position.x,transform.position.y,transform.position.z), 1);
         yield return new WaitForSecondsRealtime(1f + 0.5f);
         Debug.Log(2);
         On();
