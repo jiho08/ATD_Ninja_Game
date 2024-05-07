@@ -33,25 +33,11 @@ public class MapButtonClick : MonoBehaviour
         if (mapButtonClicked)
         {
             mapButtonClicked = false;
-            SetStageFalse();
         }
         else
         {
             mapButtonClicked = true;
-            Invoke("SetStageTrue", 1);
         }
     }
 
-    private void SetStageTrue()
-    {
-        Stages.SetActive(true);
-        StageViews.SetActive(true);
-        RedDot.SetActive(true);
-    } 
-    private void SetStageFalse()
-    {
-        Stages.SetActive(false);
-        StageViews.SetActive(false);
-        RedDot.SetActive(false);
-    }
 }
