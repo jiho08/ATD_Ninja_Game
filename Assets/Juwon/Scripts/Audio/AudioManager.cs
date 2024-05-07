@@ -1,7 +1,4 @@
-using System;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class AudioManager : MonoBehaviour
 {
@@ -15,7 +12,7 @@ public class AudioManager : MonoBehaviour
     [Header("#SFX")]
     [SerializeField] private AudioClip[] sfxClip;
 
-    [SerializeField]private float _sfxVolume;
+    [SerializeField] private float _sfxVolume;
     private AudioSource[] _sfxPlayers;
 
     [SerializeField] int channels;
@@ -41,7 +38,7 @@ public class AudioManager : MonoBehaviour
             _sfxVolume = value;
             foreach (AudioSource item in _sfxPlayers)
             {
-                item.volume = _bgmVolume;
+                item.volume = _sfxVolume;
             }
         }
     }

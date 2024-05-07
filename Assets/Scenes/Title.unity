@@ -1845,7 +1845,19 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1182016139}
+        m_TargetAssemblyTypeName: SetVolume, Assembly-CSharp
+        m_MethodName: SfxVolumeControl
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &681968075
 GameObject:
   m_ObjectHideFlags: 0
@@ -2967,6 +2979,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1104690467}
   m_CullTransparentMesh: 1
+--- !u!1 &1182016138
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1182016140}
+  - component: {fileID: 1182016139}
+  m_Layer: 0
+  m_Name: Volume Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1182016139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1182016138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06dd521cbc2304b46a243bfa45f768b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bgmVolumeSlid: {fileID: 1951094659}
+  sfxVolumeSlid: {fileID: 676870054}
+--- !u!4 &1182016140
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1182016138}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1291258216
 GameObject:
   m_ObjectHideFlags: 0
@@ -3268,7 +3326,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2450, y: -150}
+  m_AnchoredPosition: {x: 2450, y: -155}
   m_SizeDelta: {x: 200, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1705822871
@@ -3530,7 +3588,7 @@ MonoBehaviour:
   bgmClip:
   - {fileID: 8300000, guid: ab34f189a62f1d34a83cb36151f42b89, type: 3}
   - {fileID: 8300000, guid: ff99ef36a573a804c9f422fd43975a3a, type: 3}
-  bgmVolume: 0.33
+  _bgmVolume: 0.35
   sfxClip:
   - {fileID: 8300000, guid: 5fed7333b63026f44916818824c7f981, type: 3}
   - {fileID: 8300000, guid: 53dade11583801342ae4f0dffe7b12bf, type: 3}
@@ -3539,7 +3597,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 0a6b8acbd18e2b340bf80e84249f4a7a, type: 3}
   - {fileID: 8300000, guid: 6610bd3668b07f84d955c6b39be7eb81, type: 3}
   - {fileID: 8300000, guid: 46f1b2caed55bfe4aa3461f315fe9d32, type: 3}
-  sfxVolume: 0.5
+  _sfxVolume: 0.5
   channels: 10
 --- !u!4 &1847668176
 Transform:
@@ -4076,13 +4134,13 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1847668174}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: 
+      - m_Target: {fileID: 1182016139}
+        m_TargetAssemblyTypeName: SetVolume, Assembly-CSharp
+        m_MethodName: BgmVolumeControl
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4915,3 +4973,4 @@ SceneRoots:
   - {fileID: 256955052}
   - {fileID: 2056709712}
   - {fileID: 1847668176}
+  - {fileID: 1182016140}

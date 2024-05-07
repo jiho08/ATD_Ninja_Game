@@ -2,30 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
 
 public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler //,IDropHandler
 {
-    public int UnitCode; //ÁøÂ¥ À¯´Ö
-    private GameObject Clone; //ÀÓ½Ã·Î À¯´Ö ´ãÀ»°Å
+    [FormerlySerializedAs("UnitCode")] public int unitCode; //ì§„ì§œ ìœ ë‹›
+    private GameObject Clone; //ì„ì‹œë¡œ ìœ ë‹› ë‹´ì„ê±°
+
+    public delegate void UnitSpawnNumChange(int value);
+
+    public UnitSpawnNumChange OnUnitNumChange;
+
+    private BoxCollider2D collider; // ìœ ë‹›ì˜ ì½œë¼ì´ë” 
 
 
-
-    private BoxCollider2D collider; // À¯´ÖÀÇ Äİ¶óÀÌ´õ 
-
-
+    private PlayerUnit UnitMovemate2; // ìœ ë‹›ì˜ ì›€ì§ì„ ìŠ¤í¬ë¦½íŠ¸
     [SerializeField]
-    private PlayerUnit UnitMovemate2; // À¯´ÖÀÇ ¿òÁ÷ÀÓ ½ºÅ©¸³Æ®
-    [SerializeField]
-    private SpawnManager spawnM; // À¯´Ö ¼ÒÈ¯ ½ºÅ©¸³Æ®
+    private SpawnManager spawnM; // ìœ ë‹› ì†Œí™˜ ìŠ¤í¬ë¦½íŠ¸
+    private AttackCollsion attCollsion;//ìœ ë‹› ê·¼ì ‘ ê³µê²© ì½œë¼ì´ë” ìŠ¤í¬ë¦½íŠ¸
+    private BoxCollider2D attCollider;//ìœ ë‹› ê·¼ì ‘ ê³µê²© ì½œë¼ì´ë”
+    private PlayerADUnit adAtt; //ì›ê±°ë¦¬ ìœ ë‹› ê³µê²© ìŠ¤í¬ë¦½íŠ¸    
 
-    private SpriteRenderer _cloneRenderer; //À¯´ÖÀÇ »öº¯°æÀ» À§ÇÑ ½ºÇÁ¶óÀÌÆ® ·»´õ·¯
+    private bool isAD; //ê·¼ì ‘ ê³µê²©ìœ ë‹›ì¸ê°€ ì•„ë‹Œê°€
+
+    private SpriteRenderer _cloneRenderer; //ìœ ë‹›ì˜ ìƒ‰ë³€ê²½ì„ ìœ„í•œ ìŠ¤í”„ë¼ì´íŠ¸ ë Œë”ëŸ¬
 
 
-    private Vector3 targetPosition; // À¯´ÖÀÇ ¸¶¿ì½º Æ÷ÀÎÅÍ µû¶ó°¡°Ô ÇÏ±âÀ§ÇÑ ºäÆ÷ÀÎÅÍ
+    private Vector3 targetPosition; // ìœ ë‹›ì˜ ë§ˆìš°ìŠ¤ í¬ì¸í„° ë”°ë¼ê°€ê²Œ í•˜ê¸°ìœ„í•œ ë·°í¬ì¸í„°
 
 
-    //[SerializeField] 
-    //private Vector3 posi1;
+
     private void Awake()
     {
         //camera = Camera.main;
@@ -38,7 +44,7 @@ public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
-        Clone = spawnM.UnitSpawn(UnitCode);
+        Clone = spawnM.UnitSpawn(unitCode);
 
         if (Clone == null) return;
 
@@ -46,12 +52,27 @@ public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         UnitMovemate2 = Clone.GetComponent<PlayerUnit>();
         collider = Clone.GetComponent<BoxCollider2D>();
 
+        if (Clone.gameObject.GetComponent<PlayerADUnit>() != null)
+        {
+            isAD = true;
+            adAtt = Clone.GetComponent<PlayerADUnit>();
+            adAtt.enabled = false;
+        }
+        else if(Clone.gameObject.GetComponent<PlayerADUnit>() == null)
+        {
+            isAD = false;
+            attCollsion =  Clone.transform.GetChild(0).GetChild(1).GetComponent<AttackCollsion>();
+            attCollider =  Clone.transform.GetChild(0).GetChild(1).GetComponent<BoxCollider2D>();
+            attCollsion.enabled = false;
+            attCollider.enabled = false;
+        }
+
         Color32 c = _cloneRenderer.color;
         _cloneRenderer.color = new Color32(c.r, c.g, c.b, 100);
 
         UnitMovemate2.enabled = false;
 
-        collider.isTrigger = true;
+        collider.enabled = false;
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -63,34 +84,49 @@ public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         Clone.transform.position = new Vector3(targetPosition.x, targetPosition.y, 0);
         //transform.position = new Vector3(eventData.position.x, eventData.position.y, 0);
         //Debug.Log(eventData);
-
-
     }
 
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        if (Clone == null) return;
+        if (Clone == null)
+        {
+            //Debug.Log("ìƒì„± ì•ˆë¼ì•¼í•¨");
+            return;
+        }
 
         if (RailInput.onRail)
         {
+            collider.enabled = true;
             UnitMovemate2.enabled = true;
             Color32 c = _cloneRenderer.color;
             _cloneRenderer.color = new Color32(c.r, c.g, c.b, 255);
+            if (isAD)
+            {
+                adAtt.enabled = true;
+            }
+            else if(!isAD)
+            {
+                attCollsion.enabled = true;
+                attCollider.enabled = true;
+            }
 
             collider.isTrigger = false;
             RailInput.onRail = false;
-            Clone.transform.position = new Vector3(RailInput.raillTrans.x,RailInput.raillTrans.y,0);
+            Clone.transform.position = new Vector3(RailInput.raillTrans.x, RailInput.raillTrans.y, 0);
+            
+            //ì•„êµ° ì¹´ìš´íŠ¸ ì˜¬ë¦¬ê¸°
+            OnUnitNumChange.Invoke(unitCode);
         }
 
         else if (!RailInput.onRail)
         {
             Clone.SetActive(false);
-            
+            AudioManager.Instance.PlaySfx(AudioManager.Sfx.Warning);
         }
     }
 
-    
+
 
 
 }
