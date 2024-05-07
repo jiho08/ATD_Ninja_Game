@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -9,6 +10,8 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private UnitDataSO[] unitData; //유닛에 레벨에 맞게 스탯 가져오기
     [SerializeField] private EnemyStatsSo enemyData;
 
+    public NotifyValue<int[]> currentUnitNum;
+
     //[SerializeField] private Transform[] unitSpawnPos; //스폰 위치 3개 관리
     [SerializeField] private Transform[] enemySpawnPos;
 
@@ -18,7 +21,11 @@ public class SpawnManager : MonoBehaviour
     private HealthManager _unitHealth; //생성한 Unit의 HealthManager
     private HealthManager _enemyHealth; //생성한 Enemy의 HealthManager
     private Coroutine _inCorout;
-    
+
+    private void Start()
+    {
+        currentUnitNum.Value = _getSpawnCounts;
+    }
 
     //원하는 유닛과 위치 생성
     public GameObject UnitSpawn(int value)
@@ -39,6 +46,7 @@ public class SpawnManager : MonoBehaviour
         this._unitHealth.OnUnitRepairCool += HandleRepairCoolTime;
         
         _getSpawnCounts[value]++;
+        currentUnitNum.Value = _getSpawnCounts;
         return unit;
     }
 
@@ -67,6 +75,8 @@ public class SpawnManager : MonoBehaviour
         yield return new WaitForSeconds(10f);
 
         _getSpawnCounts[value]--;
+        currentUnitNum.Value = _getSpawnCounts;
+
 
         StopCoroutine(_inCorout);
     }
@@ -74,5 +84,10 @@ public class SpawnManager : MonoBehaviour
     public void SetDefaultCounts(int value, int count) //value의 번호에 유닛 제한수를 count로 제한
     {
         _defaultSpawnCounts[value] = count;
+    }
+    
+    public int GetDefaultCounts(int value) //value의 번호에 유닛 제한수를 count로 제한
+    {
+        return _defaultSpawnCounts[value];
     }
 }

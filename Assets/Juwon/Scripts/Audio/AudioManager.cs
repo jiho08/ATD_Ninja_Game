@@ -1,7 +1,4 @@
-using System;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class AudioManager : MonoBehaviour
 {
@@ -100,6 +97,8 @@ public class AudioManager : MonoBehaviour
     //효과음 재생(AudioManager.Instance.PlaySfx(AudioManager.Sfx.실행할 효과음); 형태로 사용)
     public void PlaySfx(Sfx sfx)
     {
+        if(Instance == null) return;
+        
         for (int i = 0; i < _sfxPlayers.Length; i++)
         {
             int loopIndex = (i + _channelIndex) % _sfxPlayers.Length;
