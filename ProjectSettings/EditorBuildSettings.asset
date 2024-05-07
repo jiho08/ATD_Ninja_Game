@@ -7,10 +7,7 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 0
     path: Assets/Gyeongwon/00.Scenes/MainMenu.unity
-    guid: 807ad05151e10a448ab6408026aec3ba
-  - enabled: 1
-    path: Assets/Gyeongwon/00.Scenes/WorldMap.unity
-    guid: 9bc5aa3dac47e6b4abeb8f46b0620735
+    guid: bdbd39b2b3bd4e945afd2efdfea05d1d
   - enabled: 1
     path: Assets/Juwon/Scenes/Juwon.unity
     guid: 55238127ab289d2449f4d2eec240b7d2
