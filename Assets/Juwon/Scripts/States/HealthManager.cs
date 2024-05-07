@@ -6,7 +6,7 @@ public class HealthManager : MonoBehaviour
     [SerializeField] private float _curHealth = 1;
 
     public delegate void RepairEnemyCool(int value);
-    public delegate void RepairUnitCool();
+    public delegate void RepairUnitCool(int value);
     
     public RepairUnitCool OnUnitRepairCool;
     public RepairEnemyCool OnEnemyRepairCool;
@@ -25,7 +25,7 @@ public class HealthManager : MonoBehaviour
             
             if (_curHealth <= 0 && isOnEntity[0])
             {
-                OnUnitRepairCool?.Invoke();
+                OnUnitRepairCool?.Invoke(unitCode);
                 gameObject.SetActive(false);
             }
             else if (_curHealth <= 0 && isOnEntity[1])
