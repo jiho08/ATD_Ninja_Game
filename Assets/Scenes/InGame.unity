@@ -6613,6 +6613,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3ec462b879e23d742b3ad185bc81a1d7, type: 2}
   - {fileID: 11400000, guid: 216d321d6357719439ce3acb8ea62134, type: 2}
   - {fileID: 11400000, guid: 14440fb98775e844c8829b3481f60046, type: 2}
+  enemyData: {fileID: 0}
   enemySpawnPos:
   - {fileID: 1432351663}
   - {fileID: 1278904306}
