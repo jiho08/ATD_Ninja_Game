@@ -45,5 +45,10 @@ public class GameManager : MonoBehaviour
             OnMinValue.Invoke(_maxTime);
         }
     }
+
+    public void SetNextLevelUp()
+    {
+        stageNum.stageNumber++;
+    }
     
 }
