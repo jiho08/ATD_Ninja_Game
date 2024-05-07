@@ -10,13 +10,19 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private UnitDataSO[] unitData; //유닛에 레벨에 맞게 스탯 가져오기
     [SerializeField] private EnemyStatsSo enemyData;
 
-    public NotifyValue<int[]> currentUnitNum;
+    public NotifyValue<int> currentUnitNum;
 
     //[SerializeField] private Transform[] unitSpawnPos; //스폰 위치 3개 관리
     [SerializeField] private Transform[] enemySpawnPos;
 
     private readonly int[] _defaultSpawnCounts = new int[10]; //유닛 수만큼 넣기 (0 : 무궁화, 1 : 무언가, 2 : 등등)
-    private readonly int[] _getSpawnCounts = new int[10]; //소환된 유닛 수만큼 넣기 (0 : 무궁화, 1 : 무언가, 2 : 등등)
+    private int[] _getSpawnCounts = new int[10]; //소환된 유닛 수만큼 넣기 (0 : 무궁화, 1 : 무언가, 2 : 등등)
+
+    public int[] GetSpawnCounts
+    {
+        get => _getSpawnCounts;
+        set => _getSpawnCounts = value;
+    }
 
     private HealthManager _unitHealth; //생성한 Unit의 HealthManager
     private HealthManager _enemyHealth; //생성한 Enemy의 HealthManager
@@ -24,13 +30,13 @@ public class SpawnManager : MonoBehaviour
 
     private void Start()
     {
-        currentUnitNum.Value = _getSpawnCounts;
+        currentUnitNum.Value = _defaultSpawnCounts[0];
     }
 
     //원하는 유닛과 위치 생성
     public GameObject UnitSpawn(int value)
     {
-        if(_getSpawnCounts[value] > _defaultSpawnCounts[value]) 
+        if(_getSpawnCounts[value] >= _defaultSpawnCounts[value]) 
         {
             AudioManager.Instance.PlaySfx(AudioManager.Sfx.Warning);
             return null; //정해진 수보다 많아지면 리턴
@@ -46,7 +52,7 @@ public class SpawnManager : MonoBehaviour
         this._unitHealth.OnUnitRepairCool += HandleRepairCoolTime;
         
         _getSpawnCounts[value]++;
-        currentUnitNum.Value = _getSpawnCounts;
+        currentUnitNum.Value = GetSpawnCounts[value];
         return unit;
     }
 
@@ -75,8 +81,7 @@ public class SpawnManager : MonoBehaviour
         yield return new WaitForSeconds(10f);
 
         _getSpawnCounts[value]--;
-        currentUnitNum.Value = _getSpawnCounts;
-
+        currentUnitNum.Value = GetSpawnCounts[value];
 
         StopCoroutine(_inCorout);
     }
