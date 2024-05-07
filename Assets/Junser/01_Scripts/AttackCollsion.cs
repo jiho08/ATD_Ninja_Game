@@ -11,7 +11,6 @@ public class AttackCollsion : MonoBehaviour
     private void Awake()
     {
         _playerUnit = GetComponentInParent<PlayerUnit>();
-
     }
 
     private void Start()
@@ -32,7 +31,7 @@ public class AttackCollsion : MonoBehaviour
 
             _enemy.TakeDamage();
 
-
+            _playerUnit.Dealy();
         }
     }
 }

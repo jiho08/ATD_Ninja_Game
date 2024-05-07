@@ -17,6 +17,7 @@ public class PlayerUnit : MonoBehaviour
     [SerializeField]
     private float _accel;
 
+    private bool _rearground;
 
     public float _maxSpeed;
 
@@ -34,12 +35,14 @@ public class PlayerUnit : MonoBehaviour
     private Firsttrain _firstTrain;
     private HealthManager _playerHealth;
     private ParticleSystem _particle;
-    private TrailRenderer _tail;
+    private BoxCollider2D _hitBox;
 
     //컴포넌트 받아와야하는것들
 
     public float _DealayTime;
     float _speed;
+
+    public float _defaltYPos;
     //코루틴
 
     [SerializeField]
@@ -52,13 +55,14 @@ public class PlayerUnit : MonoBehaviour
         _firstTrain = GetComponentInChildren<Firsttrain>();
         _playerHealth = GetComponent<HealthManager>();
         _particle = GetComponentInChildren<ParticleSystem>();
+        _hitBox = GetComponent<BoxCollider2D>();
     }
 
     
 
     private void Start()
     {
-
+        _defaltYPos = transform.position.y;
 
         _speed = 0;
         Accelation = _maxSpeed;
@@ -71,6 +75,17 @@ public class PlayerUnit : MonoBehaviour
         }
     }
 
+    private void OnDisable()
+    {
+
+        _rearground = false;
+        _speed = 0;
+        _accel = 0;
+
+        StopCoroutine("AttackDealy");
+        StopCoroutine("BackAway");
+    }
+
     private void Update()
     {
         //현재 속도
@@ -78,18 +93,25 @@ public class PlayerUnit : MonoBehaviour
         //이동 속도 제한
         _AttackCollision.gameObject.SetActive(_Rigid.velocity.x > _AttackSpeed);
 
-        if (_playerHealth.Health < 0)
-        {
-            StopAllCoroutines();
-        }
+        
 
     }
     private void FixedUpdate()
     {
-        _speed += 0.0001f;
-        _accel = Mathf.Lerp(_accel, Accelation, _speed);
-        //이동
-        _Rigid.velocity = new Vector2(1, 0) * _accel;
+        if (!_rearground)
+        {
+            _speed = 0.01f;
+            _accel = Mathf.Lerp(_accel, Accelation, _speed);
+            //이동
+            _Rigid.velocity = new Vector2(1, 0) * _accel;
+        }
+        else
+        {
+            _speed = 0.01f;
+            _accel = Mathf.Lerp(_accel, Accelation, 1 - _speed);
+            //이동
+            _Rigid.velocity = new Vector2(-1, 0) * _accel;
+        }
     }
 
     public int GetTrainLength()
@@ -123,35 +145,45 @@ public class PlayerUnit : MonoBehaviour
 
     IEnumerator BackAway()//피격 행동 코루틴
     {
+
+        _rearground = true;
+        _hitBox.enabled = false;
+
         _accel = 0;
 
-        Accelation = -_maxSpeed * 2;
 
         _AttackCollision.gameObject.SetActive(false);
 
+
+
         yield return new WaitForSeconds(_DealayTime);
 
-        Accelation = _maxSpeed;
+        
         _accel = 0;
 
         _speed = 0;
+        _hitBox.enabled = true;
+        _rearground = false;
+
 
     }
 
     IEnumerator AttackDealy()// 공격 딜레이 코루틴
     {
+        _rearground = true;
 
         _accel = 0;
 
 
-        Accelation = -_maxSpeed;
 
         yield return new WaitForSeconds(_DealayTime);
 
         _AttackCollision.gameObject.SetActive(true);
 
         Accelation = _maxSpeed;
+        _accel = 0;
         _speed = 0;
+        _rearground = false;
 
     }
 }

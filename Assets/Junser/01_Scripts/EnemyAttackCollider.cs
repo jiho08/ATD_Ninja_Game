@@ -27,10 +27,13 @@ public class EnemyAttackCollider : MonoBehaviour
                 _playerHealth.Health = _playerHealth.Health - _damage;
 
                 player.TakeDamage();
+                _enemy.Dealy();
             }
             else if (_playerHealth.isOnEntity[2])
             {
                 _playerHealth.Health = _playerHealth.Health - _damage;
+                _enemy.Dealy();
+
             }
         }
     }
