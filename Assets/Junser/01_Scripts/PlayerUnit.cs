@@ -27,7 +27,7 @@ public class PlayerUnit : MonoBehaviour
     private int _trainLength;
 
     //이동 관련 변수
-
+    float time = 0;
 
     [SerializeField]
     private GameObject _AttackCollision;
@@ -100,15 +100,18 @@ public class PlayerUnit : MonoBehaviour
     {
         if (!_rearground)
         {
-            _speed = 0.01f;
+            _speed = 0.05f;
             _accel = Mathf.Lerp(_accel, Accelation, _speed);
             //이동
             _Rigid.velocity = new Vector2(1, 0) * _accel;
         }
         else
         {
-            _speed = 0.01f;
-            _accel = Mathf.Lerp(_accel, Accelation, 1 - _speed);
+            
+            time += 0.1f;
+
+            _accel = Mathf.Lerp(_accel, Accelation, 1 - time * _DealayTime);
+
             //이동
             _Rigid.velocity = new Vector2(-1, 0) * _accel;
         }
@@ -145,7 +148,7 @@ public class PlayerUnit : MonoBehaviour
 
     IEnumerator BackAway()//피격 행동 코루틴
     {
-
+        time = 0;
         _rearground = true;
         _hitBox.enabled = false;
 
@@ -174,6 +177,7 @@ public class PlayerUnit : MonoBehaviour
 
         _accel = 0;
 
+        time = 0;
 
 
         yield return new WaitForSeconds(_DealayTime);

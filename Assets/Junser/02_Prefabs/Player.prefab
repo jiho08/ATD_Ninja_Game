@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d1ad6e7ea43e6f488e80560a0e9e0b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 0
+  _damage: 1
   _AttackSpeed: 3
   _accel: 0.15
   _maxSpeed: 0
@@ -229,8 +229,8 @@ TrailRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.012437806
-        value: 0.4912281
+        time: 0
+        value: 0.33193612
         inSlope: -1.6045716
         outSlope: -1.6045716
         tangentMode: 0
