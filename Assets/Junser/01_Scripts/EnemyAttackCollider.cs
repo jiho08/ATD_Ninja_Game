@@ -22,11 +22,15 @@ public class EnemyAttackCollider : MonoBehaviour
 
             PlayerUnit player = collision.gameObject.GetComponent<PlayerUnit>();
 
-            if(player != null)
+            if(_playerHealth.isOnEntity[0])
             {
                 _playerHealth.Health = _playerHealth.Health - _damage;
 
                 player.TakeDamage();
+            }
+            else if (_playerHealth.isOnEntity[2])
+            {
+                _playerHealth.Health = _playerHealth.Health - _damage;
             }
         }
     }
