@@ -13,6 +13,9 @@ public class TutorialUI : MonoBehaviour
     [SerializeField] private GameObject paner;
     [SerializeField] private GameObject butten;
     [SerializeField] private Text text;
+    [SerializeField] private GameObject cam;
+    [SerializeField] private GameObject enemyPos;
+    [SerializeField] private GameObject playerPod;
 
     [SerializeField] private string[] tuto;
     [SerializeField] private float[] tutoNum;
@@ -25,6 +28,7 @@ public class TutorialUI : MonoBehaviour
     }
     private void Start()
     {
+        spawnM.currentUnitNum.OnValueChanged += Tutorial02Start;
         count = 0;
         Off();
         StartCoroutine(Tutorial01());
@@ -64,9 +68,6 @@ public class TutorialUI : MonoBehaviour
             case 3:
                 StartCoroutine(Tutorial04());
                 break;
-            case 4:
-                StartCoroutine(Tutorial05());
-                break;
             case 5:
                 StartCoroutine(Tutorial06());
                 break;
@@ -89,13 +90,13 @@ public class TutorialUI : MonoBehaviour
 
     private void Tutorial02Start(int prev, int next)
     {
-        Debug.Log("¿¿ æ∆¿’");
+        StartCoroutine(Tutorial05());
     }
 
     IEnumerator Tutorial01()
     {
-        spawnM.currentUnitNum.OnValueChanged += Tutorial02Start;
         yield return new WaitForSecondsRealtime(2);
+        Debug.Log(1);
         On();
         Tutori();
         yield return new WaitForSecondsRealtime(tutoNum[count] + 0.5f);
@@ -104,21 +105,28 @@ public class TutorialUI : MonoBehaviour
     }
     IEnumerator Tutorial02() 
     {
-        On();
-        Tutori();
-        yield return new WaitForSecondsRealtime(tutoNum[count] + 0.5f);
-        butten.SetActive(true);
-    }
-    IEnumerator Tutorial03()
-    {
+        cam.transform.DOMove(new Vector3(enemyPos.transform.position.x,transform.position.y,transform.position.z), 1);
+        yield return new WaitForSecondsRealtime(1f + 0.5f);
+        Debug.Log(2);
         On();
         Tutori();
         yield return new WaitForSecondsRealtime(tutoNum[count] + 0.5f);
         butten.SetActive(true);
 
     }
+    IEnumerator Tutorial03()
+    {
+        yield return new WaitForSecondsRealtime(3);
+        Debug.Log(3);
+        On();
+        Tutori();
+        yield return new WaitForSecondsRealtime(tutoNum[count] + 0.5f);
+        butten.SetActive(true);
+        
+    }
     IEnumerator Tutorial04()
     {
+        Debug.Log(4);
         On();
         Tutori();
         yield return new WaitForSecondsRealtime(tutoNum[count] + 0.5f);
@@ -127,6 +135,7 @@ public class TutorialUI : MonoBehaviour
     }
     IEnumerator Tutorial05()
     {
+        Debug.Log(5);
         On();
         Tutori();
         yield return new WaitForSecondsRealtime(tutoNum[count] + 0.5f);
@@ -135,6 +144,7 @@ public class TutorialUI : MonoBehaviour
     }
     IEnumerator Tutorial06()
     {
+        Debug.Log(6);
         On();
         Tutori();
         yield return new WaitForSecondsRealtime(tutoNum[count] + 0.5f);
