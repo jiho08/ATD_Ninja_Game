@@ -34,10 +34,12 @@ public class PlayerBullet : MonoBehaviour
 
             if (_enemy != null)
             {
-                _playerHealth.Health = _playerHealth.Health - _playerHealth.Damage;
-
-                _enemy.TakeDamage();
-                gameObject.SetActive(false);
+                _playerHealth.Health = _playerHealth.Health - _damage;
+                if (_enemy != null)
+                {
+                    _enemy.TakeDamage();
+                    gameObject.SetActive(false);
+                }
 
             }
         }

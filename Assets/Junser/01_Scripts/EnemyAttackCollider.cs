@@ -7,9 +7,11 @@ public class EnemyAttackCollider : MonoBehaviour
     public float _damage = 1;
     private EnemyScript _enemy;
     private HealthManager _playerHealth;
+    private ParticleSystem _particle;
 
     private void Awake()
     {
+        
         _enemy = GetComponentInParent<EnemyScript>();
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -22,10 +24,9 @@ public class EnemyAttackCollider : MonoBehaviour
 
             if(player != null)
             {
-                _playerHealth.Health = _playerHealth.Health - _playerHealth.Damage;
+                _playerHealth.Health = _playerHealth.Health - _damage;
 
                 player.TakeDamage();
-                _enemy.TakeDamage();
             }
         }
     }
