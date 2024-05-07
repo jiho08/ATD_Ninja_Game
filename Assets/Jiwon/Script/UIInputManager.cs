@@ -5,27 +5,27 @@ using UnityEngine.EventSystems;
 
 public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler //,IDropHandler
 {
-    public int UnitCode; //ÁøÂ¥ À¯´Ö
-    private GameObject Clone; //ÀÓ½Ã·Î À¯´Ö ´ãÀ»°Å
+    public int UnitCode; //ì§„ì§œ ìœ ë‹›
+    private GameObject Clone; //ì„ì‹œë¡œ ìœ ë‹› ë‹´ì„ê±°
 
 
 
-    private BoxCollider2D collider; // À¯´ÖÀÇ Äİ¶óÀÌ´õ 
+    private BoxCollider2D collider; // ìœ ë‹›ì˜ ì½œë¼ì´ë” 
 
 
-    private PlayerUnit UnitMovemate2; // À¯´ÖÀÇ ¿òÁ÷ÀÓ ½ºÅ©¸³Æ®
+    private PlayerUnit UnitMovemate2; // ìœ ë‹›ì˜ ì›€ì§ì„ ìŠ¤í¬ë¦½íŠ¸
     [SerializeField]
-    private SpawnManager spawnM; // À¯´Ö ¼ÒÈ¯ ½ºÅ©¸³Æ®
-    private AttackCollsion attCollsion;//À¯´Ö ±ÙÁ¢ °ø°İ Äİ¶óÀÌ´õ ½ºÅ©¸³Æ®
-    private BoxCollider2D attCollider;//À¯´Ö ±ÙÁ¢ °ø°İ Äİ¶óÀÌ´õ
-    private PlayerADUnit adAtt; //¿ø°Å¸® À¯´Ö °ø°İ ½ºÅ©¸³Æ®    
+    private SpawnManager spawnM; // ìœ ë‹› ì†Œí™˜ ìŠ¤í¬ë¦½íŠ¸
+    private AttackCollsion attCollsion;//ìœ ë‹› ê·¼ì ‘ ê³µê²© ì½œë¼ì´ë” ìŠ¤í¬ë¦½íŠ¸
+    private BoxCollider2D attCollider;//ìœ ë‹› ê·¼ì ‘ ê³µê²© ì½œë¼ì´ë”
+    private PlayerADUnit adAtt; //ì›ê±°ë¦¬ ìœ ë‹› ê³µê²© ìŠ¤í¬ë¦½íŠ¸    
 
-    private bool isAD; //±ÙÁ¢ °ø°İÀ¯´ÖÀÎ°¡ ¾Æ´Ñ°¡
+    private bool isAD; //ê·¼ì ‘ ê³µê²©ìœ ë‹›ì¸ê°€ ì•„ë‹Œê°€
 
-    private SpriteRenderer _cloneRenderer; //À¯´ÖÀÇ »öº¯°æÀ» À§ÇÑ ½ºÇÁ¶óÀÌÆ® ·»´õ·¯
+    private SpriteRenderer _cloneRenderer; //ìœ ë‹›ì˜ ìƒ‰ë³€ê²½ì„ ìœ„í•œ ìŠ¤í”„ë¼ì´íŠ¸ ë Œë”ëŸ¬
 
 
-    private Vector3 targetPosition; // À¯´ÖÀÇ ¸¶¿ì½º Æ÷ÀÎÅÍ µû¶ó°¡°Ô ÇÏ±âÀ§ÇÑ ºäÆ÷ÀÎÅÍ
+    private Vector3 targetPosition; // ìœ ë‹›ì˜ ë§ˆìš°ìŠ¤ í¬ì¸í„° ë”°ë¼ê°€ê²Œ í•˜ê¸°ìœ„í•œ ë·°í¬ì¸í„°
 
 
 
@@ -58,8 +58,8 @@ public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         else if(Clone.gameObject.GetComponent<PlayerADUnit>() == null)
         {
             isAD = false;
-            attCollsion =  Clone.transform.GetChild(0).GetChild(0).GetComponent<AttackCollsion>();
-            attCollider =  Clone.transform.GetChild(0).GetChild(0).GetComponent<BoxCollider2D>();
+            attCollsion =  Clone.transform.GetChild(0).GetChild(1).GetComponent<AttackCollsion>();
+            attCollider =  Clone.transform.GetChild(0).GetChild(1).GetComponent<BoxCollider2D>();
             attCollsion.enabled = false;
             attCollider.enabled = false;
         }

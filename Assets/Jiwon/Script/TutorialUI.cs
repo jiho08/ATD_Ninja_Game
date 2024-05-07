@@ -4,110 +4,152 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using DG.Tweening;
+using System;
 
 public class TutorialUI : MonoBehaviour
 {
-    public bool isFadeIn;
-    public GameObject paner;
-    public Text textUI;
-    public Button Next;
-    [SerializeField] GameObject nextButte;
-    private Button BtnComponent;
-    private int count = 0;
+    [SerializeField] private SpawnManager spawnM;
+    [SerializeField] private GameObject paner;
+    [SerializeField] private GameObject butten;
+    [SerializeField] private Text text;
+    [SerializeField] private GameObject cam;
+    [SerializeField] private GameObject enemyPos;
+    [SerializeField] private GameObject playerPod;
 
-    
-    
+    [SerializeField] private string[] tuto;
+    [SerializeField] private float[] tutoNum;
 
-
-    //넣을 문구
-    private string tuto01 = "아열2타게에 오신것을 환영합니다";
-    private string tuto02 = "아 뭐라고 씨부릴지 모르겟다";
-    private string tuto03 = "집에가고싶다아앜";
+    private int count;
 
     private void Awake()
     {
-        paner = gameObject.transform.GetChild(0).gameObject;
-        BtnComponent = nextButte.GetComponent<Button>();
-        FadeOut();
         
     }
-
     private void Start()
     {
-        nextButte.SetActive(false);
-        Invoke("TutorialUI01", 2f);
+        spawnM.currentUnitNum.OnValueChanged += Tutorial02Start;
+        count = 0;
+        Off();
+        StartCoroutine(Tutorial01());
+    }
+
+    private void Update()
+    {
 
     }
 
-    public void FadeOut()
+    private void On()
     {
-        Time.timeScale = 1;
-        isFadeIn = false;
-        paner.SetActive(false);
-
-    }
-
-    public void FadeIn()
-    {
-        textUI.text = " ";
         Time.timeScale = 0;
-        isFadeIn = true;
         paner.SetActive(true);
+        text.gameObject.SetActive(true);
     }
 
-    private void NextBtn()
+    private void Off()
     {
-        textUI.text = " ";
-        nextButte.SetActive(false);
-        FadeOut();
-    }
-    private void TutorialUI01() //튜토리얼 1
-    {
-        FadeIn();
-        StartCoroutine(OutPut(tuto01));
+        text.text = " ";
+        Time.timeScale = 1;
+        paner.SetActive(false);
+        butten.SetActive(false);
+        text.gameObject.SetActive(false);
     }
 
-    public void NextBtn01() // 다음 버튼 1
+    private void ClickBtn()
     {
-        NextBtn();
-        Next.onClick.AddListener(() => NextBtn02());
-        Invoke("TutorialUI02",1f);
-
-    }
-
-    private void TutorialUI02() //튜토2
-    {
-        FadeIn();
-        StartCoroutine(OutPut(tuto02));
-        //BtnComponent.onClick.AddListener(NextBtn02);
-        Debug.Log(Next.onClick);
-
-    }
-
-    public void NextBtn02() //다음 버튼 2
-    {
-        NextBtn();
-        Invoke("TutoralUI03", 0.5f);
-
-    }
-
-    private void TutoralUI03()
-    {
-        FadeIn();
-        OutPut(tuto03);
-    }
-
-    private IEnumerator OutPut(string str)
-    {
-
-        for (int i = 0; i < str.Length; ++i)
+        switch (count)
         {
-            textUI.text += str[i];
-            yield return new WaitForSecondsRealtime(0.15f);
-
+            case 1:
+                StartCoroutine(Tutorial02());
+                break;
+            case 2:
+                StartCoroutine(Tutorial03());
+                break;
+            case 3:
+                StartCoroutine(Tutorial04());
+                break;
+            case 5:
+                StartCoroutine(Tutorial06());
+                break;
         }
-        yield return new WaitForSecondsRealtime(1);
-        nextButte.SetActive(true);
+    }
+
+
+    public void OnClickBtn()
+    {
+        Off();
+        count++;
+        ClickBtn();
+    }
+    private void Tutori()
+    {
+        Sequence txt = DOTween.Sequence();
+        txt.SetUpdate(true);
+        txt.Append(text.DOText(tuto[count], tutoNum[count]).SetEase(Ease.Unset));
+    }
+
+    private void Tutorial02Start(int prev, int next)
+    {
+        StartCoroutine(Tutorial05());
+    }
+
+    IEnumerator Tutorial01()
+    {
+        yield return new WaitForSecondsRealtime(2);
+        Debug.Log(1);
+        On();
+        Tutori();
+        yield return new WaitForSecondsRealtime(tutoNum[count] + 0.5f);
+        butten.SetActive(true);
+
+    }
+    IEnumerator Tutorial02() 
+    {
+        cam.transform.DOMove(new Vector3(enemyPos.transform.position.x,transform.position.y,transform.position.z), 1);
+        yield return new WaitForSecondsRealtime(1f + 0.5f);
+        Debug.Log(2);
+        On();
+        Tutori();
+        yield return new WaitForSecondsRealtime(tutoNum[count] + 0.5f);
+        butten.SetActive(true);
+
+    }
+    IEnumerator Tutorial03()
+    {
+        yield return new WaitForSecondsRealtime(3);
+        Debug.Log(3);
+        On();
+        Tutori();
+        yield return new WaitForSecondsRealtime(tutoNum[count] + 0.5f);
+        butten.SetActive(true);
+        
+    }
+    IEnumerator Tutorial04()
+    {
+        Debug.Log(4);
+        On();
+        Tutori();
+        yield return new WaitForSecondsRealtime(tutoNum[count] + 0.5f);
+        butten.SetActive(true);
+
+    }
+    IEnumerator Tutorial05()
+    {
+        Debug.Log(5);
+        On();
+        Tutori();
+        yield return new WaitForSecondsRealtime(tutoNum[count] + 0.5f);
+        butten.SetActive(true);
+
+    }
+    IEnumerator Tutorial06()
+    {
+        Debug.Log(6);
+        On();
+        Tutori();
+        yield return new WaitForSecondsRealtime(tutoNum[count] + 0.5f);
+        butten.SetActive(true);
+
     }
 
 }

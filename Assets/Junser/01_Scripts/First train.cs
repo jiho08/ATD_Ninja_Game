@@ -14,13 +14,16 @@ public class Firsttrain : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    public IEnumerator HitBehave()
+    public void HitBehave()
+    {
+        StartCoroutine("HitBehaveCoroutine");
+    }
+    private IEnumerator HitBehaveCoroutine()
     {
         _defaltPos = transform.position.y;
-        yield return null;
 
 
         transform.rotation = Quaternion.Euler(0, 0, 35);

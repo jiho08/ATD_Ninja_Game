@@ -1,27 +1,30 @@
-using System.Collections;
 using UnityEngine;
+
 
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private SpawnManager spawnM;
     [SerializeField] private GetSpawnEnemy getSpawn;
+    [SerializeField]private EnemyAlgorithm enemyAl;
 
     [SerializeField] private GetStageNumberSo getStageNumSo;
 
     [SerializeField] private int getStageCount;
     private int _stageEnemyCount;
     private Coroutine _runningCoroutine;
+    
 
-
-    private void Start()
+    private void Awake()
     {
 
         getStageCount = getStageNumSo.stageNumber;
         //원하는 유닛의 생성수 제한
         switch (getStageCount){
+            case 0:
+                spawnM.SetDefaultCounts(0, 10);
+                break;
             case 1:
                 spawnM.SetDefaultCounts(0, 10);
-                spawnM.SetDefaultCounts(1, 10);
                 break;
             case 2:
                 break;
@@ -32,11 +35,13 @@ public class EnemySpawner : MonoBehaviour
             case 5:
                 break;
         }
-        getSpawn.ReadSpawn(getStageCount-1); //스테이지에 맞는 Stage읽기
-        _runningCoroutine = StartCoroutine(StartStage()); //스테이지 시작
-    }
+        //getSpawn.ReadSpawn(getStageCount-1); //스테이지에 맞는 Stage읽기
+        //_runningCoroutine = StartCoroutine(StartStage()); //스테이지 시작
 
-    private int TypeToInt(string str) //type을 int로 변환하여 전송
+    }
+    
+    //원하는 대로 생성 (지금은 알고리즘으로 돌려서 안씀)
+    /*private int TypeToInt(string str) //type을 int로 변환하여 전송
     {
         switch(str) {
             case "M":
@@ -60,5 +65,5 @@ public class EnemySpawner : MonoBehaviour
         else {
             StartCoroutine(StartStage());
         }
-    }
+    }*/
 }
