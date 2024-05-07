@@ -13,6 +13,9 @@ public class TutorialUI : MonoBehaviour
     [SerializeField] private GameObject paner;
     [SerializeField] private GameObject butten;
     [SerializeField] private Text text;
+    [SerializeField] private GameObject cam;
+    [SerializeField] private GameObject enemyPos;
+    [SerializeField] private GameObject playerPod;
 
     [SerializeField] private string[] tuto;
     [SerializeField] private float[] tutoNum;
