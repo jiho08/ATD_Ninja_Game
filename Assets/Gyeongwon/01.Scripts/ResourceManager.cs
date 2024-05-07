@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class ResourceManager : MonoBehaviour
 {
-    private static int resource = 0;
     public static ResourceManager instance = null;
+    private static int resource = 200;
+
     private void Awake()
     {
     if (instance == null)
