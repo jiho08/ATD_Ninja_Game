@@ -17,6 +17,9 @@ public class TutorialUI : MonoBehaviour
     [SerializeField] private Transform enemyPos;
     [SerializeField] private Transform playerPod;
 
+    [SerializeField] private UIInputManager[] uiInputM;
+    [SerializeField] private CamMove camMove;
+
     [SerializeField] private string[] tuto;
     [SerializeField] private float[] tutoNum;
 
@@ -24,21 +27,28 @@ public class TutorialUI : MonoBehaviour
 
     private void Awake()
     {
-        
+        camMove = GameObject.Find("Bundle").transform.GetChild(0).GetComponent<CamMove>();
     }
+
     private void Start()
     {
-        spawnM.currentUnitNum.OnValueChanged += Tutorial02Start;
         count = 0;
         Off();
         
         StartCoroutine(Tutorial01());
 
+        uiInputM[0].OnUnitNumChange += Tutorial02Start;
+        uiInputM[1].OnUnitNumChange += Tutorial02Start;
+        uiInputM[2].OnUnitNumChange += Tutorial02Start;
+
     }
 
     private void Update()
     {
-
+        if (Input.GetKeyUp(KeyCode.Mouse2)&&count ==2)
+        {
+            CamMove();
+        }
     }
 
     private void On()
@@ -64,9 +74,6 @@ public class TutorialUI : MonoBehaviour
             case 1:
                 StartCoroutine(Tutorial02());
                 break;
-            case 2:
-                StartCoroutine(Tutorial03());
-                break;
             case 3:
                 StartCoroutine(Tutorial04());
                 break;
@@ -86,6 +93,12 @@ public class TutorialUI : MonoBehaviour
         count++;
         ClickBtn();
     }
+
+    private void CamMove()
+    {
+        StartCoroutine(Tutorial03());
+    }
+
     private void Tutori()
     {
         Sequence txt = DOTween.Sequence();
@@ -93,15 +106,13 @@ public class TutorialUI : MonoBehaviour
         txt.Append(text.DOText(tuto[count], tutoNum[count]).SetEase(Ease.Unset));
     }
 
-    private void Tutorial02Start(int prev, int next)
+    private void Tutorial02Start(int value)
     {
         StartCoroutine(Tutorial06());
     }
 
     IEnumerator Tutorial01()
     {
-        Debug.Log("tlatlago");
-        cam.transform.position = Vector3.Lerp(cam.transform.position, new Vector3(enemyPos.transform.position.x, cam.transform.position.y, cam.transform.position.z), 1f);
         yield return new WaitForSecondsRealtime(2);
         Debug.Log(1);
         On();
@@ -122,7 +133,7 @@ public class TutorialUI : MonoBehaviour
     }
     IEnumerator Tutorial03()
     {
-        yield return new WaitForSecondsRealtime(3);
+        //yield return new WaitForSecondsRealtime(3);
         Debug.Log(3);
         On();
         Tutori();
@@ -132,6 +143,8 @@ public class TutorialUI : MonoBehaviour
     }
     IEnumerator Tutorial04()
     {
+        camMove.EnemyCamMove(2f);
+        yield return new WaitForSecondsRealtime(2 + 0.5f);
         Debug.Log(4);
         On();
         Tutori();
@@ -156,6 +169,9 @@ public class TutorialUI : MonoBehaviour
         yield return new WaitForSecondsRealtime(tutoNum[count] + 0.5f);
         butten.SetActive(true);
 
+        uiInputM[0].OnUnitNumChange -= Tutorial02Start;
+        uiInputM[1].OnUnitNumChange -= Tutorial02Start;
+        uiInputM[2].OnUnitNumChange -= Tutorial02Start;
     }
 
 }

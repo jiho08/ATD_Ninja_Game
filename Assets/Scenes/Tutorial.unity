@@ -516,13 +516,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitPool: {fileID: 1113246940}
   enemyPool: {fileID: 1358527413}
+  uiInputM: []
   unitData:
   - {fileID: 11400000, guid: 3ec462b879e23d742b3ad185bc81a1d7, type: 2}
   - {fileID: 11400000, guid: 216d321d6357719439ce3acb8ea62134, type: 2}
   - {fileID: 11400000, guid: 14440fb98775e844c8829b3481f60046, type: 2}
   enemyData: {fileID: 0}
   currentUnitNum:
-    value: 
+    value: 0
   enemySpawnPos:
   - {fileID: 59025305}
   - {fileID: 1547312237}
@@ -798,9 +799,9 @@ MonoBehaviour:
   paner: {fileID: 1159181220}
   butten: {fileID: 501361901}
   text: {fileID: 17998130}
-  cam: {fileID: 2034869369}
-  enemyPos: {fileID: 1936626544}
-  playerPod: {fileID: 1435647213}
+  cam: {fileID: 1387455853}
+  enemyPos: {fileID: 1936626545}
+  playerPod: {fileID: 1435647214}
   tuto:
   - "\uC9C0\uAE08\uBD80\uD130 \uD29C\uD1A0\uB9AC\uC5BC\uC744 \uC2DC\uC791\uD558\uACA0\uC2B5\uB2C8\uB2E4"
   - "\uB9C8\uC6B0\uC2A4 \uD720 \uBC84\uD2BC\uC744 \uAFB9 \uB20C\uB7EC\uC11C \uD654\uBA74\uC744
@@ -11502,7 +11503,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e485245b6a9b4c742bd8ff6648c956af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UnitCode: 1
+  unitCode: 1
   spawnM: {fileID: 390345304}
 --- !u!114 &1236000958
 MonoBehaviour:
@@ -11593,7 +11594,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e485245b6a9b4c742bd8ff6648c956af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UnitCode: 2
+  unitCode: 2
   spawnM: {fileID: 390345304}
 --- !u!114 &1296023145
 MonoBehaviour:
@@ -11644,6 +11645,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26af7bd5abaa08441b3f8eddc9235c20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1387455853 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4798824324899598526, guid: 5fb0d1d408502944d9c1844a12281438, type: 3}
+  m_PrefabInstance: {fileID: 1936431189}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1415385333
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11910,7 +11916,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e485245b6a9b4c742bd8ff6648c956af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UnitCode: 0
+  unitCode: 0
   spawnM: {fileID: 390345304}
 --- !u!114 &1675664337
 MonoBehaviour:
@@ -12038,11 +12044,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2034869369 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2591188814482052267, guid: 5fb0d1d408502944d9c1844a12281438, type: 3}
-  m_PrefabInstance: {fileID: 1936431189}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
