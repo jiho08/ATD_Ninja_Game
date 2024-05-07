@@ -3,17 +3,19 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
 public class WorldMapManager : MonoBehaviour
 {
     GameObject currentStage;
-    public GameObject train;
+    public GameObject Reddot;
     int currentIndex;
     int targetIndex;
     public GameObject[] stages;
     public bool[] isOpenStages;
-    public GameObject[] stageViews;
+    public GameObject StageViews;
     private Dictionary<int, GameObject> objDic;
+    public UnityEvent<int> OnStageChanged;
 
     IEnumerator coroutine;
 
@@ -24,14 +26,8 @@ public class WorldMapManager : MonoBehaviour
     void Start()
     {
         currentStage = stages[0];
-        train.transform.position = currentStage.transform.position;
+        Reddot.transform.position = currentStage.transform.position;
         currentIndex = 0;
-        for (int i = 0; i < stageViews.Length; ++i)
-        {
-            objDic.Add(i, stageViews[i]);
-            objDic[i].SetActive(false);
-        }
-        stageViews[0].SetActive(true);
     }
 
     private void Update()
@@ -44,210 +40,57 @@ public class WorldMapManager : MonoBehaviour
         stages[5].SetActive(isOpenStages[5]);
     }
 
-    public void SetTargetStage1()
+   
+    public void SetTargetStage(int value)
     {
-        if (train.transform.position == stages[currentIndex].transform.position)
+        if (Reddot.transform.position == stages[currentIndex].transform.position)
         {
-            Sequence moveStage = DOTween.Sequence();
-            targetIndex = 0;
-            if (currentIndex > 0)
+            //AudioManager.Instance.PlaySfx(AudioManager.Sfx.Btn);
             {
-                for (int i = currentIndex; i > targetIndex;)
-                {
-                    i--;
-                    moveStage.Append(train.transform.DOMove(stages[i].transform.position, 1));
-                    currentStage = stages[i];
-                }
-            }
-            coroutine = SetStageView(0, Mathf.Abs(currentIndex - targetIndex));
-            currentIndex = 0;
-            StartCoroutine(coroutine);
-        }
-    }
+                Sequence moveStage = DOTween.Sequence();
+                targetIndex = value;
+                float startIdx = currentIndex;
 
-    public void SetTargetStage2()
-    {
-        if (train.transform.position == stages[currentIndex].transform.position)
-        {
-            Sequence moveStage = DOTween.Sequence();
-            targetIndex = 1;
-            if (currentIndex < 1)
-            {
-                for (int i = currentIndex; i < targetIndex;)
+                if (currentIndex < value)
                 {
-                    i++;
-                    moveStage.Append(train.transform.DOMove(stages[i].transform.position, 1));
-                    currentStage = stages[i];
+                    for (int i = currentIndex; i < targetIndex;)
+                    {
+                        i++;
+                        moveStage.Append(Reddot.transform.DOMove(stages[i].transform.position, 1 / Mathf.Abs(targetIndex - startIdx)));
+                        currentStage = stages[i];
+                    }
                 }
-            }
-            else if (currentIndex > 1)
-            {
-                for (int i = currentIndex; i > targetIndex;)
+                else if (currentIndex > value)
                 {
-                    i--;
-                    moveStage.Append(train.transform.DOMove(stages[i].transform.position, 1));
-                    currentStage = stages[i];
+                    for (int i = currentIndex; i > targetIndex;)
+                    {
+                        i--;
+                        moveStage.Append(Reddot.transform.DOMove(stages[i].transform.position, 1 / Mathf.Abs(targetIndex - startIdx)));
+                    }
                 }
+                coroutine = SetStageView(value, 1);
+                StartCoroutine(coroutine);
+                currentIndex = value;
             }
-            coroutine = SetStageView(1, Mathf.Abs(currentIndex - targetIndex));
-            currentIndex = 1;
-            StartCoroutine(coroutine);
-        }
-    }
-
-    public void SetTargetStage3()
-    {
-        if (train.transform.position == stages[currentIndex].transform.position)
-        {
-            Sequence moveStage = DOTween.Sequence();
-            targetIndex = 2;
-            if (currentIndex < 2)
-            {
-                for (int i = currentIndex; i < targetIndex;)
-                {
-                    i++;
-                    moveStage.Append(train.transform.DOMove(stages[i].transform.position, 1));
-                    currentStage = stages[i];
-                }
-            }
-            else if (currentIndex > 2)
-            {
-                for (int i = currentIndex; i > targetIndex;)
-                {
-                    i--;
-                    moveStage.Append(train.transform.DOMove(stages[i].transform.position, 1));
-                    currentStage = stages[i];
-                }
-            }
-            coroutine = SetStageView(2, Mathf.Abs(currentIndex - targetIndex));
-            currentIndex = 2;
-            StartCoroutine(coroutine);
-        }
-    }
-
-    public void SetTargetStage4()
-    {
-        if (train.transform.position == stages[currentIndex].transform.position)
-        {
-            Sequence moveStage = DOTween.Sequence();
-            targetIndex = 3;
-            if (currentIndex < 3)
-            {
-                for (int i = currentIndex; i < targetIndex;)
-                {
-                    i++;
-                    moveStage.Append(train.transform.DOMove(stages[i].transform.position, 1));
-                    currentStage = stages[i];
-                }
-            }
-            else if (currentIndex > 3)
-            {
-                for (int i = currentIndex; i > targetIndex;)
-                {
-                    i--;
-                    moveStage.Append(train.transform.DOMove(stages[i].transform.position, 1));
-                    currentStage = stages[i];
-                }
-            }
-            coroutine = SetStageView(3, Mathf.Abs(currentIndex - targetIndex));
-            currentIndex = 3;
-            StartCoroutine(coroutine);
-        }
-    }
-
-    public void SetTargetStage5()
-    {
-        if (train.transform.position == stages[currentIndex].transform.position)
-        {
-            Sequence moveStage = DOTween.Sequence();
-            targetIndex = 4;
-            if (currentIndex < 4)
-            {
-                for (int i = currentIndex; i < targetIndex;)
-                {
-                    i++;
-                    moveStage.Append(train.transform.DOMove(stages[i].transform.position, 1));
-                    currentStage = stages[i];
-                }
-            }
-            else if (currentIndex > 4)
-            {
-                for (int i = currentIndex; i > targetIndex;)
-                {
-                    i--;
-                    moveStage.Append(train.transform.DOMove(stages[i].transform.position, 1));
-                    currentStage = stages[i];
-                }
-            }
-            coroutine = SetStageView(4, Mathf.Abs(currentIndex - targetIndex));
-            currentIndex = 4;
-            StartCoroutine(coroutine);
-        }
-    }
-
-    public void SetTargetStage6()
-    {
-        {
-            Sequence moveStage = DOTween.Sequence();
-            targetIndex = 5;
-            if (currentIndex < 5)
-            {
-                for (int i = currentIndex; i < targetIndex;)
-                {
-                    i++;
-                    moveStage.Append(train.transform.DOMove(stages[i].transform.position, 1));
-                    currentStage = stages[i];
-                }
-            }
-            else if (currentIndex > 5)
-            {
-                for (int i = currentIndex; i > targetIndex;)
-                {
-                    i--;
-                    moveStage.Append(train.transform.DOMove(stages[i].transform.position, 1));
-                    currentStage = stages[i];
-                }
-            }
-            coroutine = SetStageView(5, Mathf.Abs(currentIndex - targetIndex));
-            currentIndex = 5;
-            StartCoroutine(coroutine);
         }
     }
 
     public void QuitBtn()
     {
-        stageViews[0].SetActive(false);
-        stageViews[1].SetActive(false);
-        stageViews[2].SetActive(false);
-        stageViews[3].SetActive(false);
-        stageViews[4].SetActive(false);
-        stageViews[5].SetActive(false);
-        SceneManager.LoadScene("MainMenu");
+        StageViews.SetActive(false);
+        SceneManager.LoadScene(4);
 
     }
-    private void SetStageView(int idx)
-    {
-        for (int i = 0; i < stageViews.Length; i++)
-        {
-            if (idx == i)
-                objDic[i].SetActive(true);
-            else
-                objDic[i].SetActive(false);
-        }
-    }
 
-    IEnumerator SetStageView(int idx, float delay)
+    IEnumerator SetStageView(int stageIdx,float delay)
     {
-        if (coroutine != null)
-        {
-            coroutine = null;
-        }
         yield return new WaitForSeconds(delay);
-        SetStageView(idx);
+        OnStageChanged?.Invoke(stageIdx);
         yield break;
     }
-    public GameObject GetCurrentStage()
+
+    public int GetCurrentIdx()
     {
-        return currentStage;
+        return currentIndex;
     }
 }

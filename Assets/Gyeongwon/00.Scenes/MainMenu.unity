@@ -626,6 +626,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 288957e3d01ffc8429d8c78883322c57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentOddments: 0
   oddmentsText: {fileID: 1400496448}
 --- !u!4 &1004818422
 Transform:
