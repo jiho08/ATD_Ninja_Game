@@ -16,6 +16,7 @@ public class WorldMapManager : MonoBehaviour
     public GameObject StageViews;
     private Dictionary<int, GameObject> objDic;
     public UnityEvent<int> OnStageChanged;
+    [SerializeField] private GetStageNumberSo getStageNumber;
 
     IEnumerator coroutine;
 
@@ -28,10 +29,12 @@ public class WorldMapManager : MonoBehaviour
         currentStage = stages[0];
         Reddot.transform.position = currentStage.transform.position;
         currentIndex = 0;
-    }
 
-    private void Update()
-    {
+        for (int i = 0; i < getStageNumber.isOpenStage.Length; i++)
+        {
+            isOpenStages[i] = getStageNumber.isOpenStage[i];
+        }
+
         stages[0].SetActive(isOpenStages[0]);
         stages[1].SetActive(isOpenStages[1]);
         stages[2].SetActive(isOpenStages[2]);

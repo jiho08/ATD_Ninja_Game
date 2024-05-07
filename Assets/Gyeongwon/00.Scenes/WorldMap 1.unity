@@ -3164,6 +3164,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  getStageNumber: {fileID: 11400000, guid: 9f204a270baaf8242a2b4a2e425fe8db, type: 2}
 --- !u!4 &1241356306
 Transform:
   m_ObjectHideFlags: 0
