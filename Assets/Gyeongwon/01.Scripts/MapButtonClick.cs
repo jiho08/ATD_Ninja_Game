@@ -8,7 +8,6 @@ public class MapButtonClick : MonoBehaviour
     public Camera mainCam;
     public GameObject MapPos;
     bool mapButtonClicked;
-    [SerializeField] TextMeshProUGUI WorldMapButton;
     [SerializeField] GameObject Stages;
     [SerializeField] GameObject StageViews;
     [SerializeField] GameObject RedDot;
@@ -18,26 +17,22 @@ public class MapButtonClick : MonoBehaviour
     {
         if (mapButtonClicked)
         {
-            mainCam.transform.position = Vector3.Slerp(mainCam.transform.position, MapPos.transform.position, 0.01f);
-            WorldMapButton.text = "로비";
+            mainCam.transform.position = Vector3.Slerp(mainCam.transform.position, MapPos.transform.position, 0.02f);
         }
         else if (!mapButtonClicked)
         {
-            mainCam.transform.position = Vector3.Slerp(mainCam.transform.position, new Vector3(0,0,-10), 0.01f);
-            WorldMapButton.text = "지도";
+            mainCam.transform.position = Vector3.Slerp(mainCam.transform.position, new Vector3(0,0,-10), 0.02f);
         }
 
 
     }
-    public void click(){
-        if (mapButtonClicked)
-        {
-            mapButtonClicked = false;
-        }
-        else
-        {
+    public void clickWorldMap()
+    {
             mapButtonClicked = true;
-        }
+    }
+    public void clickRobby()
+    {
+            mapButtonClicked = false;
     }
 
 }
