@@ -9,6 +9,7 @@ using System;
 
 public class TutorialUI : MonoBehaviour
 {
+    [SerializeField] private SpawnManager spawnM;
     [SerializeField] private GameObject paner;
     [SerializeField] private GameObject butten;
     [SerializeField] private Text text;
@@ -18,16 +19,12 @@ public class TutorialUI : MonoBehaviour
 
     private int count;
 
-    private bool isSpawn;
-
-
     private void Awake()
     {
         
     }
     private void Start()
     {
-        isSpawn = false;
         count = 0;
         Off();
         StartCoroutine(Tutorial01());
@@ -35,10 +32,7 @@ public class TutorialUI : MonoBehaviour
 
     private void Update()
     {
-        if (true)
-        {
-            isSpawn = true;
-        }
+
     }
 
     private void On()
@@ -93,8 +87,14 @@ public class TutorialUI : MonoBehaviour
         txt.Append(text.DOText(tuto[count], tutoNum[count]).SetEase(Ease.Unset));
     }
 
+    private void Tutorial02Start(int[] prev, int[] next)
+    {
+        Debug.Log("¿¿ æ∆¿’");
+    }
+
     IEnumerator Tutorial01()
     {
+        spawnM.currentUnitNum.OnValueChanged += Tutorial02Start;
         yield return new WaitForSecondsRealtime(2);
         On();
         Tutori();
@@ -102,7 +102,7 @@ public class TutorialUI : MonoBehaviour
         butten.SetActive(true);
 
     }
-    IEnumerator Tutorial02()
+    IEnumerator Tutorial02() 
     {
         On();
         Tutori();

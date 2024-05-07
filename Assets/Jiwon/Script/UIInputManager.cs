@@ -58,8 +58,8 @@ public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         else if(Clone.gameObject.GetComponent<PlayerADUnit>() == null)
         {
             isAD = false;
-            attCollsion =  Clone.transform.GetChild(0).GetChild(0).GetComponent<AttackCollsion>();
-            attCollider =  Clone.transform.GetChild(0).GetChild(0).GetComponent<BoxCollider2D>();
+            attCollsion =  Clone.transform.GetChild(0).GetChild(1).GetComponent<AttackCollsion>();
+            attCollider =  Clone.transform.GetChild(0).GetChild(1).GetComponent<BoxCollider2D>();
             attCollsion.enabled = false;
             attCollider.enabled = false;
         }
