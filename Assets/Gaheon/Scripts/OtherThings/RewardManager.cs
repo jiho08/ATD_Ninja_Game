@@ -16,5 +16,6 @@ public class RewardManager : MonoBehaviour
     }
     void RewardChange()
     {
+
     }
 }

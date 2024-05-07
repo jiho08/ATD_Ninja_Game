@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[CreateAssetMenu(menuName = "SO/OtherThing/StationImages")]
+[CreateAssetMenu(menuName = "SO/OtherThings/StationImages")]
 public class StationImageSO : ScriptableObject
 {
-    public Image StationImages;
+    public Sprite[] StationImages;
+
 }
