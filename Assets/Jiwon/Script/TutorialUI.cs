@@ -18,22 +18,27 @@ public class TutorialUI : MonoBehaviour
 
     private int count;
 
-
+    private bool isSpawn;
 
 
     private void Awake()
     {
-        count = 0;
+        
     }
     private void Start()
     {
+        isSpawn = false;
+        count = 0;
         Off();
         StartCoroutine(Tutorial01());
     }
 
     private void Update()
     {
-        
+        if (true)
+        {
+            isSpawn = true;
+        }
     }
 
     private void On()
@@ -60,7 +65,16 @@ public class TutorialUI : MonoBehaviour
                 StartCoroutine(Tutorial02());
                 break;
             case 2:
-                //StartCoroutine()
+                StartCoroutine(Tutorial03());
+                break;
+            case 3:
+                StartCoroutine(Tutorial04());
+                break;
+            case 4:
+                StartCoroutine(Tutorial05());
+                break;
+            case 5:
+                StartCoroutine(Tutorial06());
                 break;
         }
     }
@@ -78,6 +92,7 @@ public class TutorialUI : MonoBehaviour
         txt.SetUpdate(true);
         txt.Append(text.DOText(tuto[count], tutoNum[count]).SetEase(Ease.Unset));
     }
+
     IEnumerator Tutorial01()
     {
         yield return new WaitForSecondsRealtime(2);
@@ -93,6 +108,38 @@ public class TutorialUI : MonoBehaviour
         Tutori();
         yield return new WaitForSecondsRealtime(tutoNum[count] + 0.5f);
         butten.SetActive(true);
+    }
+    IEnumerator Tutorial03()
+    {
+        On();
+        Tutori();
+        yield return new WaitForSecondsRealtime(tutoNum[count] + 0.5f);
+        butten.SetActive(true);
+
+    }
+    IEnumerator Tutorial04()
+    {
+        On();
+        Tutori();
+        yield return new WaitForSecondsRealtime(tutoNum[count] + 0.5f);
+        butten.SetActive(true);
+
+    }
+    IEnumerator Tutorial05()
+    {
+        On();
+        Tutori();
+        yield return new WaitForSecondsRealtime(tutoNum[count] + 0.5f);
+        butten.SetActive(true);
+
+    }
+    IEnumerator Tutorial06()
+    {
+        On();
+        Tutori();
+        yield return new WaitForSecondsRealtime(tutoNum[count] + 0.5f);
+        butten.SetActive(true);
+
     }
 
 }
