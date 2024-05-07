@@ -3294,6 +3294,7 @@ GameObject:
   - component: {fileID: 212513764}
   - component: {fileID: 212513763}
   - component: {fileID: 212513765}
+  - component: {fileID: 212513766}
   m_Layer: 0
   m_Name: Enemy Station
   m_TagString: Untagged
@@ -3397,7 +3398,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -3413,6 +3414,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 6.4, y: 12.8}
   m_EdgeRadius: 0
+--- !u!114 &212513766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 212513762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30f18eaf22a931240b8511474e448a1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _curHealth: 1
+  unitCode: 0
+  isOnEntity: 000001
 --- !u!1 &556578967
 GameObject:
   m_ObjectHideFlags: 0
@@ -6300,6 +6316,7 @@ Transform:
   m_Children:
   - {fileID: 1696444985}
   - {fileID: 940121567}
+  - {fileID: 1773470156}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1239815193
@@ -6331,7 +6348,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1773470156}
   - {fileID: 3318848003151414852}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6439,9 +6455,10 @@ GameObject:
   - component: {fileID: 1605468765}
   - component: {fileID: 1605468764}
   - component: {fileID: 1605468766}
-  m_Layer: 0
+  - component: {fileID: 1605468767}
+  m_Layer: 6
   m_Name: Player Station
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6542,7 +6559,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -6558,6 +6575,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 6.4, y: 12.8}
   m_EdgeRadius: 0
+--- !u!114 &1605468767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1605468763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30f18eaf22a931240b8511474e448a1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _curHealth: 1
+  unitCode: 0
+  isOnEntity: 000001
 --- !u!1 &1641616276
 GameObject:
   m_ObjectHideFlags: 0
@@ -6774,7 +6806,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 14440fb98775e844c8829b3481f60046, type: 2}
   enemyData: {fileID: 11400000, guid: ad65fb9c1cbf04c46b04b630460e00f5, type: 2}
   currentUnitNum:
-    value: 
+    value: 0
   enemySpawnPos:
   - {fileID: 1432351663}
   - {fileID: 1278904306}
@@ -6828,7 +6860,7 @@ Transform:
   m_Children:
   - {fileID: 212513764}
   - {fileID: 1605468765}
-  m_Father: {fileID: 1239815194}
+  m_Father: {fileID: 1079634651}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1833398630
 GameObject:

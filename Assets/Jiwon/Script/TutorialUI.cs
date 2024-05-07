@@ -87,7 +87,7 @@ public class TutorialUI : MonoBehaviour
         txt.Append(text.DOText(tuto[count], tutoNum[count]).SetEase(Ease.Unset));
     }
 
-    private void Tutorial02Start(int[] prev, int[] next)
+    private void Tutorial02Start(int prev, int next)
     {
         Debug.Log("¿¿ æ∆¿’");
     }

@@ -188,7 +188,6 @@ MonoBehaviour:
   enemyAl: {fileID: 1912298890}
   getStageNumSo: {fileID: 11400000, guid: 9f204a270baaf8242a2b4a2e425fe8db, type: 2}
   getStageCount: 0
-  getSpawnEnemyNumTxts: []
 --- !u!4 &270616152
 Transform:
   m_ObjectHideFlags: 0
@@ -432,6 +431,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 216d321d6357719439ce3acb8ea62134, type: 2}
   - {fileID: 11400000, guid: 14440fb98775e844c8829b3481f60046, type: 2}
   enemyData: {fileID: 11400000, guid: ad65fb9c1cbf04c46b04b630460e00f5, type: 2}
+  currentUnitNum:
+    value: 0
   enemySpawnPos:
   - {fileID: 958747250}
   - {fileID: 652381340}
@@ -539,7 +540,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 6610bd3668b07f84d955c6b39be7eb81, type: 3}
   - {fileID: 8300000, guid: 46f1b2caed55bfe4aa3461f315fe9d32, type: 3}
   _sfxVolume: 0.5
-  channels: 6
+  channels: 12
 --- !u!1 &1036719648
 GameObject:
   m_ObjectHideFlags: 0
