@@ -15,7 +15,6 @@ public class EnemyScript : MonoBehaviour
     float _speed;
     public float _maxSpeed;
 
-
     //이동 관련 변수
     
     public float _damage;
