@@ -189,7 +189,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 842798dce73a06d4ab8b8af7d2fdfc34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 1
 --- !u!1 &5029155322506572734
 GameObject:
   m_ObjectHideFlags: 0
@@ -241,11 +240,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _AttackSpeed: 8
-  Accelation: 2
-  DefaltAcclation: 2
-  _damage: 0
+  Accelation: 0.5
+  _maxSpeed: 2
+  _damage: 4
   _AttackCollision: {fileID: 3923778504687555852}
   _DealayTime: 1
+  _accel: 0
 --- !u!61 &3841918440495611183
 BoxCollider2D:
   m_ObjectHideFlags: 0

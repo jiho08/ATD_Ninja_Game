@@ -25,7 +25,7 @@ public class AttackCollsion : MonoBehaviour
         
         EnemyScript _enemy = collision.gameObject.GetComponent<EnemyScript>();
         
-        if(_enemy == null)
+        if(!collision.gameObject.activeSelf||_enemy == null)
         {
             return;
         }
