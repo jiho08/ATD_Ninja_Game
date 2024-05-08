@@ -5,22 +5,19 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Gyeongwon/00.Scenes/MainMenu.unity
     guid: 807ad05151e10a448ab6408026aec3ba
   - enabled: 1
-    path: Assets/Gyeongwon/00.Scenes/WorldMap.unity
-    guid: 9bc5aa3dac47e6b4abeb8f46b0620735
-  - enabled: 1
-    path: Assets/Juwon/Scenes/Juwon.unity
-    guid: 55238127ab289d2449f4d2eec240b7d2
-  - enabled: 1
-    path: Assets/Jiho/Scenes/Jiho.unity
+    path: Assets/Scenes/Title.unity
     guid: efce89665f39bfb448bfcbb49e604a46
+  - enabled: 1
+    path: Assets/Gyeongwon/00.Scenes/WorldMap 1.unity
+    guid: bdbd39b2b3bd4e945afd2efdfea05d1d
   - enabled: 1
     path: Assets/Gaheon/SceneG/UpgradeScene.unity
     guid: 7fc0351f92a1c374a9d0146559b24d75
   - enabled: 1
-    path: Assets/Jiho/Scenes/Jiho3.unity
-    guid: ab76028768c259240818ff70e4e26138
+    path: Assets/Scenes/InGame.unity
+    guid: f98befaad3ba63748985326d30f859f6
   m_configObjects: {}

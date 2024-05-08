@@ -1,6 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Juwon/Scripts/UnitSpawn/SO.meta
 guid: 3caaa67546e204e43bff9ebb7ef05a1b
 folderAsset: yes
+========
+guid: bdbd39b2b3bd4e945afd2efdfea05d1d
+>>>>>>>> origin/Jiho:Assets/Gyeongwon/00.Scenes/WorldMap 1.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
