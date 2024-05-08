@@ -1,3 +1,4 @@
+using DG.Tweening.Core.Easing;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -9,20 +10,64 @@ public class RewardManager : MonoBehaviour
     [SerializeField] Image stationImage;
     [SerializeField] TextMeshProUGUI clearText;
     [SerializeField] TextMeshProUGUI[] rewardTexts;
-    [SerializeField] StationSpriteSO stationSprite;
-    [SerializeField] WorldMapManager mapManager;
+    [SerializeField] StationInfoSO stationInfo;
+    [SerializeField] Image trainImageSprite;
+    [SerializeField] GameObject trainImage;
+    [SerializeField] GetStageNumberSo stageOpenSO;
+    [SerializeField] GameObject rewardPanel;
+
+    int clearStage;
     private void Start()
     {
-        RewardChange();
+        if (stageOpenSO.isOpenStage[1] == true)
+        {
+            RewardChange();
+        }
+        else
+        {
+            rewardPanel.SetActive(false);
+        }
     }
     void RewardChange()
     {
-        foreach (bool item in mapManager.isOpenStages)
+        for (int i = 0; i < 6; i++)
         {
-            if (item)
+            if (stageOpenSO.isOpenStage[i] == false)
             {
-
+                clearStage = i - 2;
+                break;
             }
         }
+
+        stationImage.sprite = stationInfo.StationImages[clearStage];
+        clearText.text = $"{stationInfo.stationNames[clearStage]}\n°ÝÆÄ!";
+        rewardTexts[0].text = $"È¹µæ ºÎÇ° : {stationInfo.rewardResources[clearStage]}";
+        if (clearStage < 3)
+        {
+            rewardTexts[2].text = $"¿­¸° ½ºÅ×ÀÌÁö : {stationInfo.stationNames[clearStage + 1]}";
+
+            if (clearStage > 0)
+            {
+                rewardTexts[1].text = $"È¹µæ À¯´Ö : {stationInfo.unitSO[clearStage].TrainName}";
+                trainImageSprite.sprite = stationInfo.unitSO[clearStage].TrainHead;
+            }
+            else
+            {
+                rewardTexts[1].text = "È¹µæ À¯´Ö ¾øÀ½";
+                rewardTexts[1].alignment = TextAlignmentOptions.Midline;
+                trainImage.SetActive(false);
+            }
+        }
+        else
+        {
+            rewardTexts[1].text = "¸ðµç ±âÂ÷ È¹µæ!";
+            rewardTexts[1].alignment = TextAlignmentOptions.Midline;
+            trainImage.SetActive(false);
+            rewardTexts[2].text = "¸ðµç ¸Ê °ÝÆÄ!";
+        }
+    }
+    public void Confirm()
+    {
+        rewardPanel.SetActive(false);
     }
 }

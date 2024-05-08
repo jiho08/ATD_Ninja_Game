@@ -1166,7 +1166,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 268527972}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1034940385}
+        m_TargetAssemblyTypeName: RewardManager, Assembly-CSharp
+        m_MethodName: Confirm
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &268527972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3021,10 +3033,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25cd0ea995588be4197d68eccfce209e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stationImage: {fileID: 0}
-  clearText: {fileID: 0}
-  rewardTexts: []
-  stationSprite: {fileID: 0}
+  stationImage: {fileID: 1712689709}
+  clearText: {fileID: 1619672553}
+  rewardTexts:
+  - {fileID: 1745533140}
+  - {fileID: 1134500164}
+  - {fileID: 42284918}
+  stationInfo: {fileID: 11400000, guid: f7b6eb6a4f63a8042b9621a2af201134, type: 2}
+  trainImageSprite: {fileID: 2141880712}
+  trainImage: {fileID: 14969162}
+  stageOpenSO: {fileID: 11400000, guid: 9f204a270baaf8242a2b4a2e425fe8db, type: 2}
+  rewardPanel: {fileID: 1107823484}
 --- !u!1 &1041732427
 GameObject:
   m_ObjectHideFlags: 0
@@ -4181,6 +4200,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  getStageNumber: {fileID: 11400000, guid: 9f204a270baaf8242a2b4a2e425fe8db, type: 2}
 --- !u!4 &1241356306
 Transform:
   m_ObjectHideFlags: 0
