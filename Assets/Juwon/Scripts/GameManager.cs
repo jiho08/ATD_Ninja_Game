@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class GameManager : MonoBehaviour
@@ -49,6 +50,13 @@ public class GameManager : MonoBehaviour
     public void SetNextLevelUp()
     {
         stageNum.stageNumber++;
+        stageNum.isOpenStage[stageNum.stageNumber-1] = true;
+    }
+
+    public void BackBtn()
+    {
+        
+        SceneManager.LoadScene(1);
     }
     
 }
