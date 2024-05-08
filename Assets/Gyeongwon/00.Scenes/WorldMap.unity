@@ -3927,7 +3927,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 770e063fd8780df4aa5c57c9c53714cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  train: {fileID: 328940374}
+  Reddot: {fileID: 0}
   stages:
   - {fileID: 2121160806}
   - {fileID: 172127756}
@@ -3936,13 +3936,11 @@ MonoBehaviour:
   - {fileID: 33915525}
   - {fileID: 190145794}
   isOpenStages: 010101010101
-  stageViews:
-  - {fileID: 290751335}
-  - {fileID: 1398449413}
-  - {fileID: 783770680}
-  - {fileID: 1478195270}
-  - {fileID: 1705767444}
-  - {fileID: 1434690429}
+  StageViews: {fileID: 0}
+  OnStageChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  getStageNumber: {fileID: 0}
 --- !u!4 &1241356306
 Transform:
   m_ObjectHideFlags: 0
