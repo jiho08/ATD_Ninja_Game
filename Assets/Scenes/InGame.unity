@@ -3152,7 +3152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e485245b6a9b4c742bd8ff6648c956af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitCode: 2
+  unitCode: 0
   spawnM: {fileID: 1696444984}
 --- !u!114 &96232854
 MonoBehaviour:
@@ -5945,7 +5945,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e485245b6a9b4c742bd8ff6648c956af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitCode: 1
+  unitCode: 0
   spawnM: {fileID: 1696444984}
 --- !u!114 &709451595
 MonoBehaviour:
