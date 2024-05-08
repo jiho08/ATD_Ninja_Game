@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyAttackCollider : MonoBehaviour
 {
-    private float _damage = 1;
+    private float _damage;
     private EnemyScript _enemy;
     private HealthManager _playerHealth;
     private ParticleSystem _particle;
@@ -43,3 +43,4 @@ public class EnemyAttackCollider : MonoBehaviour
         }
     }
 }
+
