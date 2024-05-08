@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler //,IDropHandler
 {
@@ -21,7 +22,8 @@ public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     private SpawnManager spawnM; // 유닛 소환 스크립트
     private AttackCollsion attCollsion;//유닛 근접 공격 콜라이더 스크립트
     private BoxCollider2D attCollider;//유닛 근접 공격 콜라이더
-    private PlayerADUnit adAtt; //원거리 유닛 공격 스크립트    
+    private PlayerADUnit adAtt; //원거리 유닛 공격 스크립트
+    [SerializeField] private Image coolTimeImage;
 
     private bool isAD; //근접 공격유닛인가 아닌가
 
@@ -30,99 +32,128 @@ public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
     private Vector3 targetPosition; // 유닛의 마우스 포인터 따라가게 하기위한 뷰포인터
 
-
+    [SerializeField] private float maxCoolTime;
+    private float coolTime;
+    private bool isCoolTime;
 
     private void Awake()
     {
-        //camera = Camera.main;
+        //coolTimeImage = GetComponentInChildren<Image>();
 
 
     }
     private void Start()
     {
+        coolTime = 0;
+    }
+    private void Update()
+    {
+        coolTimeImage.fillAmount = coolTime / maxCoolTime;
+        if (coolTime > 0)
+        {
+            coolTime -= Time.deltaTime;
+            isCoolTime = true;
 
+        }
+        if (coolTime <= 0)
+        {
+            isCoolTime = false;
+        }
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
-        Clone = spawnM.UnitSpawn(unitCode);
-
-        if (Clone == null) return;
-
-        _cloneRenderer = Clone.GetComponentInChildren<SpriteRenderer>();
-        UnitMovemate2 = Clone.GetComponent<PlayerUnit>();
-        collider = Clone.GetComponent<BoxCollider2D>();
-
-        if (Clone.gameObject.GetComponent<PlayerADUnit>() != null)
+        if (!isCoolTime)
         {
-            isAD = true;
-            adAtt = Clone.GetComponent<PlayerADUnit>();
-            adAtt.enabled = false;
+            Clone = spawnM.UnitSpawn(unitCode);
+
+            if (Clone == null || isCoolTime) return;
+
+            _cloneRenderer = Clone.GetComponentInChildren<SpriteRenderer>();
+            UnitMovemate2 = Clone.GetComponent<PlayerUnit>();
+            collider = Clone.GetComponent<BoxCollider2D>();
+
+            if (Clone.gameObject.GetComponent<PlayerADUnit>() != null)
+            {
+                isAD = true;
+                adAtt = Clone.GetComponent<PlayerADUnit>();
+                adAtt.enabled = false;
+            }
+            else if (Clone.gameObject.GetComponent<PlayerADUnit>() == null)
+            {
+                isAD = false;
+                attCollsion = Clone.transform.GetChild(0).GetChild(1).GetComponent<AttackCollsion>();
+                attCollider = Clone.transform.GetChild(0).GetChild(1).GetComponent<BoxCollider2D>();
+                attCollsion.enabled = false;
+                attCollider.enabled = false;
+            }
+
+            Color32 c = _cloneRenderer.color;
+            _cloneRenderer.color = new Color32(c.r, c.g, c.b, 100);
+
+            UnitMovemate2.enabled = false;
+
+            collider.enabled = false;
         }
-        else if(Clone.gameObject.GetComponent<PlayerADUnit>() == null)
-        {
-            isAD = false;
-            attCollsion =  Clone.transform.GetChild(0).GetChild(1).GetComponent<AttackCollsion>();
-            attCollider =  Clone.transform.GetChild(0).GetChild(1).GetComponent<BoxCollider2D>();
-            attCollsion.enabled = false;
-            attCollider.enabled = false;
-        }
 
-        Color32 c = _cloneRenderer.color;
-        _cloneRenderer.color = new Color32(c.r, c.g, c.b, 100);
-
-        UnitMovemate2.enabled = false;
-
-        collider.enabled = false;
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        if (Clone == null) return;
+        if (!isCoolTime)
+        {
+            if (Clone == null) return;
 
-        targetPosition = Camera.main.ScreenToWorldPoint(eventData.position);
+            targetPosition = Camera.main.ScreenToWorldPoint(eventData.position);
 
-        Clone.transform.position = new Vector3(targetPosition.x, targetPosition.y, 0);
-        //transform.position = new Vector3(eventData.position.x, eventData.position.y, 0);
-        //Debug.Log(eventData);
+            Clone.transform.position = new Vector3(targetPosition.x, targetPosition.y, 0);
+            //transform.position = new Vector3(eventData.position.x, eventData.position.y, 0);
+            //Debug.Log(eventData);
+        }
     }
 
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        if (Clone == null)
+        if (!isCoolTime)
         {
-            //Debug.Log("생성 안돼야함");
-            return;
-        }
 
-        if (RailInput.onRail)
-        {
-            collider.enabled = true;
-            UnitMovemate2.enabled = true;
-            Color32 c = _cloneRenderer.color;
-            _cloneRenderer.color = new Color32(c.r, c.g, c.b, 255);
-            if (isAD)
+            if (Clone == null)
             {
-                adAtt.enabled = true;
-            }
-            else if(!isAD)
-            {
-                attCollsion.enabled = true;
-                attCollider.enabled = true;
+                //Debug.Log("생성 안돼야함");
+                return;
             }
 
-            collider.isTrigger = false;
-            RailInput.onRail = false;
-            Clone.transform.position = new Vector3(RailInput.raillTrans.x, RailInput.raillTrans.y, 0);
-            
-            //아군 카운트 올리기
-            OnUnitNumChange.Invoke(unitCode);
-        }
+            if (RailInput.onRail)
+            {
+                collider.enabled = true;
+                UnitMovemate2.enabled = true;
+                Color32 c = _cloneRenderer.color;
+                _cloneRenderer.color = new Color32(c.r, c.g, c.b, 255);
+                if (isAD)
+                {
+                    adAtt.enabled = true;
+                }
+                else if (!isAD)
+                {
+                    attCollsion.enabled = true;
+                    attCollider.enabled = true;
+                }
 
-        else if (!RailInput.onRail)
-        {
-            Clone.SetActive(false);
-            AudioManager.Instance.PlaySfx(AudioManager.Sfx.Warning);
+                collider.isTrigger = false;
+                RailInput.onRail = false;
+                Clone.transform.position = new Vector3(RailInput.raillTrans.x, RailInput.raillTrans.y, 0);
+
+                //아군 카운트 올리기
+                OnUnitNumChange.Invoke(unitCode);
+
+                coolTime = maxCoolTime;
+            }
+
+            else if (!RailInput.onRail)
+            {
+                Clone.SetActive(false);
+                AudioManager.Instance.PlaySfx(AudioManager.Sfx.Warning);
+            }
         }
     }
 
