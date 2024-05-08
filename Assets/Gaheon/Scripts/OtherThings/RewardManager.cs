@@ -15,6 +15,7 @@ public class RewardManager : MonoBehaviour
     [SerializeField] GameObject trainImage;
     [SerializeField] GetStageNumberSo stageOpenSO;
     [SerializeField] GameObject rewardPanel;
+    [SerializeField] OwningUnitSO owningUnit;
 
     int clearStage;
     private void Start()
@@ -41,7 +42,8 @@ public class RewardManager : MonoBehaviour
 
         stationImage.sprite = stationInfo.StationImages[clearStage];
         clearText.text = $"{stationInfo.stationNames[clearStage]}\n°ÝÆÄ!";
-        rewardTexts[0].text = $"È¹µæ ºÎÇ° : {stationInfo.rewardResources[clearStage]}";
+        rewardTexts[0].text = $"È¹µæ °íÃ¶ : {stationInfo.rewardResources[clearStage]}";
+        ResourceManager.instance.SetRsc(stationInfo.rewardResources[clearStage]);
         if (clearStage < 3)
         {
             rewardTexts[2].text = $"¿­¸° ½ºÅ×ÀÌÁö : {stationInfo.stationNames[clearStage + 1]}";
@@ -50,6 +52,14 @@ public class RewardManager : MonoBehaviour
             {
                 rewardTexts[1].text = $"È¹µæ À¯´Ö : {stationInfo.unitSO[clearStage].TrainName}";
                 trainImageSprite.sprite = stationInfo.unitSO[clearStage].TrainHead;
+                if(clearStage == 1)
+                {
+                    owningUnit.OwningKTX = true;
+                }
+                else if (clearStage == 2)
+                {
+                    owningUnit.OwningLine1 = true;
+                }
             }
             else
             {
