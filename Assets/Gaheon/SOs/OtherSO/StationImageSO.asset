@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfafab7a10eadc648ba210325d309576, type: 3}
   m_Name: StationImageSO
   m_EditorClassIdentifier: 
-  StationImages: {fileID: 0}
+  StationImages:
+  - {fileID: 21300000, guid: 54d1c32189a918d4e912d3ea425be02a, type: 3}
+  - {fileID: 21300000, guid: c9079a94338829546a891397779a66af, type: 3}
+  - {fileID: 21300000, guid: 534e1a9b92b6693459be7958b399849c, type: 3}
+  - {fileID: 21300000, guid: a95f56d1e1296a34b80a6e3e1966a411, type: 3}

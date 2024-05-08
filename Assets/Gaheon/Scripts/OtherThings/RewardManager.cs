@@ -9,6 +9,7 @@ public class RewardManager : MonoBehaviour
     [SerializeField] Image stationImage;
     [SerializeField] TextMeshProUGUI clearText;
     [SerializeField] TextMeshProUGUI[] rewardTexts;
+    [SerializeField] StationSpriteSO stationSprite;
 
     private void Start()
     {
@@ -16,6 +17,6 @@ public class RewardManager : MonoBehaviour
     }
     void RewardChange()
     {
-
+        
     }
 }

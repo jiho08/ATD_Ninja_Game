@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [CreateAssetMenu(menuName = "SO/OtherThings/StationImages")]
-public class StationImageSO : ScriptableObject
+public class StationSpriteSO : ScriptableObject
 {
     public Sprite[] StationImages;
 
