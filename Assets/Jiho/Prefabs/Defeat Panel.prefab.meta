@@ -1,6 +1,12 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Juwon/Scripts/UnitSpawn/SO.meta
+guid: 10f77c980be52a4449b2c45d2e6d371c
+folderAsset: yes
+DefaultImporter:
+========
 guid: 6853199bfe4429d4b83ff1479d2de700
 PrefabImporter:
+>>>>>>>> origin/Jiho:Assets/Jiho/Prefabs/Defeat Panel.prefab.meta
   externalObjects: {}
   userData: 
   assetBundleName: 

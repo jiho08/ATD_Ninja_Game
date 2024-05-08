@@ -33,6 +33,11 @@ public class LengthManager : MonoBehaviour
             resourceTxtManger.ChangeAddPrice();
             ResourceManager.instance.SetRsc(-(selectManager.selectedPriceSO.AddPrice[selectManager.selectedSO.length - 1]));
             resourceTxtManger.ChangeResource();
+            AudioManager.Instance.PlaySfx(AudioManager.Sfx.Level);
+        }
+        else
+        {
+            AudioManager.Instance.PlaySfx(AudioManager.Sfx.Warning);
         }
     }
 

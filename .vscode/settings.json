@@ -56,5 +56,6 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "ATD_Ninja_Game.sln"
+    "dotnet.defaultSolution": "ATD_Ninja_Game.sln",
+    "FSharp.suggestGitignore": false
 }

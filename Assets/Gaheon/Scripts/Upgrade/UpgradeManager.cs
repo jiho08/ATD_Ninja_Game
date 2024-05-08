@@ -31,6 +31,11 @@ public class UpgradeManager : MonoBehaviour
             ResourceManager.instance.SetRsc(-(selectManager.selectedPriceSO.UpgradePrice[selectManager.selectedSO.level - 1]));
             resourceTxtManager.ChangeResource();
             resourceTxtManager.ChangeUpgradePrice();
+            AudioManager.Instance.PlaySfx(AudioManager.Sfx.Level);
+        }
+        else
+        {
+            AudioManager.Instance.PlaySfx(AudioManager.Sfx.Warning);
         }
     }
 

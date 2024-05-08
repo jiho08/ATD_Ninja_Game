@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.U2D.Animation;
 
-[CreateAssetMenu(menuName = "SO/UnitDatas")]
+[CreateAssetMenu(menuName = "SO/Units/UnitDatas")]
 public class UnitDataSO : ScriptableObject
 {
     public int TrainID;
-    public SpriteLibraryAsset TrainAnimation; //±âÂ÷ ¾ÕºÎºÐ
-    public Sprite TrainHead; //±âÂ÷ ¾ÕºÎºÐ
-    public Sprite TrainBody; //±âÂ÷ Ãß°¡µÈ ºÎºÐ
+    public SpriteLibraryAsset TrainAnimation; //ï¿½ï¿½ï¿½ï¿½ ï¿½ÕºÎºï¿½
+    public Sprite TrainHead; //ï¿½ï¿½ï¿½ï¿½ ï¿½ÕºÎºï¿½
+    public Sprite TrainBody; //ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½ï¿½ ï¿½Îºï¿½
     public string TrainName;
     public string TrainDesc;
     public string TrainRole;

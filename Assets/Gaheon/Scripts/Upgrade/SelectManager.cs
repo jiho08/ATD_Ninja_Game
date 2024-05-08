@@ -8,6 +8,7 @@ using TMPro;
 
 public class SelectManager : MonoBehaviour
 {
+    #region 받아오기
     [Header("Info")]
     [SerializeField] TextMeshProUGUI nameText;
     [SerializeField] TextMeshProUGUI descText;
@@ -41,6 +42,7 @@ public class SelectManager : MonoBehaviour
     public UnitPriceSO selectedPriceSO;
 
     [SerializeField] UnityEvent OnSelectChanged;
+    #endregion
 
     void Start()
     {
