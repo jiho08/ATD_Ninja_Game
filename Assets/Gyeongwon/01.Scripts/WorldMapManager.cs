@@ -18,6 +18,11 @@ public class WorldMapManager : MonoBehaviour
     public UnityEvent<int> OnStageChanged;
     [SerializeField] private GetStageNumberSo getStageNumber;
 
+    public delegate void ChangeStageNum(int value);
+
+    public ChangeStageNum OnChangeStage;
+
+
     IEnumerator coroutine;
 
     private void Awake()
@@ -49,6 +54,7 @@ public class WorldMapManager : MonoBehaviour
         if (Reddot.transform.position == stages[currentIndex].transform.position)
         {
             //AudioManager.Instance.PlaySfx(AudioManager.Sfx.Btn);
+            OnChangeStage.Invoke(value);
             {
                 Sequence moveStage = DOTween.Sequence();
                 targetIndex = value;

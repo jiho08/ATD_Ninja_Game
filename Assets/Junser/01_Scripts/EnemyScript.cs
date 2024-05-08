@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyScript : MonoBehaviour
 {
     //HP관련 변수
-
+    private HealthManager health;
     [SerializeField]
     private float _AttackSpeed;
     public float Accelation;
@@ -16,7 +16,7 @@ public class EnemyScript : MonoBehaviour
     //이동 관련 변수
     [SerializeField]
     private float _damage;
-    public float _GetDamage { get { return _damage; } set { _damage = value; } }
+    public float _GetDamage { get; private set; }
     private ParticleSystem _particle;
 
     [SerializeField]
@@ -29,13 +29,18 @@ public class EnemyScript : MonoBehaviour
     private float _DealayTime;
     //코루틴
 
-    
 
     private void Awake()
     {
         //컴포넌트 받기
         _Rigid = GetComponent<Rigidbody2D>();
         _particle = GetComponentInChildren<ParticleSystem>();
+        health = GetComponent<HealthManager>();
+    }
+
+    private void OnEnable()
+    {
+        _GetDamage = health.Damage;
     }
 
     private void Start()

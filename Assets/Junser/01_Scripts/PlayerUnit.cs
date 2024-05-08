@@ -8,7 +8,7 @@ public class PlayerUnit : MonoBehaviour
 
     [SerializeField]
     private float _damage;
-    public float _GetDamage { get { return _damage; } }
+    public float _GetDamage { get; private set; }
 
 
     [SerializeField]
@@ -33,7 +33,7 @@ public class PlayerUnit : MonoBehaviour
     private GameObject _AttackCollision;
     private Rigidbody2D _Rigid;
     private Firsttrain _firstTrain;
-    private HealthManager _playerHealth;
+    public HealthManager _playerHealth;
     private ParticleSystem _particle;
     private BoxCollider2D _hitBox;
 

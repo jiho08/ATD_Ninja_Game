@@ -13,6 +13,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI curTimerScore;
     [SerializeField] private TextMeshProUGUI clearTimerScore;
 
+    private bool _isGameDown;
+
     private void Start()
     {
         spawnM.currentUnitNum.OnValueChanged += HandleChangeUnitSpawnCount;
@@ -29,18 +31,22 @@ public class UIManager : MonoBehaviour
     
     public void StageClear()
     {
+        if (_isGameDown) return;
         gameOverPanel.SetActive(true);
         AudioManager.Instance.PlaySfx(AudioManager.Sfx.Victory);
         AudioManager.Instance.PlayBgm(false, 1);
-        
+        _isGameDown = true;
         Time.timeScale = 0;
     }   
     
     public void GameOver()
     {
+        if (_isGameDown) return;
+
         gameOverPanel.SetActive(true);
         AudioManager.Instance.PlaySfx(AudioManager.Sfx.Defeat);
         AudioManager.Instance.PlayBgm(false, 1);
+        _isGameDown = true;
         Time.timeScale = 0;
     }
 

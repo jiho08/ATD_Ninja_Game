@@ -4,19 +4,26 @@ using UnityEngine;
 
 public class AttackCollsion : MonoBehaviour
 {
+
     public float _damage = 1;
     private PlayerUnit _playerUnit;
+
     private HealthManager _playerHealth;
     private PoolManager _poolM;
     private void Awake()
     {
         _playerUnit = GetComponentInParent<PlayerUnit>();
     }
-
-    private void Start()
+    private void OnEnable()
     {
-        _damage = _playerUnit._GetDamage;
+        _playerUnit._playerHealth.OnDamage += HandleDamageChanger;
     }
+
+    private void HandleDamageChanger(float value)
+    {
+        _damage = value;
+    }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

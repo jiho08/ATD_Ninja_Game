@@ -177,7 +177,7 @@ MonoBehaviour:
   _AttackSpeed: 5
   Accelation: -1
   DefaltAcclation: -2
-  _damage: 1
+  _damage: 10
   _AttackCollision: {fileID: 6812799936799525467}
   _DealayTime: 2
 --- !u!114 &-4766673309490735270
@@ -285,7 +285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 842798dce73a06d4ab8b8af7d2fdfc34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 1
+  _damage: 10
 --- !u!1001 &3816446905092810372
 PrefabInstance:
   m_ObjectHideFlags: 0
