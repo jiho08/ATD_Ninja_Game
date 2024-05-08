@@ -3458,14 +3458,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 273257662}
+      - m_Target: {fileID: 646356802}
         m_TargetAssemblyTypeName: BlackSceneFade, Assembly-CSharp
         m_MethodName: ExitScene
-        m_Mode: 5
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: Jiho3
           m_BoolArgument: 0
@@ -3649,7 +3649,6 @@ Transform:
   - {fileID: 34072296}
   - {fileID: 1287707684}
   - {fileID: 2094092862}
-  - {fileID: 273257661}
   - {fileID: 1090310955}
   - {fileID: 470088741}
   m_Father: {fileID: 0}
@@ -3865,52 +3864,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 240939929}
   m_CullTransparentMesh: 1
---- !u!1 &273257660
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 273257661}
-  - component: {fileID: 273257662}
-  m_Layer: 0
-  m_Name: FadeInOutManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &273257661
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 273257660}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 235852231}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &273257662
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 273257660}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cb12694cf1c807428ec257142fce62f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  blackPanel: {fileID: 646356800}
-  fadeSpeed: 2
 --- !u!1 &298573827
 GameObject:
   m_ObjectHideFlags: 0
@@ -6795,6 +6748,7 @@ GameObject:
   - component: {fileID: 646356799}
   - component: {fileID: 646356801}
   - component: {fileID: 646356800}
+  - component: {fileID: 646356802}
   m_Layer: 5
   m_Name: BlackPanel
   m_TagString: Untagged
@@ -6859,6 +6813,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 646356798}
   m_CullTransparentMesh: 1
+--- !u!114 &646356802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 646356798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cb12694cf1c807428ec257142fce62f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blackPanel: {fileID: 646356800}
+  fadeSpeed: 2
 --- !u!1 &650360728
 GameObject:
   m_ObjectHideFlags: 0
@@ -17422,7 +17390,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000038146973, y: -0.00058871595}
+  m_AnchoredPosition: {x: -17.001043, y: -0.00058871595}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1872587161
@@ -18476,8 +18444,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 379811650}
   m_HandleRect: {fileID: 379811649}
   m_Direction: 0
-  m_Value: 0.0000035903033
-  m_Size: 0.99114585
+  m_Value: 1.000061
+  m_Size: 0.9911452
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

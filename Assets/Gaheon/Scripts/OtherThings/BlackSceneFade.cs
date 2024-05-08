@@ -18,7 +18,7 @@ public class BlackSceneFade : MonoBehaviour
         StartCoroutine(FadeOutCo());
     }
 
-    IEnumerator FadeInCo(string sceneName)
+    IEnumerator FadeInCo(int scneneNum)
     {
         blackPanel.transform.localScale = Vector3.one;
         while (blackPanel.color.a < 1)
@@ -26,7 +26,7 @@ public class BlackSceneFade : MonoBehaviour
             blackPanel.color += new Color(0, 0, 0, Time.deltaTime * fadeSpeed);
             yield return null;
         }
-        SceneManager.LoadScene(sceneName);
+        SceneManager.LoadScene(scneneNum);
     }
 
     IEnumerator FadeOutCo()
@@ -39,8 +39,9 @@ public class BlackSceneFade : MonoBehaviour
         }
         blackPanel.transform.localScale = Vector3.zero;
     }
-    public void ExitScene(string scneneName)
+    public void ExitScene(int scneneNum)
     {
-        StartCoroutine(FadeInCo(scneneName));
+        AudioManager.Instance.PlaySfx(AudioManager.Sfx.Btn);
+        StartCoroutine(FadeInCo(scneneNum));
     }
 }
