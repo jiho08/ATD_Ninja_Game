@@ -9,19 +9,23 @@ public class EnemyScript : MonoBehaviour
     [SerializeField]
     private float _AttackSpeed;
     public float Accelation;
-    [SerializeField]
-    private float DefaltAcclation;
+    
 
     private float _defaltPos;
+    float _speed;
+    public float _maxSpeed;
+
+
     //이동 관련 변수
-    [SerializeField]
-    private float _damage;
+    
+    public float _damage;
     public float _GetDamage { get { return _damage; } set { _damage = value; } }
     private ParticleSystem _particle;
 
     [SerializeField]
     private GameObject _AttackCollision;
     private Rigidbody2D _Rigid;
+    private BoxCollider2D _hitBox;
     //컴포넌트 받아와야하는것들
 
     private bool _isDealay;
@@ -29,26 +33,35 @@ public class EnemyScript : MonoBehaviour
     private float _DealayTime;
     //코루틴
 
-    
+    float time = 0;
+    private bool _rearground;
+    [SerializeField]
+    private float _accel;
+
 
     private void Awake()
     {
         //컴포넌트 받기
         _Rigid = GetComponent<Rigidbody2D>();
         _particle = GetComponentInChildren<ParticleSystem>();
+        _hitBox = GetComponent<BoxCollider2D>();
     }
 
     private void Start()
     {
         _defaltPos = transform.position.y;
+
+        _speed = 0;
+        Accelation = _maxSpeed;
     }
 
     private void Update()
     {
+        
+        //열차 길이 설정
+        
 
-        float _speed = _Rigid.velocity.x;
-
-        if (_speed < _AttackSpeed)
+        if (_Rigid.velocity.x < _AttackSpeed)
         {
             _AttackCollision.SetActive(true);
         }
@@ -60,7 +73,33 @@ public class EnemyScript : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        _Rigid.velocity = new Vector2(1, 0) * Accelation;
+        if (!_rearground)
+        {
+            _speed = 0.05f;
+            _accel = Mathf.Lerp(_accel, Accelation, _speed);
+            //이동
+            _Rigid.velocity = new Vector2(-1, 0) * _accel;
+        }
+        else
+        {
+
+            time += 0.05f;
+
+            _accel = _maxSpeed - time * _maxSpeed / _DealayTime / 3;
+            
+            //이동
+            _Rigid.velocity = new Vector2(1, 0) * _accel;
+        }
+    }
+    private void OnDisable()
+    {
+
+        _rearground = false;
+        _speed = 0;
+        _accel = 0;
+
+        StopCoroutine("AttackDealy");
+        StopCoroutine("BackAway");
     }
 
     public void TakeDamage()
@@ -80,31 +119,45 @@ public class EnemyScript : MonoBehaviour
     }
     IEnumerator BackAway()
     {
+        time = 0;
+        _rearground = true;
+        _hitBox.enabled = false;
+
+        _accel = 0;
 
 
-        transform.rotation = Quaternion.Euler(0, 0, -35);
-        transform.position = new Vector3(transform.position.x, _defaltPos + 0.53522833687f);
+        _AttackCollision.gameObject.SetActive(false);
 
 
-        Accelation = -DefaltAcclation*2;
-        yield return new WaitForSecondsRealtime(_DealayTime);
 
-        transform.rotation = Quaternion.Euler(0, 0, 0);
-        transform.position = new Vector3(transform.position.x, _defaltPos);
+        yield return new WaitForSeconds(_DealayTime);
 
 
-        Accelation = DefaltAcclation;
+        _accel = 0;
+
+        _speed = 0;
+        _hitBox.enabled = true;
+        _rearground = false;
     }
 
     IEnumerator AttackDealy()
     {
 
-        Accelation = -DefaltAcclation * 2;
+        _rearground = true;
+
+        _accel = 0;
+
+        time = 0;
 
 
-        yield return new WaitForSecondsRealtime(_DealayTime);
-        Accelation = DefaltAcclation;
+        yield return new WaitForSeconds(_DealayTime);
 
+        _AttackCollision.gameObject.SetActive(true);
+
+        Accelation = _maxSpeed;
+        _accel = 0;
+        _speed = 0;
+        _rearground = false;
 
     }
 }
