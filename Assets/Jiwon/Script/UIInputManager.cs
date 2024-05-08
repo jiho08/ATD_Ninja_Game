@@ -84,14 +84,16 @@ public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         Clone.transform.position = new Vector3(targetPosition.x, targetPosition.y, 0);
         //transform.position = new Vector3(eventData.position.x, eventData.position.y, 0);
         //Debug.Log(eventData);
-
-
     }
 
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        if (Clone == null) return;
+        if (Clone == null)
+        {
+            //Debug.Log("생성 안돼야함");
+            return;
+        }
 
         if (RailInput.onRail)
         {
