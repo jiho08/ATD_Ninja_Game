@@ -17,6 +17,7 @@ public class AttackCollsion : MonoBehaviour
     {
         _damage = _playerUnit._GetDamage;
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Enemy")
@@ -26,12 +27,23 @@ public class AttackCollsion : MonoBehaviour
 
             EnemyScript _enemy = collision.gameObject.GetComponent<EnemyScript>();
 
+            
+            if (collision.tag == "Enemy")
+            {
+                _playerHealth.Health = _playerHealth.Health - _damage;
 
-            _playerHealth.Health = _playerHealth.Health - _damage;
+                _enemy.TakeDamage();
 
-            _enemy.TakeDamage();
+                _playerUnit.Dealy();
+            }
+            else if (_playerHealth.isOnEntity[2])
+            {
+                _playerHealth.Health = _playerHealth.Health - _damage;
+                _playerUnit.Dealy();
 
-            _playerUnit.Dealy();
+            }
         }
+
+
     }
 }
