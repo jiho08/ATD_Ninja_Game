@@ -43,7 +43,7 @@ public class PlayerADUnit : MonoBehaviour
     IEnumerator Colltime()//발사 코루틴
     {
         _isFire = false;
-        _anim.SetTrigger("shoot end");
+        _anim.SetTrigger("Fire");
 
         GameObject _spawnedBullet = poolM.Get(0);
 
