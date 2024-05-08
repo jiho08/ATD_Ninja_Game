@@ -105,6 +105,7 @@ public class TutorialUI : MonoBehaviour
         Sequence txt = DOTween.Sequence();
         txt.SetUpdate(true);
         txt.Append(text.DOText(tuto[count], tutoNum[count]).SetEase(Ease.Linear));
+        
     }
 
     private void Tutorial02Start(int value)
@@ -124,7 +125,6 @@ public class TutorialUI : MonoBehaviour
     }
     IEnumerator Tutorial02() 
     {
-        yield return new WaitForSecondsRealtime(1f + 0.5f);
         Debug.Log(2);
         On();
         Tutori();
