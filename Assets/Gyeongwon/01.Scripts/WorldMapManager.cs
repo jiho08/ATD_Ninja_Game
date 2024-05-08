@@ -8,7 +8,7 @@ using UnityEngine.Events;
 public class WorldMapManager : MonoBehaviour
 {
     GameObject currentStage;
-    public GameObject train;
+    public GameObject Reddot;
     int currentIndex;
     int targetIndex;
     public GameObject[] stages;
@@ -16,6 +16,7 @@ public class WorldMapManager : MonoBehaviour
     public GameObject StageViews;
     private Dictionary<int, GameObject> objDic;
     public UnityEvent<int> OnStageChanged;
+    [SerializeField] private GetStageNumberSo getStageNumber;
 
     IEnumerator coroutine;
 
@@ -26,12 +27,14 @@ public class WorldMapManager : MonoBehaviour
     void Start()
     {
         currentStage = stages[0];
-        train.transform.position = currentStage.transform.position;
+        Reddot.transform.position = currentStage.transform.position;
         currentIndex = 0;
-    }
 
-    private void Update()
-    {
+        for (int i = 0; i < getStageNumber.isOpenStage.Length; i++)
+        {
+            isOpenStages[i] = getStageNumber.isOpenStage[i];
+        }
+
         stages[0].SetActive(isOpenStages[0]);
         stages[1].SetActive(isOpenStages[1]);
         stages[2].SetActive(isOpenStages[2]);
@@ -43,8 +46,9 @@ public class WorldMapManager : MonoBehaviour
    
     public void SetTargetStage(int value)
     {
-        if (train.transform.position == stages[currentIndex].transform.position)
+        if (Reddot.transform.position == stages[currentIndex].transform.position)
         {
+            //AudioManager.Instance.PlaySfx(AudioManager.Sfx.Btn);
             {
                 Sequence moveStage = DOTween.Sequence();
                 targetIndex = value;
@@ -55,7 +59,7 @@ public class WorldMapManager : MonoBehaviour
                     for (int i = currentIndex; i < targetIndex;)
                     {
                         i++;
-                        moveStage.Append(train.transform.DOMove(stages[i].transform.position, 1 / Mathf.Abs(targetIndex - startIdx)));
+                        moveStage.Append(Reddot.transform.DOMove(stages[i].transform.position, 1 / Mathf.Abs(targetIndex - startIdx)));
                         currentStage = stages[i];
                     }
                 }
@@ -64,7 +68,7 @@ public class WorldMapManager : MonoBehaviour
                     for (int i = currentIndex; i > targetIndex;)
                     {
                         i--;
-                        moveStage.Append(train.transform.DOMove(stages[i].transform.position, 1 / Mathf.Abs(targetIndex - startIdx)));
+                        moveStage.Append(Reddot.transform.DOMove(stages[i].transform.position, 1 / Mathf.Abs(targetIndex - startIdx)));
                     }
                 }
                 coroutine = SetStageView(value, 1);
