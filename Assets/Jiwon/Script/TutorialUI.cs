@@ -18,7 +18,8 @@ public class TutorialUI : MonoBehaviour
     [SerializeField] private Transform playerPod;
 
     [SerializeField] private UIInputManager[] uiInputM;
-    [SerializeField] private CamMove camMove;
+    private CamMove camMove;
+    
 
     [SerializeField] private string[] tuto;
     [SerializeField] private float[] tutoNum;
@@ -27,7 +28,7 @@ public class TutorialUI : MonoBehaviour
 
     private void Awake()
     {
-        camMove = GameObject.Find("Bundle").transform.GetChild(0).GetComponent<CamMove>();
+        camMove = GetComponent<CamMove>();
     }
 
     private void Start()
@@ -103,7 +104,7 @@ public class TutorialUI : MonoBehaviour
     {
         Sequence txt = DOTween.Sequence();
         txt.SetUpdate(true);
-        txt.Append(text.DOText(tuto[count], tutoNum[count]).SetEase(Ease.Unset));
+        txt.Append(text.DOText(tuto[count], tutoNum[count]).SetEase(Ease.Linear));
     }
 
     private void Tutorial02Start(int value)
@@ -143,7 +144,7 @@ public class TutorialUI : MonoBehaviour
     }
     IEnumerator Tutorial04()
     {
-        camMove.EnemyCamMove(2f);
+        StartCoroutine(camMove.EnemyCamMove());
         yield return new WaitForSecondsRealtime(2 + 0.5f);
         Debug.Log(4);
         On();
@@ -154,6 +155,8 @@ public class TutorialUI : MonoBehaviour
     }
     IEnumerator Tutorial05()
     {
+        StartCoroutine(camMove.PlayerCamMove());
+        yield return new WaitForSecondsRealtime(3);
         Debug.Log(5);
         On();
         Tutori();
