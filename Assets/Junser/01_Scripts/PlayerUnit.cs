@@ -108,10 +108,9 @@ public class PlayerUnit : MonoBehaviour
         else
         {
             
-            time += 0.1f;
+            time += 0.05f;
 
-            _accel = Mathf.Lerp(_accel, Accelation, 1 - time * _DealayTime);
-
+            _accel = _maxSpeed - time*_maxSpeed/_DealayTime / 3;
             //¿Ãµø
             _Rigid.velocity = new Vector2(-1, 0) * _accel;
         }

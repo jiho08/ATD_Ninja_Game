@@ -23,6 +23,6 @@ public class TrailScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _tail.emitting = _rigid.velocity.x > _unit.GetTrainAttackSpeed();
+        _tail.enabled = _rigid.velocity.x > _unit.GetTrainAttackSpeed();
     }
 }

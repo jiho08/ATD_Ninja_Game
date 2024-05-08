@@ -3339,9 +3339,9 @@ GameObject:
   - component: {fileID: 212513765}
   - component: {fileID: 212513766}
   - component: {fileID: 212513767}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Enemy Station
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3471,7 +3471,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _curHealth: 1
-  unitCode: 0
+  unitCode: 2
   isOnEntity: 000001
 --- !u!114 &212513767
 MonoBehaviour:

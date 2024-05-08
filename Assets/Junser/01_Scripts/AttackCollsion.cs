@@ -27,30 +27,32 @@ public class AttackCollsion : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Enemy")
+
+        _playerHealth = collision.gameObject.GetComponent<HealthManager>();
+        
+        EnemyScript _enemy = collision.gameObject.GetComponent<EnemyScript>();
+        
+        if(_enemy == null)
+        {
+            return;
+        }
+        
+        if (_playerHealth.isOnEntity[1])
         {
 
-            _playerHealth = collision.gameObject.GetComponent<HealthManager>();
-
-            EnemyScript _enemy = collision.gameObject.GetComponent<EnemyScript>();
-
-            
-            if (collision.tag == "Enemy")
-            {
-                _playerHealth.Health = _playerHealth.Health - _damage;
-
-                _enemy.TakeDamage();
-
-                _playerUnit.Dealy();
-            }
-            else if (_playerHealth.isOnEntity[2])
-            {
-                _playerHealth.Health = _playerHealth.Health - _damage;
-                _playerUnit.Dealy();
-
-            }
+            _playerHealth.Health = _playerHealth.Health - _damage;
+        
+            _enemy.TakeDamage();
+        
+            _playerUnit.Dealy();
+        
+        
         }
-
-
+        else if (_playerHealth.isOnEntity[2])
+        {
+            _playerHealth.Health = _playerHealth.Health - _damage;
+            _playerUnit.Dealy();
+        }
+        
     }
 }

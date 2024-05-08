@@ -14,8 +14,12 @@ public class TutorialUI : MonoBehaviour
     [SerializeField] private GameObject butten;
     [SerializeField] private Text text;
     [SerializeField] private GameObject cam;
-    [SerializeField] private GameObject enemyPos;
-    [SerializeField] private GameObject playerPod;
+    [SerializeField] private Transform enemyPos;
+    [SerializeField] private Transform playerPod;
+
+    [SerializeField] private UIInputManager[] uiInputM;
+    private CamMove camMove;
+    
 
     [SerializeField] private string[] tuto;
     [SerializeField] private float[] tutoNum;
@@ -24,19 +28,28 @@ public class TutorialUI : MonoBehaviour
 
     private void Awake()
     {
-        
+        camMove = GetComponent<CamMove>();
     }
+
     private void Start()
     {
-        spawnM.currentUnitNum.OnValueChanged += Tutorial02Start;
         count = 0;
         Off();
+        
         StartCoroutine(Tutorial01());
+
+        uiInputM[0].OnUnitNumChange += Tutorial02Start;
+        uiInputM[1].OnUnitNumChange += Tutorial02Start;
+        uiInputM[2].OnUnitNumChange += Tutorial02Start;
+
     }
 
     private void Update()
     {
-
+        if (Input.GetKeyUp(KeyCode.Mouse2)&&count ==2)
+        {
+            CamMove();
+        }
     }
 
     private void On()
@@ -62,15 +75,15 @@ public class TutorialUI : MonoBehaviour
             case 1:
                 StartCoroutine(Tutorial02());
                 break;
-            case 2:
-                StartCoroutine(Tutorial03());
-                break;
             case 3:
                 StartCoroutine(Tutorial04());
                 break;
-            case 5:
-                StartCoroutine(Tutorial06());
+            case 4:
+                StartCoroutine(Tutorial05());
                 break;
+            //case 5:
+            //    StartCoroutine(Tutorial06());
+            //    break;
         }
     }
 
@@ -81,16 +94,23 @@ public class TutorialUI : MonoBehaviour
         count++;
         ClickBtn();
     }
+
+    private void CamMove()
+    {
+        StartCoroutine(Tutorial03());
+    }
+
     private void Tutori()
     {
         Sequence txt = DOTween.Sequence();
         txt.SetUpdate(true);
-        txt.Append(text.DOText(tuto[count], tutoNum[count]).SetEase(Ease.Unset));
+        txt.Append(text.DOText(tuto[count], tutoNum[count]).SetEase(Ease.Linear));
+        
     }
 
-    private void Tutorial02Start(int prev, int next)
+    private void Tutorial02Start(int value)
     {
-        StartCoroutine(Tutorial05());
+        StartCoroutine(Tutorial06());
     }
 
     IEnumerator Tutorial01()
@@ -105,8 +125,6 @@ public class TutorialUI : MonoBehaviour
     }
     IEnumerator Tutorial02() 
     {
-        cam.transform.DOMove(new Vector3(enemyPos.transform.position.x,transform.position.y,transform.position.z), 1);
-        yield return new WaitForSecondsRealtime(1f + 0.5f);
         Debug.Log(2);
         On();
         Tutori();
@@ -116,7 +134,7 @@ public class TutorialUI : MonoBehaviour
     }
     IEnumerator Tutorial03()
     {
-        yield return new WaitForSecondsRealtime(3);
+        //yield return new WaitForSecondsRealtime(3);
         Debug.Log(3);
         On();
         Tutori();
@@ -126,6 +144,8 @@ public class TutorialUI : MonoBehaviour
     }
     IEnumerator Tutorial04()
     {
+        StartCoroutine(camMove.EnemyCamMove());
+        yield return new WaitForSecondsRealtime(2 + 0.5f);
         Debug.Log(4);
         On();
         Tutori();
@@ -135,6 +155,8 @@ public class TutorialUI : MonoBehaviour
     }
     IEnumerator Tutorial05()
     {
+        StartCoroutine(camMove.PlayerCamMove());
+        yield return new WaitForSecondsRealtime(3);
         Debug.Log(5);
         On();
         Tutori();
@@ -150,6 +172,9 @@ public class TutorialUI : MonoBehaviour
         yield return new WaitForSecondsRealtime(tutoNum[count] + 0.5f);
         butten.SetActive(true);
 
+        uiInputM[0].OnUnitNumChange -= Tutorial02Start;
+        uiInputM[1].OnUnitNumChange -= Tutorial02Start;
+        uiInputM[2].OnUnitNumChange -= Tutorial02Start;
     }
 
 }

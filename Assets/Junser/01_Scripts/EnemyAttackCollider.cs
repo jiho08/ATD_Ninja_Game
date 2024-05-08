@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyAttackCollider : MonoBehaviour
 {
-    public float _damage;
+    private float _damage = 1;
     private EnemyScript _enemy;
     private HealthManager _playerHealth;
     private ParticleSystem _particle;
@@ -13,6 +13,11 @@ public class EnemyAttackCollider : MonoBehaviour
     {
         
         _enemy = GetComponentInParent<EnemyScript>();
+    }
+
+    private void Start()
+    {
+        _damage = _enemy._damage;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
