@@ -177,7 +177,7 @@ MonoBehaviour:
   _AttackSpeed: 5
   Accelation: -1
   DefaltAcclation: -2
-  _damage: 0
+  _damage: 1
   _AttackCollision: {fileID: 6812799936799525467}
   _DealayTime: 2
 --- !u!114 &-4766673309490735270

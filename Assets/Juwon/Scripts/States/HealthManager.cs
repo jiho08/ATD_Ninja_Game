@@ -12,7 +12,7 @@ public class HealthManager : MonoBehaviour
     public RepairEnemyCool OnEnemyRepairCool;
 
     [SerializeField] private int unitCode;
-    [SerializeField] bool[] isOnEntity; //0:unit, 1:Enemy, 2:tower
+    public bool[] isOnEntity; //0:unit, 1:Enemy, 2:tower
 
     public float Health
     {
