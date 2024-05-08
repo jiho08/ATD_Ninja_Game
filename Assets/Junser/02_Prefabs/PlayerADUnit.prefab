@@ -130,6 +130,7 @@ MonoBehaviour:
   _trainLength: 2
   _AttackCollision: {fileID: 6000538367989265758}
   _DealayTime: 1
+  _defaltYPos: 0
   _train: {fileID: 5472984915105490721, guid: 2a160d64ba4d80944a5ea3c8499f8e52, type: 3}
 --- !u!114 &1127476165599421729
 MonoBehaviour:
