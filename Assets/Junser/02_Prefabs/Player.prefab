@@ -121,13 +121,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d1ad6e7ea43e6f488e80560a0e9e0b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 0
+  _damage: 1
   _AttackSpeed: 3
   _accel: 0.15
   _maxSpeed: 0
   _trainLength: 1
   _AttackCollision: {fileID: 6000538367989265758}
   _DealayTime: 1
+  _defaltYPos: 0
   _train: {fileID: 8278483319053428087, guid: ddff43137ce356248aee41ffbc7ed701, type: 3}
 --- !u!114 &3961507324100938754
 MonoBehaviour:
@@ -141,7 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30f18eaf22a931240b8511474e448a1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _curHealth: 1
+  _curHealth: 2
   unitCode: 0
   isOnEntity: 010000
 --- !u!1 &1364220081744894535
@@ -228,8 +229,8 @@ TrailRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.012437806
-        value: 0.4912281
+        time: 0
+        value: 0.33193612
         inSlope: -1.6045716
         outSlope: -1.6045716
         tangentMode: 0

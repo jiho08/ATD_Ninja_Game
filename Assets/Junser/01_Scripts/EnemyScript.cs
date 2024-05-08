@@ -87,7 +87,7 @@ public class EnemyScript : MonoBehaviour
 
 
         Accelation = -DefaltAcclation*2;
-        yield return new WaitForSecondsRealtime(_DealayTime);
+        yield return new WaitForSeconds(_DealayTime);
 
         transform.rotation = Quaternion.Euler(0, 0, 0);
         transform.position = new Vector3(transform.position.x, _defaltPos);
@@ -102,7 +102,7 @@ public class EnemyScript : MonoBehaviour
         Accelation = -DefaltAcclation * 2;
 
 
-        yield return new WaitForSecondsRealtime(_DealayTime);
+        yield return new WaitForSeconds(_DealayTime);
         Accelation = DefaltAcclation;
 
 

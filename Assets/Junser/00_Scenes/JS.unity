@@ -333,6 +333,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerADUnit
       objectReference: {fileID: 0}
+    - target: {fileID: 1127476165599421729, guid: 2b70d18c879e0f342b51696cced6b67c, type: 3}
+      propertyPath: isOnEntity.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1127476165599421729, guid: 2b70d18c879e0f342b51696cced6b67c, type: 3}
+      propertyPath: isOnEntity.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1700395402607665581, guid: 2b70d18c879e0f342b51696cced6b67c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.130434
@@ -451,7 +459,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1700395402607665581, guid: 0893cc5a1923c4547853af1d0970be3a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.2856374
+      value: -30.02
       objectReference: {fileID: 0}
     - target: {fileID: 1700395402607665581, guid: 0893cc5a1923c4547853af1d0970be3a, type: 3}
       propertyPath: m_LocalPosition.y
