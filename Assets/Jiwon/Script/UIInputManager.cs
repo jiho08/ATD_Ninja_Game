@@ -2,13 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
 
 public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler //,IDropHandler
 {
-    public int UnitCode; //진짜 유닛
+    [FormerlySerializedAs("UnitCode")] public int unitCode; //진짜 유닛
     private GameObject Clone; //임시로 유닛 담을거
 
+    public delegate void UnitSpawnNumChange(int value);
 
+    public UnitSpawnNumChange OnUnitNumChange;
 
     private BoxCollider2D collider; // 유닛의 콜라이더 
 
@@ -41,14 +44,14 @@ public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
-        Clone = spawnM.UnitSpawn(UnitCode);
+        Clone = spawnM.UnitSpawn(unitCode);
 
+        if (Clone == null) return;
 
         _cloneRenderer = Clone.GetComponentInChildren<SpriteRenderer>();
         UnitMovemate2 = Clone.GetComponent<PlayerUnit>();
         collider = Clone.GetComponent<BoxCollider2D>();
 
-        if (Clone == null) return;
         if (Clone.gameObject.GetComponent<PlayerADUnit>() != null)
         {
             isAD = true;
@@ -109,6 +112,9 @@ public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
             collider.isTrigger = false;
             RailInput.onRail = false;
             Clone.transform.position = new Vector3(RailInput.raillTrans.x, RailInput.raillTrans.y, 0);
+            
+            //아군 카운트 올리기
+            OnUnitNumChange.Invoke(unitCode);
         }
 
         else if (!RailInput.onRail)

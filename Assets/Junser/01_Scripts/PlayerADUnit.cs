@@ -47,7 +47,7 @@ public class PlayerADUnit : MonoBehaviour
         _spawnedBullet.transform.rotation = Quaternion.Euler(0, 0, 90);
         _spawnedBullet.transform.position = transform.position;
 
-        yield return new WaitForSecondsRealtime(_shotColltime);
+        yield return new WaitForSeconds(_shotColltime);
 
         _isFire = true;
     }

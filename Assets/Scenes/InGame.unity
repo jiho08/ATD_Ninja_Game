@@ -3152,7 +3152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e485245b6a9b4c742bd8ff6648c956af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UnitCode: 2
+  unitCode: 2
   spawnM: {fileID: 1696444984}
 --- !u!114 &96232854
 MonoBehaviour:
@@ -3243,7 +3243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e485245b6a9b4c742bd8ff6648c956af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UnitCode: 0
+  unitCode: 0
   spawnM: {fileID: 1696444984}
 --- !u!114 &212224096
 MonoBehaviour:
@@ -3295,6 +3295,7 @@ GameObject:
   - component: {fileID: 212513763}
   - component: {fileID: 212513765}
   - component: {fileID: 212513766}
+  - component: {fileID: 212513767}
   m_Layer: 0
   m_Name: Enemy Station
   m_TagString: Untagged
@@ -3429,6 +3430,90 @@ MonoBehaviour:
   _curHealth: 1
   unitCode: 0
   isOnEntity: 000001
+--- !u!114 &212513767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 212513762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf2cc041871d60f438a958c457228615, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnGameOver:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 544108122}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: SetMaxTime
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1018277241}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: StageClear
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!1 &544108121
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 544108123}
+  - component: {fileID: 544108122}
+  m_Layer: 0
+  m_Name: Game Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &544108122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 544108121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0db7ca0d65e0ee4e8331b131fc833ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stageNum: {fileID: 11400000, guid: 9f204a270baaf8242a2b4a2e425fe8db, type: 2}
+--- !u!4 &544108123
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 544108121}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3500569512577711693}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &556578967
 GameObject:
   m_ObjectHideFlags: 0
@@ -5810,7 +5895,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e485245b6a9b4c742bd8ff6648c956af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UnitCode: 1
+  unitCode: 1
   spawnM: {fileID: 1696444984}
 --- !u!114 &709451595
 MonoBehaviour:
@@ -6233,11 +6318,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1fdd27a846c2bb4b8b746ea996c3db2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameM: {fileID: 544108122}
   spawnM: {fileID: 1696444984}
   getSpawnEnemyNumTxts:
   - {fileID: 556578969}
   - {fileID: 1690583172}
   - {fileID: 862329787}
+  gameOverPanel: {fileID: 0}
+  curTimerScore: {fileID: 0}
+  clearTimerScore: {fileID: 0}
 --- !u!1 &1051477330
 GameObject:
   m_ObjectHideFlags: 0
@@ -6456,6 +6545,7 @@ GameObject:
   - component: {fileID: 1605468764}
   - component: {fileID: 1605468766}
   - component: {fileID: 1605468767}
+  - component: {fileID: 1605468768}
   m_Layer: 6
   m_Name: Player Station
   m_TagString: Player
@@ -6590,6 +6680,33 @@ MonoBehaviour:
   _curHealth: 1
   unitCode: 0
   isOnEntity: 000001
+--- !u!114 &1605468768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1605468763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf2cc041871d60f438a958c457228615, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnGameOver:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1018277241}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: GameOver
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1641616276
 GameObject:
   m_ObjectHideFlags: 0
@@ -6800,6 +6917,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitPool: {fileID: 8590756513846161915}
   enemyPool: {fileID: 3148803227172012592}
+  uiInputM:
+  - {fileID: 212224095}
+  - {fileID: 709451594}
+  - {fileID: 96232853}
   unitData:
   - {fileID: 11400000, guid: 3ec462b879e23d742b3ad185bc81a1d7, type: 2}
   - {fileID: 11400000, guid: 216d321d6357719439ce3acb8ea62134, type: 2}
@@ -11981,8 +12102,9 @@ Transform:
   - {fileID: 8576124000424092219}
   - {fileID: 6265108122332312389}
   - {fileID: 1655006461304308387}
-  - {fileID: 963949900758966029}
+  - {fileID: 544108123}
   - {fileID: 1018277240}
+  - {fileID: 963949900758966029}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &3715468214293079828
