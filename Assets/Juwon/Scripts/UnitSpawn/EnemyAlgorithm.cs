@@ -33,14 +33,14 @@ public class EnemyAlgorithm : MonoBehaviour
                 _maxSpawnCount[0] = 7;
                 break;
             case 1:
-                _maxSpawnCount[0] = 15;
+                _maxSpawnCount[0] = 13;
                 break;
             case 2:
-                _maxSpawnCount[0] = 20;
-                _maxSpawnCount[1] = 10;
+                _maxSpawnCount[0] = 13;
+                _maxSpawnCount[1] = 7;
                 break;
             case 3:
-                _maxSpawnCount[0] = 25;
+                _maxSpawnCount[0] = 15;
                 _maxSpawnCount[1] = 10;
                 _maxSpawnCount[2] = 5;
                 break;
@@ -57,8 +57,7 @@ public class EnemyAlgorithm : MonoBehaviour
         }
 
         SpawnAI();
-        //_timer = Random.Range(0f, 5f);
-        _timer = 1;
+        _timer = Random.Range(0f, 2.5f);
     }
 
     private void Update()
@@ -78,9 +77,9 @@ public class EnemyAlgorithm : MonoBehaviour
 
     private void SpawnAI()
     {
-        int rand = Random.Range(0, 3);
+        int rand = Random.Range(0, 4);
 
-        if (rand < 2)
+        if (rand < 3)
         {
             if (_stageNum == 0) _stageNum = 1;
             
