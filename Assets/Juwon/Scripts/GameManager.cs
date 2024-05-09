@@ -51,8 +51,7 @@ public class GameManager : MonoBehaviour
 
     public void SetNextLevelUp()
     {
-        stageNum.stageNumber++;
-        stageNum.isOpenStage[stageNum.stageNumber-1] = true;
+        stageNum.isOpenStage[stageNum.stageNumber+1] = true;
     }
 
     public void BackBtn()

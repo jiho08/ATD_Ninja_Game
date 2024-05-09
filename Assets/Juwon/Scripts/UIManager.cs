@@ -32,7 +32,7 @@ public class UIManager : MonoBehaviour
     public void StageClear()
     {
         if (_isGameDown) return;
-        gameOverPanel.SetActive(true);
+        gameClearPanel.SetActive(true);
         AudioManager.Instance.PlaySfx(AudioManager.Sfx.Victory);
         AudioManager.Instance.PlayBgm(false, 1);
         _isGameDown = true;

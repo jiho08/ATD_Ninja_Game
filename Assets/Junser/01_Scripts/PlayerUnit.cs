@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,7 +14,6 @@ public class PlayerUnit : MonoBehaviour
 
     [SerializeField]
     private float _AttackSpeed;
-    private float Accelation;
     [SerializeField]
     private float _accel;
 
@@ -58,14 +58,27 @@ public class PlayerUnit : MonoBehaviour
         _hitBox = GetComponent<BoxCollider2D>();
     }
 
-    
 
-    private void Start()
+    /*private void Start()
     {
         _defaltYPos = transform.position.y;
 
         _speed = 0;
         Accelation = _maxSpeed;
+        //열차 길이 설정
+        for (int i = 1; i <= _trainLength; i++)
+        {
+            GameObject _Line = Instantiate(_train);
+            _Line.transform.SetParent(transform, false);
+            _Line.transform.position = transform.position + new Vector3((i * -2f), 0);
+        }
+    }*/
+
+    private void OnEnable()
+    {
+        _defaltYPos = transform.position.y;
+
+        _speed = 0;
         //열차 길이 설정
         for (int i = 1; i <= _trainLength; i++)
         {
@@ -101,7 +114,7 @@ public class PlayerUnit : MonoBehaviour
         if (!_rearground)
         {
             _speed = 0.05f;
-            _accel = Mathf.Lerp(_accel, Accelation, _speed);
+            _accel = Mathf.Lerp(_accel, _maxSpeed, _speed);
             //이동
             _Rigid.velocity = new Vector2(1, 0) * _accel;
         }
@@ -183,7 +196,6 @@ public class PlayerUnit : MonoBehaviour
 
         _AttackCollision.gameObject.SetActive(true);
 
-        Accelation = _maxSpeed;
         _accel = 0;
         _speed = 0;
         _rearground = false;

@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class AttackCollsion : MonoBehaviour
 {
-    public float _damage = 1;
+    public float damage;
     private PlayerUnit _playerUnit;
     private HealthManager _playerHealth;
     private PoolManager _poolM;
@@ -12,43 +13,44 @@ public class AttackCollsion : MonoBehaviour
     {
         _playerUnit = GetComponentInParent<PlayerUnit>();
     }
-
-    private void Start()
+    
+    private void OnEnable()
     {
-        _damage = _playerUnit._GetDamage;
+        _playerUnit._playerHealth.OnDamage += HandleDamageChanger;
+    }
+    
+    private void HandleDamageChanger(float value)
+    {
+        damage = value;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
-        _playerHealth = collision.gameObject.GetComponent<HealthManager>();
-        
-        EnemyScript _enemy = collision.gameObject.GetComponent<EnemyScript>();
-        gameObject.SetActive(false);
-
-        if (collision != null && collision.tag == "Enemy")
+        if (collision.gameObject.CompareTag("Enemy"))
         {
+            
+            _playerHealth = collision.gameObject.GetComponent<HealthManager>();
+            
+            EnemyScript enemy = collision.gameObject.GetComponent<EnemyScript>();
+            gameObject.SetActive(false);
+
             if (_playerHealth.isOnEntity[1])
             {
-
-                _playerHealth.Health = _playerHealth.Health - _damage;
-        
-                _enemy.TakeDamage();
-
-                
-        
+                AudioManager.Instance.PlaySfx(AudioManager.Sfx.Hit);
+                _playerHealth.Health -= damage;
+            
+                enemy.TakeDamage();
+            
                 _playerUnit.Dealy();
-        
-        
+            
+            
             }
             else if (_playerHealth.isOnEntity[2])
             {
-                _playerHealth.Health = _playerHealth.Health - _damage;
+                AudioManager.Instance.PlaySfx(AudioManager.Sfx.Tower);
+                _playerHealth.Health -= damage;
                 _playerUnit.Dealy();
             }
         }
-        
-        
-        
     }
 }
