@@ -7,13 +7,12 @@ public class Firsttrain : MonoBehaviour
     private float _dealayTime;
     private float _defaltPos;
     private PlayerUnit _unit;
-    private Animator _anim;
+
     void Start()
     {
         _unit = GetComponentInParent<PlayerUnit>();
         transform.position = new Vector3(transform.position.x, _unit.transform.position.y);
-        _dealayTime = GetComponentInParent<PlayerUnit>()._DealayTime;
-        _anim = GetComponent<Animator>();
+        _dealayTime = GetComponentInParent<PlayerUnit>()._DealayTime;        
     }
     private void OnDisable()
     {

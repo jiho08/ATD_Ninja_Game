@@ -25,26 +25,28 @@ public class AttackCollsion : MonoBehaviour
         
         EnemyScript _enemy = collision.gameObject.GetComponent<EnemyScript>();
 
-        
-        
-        
-        if (_playerHealth.isOnEntity[1])
-        {
 
-            _playerHealth.Health = _playerHealth.Health - _damage;
-        
-            _enemy.TakeDamage();
-        
-            _playerUnit.Dealy();
-        
-        
-        }
-        else if (_playerHealth.isOnEntity[2])
+        if (collision != null && collision.tag == "Enemy")
         {
+            if (_playerHealth.isOnEntity[1])
+            {
 
-            _playerHealth.Health = _playerHealth.Health - _damage;
-            _playerUnit.Dealy();
+                _playerHealth.Health = _playerHealth.Health - _damage;
+        
+                _enemy.TakeDamage();
+        
+                _playerUnit.Dealy();
+        
+        
+            }
+            else if (_playerHealth.isOnEntity[2])
+            {
+                _playerHealth.Health = _playerHealth.Health - _damage;
+                _playerUnit.Dealy();
+            }
         }
+        
+        
         
     }
 }
