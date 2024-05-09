@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
+using Cinemachine;
 
 public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler //,IDropHandler
 {
@@ -36,6 +37,11 @@ public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     private float coolTime;
     private bool isCoolTime;
 
+    [SerializeField] private CinemachineConfiner2D cinema;
+    [SerializeField] private PolygonCollider2D[] rfv;
+
+
+
     private void Awake()
     {
         //coolTimeImage = GetComponentInChildren<Image>();
@@ -45,6 +51,8 @@ public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     private void Start()
     {
         coolTime = 0;
+        Qwertyuio();
+
     }
     private void Update()
     {
@@ -157,7 +165,10 @@ public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         }
     }
 
-
+    private void Qwertyuio()
+    {
+        cinema.m_BoundingShape2D = rfv[1];
+    }
 
 
 }
