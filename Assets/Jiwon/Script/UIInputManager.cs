@@ -36,23 +36,10 @@ public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     [SerializeField] private float maxCoolTime;
     private float coolTime;
     private bool isCoolTime;
-
-    [SerializeField] private CinemachineConfiner2D cinema;
-    [SerializeField] private PolygonCollider2D[] rfv;
-
-
-
-    private void Awake()
-    {
-        //coolTimeImage = GetComponentInChildren<Image>();
-
-
-    }
+    
     private void Start()
     {
         coolTime = 0;
-        Qwertyuio();
-
     }
     private void Update()
     {
@@ -164,11 +151,4 @@ public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
             }
         }
     }
-
-    private void Qwertyuio()
-    {
-        cinema.m_BoundingShape2D = rfv[1];
-    }
-
-
 }
