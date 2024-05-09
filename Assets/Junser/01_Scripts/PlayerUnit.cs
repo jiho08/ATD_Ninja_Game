@@ -116,9 +116,6 @@ public class PlayerUnit : MonoBehaviour
 
         //이동 속도 제한
         _AttackCollision.gameObject.SetActive(_Rigid.velocity.x > _AttackSpeed);
-
-        
-
     }
     private void FixedUpdate()
     {

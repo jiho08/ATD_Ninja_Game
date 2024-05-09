@@ -8,7 +8,7 @@ public class AttackCollsion : MonoBehaviour
     public float damage;
     private PlayerUnit _playerUnit;
     private HealthManager _playerHealth;
-    private PoolManager _poolM;
+
     private void Awake()
     {
         _playerUnit = GetComponentInParent<PlayerUnit>();
@@ -32,7 +32,6 @@ public class AttackCollsion : MonoBehaviour
             _playerHealth = collision.gameObject.GetComponent<HealthManager>();
             
             EnemyScript enemy = collision.gameObject.GetComponent<EnemyScript>();
-            gameObject.SetActive(false);
 
             if (_playerHealth.isOnEntity[1])
             {

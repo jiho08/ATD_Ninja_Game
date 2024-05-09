@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: StageNumbers
   m_EditorClassIdentifier: 
   stageNumber: 1
-  timer: 23.78394
+  timer: 15.282699
   isOpenStage: 010101010101
   isTutorial: 1

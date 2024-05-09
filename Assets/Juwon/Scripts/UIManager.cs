@@ -19,6 +19,7 @@ public class UIManager : MonoBehaviour
     {
         spawnM.currentUnitNum.OnValueChanged += HandleChangeUnitSpawnCount;
         gameM.OnMinValue += MaxTimeUI;
+        clearTimerScore.text = "";
     }
     
     //아군 최대 수 생성 표시
@@ -52,6 +53,6 @@ public class UIManager : MonoBehaviour
 
     public void MaxTimeUI(float value)
     {
-        clearTimerScore.text = $"{value / 60} : {value % 60}";
+        clearTimerScore.text = $"0{(int)value / 60} : {(int)value % 60}";
     }
 }
