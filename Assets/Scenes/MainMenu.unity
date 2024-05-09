@@ -951,7 +951,7 @@ GameObject:
   - component: {fileID: 328940377}
   - component: {fileID: 328940376}
   m_Layer: 5
-  m_Name: Red Dot
+  m_Name: Pin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -966,16 +966,16 @@ RectTransform:
   m_GameObject: {fileID: 328940374}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1034190359}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -0.049999237, y: -0.5}
   m_SizeDelta: {x: 1, y: 1}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.45, y: 0}
 --- !u!114 &328940376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -989,14 +989,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 4d02c8ae1e81ebe4ba4e9d02fb8ac0e2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3123,6 +3123,7 @@ GameObject:
   - component: {fileID: 1241356306}
   - component: {fileID: 1241356305}
   - component: {fileID: 1241356307}
+  - component: {fileID: 1241356308}
   m_Layer: 0
   m_Name: World Map Manager
   m_TagString: Untagged
@@ -3209,6 +3210,26 @@ MonoBehaviour:
   - {fileID: 33915525}
   - {fileID: 190145794}
   RedDot: {fileID: 328940374}
+--- !u!114 &1241356308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1241356304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2410b6cca81c2e40b83e3c757d7dd26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stages:
+  - {fileID: 2121160807}
+  - {fileID: 172127757}
+  - {fileID: 1117239993}
+  - {fileID: 590092941}
+  - {fileID: 33915526}
+  - {fileID: 190145795}
+  pin: {fileID: 328940374}
 --- !u!1 &1267814739
 GameObject:
   m_ObjectHideFlags: 0

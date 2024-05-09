@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stageNumber: 1
   timer: 0
-  isOpenStage: 010100000000
+  isOpenStage: 010101010101
   isTutorial: 0
