@@ -33,7 +33,7 @@ public class EnemyBullet : MonoBehaviour
             {
                 _playerHealth.Health = _playerHealth.Health - _damage;
                 _enemy.TakeDamage();
-
+                gameObject.SetActive(false);
             }
         }
     }

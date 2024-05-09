@@ -119,7 +119,7 @@ public class EnemyScript : MonoBehaviour
     }
     public void Dealy()
     {
-        if (gameObject != null)
+        if (gameObject.activeSelf)
             StartCoroutine(AttackDealy());
     }
     IEnumerator BackAway()
@@ -133,10 +133,14 @@ public class EnemyScript : MonoBehaviour
 
         _AttackCollision.gameObject.SetActive(false);
 
-
+        transform.rotation = Quaternion.Euler(0, 0, -35);
+        transform.position = new Vector3(transform.position.x, _defaltPos + 0.53522833687f);
 
         yield return new WaitForSeconds(_DealayTime);
 
+        transform.rotation = Quaternion.Euler(0, 0, 0);
+
+        transform.position = new Vector3(transform.position.x, _defaltPos);
 
         _accel = 0;
 
