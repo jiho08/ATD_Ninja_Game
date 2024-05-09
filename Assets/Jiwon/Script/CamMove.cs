@@ -13,6 +13,7 @@ public class CamMove : MonoBehaviour
         cam1.SetActive(true);
         enemyCam2.SetActive(false);
         PlayerCam3.SetActive(false);
+
     }
     public IEnumerator EnemyCamMove()
     {
@@ -31,4 +32,6 @@ public class CamMove : MonoBehaviour
         cam1.SetActive(true);
         PlayerCam3.SetActive(false);
     }
+
+    
 }

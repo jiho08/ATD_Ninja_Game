@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using DG.Tweening;
-using System;
+using UnityEngine.SceneManagement;
 
 public class TutorialUI : MonoBehaviour
 {
@@ -84,9 +84,12 @@ public class TutorialUI : MonoBehaviour
             case 4:
                 StartCoroutine(Tutorial05());
                 break;
-            //case 5:
-            //    StartCoroutine(Tutorial06());
-            //    break;
+            case 6:
+                StartCoroutine(Tutorial07());
+                break;
+            case 7:
+                EndTutorial();
+                break;
         }
     }
 
@@ -178,6 +181,20 @@ public class TutorialUI : MonoBehaviour
         uiInputM[0].OnUnitNumChange -= Tutorial02Start;
         uiInputM[1].OnUnitNumChange -= Tutorial02Start;
         uiInputM[2].OnUnitNumChange -= Tutorial02Start;
+    }
+    IEnumerator Tutorial07()
+    {
+        yield return new WaitForSecondsRealtime(0.5f);
+        Debug.Log(7);
+        On();
+        Tutori();
+        yield return new WaitForSecondsRealtime(tutoNum[count] + 0.5f);
+        butten.SetActive(true);
+    }
+
+    private void EndTutorial()
+    {
+        SceneManager.LoadScene(3);
     }
 
 }
