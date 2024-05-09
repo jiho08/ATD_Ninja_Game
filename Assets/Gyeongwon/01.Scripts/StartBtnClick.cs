@@ -22,13 +22,11 @@ public class StartBtnClick : MonoBehaviour
         if (getStageNumberSo.isTutorial)
         {
             getStageNumberSo.isTutorial = false;
-            blackScene.ExitScene(4);
-            //SceneManager.LoadScene(4);
+            blackScene.ExitScene(3);
             return;
         }
         getStageNumberSo.stageNumber = _stageNum;
-        blackScene.ExitScene(3);
-        //SceneManager.LoadScene(3);
+        blackScene.ExitScene(_stageNum + 2);
     }
 
     private void ChangeNum(int value)
