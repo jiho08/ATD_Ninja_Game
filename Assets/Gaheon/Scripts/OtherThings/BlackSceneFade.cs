@@ -12,12 +12,12 @@ public class BlackSceneFade : MonoBehaviour
     [SerializeField] Image blackPanel;
 
     public float fadeSpeed = 0.25f;
-    private float time;
+    private float _timeSet;
 
     void Start()
     {
         StartCoroutine(FadeOutCo());
-        time = Time.deltaTime;
+        _timeSet = Time.deltaTime;
     }
 
     IEnumerator FadeInCo(int scneneNum)
@@ -26,12 +26,10 @@ public class BlackSceneFade : MonoBehaviour
 
         while (blackPanel.color.a < 1)
         {
-            blackPanel.color += new Color(0, 0, 0,  time * fadeSpeed);
-            Debug.Log(Time.deltaTime * fadeSpeed);
+            blackPanel.color += new Color(0, 0, 0,  _timeSet * fadeSpeed);
             yield return null;
         }
 
-        Debug.Log("out");
         SceneManager.LoadScene(scneneNum);
     }
 
@@ -42,7 +40,6 @@ public class BlackSceneFade : MonoBehaviour
         while (blackPanel.color.a > 0)
         {
             blackPanel.color -= new Color(0, 0, 0, Time.deltaTime * fadeSpeed);
-            Debug.Log(Time.deltaTime * fadeSpeed);
             yield return null;
         }
 
@@ -51,7 +48,6 @@ public class BlackSceneFade : MonoBehaviour
 
     public void ExitScene(int scneneNum)
     {
-        Debug.Log("in");
         StartCoroutine(FadeInCo(scneneNum));
         AudioManager.Instance.PlaySfx(AudioManager.Sfx.Btn);
     }
