@@ -23,8 +23,8 @@ public class PlayerUnit : MonoBehaviour
 
     //열차 길이
 
-    [SerializeField]
-    private int _trainLength;
+    
+    public int _trainLength;
 
     //이동 관련 변수
     float time = 0;
@@ -33,9 +33,10 @@ public class PlayerUnit : MonoBehaviour
     private GameObject _AttackCollision;
     private Rigidbody2D _Rigid;
     private Firsttrain _firstTrain;
-    public HealthManager _playerHealth;
     private ParticleSystem _particle;
     private BoxCollider2D _hitBox;
+
+    public HealthManager _playerHealth;
 
     //컴포넌트 받아와야하는것들
 
@@ -48,6 +49,8 @@ public class PlayerUnit : MonoBehaviour
     [SerializeField]
     private GameObject _train;
 
+    private List<GameObject> _lineList = new List<GameObject>();
+
     private void Awake()
     {
         //컴포넌트 받는 부분
@@ -59,32 +62,34 @@ public class PlayerUnit : MonoBehaviour
     }
 
 
-    /*private void Start()
+    private void Start()
     {
-        _defaltYPos = transform.position.y;
+        //_defaltYPos = transform.position.y;
 
-        _speed = 0;
-        Accelation = _maxSpeed;
+        //_speed = 0;
+        //Accelation = _maxSpeed;
+        ////열차 길이 설정
+        //for (int i = 1; i <= _trainLength; i++)
+        //{
+        //    GameObject _Line = Instantiate(_train);
+        //    _Line.transform.SetParent(transform, false);
+        //    _Line.transform.position = transform.position + new Vector3((i * -2f), 0);
+        //}
         //열차 길이 설정
-        for (int i = 1; i <= _trainLength; i++)
-        {
-            GameObject _Line = Instantiate(_train);
-            _Line.transform.SetParent(transform, false);
-            _Line.transform.position = transform.position + new Vector3((i * -2f), 0);
-        }
-    }*/
+
+    }
 
     private void OnEnable()
     {
         _defaltYPos = transform.position.y;
 
         _speed = 0;
-        //열차 길이 설정
+
         for (int i = 1; i <= _trainLength; i++)
         {
-            GameObject _Line = Instantiate(_train);
-            _Line.transform.SetParent(transform, false);
-            _Line.transform.position = transform.position + new Vector3((i * -2f), 0);
+            GameObject unit = Instantiate(_train, transform);
+            _lineList.Add(unit);
+            unit.transform.localPosition += new Vector3((i * -2f), 0);
         }
     }
 
@@ -97,6 +102,12 @@ public class PlayerUnit : MonoBehaviour
 
         StopCoroutine("AttackDealy");
         StopCoroutine("BackAway");
+
+        for (int i = 0; i < _lineList.Count; i++)
+        {
+            Destroy(_lineList[i].gameObject);
+           
+        }
     }
 
     private void Update()

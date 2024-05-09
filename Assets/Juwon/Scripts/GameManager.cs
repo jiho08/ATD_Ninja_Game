@@ -12,7 +12,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GetStageNumberSo stageNum;
     [SerializeField] BlackSceneFade blackScene;
     [SerializeField] toMainMenuSO toMainMenu;
-    
+
+    [SerializeField] private TextMeshProUGUI curTimerScore;
+
     private float _currentTime;
     private float _maxTime;
     private bool _isTimeOver;
@@ -33,7 +35,7 @@ public class GameManager : MonoBehaviour
 
     private void LateUpdate()
     {
-        //curTimerScore.text = $"{_currentTime / 60} : {_currentTime % 60}";
+        curTimerScore.text = $"0{(int)_currentTime / 60} : {(int)_currentTime % 60}";
     }
 
     public void SetMaxTime()

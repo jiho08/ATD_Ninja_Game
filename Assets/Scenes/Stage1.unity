@@ -749,7 +749,6 @@ MonoBehaviour:
   - {fileID: 535901214}
   gameClearPanel: {fileID: 713263432}
   gameOverPanel: {fileID: 319478087}
-  curTimerScore: {fileID: 0}
   clearTimerScore: {fileID: 1361001691}
 --- !u!1 &234980869
 GameObject:
@@ -861,6 +860,7 @@ MonoBehaviour:
   - {fileID: 1308325840}
   - {fileID: 1788456536}
   - {fileID: 834647978}
+  owning: {fileID: 11400000, guid: 8a3fa358a77d25b4e9bcc2d5df4d1aa4, type: 2}
   unitData:
   - {fileID: 11400000, guid: 216d321d6357719439ce3acb8ea62134, type: 2}
   - {fileID: 11400000, guid: 3ec462b879e23d742b3ad185bc81a1d7, type: 2}
@@ -7267,7 +7267,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &757794943
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7433,7 +7433,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &834647976
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7969,6 +7969,7 @@ MonoBehaviour:
   stageNum: {fileID: 11400000, guid: 9f204a270baaf8242a2b4a2e425fe8db, type: 2}
   blackScene: {fileID: 757794944}
   toMainMenu: {fileID: 11400000, guid: 40be14c2b158b7a4c976d00c581a2416, type: 2}
+  curTimerScore: {fileID: 1993925888}
 --- !u!4 &1196402640
 Transform:
   m_ObjectHideFlags: 0
@@ -8273,7 +8274,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1308325838
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9457,7 +9458,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1788456534
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10130,7 +10131,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -11786,9 +11787,9 @@ Tilemap:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 1720381592}
-  - {fileID: 1347648817}
+  - {fileID: 1005015610}
   - {fileID: 410866863}
   - {fileID: 559093949}
   - {fileID: 958932970}
-  - {fileID: 1005015610}
+  - {fileID: 1347648817}
+  - {fileID: 1720381592}

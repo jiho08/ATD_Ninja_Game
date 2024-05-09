@@ -10,7 +10,7 @@ public class UIManager : MonoBehaviour
     
     [SerializeField] private GameObject gameClearPanel;
     [SerializeField] private GameObject gameOverPanel;
-    [SerializeField] private TextMeshProUGUI curTimerScore;
+    //[SerializeField] private TextMeshProUGUI curTimerScore;
     [SerializeField] private TextMeshProUGUI clearTimerScore;
 
     private bool _isGameDown;

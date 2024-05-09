@@ -3195,7 +3195,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &96232852
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3417,7 +3417,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &212224094
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3915,6 +3915,7 @@ MonoBehaviour:
   stageNum: {fileID: 11400000, guid: 9f204a270baaf8242a2b4a2e425fe8db, type: 2}
   blackScene: {fileID: 545339626}
   toMainMenu: {fileID: 11400000, guid: 40be14c2b158b7a4c976d00c581a2416, type: 2}
+  curTimerScore: {fileID: 2098658019459253198}
 --- !u!4 &544108123
 Transform:
   m_ObjectHideFlags: 0
@@ -3948,7 +3949,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &545339625
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6605,7 +6606,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &709451593
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7164,7 +7165,6 @@ MonoBehaviour:
   - {fileID: 862329787}
   gameClearPanel: {fileID: 2270060682995020374}
   gameOverPanel: {fileID: 4922682225453685083}
-  curTimerScore: {fileID: 0}
   clearTimerScore: {fileID: 7960398644489286876}
 --- !u!1 &1051477330
 GameObject:
@@ -7893,6 +7893,7 @@ MonoBehaviour:
   - {fileID: 212224095}
   - {fileID: 709451594}
   - {fileID: 96232853}
+  owning: {fileID: 11400000, guid: 8a3fa358a77d25b4e9bcc2d5df4d1aa4, type: 2}
   unitData:
   - {fileID: 11400000, guid: 216d321d6357719439ce3acb8ea62134, type: 2}
   - {fileID: 11400000, guid: 3ec462b879e23d742b3ad185bc81a1d7, type: 2}
@@ -13537,7 +13538,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0

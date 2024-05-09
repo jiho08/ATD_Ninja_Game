@@ -7,6 +7,7 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private PoolManager enemyPool;
 
     [SerializeField] private UIInputManager[] uiInputM;
+    [SerializeField] private OwningUnitSO owning;
 
     [SerializeField] private UnitDataSO[] unitData; //유닛에 레벨에 맞게 스탯 가져오기
     [SerializeField] private EnemyStatsSo enemyData;
@@ -35,6 +36,11 @@ public class SpawnManager : MonoBehaviour
         uiInputM[0].OnUnitNumChange += HandleUnitSpawn;
         uiInputM[1].OnUnitNumChange += HandleUnitSpawn;
         uiInputM[2].OnUnitNumChange += HandleUnitSpawn;
+
+        if (owning.OwningMGH) uiInputM[0].gameObject.SetActive(true);
+        if (owning.OwningKTX) uiInputM[1].gameObject.SetActive(true);
+        if (owning.OwningLine1) uiInputM[2].gameObject.SetActive(true);
+        
     }
 
     //원하는 유닛과 위치 생성

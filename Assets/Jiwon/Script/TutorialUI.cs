@@ -24,6 +24,7 @@ public class TutorialUI : MonoBehaviour
     [SerializeField] private string[] tuto;
     [SerializeField] private float[] tutoNum;
 
+    [SerializeField] BlackSceneFade blackScene;
     private int count;
 
     private void Awake()
@@ -194,7 +195,8 @@ public class TutorialUI : MonoBehaviour
 
     private void EndTutorial()
     {
-        SceneManager.LoadScene(3);
+        blackScene.ExitScene(4);
+        //SceneManager.LoadScene(4);
     }
 
 }
