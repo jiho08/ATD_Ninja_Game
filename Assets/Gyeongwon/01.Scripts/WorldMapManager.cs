@@ -9,7 +9,7 @@ public class WorldMapManager : MonoBehaviour
 {
     GameObject currentStage;
     public GameObject Reddot;
-    int currentIndex;
+    private int currentIndex;
     int targetIndex;
     public GameObject[] stages;
     public bool[] isOpenStages;
@@ -17,6 +17,8 @@ public class WorldMapManager : MonoBehaviour
     private Dictionary<int, GameObject> objDic;
     public UnityEvent<int> OnStageChanged;
     [SerializeField] private GetStageNumberSo getStageNumber;
+    public delegate void ChangeStageNum(int value);
+    public ChangeStageNum OnChangeStage;
 
     IEnumerator coroutine;
 
@@ -48,7 +50,8 @@ public class WorldMapManager : MonoBehaviour
     {
         if (Reddot.transform.position == stages[currentIndex].transform.position)
         {
-            //AudioManager.Instance.PlaySfx(AudioManager.Sfx.Btn);
+            AudioManager.Instance.PlaySfx(AudioManager.Sfx.Btn);
+            OnChangeStage.Invoke(value);
             {
                 Sequence moveStage = DOTween.Sequence();
                 targetIndex = value;
@@ -88,6 +91,7 @@ public class WorldMapManager : MonoBehaviour
     IEnumerator SetStageView(int stageIdx,float delay)
     {
         yield return new WaitForSeconds(delay);
+
         OnStageChanged?.Invoke(stageIdx);
         yield break;
     }

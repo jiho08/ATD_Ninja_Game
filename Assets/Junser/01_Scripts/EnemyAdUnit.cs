@@ -12,10 +12,13 @@ public class EnemyAdUnit : MonoBehaviour
     [SerializeField]
     private float _shotColltime;
 
+    private Animator _anim;
+
     bool _isFire = true;
     private void Awake()
     {
         poolM = GameObject.Find("Pool").GetComponent<PoolManager>();//풀 매니저 받아오기
+        _anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -41,6 +44,8 @@ public class EnemyAdUnit : MonoBehaviour
         _isFire = false;
 
         GameObject _spawnedBullet = poolM.Get(1);
+
+        _anim.SetTrigger("SetFire");
 
         _spawnedBullet.transform.rotation = Quaternion.Euler(0, 0, 90);
         _spawnedBullet.transform.position = transform.position;

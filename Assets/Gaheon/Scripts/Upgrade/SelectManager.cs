@@ -8,6 +8,7 @@ using TMPro;
 
 public class SelectManager : MonoBehaviour
 {
+    #region 받아오기
     [Header("Info")]
     [SerializeField] TextMeshProUGUI nameText;
     [SerializeField] TextMeshProUGUI descText;
@@ -41,6 +42,7 @@ public class SelectManager : MonoBehaviour
     public UnitPriceSO selectedPriceSO;
 
     [SerializeField] UnityEvent OnSelectChanged;
+    #endregion
 
     void Start()
     {
@@ -75,6 +77,8 @@ public class SelectManager : MonoBehaviour
     }
     public void KTX()
     {
+        AudioManager.Instance.PlaySfx(AudioManager.Sfx.Btn);
+
         selectedSO = ktxSO;
         selectedUnitLevel = ktxLevelSO;
         selectedPriceSO = ktxPriceSO;
@@ -83,6 +87,8 @@ public class SelectManager : MonoBehaviour
     }
     public void MGH()
     {
+        AudioManager.Instance.PlaySfx(AudioManager.Sfx.Btn);
+
         selectedSO = mghSO;
         selectedUnitLevel = mghLevelSO;
         selectedPriceSO = mghPriceSO;
@@ -90,6 +96,8 @@ public class SelectManager : MonoBehaviour
     }
     public void Line1()
     {
+        AudioManager.Instance.PlaySfx(AudioManager.Sfx.Btn);
+
         selectedSO = line1SO;
         selectedUnitLevel = line1LevelSO;
         selectedPriceSO = line1PriceSO;

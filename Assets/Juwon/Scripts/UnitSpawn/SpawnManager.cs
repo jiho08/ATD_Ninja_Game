@@ -63,8 +63,12 @@ public class SpawnManager : MonoBehaviour
     {
         GameObject enemy = enemyPool.Get(value);
         _enemyHealth = enemy.GetComponent<HealthManager>();
+        EnemyScript enemyS = enemy.GetComponent<EnemyScript>();
         _enemyHealth.Health = enemyData.enemysData[value].hp; //HP설정
-        
+        enemyS._maxSpeed = enemyData.enemysData[value].speed; //speed 설정
+        enemyS._GetDamage = enemyData.enemysData[value].atk;
+
+
         enemy.transform.position = enemySpawnPos[pos-1].position;
         
         return enemy;

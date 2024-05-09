@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Gaheon/SceneG/JunkScene.unity.meta
+guid: c9df67c4913d12c4f92351600740aeaa
+DefaultImporter:
+========
 guid: db86bfca6bb520442b12fdbdaafd2267
 PrefabImporter:
+>>>>>>>> origin/Jiho:Assets/Jiho/Prefabs/Victory Panel.prefab.meta
   externalObjects: {}
   userData: 
   assetBundleName: 

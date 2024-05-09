@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8935491270453161904
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5515920907927687192}
+  - component: {fileID: 2573087759758889222}
+  m_Layer: 0
+  m_Name: Audio Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5515920907927687192
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8935491270453161904}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2573087759758889222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8935491270453161904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5813f5dcbc40e894aa8afa7089f2f7d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bgmClip:
+  - {fileID: 8300000, guid: ab34f189a62f1d34a83cb36151f42b89, type: 3}
+  - {fileID: 8300000, guid: ff99ef36a573a804c9f422fd43975a3a, type: 3}
+  _bgmVolume: 0.35
+  sfxClip:
+  - {fileID: 8300000, guid: 5fed7333b63026f44916818824c7f981, type: 3}
+  - {fileID: 8300000, guid: 53dade11583801342ae4f0dffe7b12bf, type: 3}
+  - {fileID: 8300000, guid: f8c85803a3a63b2499adf91d555255ca, type: 3}
+  - {fileID: 8300000, guid: 26e01913a2d733e4eb3c3440581bb519, type: 3}
+  - {fileID: 8300000, guid: 0a6b8acbd18e2b340bf80e84249f4a7a, type: 3}
+  - {fileID: 8300000, guid: 6610bd3668b07f84d955c6b39be7eb81, type: 3}
+  - {fileID: 8300000, guid: 46f1b2caed55bfe4aa3461f315fe9d32, type: 3}
+  _sfxVolume: 0.5
+  channels: 10

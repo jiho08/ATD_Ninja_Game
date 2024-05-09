@@ -1,51 +1,54 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AttackCollsion : MonoBehaviour
 {
-    public float _damage = 1;
+
+    public float damage = 1;
     private PlayerUnit _playerUnit;
+
     private HealthManager _playerHealth;
     private PoolManager _poolM;
     private void Awake()
     {
         _playerUnit = GetComponentInParent<PlayerUnit>();
     }
-
-    private void Start()
+    private void OnEnable()
     {
-        _damage = _playerUnit._GetDamage;
+        _playerUnit._playerHealth.OnDamage += HandleDamageChanger;
     }
+
+    private void HandleDamageChanger(float value)
+    {
+        damage = value;
+    }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
-        _playerHealth = collision.gameObject.GetComponent<HealthManager>();
-        
-        EnemyScript _enemy = collision.gameObject.GetComponent<EnemyScript>();
-        
-        if(_enemy == null)
+        if (collision.gameObject.CompareTag("Enemy"))
         {
-            return;
+            _playerHealth = collision.gameObject.GetComponent<HealthManager>();
+            
+            EnemyScript enemy = collision.gameObject.GetComponent<EnemyScript>();
+            
+            
+            if (_playerHealth.isOnEntity[1])
+            {
+                AudioManager.Instance.PlaySfx(AudioManager.Sfx.Hit);
+                _playerHealth.Health -= damage;
+            
+                enemy.TakeDamage();
+            
+                _playerUnit.Dealy();
+            
+            
+            }
+            else if (_playerHealth.isOnEntity[2])
+            {
+                AudioManager.Instance.PlaySfx(AudioManager.Sfx.Tower);
+                _playerHealth.Health -= damage;
+                _playerUnit.Dealy();
+            }
         }
-        
-        if (_playerHealth.isOnEntity[1])
-        {
-
-            _playerHealth.Health = _playerHealth.Health - _damage;
-        
-            _enemy.TakeDamage();
-        
-            _playerUnit.Dealy();
-        
-        
-        }
-        else if (_playerHealth.isOnEntity[2])
-        {
-            _playerHealth.Health = _playerHealth.Health - _damage;
-            _playerUnit.Dealy();
-        }
-        
     }
 }

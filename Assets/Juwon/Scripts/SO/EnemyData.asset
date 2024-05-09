@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemysData:
   - hp: 40
-    atk: 0
-    speed: 0
+    atk: 10
+    speed: 2
   - hp: 30
-    atk: 0
-    speed: 0
+    atk: 10
+    speed: 2
   - hp: 10
-    atk: 0
-    speed: 0
+    atk: 10
+    speed: 2

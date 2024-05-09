@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfafab7a10eadc648ba210325d309576, type: 3}
+  m_Name: StationImageSO
+  m_EditorClassIdentifier: 
+  StationImages:
+  - {fileID: 21300000, guid: 54d1c32189a918d4e912d3ea425be02a, type: 3}
+  - {fileID: 21300000, guid: c9079a94338829546a891397779a66af, type: 3}
+  - {fileID: 21300000, guid: 534e1a9b92b6693459be7958b399849c, type: 3}
+  - {fileID: 21300000, guid: a95f56d1e1296a34b80a6e3e1966a411, type: 3}
+  stationNames:
+  - "\uBAA9\uD3EC\uC5ED"
+  - "\uAD11\uC8FC\uC5ED"
+  - "\uBD80\uC0B0\uC5ED"
+  - "\uACBD\uC8FC\uC5ED"
+  rewardResources: 780000008c000000a0000000c8000000
+  unitSO:
+  - {fileID: 11400000, guid: 216d321d6357719439ce3acb8ea62134, type: 2}
+  - {fileID: 11400000, guid: 3ec462b879e23d742b3ad185bc81a1d7, type: 2}
+  - {fileID: 11400000, guid: 14440fb98775e844c8829b3481f60046, type: 2}

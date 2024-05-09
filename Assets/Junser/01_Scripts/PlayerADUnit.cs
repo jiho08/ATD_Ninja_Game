@@ -10,6 +10,8 @@ public class PlayerADUnit : MonoBehaviour
 
     private PoolManager poolM;
 
+    private Animator _anim;
+
     [SerializeField]
     private float _shotColltime;
 
@@ -17,6 +19,7 @@ public class PlayerADUnit : MonoBehaviour
 
     private void Awake()
     {
+        _anim = GetComponentInChildren<Animator>();
         poolM = GameObject.Find("Pool").GetComponent<PoolManager>();//풀 매니저 받아오기
     }
 
@@ -40,6 +43,7 @@ public class PlayerADUnit : MonoBehaviour
     IEnumerator Colltime()//발사 코루틴
     {
         _isFire = false;
+        _anim.SetTrigger("Fire");
 
         GameObject _spawnedBullet = poolM.Get(0);
 
@@ -48,6 +52,7 @@ public class PlayerADUnit : MonoBehaviour
         _spawnedBullet.transform.position = transform.position;
 
         yield return new WaitForSeconds(_shotColltime);
+
 
         _isFire = true;
     }
