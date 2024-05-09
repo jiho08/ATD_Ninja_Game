@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PinMove : MonoBehaviour
 {
-    private Color color = new Color(1f, 1f, 1f, 1f);
+    private Color stdcolor = new Color(1f,1f,1f,1f);
     [SerializeField] private GameObject pin;
 
     public PinMove(GameObject pin)
@@ -34,20 +34,22 @@ public class PinMove : MonoBehaviour
  
     private IEnumerator Blink()
     {
+        Image image = pin.GetComponent<Image>();
         while (true)
         {
-            while (pin.GetComponent<Image>().color.a < 1f)
+            while (image.color.a < 1f)
             {
-                color.a += 0.1f;
-                pin.GetComponent<Image>().color = color;
+                stdcolor.a += 0.1f;
+                image.color = stdcolor;
                 yield return new WaitForSeconds(0.075f);
             }
             yield return new WaitForSeconds(0.5f);
 
-            while (pin.GetComponent<Image>().color.a > 0f)
+            while (image.color.a > 0f)
             {
-                color.a -= 0.1f;
-                pin.GetComponent<Image>().color = color;
+                stdcolor.a -= 0.1f;
+                image.color = stdcolor;
+                yield return new WaitForSeconds(0.075f);
                 yield return new WaitForSeconds(0.075f);
             }
             yield return new WaitForSeconds(0.5f);
