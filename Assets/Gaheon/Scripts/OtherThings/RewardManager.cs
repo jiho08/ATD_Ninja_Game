@@ -16,13 +16,21 @@ public class RewardManager : MonoBehaviour
     [SerializeField] GetStageNumberSo stageOpenSO;
     [SerializeField] GameObject rewardPanel;
     [SerializeField] OwningUnitSO owningUnit;
+    [SerializeField] toMainMenuSO mainMenuSO;
 
     int clearStage;
     private void Start()
     {
-        if (stageOpenSO.isOpenStage[1] == true)
+        if (mainMenuSO.DidWinGame == true)
         {
-            RewardChange();
+            if (stageOpenSO.isOpenStage[1] == true)
+            {
+                RewardChange();
+            }
+            else
+            {
+                rewardPanel.SetActive(false);
+            }
         }
         else
         {
@@ -52,7 +60,7 @@ public class RewardManager : MonoBehaviour
             {
                 rewardTexts[1].text = $"È¹µæ À¯´Ö : {stationInfo.unitSO[clearStage].TrainName}";
                 trainImageSprite.sprite = stationInfo.unitSO[clearStage].TrainHead;
-                if(clearStage == 1)
+                if (clearStage == 1)
                 {
                     owningUnit.OwningKTX = true;
                 }
@@ -79,5 +87,6 @@ public class RewardManager : MonoBehaviour
     public void Confirm()
     {
         rewardPanel.SetActive(false);
+        mainMenuSO.DidWinGame = false;
     }
 }
