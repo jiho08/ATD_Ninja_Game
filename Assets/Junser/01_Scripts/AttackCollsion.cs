@@ -24,7 +24,7 @@ public class AttackCollsion : MonoBehaviour
         _playerHealth = collision.gameObject.GetComponent<HealthManager>();
         
         EnemyScript _enemy = collision.gameObject.GetComponent<EnemyScript>();
-
+        gameObject.SetActive(false);
 
         if (collision != null && collision.tag == "Enemy")
         {
@@ -34,6 +34,8 @@ public class AttackCollsion : MonoBehaviour
                 _playerHealth.Health = _playerHealth.Health - _damage;
         
                 _enemy.TakeDamage();
+
+                
         
                 _playerUnit.Dealy();
         
