@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2161024487514214760}
   - component: {fileID: 1987289205993240670}
   - component: {fileID: 150065603013569451}
+  - component: {fileID: 4258813482646194057}
   m_Layer: 3
   m_Name: Avarta
   m_TagString: Enemy
@@ -74,12 +75,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -5177388603050735206, guid: 8884154dfe85442a3a3578be807dbcdf, type: 3}
-  m_Color: {r: 0.8238993, g: 0.29795086, b: 0.29795086, a: 1}
+  m_Sprite: {fileID: 331219960, guid: 992f72fc5e2d73e4aabff04bfd4b1fd7, type: 3}
+  m_Color: {r: 0.59119487, g: 0.29559737, b: 0.29559737, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 2
-  m_Size: {x: 1, y: 1}
+  m_DrawMode: 0
+  m_Size: {x: 2, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -99,6 +100,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fireRange: 9
   _shotColltime: 2
+--- !u!95 &4258813482646194057
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1906146110896830449}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0ef3ed7b6d2bd164383558f3f9f3abd7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3923778504687555852
 GameObject:
   m_ObjectHideFlags: 0
@@ -189,7 +211,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 842798dce73a06d4ab8b8af7d2fdfc34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 1
 --- !u!1 &5029155322506572734
 GameObject:
   m_ObjectHideFlags: 0
@@ -241,11 +262,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _AttackSpeed: 8
-  Accelation: 2
-  DefaltAcclation: 2
-  _damage: 0
+  Accelation: 0.5
+  _maxSpeed: 2
+  _damage: 4
   _AttackCollision: {fileID: 3923778504687555852}
   _DealayTime: 1
+  _accel: 0
 --- !u!61 &3841918440495611183
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -278,7 +300,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.000000059604645, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -289,7 +311,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.849531, y: 1}
   m_EdgeRadius: 0
 --- !u!50 &3696312806284868858
 Rigidbody2D:
@@ -343,7 +365,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2864449849505924606, guid: dbe6cc6a5f7922545babac882773b1b0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.86
       objectReference: {fileID: 0}
     - target: {fileID: 2864449849505924606, guid: dbe6cc6a5f7922545babac882773b1b0, type: 3}
       propertyPath: m_LocalPosition.y
