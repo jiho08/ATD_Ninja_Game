@@ -34,6 +34,8 @@ public class Firsttrain : MonoBehaviour
     {
         _defaltPos = _unit.transform.position.y;
 
+        yield return new WaitForSeconds(0.01f);
+
 
         transform.rotation = Quaternion.Euler(0, 0, 35);
         transform.position = new Vector3(transform.position.x, _defaltPos + 0.53522833687f);
