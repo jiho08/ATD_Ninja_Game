@@ -1,27 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening;
 using UnityEngine.UI;
 
 public class PinMove : MonoBehaviour
 {
     private Color color = new Color(1f, 1f, 1f, 1f);
-    [SerializeField] private Transform[] stages;
-    WorldMapManager worldMapM;
     [SerializeField] private GameObject pin;
+
+    public PinMove(GameObject pin)
+    {
+        this.pin = pin;
+    }
+
+    WorldMapManager worldMapM;
 
     private void Awake()
     {
-        worldMapM = GetComponent<WorldMapManager>();
+        worldMapM = FindObjectOfType<WorldMapManager>();
     }
 
 
     private void Start()
     {
         StartCoroutine(Blink());
+        worldMapM.OnMoving += () => 
+        {
+            StopAllCoroutines();
+            pin.GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
+        };
+        worldMapM.NoMoving += () => { StartCoroutine(Blink());};
     }
-
+ 
     private IEnumerator Blink()
     {
         while (true)
@@ -30,7 +40,7 @@ public class PinMove : MonoBehaviour
             {
                 color.a += 0.1f;
                 pin.GetComponent<Image>().color = color;
-                yield return new WaitForSeconds(0.05f);
+                yield return new WaitForSeconds(0.075f);
             }
             yield return new WaitForSeconds(0.5f);
 
@@ -38,7 +48,7 @@ public class PinMove : MonoBehaviour
             {
                 color.a -= 0.1f;
                 pin.GetComponent<Image>().color = color;
-                yield return new WaitForSeconds(0.05f);
+                yield return new WaitForSeconds(0.075f);
             }
             yield return new WaitForSeconds(0.5f);
         }

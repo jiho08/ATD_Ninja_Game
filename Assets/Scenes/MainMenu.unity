@@ -1264,6 +1264,7 @@ GameObject:
   - component: {fileID: 328940375}
   - component: {fileID: 328940377}
   - component: {fileID: 328940376}
+  - component: {fileID: 328940378}
   m_Layer: 5
   m_Name: Pin
   m_TagString: Untagged
@@ -1328,6 +1329,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 328940374}
   m_CullTransparentMesh: 1
+--- !u!114 &328940378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328940374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2410b6cca81c2e40b83e3c757d7dd26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pin: {fileID: 328940374}
 --- !u!1 &374585838
 GameObject:
   m_ObjectHideFlags: 0
@@ -4311,7 +4325,6 @@ GameObject:
   - component: {fileID: 1241356306}
   - component: {fileID: 1241356305}
   - component: {fileID: 1241356307}
-  - component: {fileID: 1241356308}
   m_Layer: 0
   m_Name: World Map Manager
   m_TagString: Untagged
@@ -4398,26 +4411,6 @@ MonoBehaviour:
   - {fileID: 33915525}
   - {fileID: 190145794}
   RedDot: {fileID: 328940374}
---- !u!114 &1241356308
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1241356304}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2410b6cca81c2e40b83e3c757d7dd26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stages:
-  - {fileID: 2121160807}
-  - {fileID: 172127757}
-  - {fileID: 1117239993}
-  - {fileID: 590092941}
-  - {fileID: 33915526}
-  - {fileID: 190145795}
-  pin: {fileID: 328940374}
 --- !u!1 &1267814739
 GameObject:
   m_ObjectHideFlags: 0

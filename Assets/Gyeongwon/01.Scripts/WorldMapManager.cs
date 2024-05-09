@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine.Events;
+using System;
 
 public class WorldMapManager : MonoBehaviour
 {
@@ -19,6 +20,8 @@ public class WorldMapManager : MonoBehaviour
     [SerializeField] private GetStageNumberSo getStageNumber;
     public delegate void ChangeStageNum(int value);
     public ChangeStageNum OnChangeStage;
+    public event Action OnMoving;
+    public event Action NoMoving;
 
     IEnumerator coroutine;
 
@@ -50,6 +53,7 @@ public class WorldMapManager : MonoBehaviour
     {
         if (Reddot.transform.position == stages[currentIndex].transform.position)
         {
+            OnMoving?.Invoke();
             AudioManager.Instance.PlaySfx(AudioManager.Sfx.Btn);
             OnChangeStage.Invoke(value);
             {
@@ -93,6 +97,7 @@ public class WorldMapManager : MonoBehaviour
         yield return new WaitForSeconds(delay);
 
         OnStageChanged?.Invoke(stageIdx);
+        NoMoving?.Invoke();
         yield break;
     }
 
