@@ -7,6 +7,12 @@ public class PinMove : MonoBehaviour
 {
     private Color color = new Color(1f, 1f, 1f, 1f);
     [SerializeField] private GameObject pin;
+
+    public PinMove(GameObject pin)
+    {
+        this.pin = pin;
+    }
+
     WorldMapManager worldMapM;
 
     private void Awake()
