@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 
 
 public class EnemySpawner : MonoBehaviour
@@ -8,6 +9,8 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]private EnemyAlgorithm enemyAl;
 
     [SerializeField] private GetStageNumberSo getStageNumSo;
+
+    public Action OnChange;
 
     [SerializeField] private int getStageCount;
     private int _stageEnemyCount;
@@ -39,7 +42,12 @@ public class EnemySpawner : MonoBehaviour
         //_runningCoroutine = StartCoroutine(StartStage()); //스테이지 시작
 
     }
-    
+
+    private void Start()
+    {
+        OnChange?.Invoke();
+    }
+
     //원하는 대로 생성 (지금은 알고리즘으로 돌려서 안씀)
     /*private int TypeToInt(string str) //type을 int로 변환하여 전송
     {

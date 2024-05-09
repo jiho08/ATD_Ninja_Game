@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
+using Cinemachine;
 
 public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler //,IDropHandler
 {
@@ -35,13 +36,7 @@ public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     [SerializeField] private float maxCoolTime;
     private float coolTime;
     private bool isCoolTime;
-
-    private void Awake()
-    {
-        //coolTimeImage = GetComponentInChildren<Image>();
-
-
-    }
+    
     private void Start()
     {
         coolTime = 0;
@@ -156,8 +151,4 @@ public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
             }
         }
     }
-
-
-
-
 }

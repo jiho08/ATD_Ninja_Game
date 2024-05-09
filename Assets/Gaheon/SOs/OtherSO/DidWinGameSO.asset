@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: DidWinGameSO
   m_EditorClassIdentifier: 
   DidWinGame: 0
+  DidEndGame: 0

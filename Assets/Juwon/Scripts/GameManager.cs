@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     [Header("---")]
     [SerializeField] private GetStageNumberSo stageNum;
     [SerializeField] BlackSceneFade blackScene;
+    [SerializeField] toMainMenuSO toMainMenu;
     
     private float _currentTime;
     private float _maxTime;
@@ -50,14 +51,19 @@ public class GameManager : MonoBehaviour
 
     public void SetNextLevelUp()
     {
-        stageNum.stageNumber++;
-        stageNum.isOpenStage[stageNum.stageNumber-1] = true;
+        stageNum.isOpenStage[stageNum.stageNumber+1] = true;
     }
 
     public void BackBtn()
     {
+        toMainMenu.DidEndGame = true;
         blackScene.ExitScene(1);
         //SceneManager.LoadScene(1);
+    }
+
+    public void WinGame()
+    {
+        toMainMenu.DidWinGame = true;
     }
     
 }
