@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     
     [Header("---")]
     [SerializeField] private GetStageNumberSo stageNum;
+    [SerializeField] BlackSceneFade blackScene;
     
     private float _currentTime;
     private float _maxTime;
@@ -55,8 +56,8 @@ public class GameManager : MonoBehaviour
 
     public void BackBtn()
     {
-        
-        SceneManager.LoadScene(1);
+        blackScene.ExitScene(1);
+        //SceneManager.LoadScene(1);
     }
     
 }

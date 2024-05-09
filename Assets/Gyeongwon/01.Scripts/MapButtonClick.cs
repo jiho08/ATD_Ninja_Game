@@ -23,11 +23,15 @@ public class MapButtonClick : MonoBehaviour
     }
     public void clickWorldMap()
     {
-            mapButtonClicked = true;
+        AudioManager.Instance.PlaySfx(AudioManager.Sfx.Btn);
+
+        mapButtonClicked = true;
     }
     public void clickRobby()
     {
-            mapButtonClicked = false;
+        AudioManager.Instance.PlaySfx(AudioManager.Sfx.Btn);
+
+        mapButtonClicked = false;
     }
 
 }

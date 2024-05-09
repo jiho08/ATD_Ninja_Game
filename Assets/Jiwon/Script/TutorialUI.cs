@@ -41,6 +41,9 @@ public class TutorialUI : MonoBehaviour
         uiInputM[0].OnUnitNumChange += Tutorial02Start;
         uiInputM[1].OnUnitNumChange += Tutorial02Start;
         uiInputM[2].OnUnitNumChange += Tutorial02Start;
+        
+        AudioManager.Instance.PlayBgm(true, 1);
+
 
     }
 
