@@ -3176,7 +3176,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1311563134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3189,7 +3189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d036c4d2bd53cd4abb61f509f801056, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cursorTexture: {fileID: 2800000, guid: da598da1cf0539648ad283843d978614, type: 3}
+  _cursorTexture: {fileID: 2800000, guid: 7fe0546f6ddaa754faab8238d0c0707b, type: 3}
 --- !u!4 &1311563135
 Transform:
   m_ObjectHideFlags: 0
