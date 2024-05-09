@@ -123,7 +123,7 @@ public class TutorialUI : MonoBehaviour
     IEnumerator Tutorial01()
     {
         yield return new WaitForSecondsRealtime(2);
-        Debug.Log(1);
+        
         On();
         Tutori();
         yield return new WaitForSecondsRealtime(tutoNum[count] + 0.5f);
@@ -132,7 +132,7 @@ public class TutorialUI : MonoBehaviour
     }
     IEnumerator Tutorial02() 
     {
-        Debug.Log(2);
+        
         On();
         Tutori();
         yield return new WaitForSecondsRealtime(tutoNum[count] + 0.5f);
@@ -142,7 +142,6 @@ public class TutorialUI : MonoBehaviour
     IEnumerator Tutorial03()
     {
         //yield return new WaitForSecondsRealtime(3);
-        Debug.Log(3);
         On();
         Tutori();
         yield return new WaitForSecondsRealtime(tutoNum[count] + 0.5f);
@@ -153,7 +152,6 @@ public class TutorialUI : MonoBehaviour
     {
         StartCoroutine(camMove.EnemyCamMove());
         yield return new WaitForSecondsRealtime(2 + 0.5f);
-        Debug.Log(4);
         On();
         Tutori();
         yield return new WaitForSecondsRealtime(tutoNum[count] + 0.5f);
@@ -164,7 +162,6 @@ public class TutorialUI : MonoBehaviour
     {
         StartCoroutine(camMove.PlayerCamMove());
         yield return new WaitForSecondsRealtime(3);
-        Debug.Log(5);
         On();
         Tutori();
         yield return new WaitForSecondsRealtime(tutoNum[count] + 0.5f);
@@ -173,7 +170,6 @@ public class TutorialUI : MonoBehaviour
     }
     IEnumerator Tutorial06()
     {
-        Debug.Log(6);
         On();
         Tutori();
         yield return new WaitForSecondsRealtime(tutoNum[count] + 0.5f);
@@ -186,7 +182,6 @@ public class TutorialUI : MonoBehaviour
     IEnumerator Tutorial07()
     {
         yield return new WaitForSecondsRealtime(0.5f);
-        Debug.Log(7);
         On();
         Tutori();
         yield return new WaitForSecondsRealtime(tutoNum[count] + 0.5f);
