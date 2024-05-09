@@ -62,7 +62,7 @@ public class PlayerUnit : MonoBehaviour
     }
 
 
-    private void Start()
+    /*private void Start()
     {
         //_defaltYPos = transform.position.y;
 
@@ -90,6 +90,20 @@ public class PlayerUnit : MonoBehaviour
             GameObject unit = Instantiate(_train, transform);
             _lineList.Add(unit);
             unit.transform.localPosition += new Vector3((i * -2f), 0);
+        }
+    }*/
+
+    private void OnEnable()
+    {
+        _defaltYPos = transform.position.y;
+
+        _speed = 0;
+        //열차 길이 설정
+        for (int i = 1; i <= _trainLength; i++)
+        {
+            GameObject _Line = Instantiate(_train);
+            _Line.transform.SetParent(transform, false);
+            _Line.transform.position = transform.position + new Vector3((i * -2f), 0);
         }
     }
 
