@@ -4779,8 +4779,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -7849,7 +7849,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uD544\uC694 \uC7AC\uD654 : "
+  m_text: "\uD544\uC694 \uC7AC\uD654 : 30"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f9a6b3ee9333c6a468aa4c99147eadbc, type: 2}
   m_sharedMaterial: {fileID: -77179046949076369, guid: f9a6b3ee9333c6a468aa4c99147eadbc, type: 2}
@@ -7876,8 +7876,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -7892,7 +7892,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -10817,8 +10817,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 308, y: 0}
-  m_SizeDelta: {x: 200.26, y: 77.305}
+  m_AnchoredPosition: {x: 324, y: 0.00000095367}
+  m_SizeDelta: {x: 227.99, y: 95.39}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &943578417
 MonoBehaviour:
@@ -17390,7 +17390,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -17.001043, y: -0.00058871595}
+  m_AnchoredPosition: {x: 0.000009536743, y: -0.00058871595}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1872587161
@@ -18444,8 +18444,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 379811650}
   m_HandleRect: {fileID: 379811649}
   m_Direction: 0
-  m_Value: 1.000061
-  m_Size: 0.9911452
+  m_Value: 0
+  m_Size: 0.99114585
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

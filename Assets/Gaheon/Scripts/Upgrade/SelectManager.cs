@@ -77,6 +77,8 @@ public class SelectManager : MonoBehaviour
     }
     public void KTX()
     {
+        AudioManager.Instance.PlaySfx(AudioManager.Sfx.Btn);
+
         selectedSO = ktxSO;
         selectedUnitLevel = ktxLevelSO;
         selectedPriceSO = ktxPriceSO;
@@ -85,6 +87,8 @@ public class SelectManager : MonoBehaviour
     }
     public void MGH()
     {
+        AudioManager.Instance.PlaySfx(AudioManager.Sfx.Btn);
+
         selectedSO = mghSO;
         selectedUnitLevel = mghLevelSO;
         selectedPriceSO = mghPriceSO;
@@ -92,6 +96,8 @@ public class SelectManager : MonoBehaviour
     }
     public void Line1()
     {
+        AudioManager.Instance.PlaySfx(AudioManager.Sfx.Btn);
+
         selectedSO = line1SO;
         selectedUnitLevel = line1LevelSO;
         selectedPriceSO = line1PriceSO;

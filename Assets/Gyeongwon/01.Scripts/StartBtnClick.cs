@@ -17,11 +17,13 @@ public class StartBtnClick : MonoBehaviour
 
     public void StartBtn()
     {
+        AudioManager.Instance.PlaySfx(AudioManager.Sfx.Btn);
+
         if (getStageNumberSo.isTutorial)
         {
+            getStageNumberSo.isTutorial = false;
             blackScene.ExitScene(4);
             //SceneManager.LoadScene(4);
-            getStageNumberSo.isTutorial = false;
             return;
         }
         getStageNumberSo.stageNumber = _stageNum;

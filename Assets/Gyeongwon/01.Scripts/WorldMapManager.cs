@@ -53,7 +53,7 @@ public class WorldMapManager : MonoBehaviour
     {
         if (Reddot.transform.position == stages[currentIndex].transform.position)
         {
-            //AudioManager.Instance.PlaySfx(AudioManager.Sfx.Btn);
+            AudioManager.Instance.PlaySfx(AudioManager.Sfx.Btn);
             OnChangeStage.Invoke(value);
             {
                 Sequence moveStage = DOTween.Sequence();
