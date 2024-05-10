@@ -7809,6 +7809,22 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0.3764706
       objectReference: {fileID: 0}
+    - target: {fileID: 95475439586138430, guid: ec743154586a1aa449cbce80c09274d7, type: 3}
+      propertyPath: m_LightCookieSprite
+      value: 
+      objectReference: {fileID: -1038445202, guid: 000dddc1bcc285444820c4409ec50c3c, type: 3}
+    - target: {fileID: 95475439586138430, guid: ec743154586a1aa449cbce80c09274d7, type: 3}
+      propertyPath: m_LocalBounds.m_Center.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 95475439586138430, guid: ec743154586a1aa449cbce80c09274d7, type: 3}
+      propertyPath: m_LocalBounds.m_Extent.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 95475439586138430, guid: ec743154586a1aa449cbce80c09274d7, type: 3}
+      propertyPath: m_LocalBounds.m_Extent.y
+      value: 1.71875
+      objectReference: {fileID: 0}
     - target: {fileID: 545285806762056039, guid: ec743154586a1aa449cbce80c09274d7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -12888,6 +12904,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2117562577}
     m_Modifications:
+    - target: {fileID: 1714113878697893028, guid: 1e48a90695188e94ab89b1e877edce73, type: 3}
+      propertyPath: m_LightCookieSprite
+      value: 
+      objectReference: {fileID: -1080150699, guid: 000dddc1bcc285444820c4409ec50c3c, type: 3}
+    - target: {fileID: 1714113878697893028, guid: 1e48a90695188e94ab89b1e877edce73, type: 3}
+      propertyPath: m_LocalBounds.m_Center.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1714113878697893028, guid: 1e48a90695188e94ab89b1e877edce73, type: 3}
+      propertyPath: m_LocalBounds.m_Extent.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1714113878697893028, guid: 1e48a90695188e94ab89b1e877edce73, type: 3}
+      propertyPath: m_LocalBounds.m_Extent.y
+      value: 1.71875
+      objectReference: {fileID: 0}
     - target: {fileID: 3188423005381167774, guid: 1e48a90695188e94ab89b1e877edce73, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

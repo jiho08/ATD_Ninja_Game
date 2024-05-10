@@ -25,7 +25,7 @@ public class PlayerUnit : MonoBehaviour
 
     //열차 길이
 
-    
+
     public int _trainLength;
 
     //이동 관련 변수
@@ -147,14 +147,18 @@ public class PlayerUnit : MonoBehaviour
             //이동
             _Rigid.velocity = new Vector2(1, 0) * _accel;
         }
-        else if(_rearground)
+        else if (_rearground && !isMove)
         {
-            
+
             time += 0.05f;
 
-            _accel = _maxSpeed - time*_maxSpeed/_DealayTime / 3;
+            _accel = _maxSpeed - time * _maxSpeed / _DealayTime / 3;
             //이동
             _Rigid.velocity = new Vector2(-1, 0) * _accel;
+        }
+        else if (isMove)
+        {
+            _Rigid.velocity = Vector2.zero;
         }
     }
 
@@ -172,7 +176,7 @@ public class PlayerUnit : MonoBehaviour
     {
         if (this.gameObject.activeSelf)
         {
-            
+
             _particle.Play();
             StartCoroutine("BackAway");
             _firstTrain.HitBehave();
