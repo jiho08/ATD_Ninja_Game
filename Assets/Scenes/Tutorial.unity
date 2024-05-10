@@ -964,6 +964,7 @@ MonoBehaviour:
   - {fileID: 1675664336}
   - {fileID: 1236000957}
   - {fileID: 1296023144}
+  getStageNum: {fileID: 11400000, guid: 9f204a270baaf8242a2b4a2e425fe8db, type: 2}
   tuto:
   - "\uC9C0\uAE08\uBD80\uD130 \uD29C\uD1A0\uB9AC\uC5BC\uC744 \uC2DC\uC791\uD558\uACA0\uC2B5\uB2C8\uB2E4"
   - "\uB9C8\uC6B0\uC2A4 \uD720 \uBC84\uD2BC\uC744 \uAFB9 \uB20C\uB7EC\uC11C \uD654\uBA74\uC744

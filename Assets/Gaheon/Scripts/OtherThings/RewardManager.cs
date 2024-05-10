@@ -39,7 +39,7 @@ public class RewardManager : MonoBehaviour
     }
     void RewardChange()
     {
-        for (int i = 0; i < 6; i++)
+        for (int i = 0; i < 4; i++)
         {
             if (stageOpenSO.isOpenStage[i] == false)
             {
@@ -51,7 +51,7 @@ public class RewardManager : MonoBehaviour
         stationImage.sprite = stationInfo.StationImages[clearStage];
         clearText.text = $"{stationInfo.stationNames[clearStage]}\n°ÝÆÄ!";
         rewardTexts[0].text = $"È¹µæ °íÃ¶ : {stationInfo.rewardResources[clearStage]}";
-        if (clearStage < 3)
+        if (clearStage < 2)
         {
             rewardTexts[2].text = $"¿­¸° ½ºÅ×ÀÌÁö : {stationInfo.stationNames[clearStage + 1]}";
 

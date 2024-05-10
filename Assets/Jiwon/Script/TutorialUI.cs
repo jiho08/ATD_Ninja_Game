@@ -19,7 +19,7 @@ public class TutorialUI : MonoBehaviour
 
     [SerializeField] private UIInputManager[] uiInputM;
     private CamMove camMove;
-    
+    [SerializeField] private GetStageNumberSo getStageNum;
 
     [SerializeField] private string[] tuto;
     [SerializeField] private float[] tutoNum;
@@ -46,7 +46,8 @@ public class TutorialUI : MonoBehaviour
         AudioManager.Instance.PlayBgm(true, 1);
 
         uiInputM[0].gameObject.SetActive(false);
-
+        uiInputM[1].gameObject.SetActive(false);
+        uiInputM[2].gameObject.SetActive(false);
 
     }
 
@@ -193,6 +194,7 @@ public class TutorialUI : MonoBehaviour
 
     private void EndTutorial()
     {
+        getStageNum.isTutorial = false;
         blackScene.ExitScene(4);
         //SceneManager.LoadScene(4);
     }
