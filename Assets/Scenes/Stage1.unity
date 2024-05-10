@@ -9701,7 +9701,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1196402639}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: BackBtn
+        m_MethodName: WinGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
