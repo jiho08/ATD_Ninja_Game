@@ -7221,7 +7221,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -9374,6 +9374,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabs:
   - {fileID: 1405501123353516920, guid: 2053c36c978f6b24aaf04fdf2b0f8d96, type: 3}
+  - {fileID: 1405501123353516920, guid: 2053c36c978f6b24aaf04fdf2b0f8d96, type: 3}
+  - {fileID: 5029155322506572734, guid: 490e66a7e3fa3954aab25f969042dc22, type: 3}
 --- !u!1 &1788456533
 GameObject:
   m_ObjectHideFlags: 0
@@ -9701,7 +9703,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1196402639}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: BackBtn
+        m_MethodName: WinGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

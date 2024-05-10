@@ -60,6 +60,7 @@ public class GameManager : MonoBehaviour
     public void WinGame()
     {
         toMainMenu.DidWinGame = true;
+        BackBtn();
     }
     
 }
