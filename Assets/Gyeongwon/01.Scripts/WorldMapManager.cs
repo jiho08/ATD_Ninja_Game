@@ -43,7 +43,6 @@ public class WorldMapManager : MonoBehaviour
         stages[0].SetActive(isOpenStages[0]);
         stages[1].SetActive(isOpenStages[1]);
         stages[2].SetActive(isOpenStages[2]);
-        stages[3].SetActive(isOpenStages[3]);
         
         getStageNumber.stageNumber = 1;
     }
