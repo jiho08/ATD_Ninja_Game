@@ -40,6 +40,8 @@ public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     private void Start()
     {
         coolTime = 0;
+        isCoolTime = false;
+        
     }
     private void Update()
     {
@@ -47,12 +49,6 @@ public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         if (coolTime > 0)
         {
             coolTime -= Time.deltaTime;
-            isCoolTime = true;
-
-        }
-        if (coolTime <= 0)
-        {
-            isCoolTime = false;
         }
     }
     public void OnBeginDrag(PointerEventData eventData)
@@ -141,7 +137,7 @@ public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
                 //아군 카운트 올리기
                 OnUnitNumChange.Invoke(unitCode);
 
-                coolTime = maxCoolTime;
+                StartCoroutine(CoolTime());
             }
 
             else if (!RailInput.onRail)
@@ -150,5 +146,13 @@ public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
                 AudioManager.Instance.PlaySfx(AudioManager.Sfx.Warning);
             }
         }
+    }
+
+    IEnumerator CoolTime()
+    {
+        isCoolTime = true;
+        coolTime = maxCoolTime;
+        yield return new WaitForSeconds(maxCoolTime);
+        isCoolTime = false;
     }
 }
