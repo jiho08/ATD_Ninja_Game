@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PinMove : MonoBehaviour
 {
-    private Color stdcolor = new Color(1f,1f,1f,1f);
+    private Color stdcolor = new Color(1f, 1f, 1f, 1f);
     [SerializeField] private GameObject pin;
 
     WorldMapManager worldMapM;
@@ -19,14 +19,14 @@ public class PinMove : MonoBehaviour
     private void Start()
     {
         StartCoroutine(Blink());
-        worldMapM.OnMoving += () => 
+        worldMapM.OnMoving += () =>
         {
             StopAllCoroutines();
             pin.GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
         };
-        worldMapM.NoMoving += () => { StartCoroutine(Blink());};
+        worldMapM.NoMoving += () => { StartCoroutine(Blink()); };
     }
- 
+
     private IEnumerator Blink()
     {
         Image image = pin.GetComponent<Image>();
