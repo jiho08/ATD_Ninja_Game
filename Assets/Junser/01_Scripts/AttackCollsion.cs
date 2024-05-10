@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,16 +10,18 @@ public class AttackCollsion : MonoBehaviour
     private PlayerUnit _playerUnit;
     private bool _canAttack = true;
 
+    public event Action AttackEvent;
+
     private void Awake()
     {
         _playerUnit = GetComponentInParent<PlayerUnit>();
     }
-    
+
     private void OnEnable()
     {
         _playerUnit._playerHealth.OnDamage += HandleDamageChanger;
     }
-    
+
     private void HandleDamageChanger(float value)
     {
         damage = value;
@@ -34,9 +37,10 @@ public class AttackCollsion : MonoBehaviour
             EnemyScript enemy = collision.gameObject.GetComponent<EnemyScript>();
 
             Debug.Log(_canAttack);
-
+   AttackEvent?.Invoke();
             if (_canAttack)
             {
+          
                 StartCoroutine(Dealay());
                 if (_playerHealth.isOnEntity[1])
                 {
@@ -58,7 +62,7 @@ public class AttackCollsion : MonoBehaviour
                     StartCoroutine(Dealay());
 
                 }
-            }
+           
         }
     }
 
@@ -76,4 +80,8 @@ public class AttackCollsion : MonoBehaviour
         }
 
     }
+
+
 }
+
+
