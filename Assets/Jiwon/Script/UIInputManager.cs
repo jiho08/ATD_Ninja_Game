@@ -17,7 +17,9 @@ public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
     private BoxCollider2D collider; // 유닛의 콜라이더 
 
+    [SerializeField] private LayerMask enemyLayer;
 
+    private Rigidbody2D unitRiigd;
     private PlayerUnit UnitMovemate2; // 유닛의 움직임 스크립트
     [SerializeField]
     private SpawnManager spawnM; // 유닛 소환 스크립트
@@ -62,6 +64,7 @@ public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
             if (Clone == null || isCoolTime) return;
 
+            unitRiigd = Clone.GetComponent<Rigidbody2D>();
             _cloneRenderer = Clone.GetComponentInChildren<SpriteRenderer>();
             UnitMovemate2 = Clone.GetComponent<PlayerUnit>();
             collider = Clone.GetComponent<BoxCollider2D>();
@@ -87,6 +90,9 @@ public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
             UnitMovemate2.enabled = false;
 
             collider.enabled = false;
+
+            unitRiigd.excludeLayers += enemyLayer;
+
         }
         
 
@@ -142,6 +148,8 @@ public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
                 //아군 카운트 올리기
                 OnUnitNumChange.Invoke(unitCode);
+                unitRiigd.excludeLayers -= enemyLayer;
+
 
                 StartCoroutine(CoolTime());
             }

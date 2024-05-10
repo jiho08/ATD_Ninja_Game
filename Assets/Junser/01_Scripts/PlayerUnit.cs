@@ -11,6 +11,7 @@ public class PlayerUnit : MonoBehaviour
     private float _damage;
     public float _GetDamage { get; private set; }
 
+    public bool isMove;
 
     [SerializeField]
     private float _AttackSpeed;
@@ -104,7 +105,7 @@ public class PlayerUnit : MonoBehaviour
         {
             GameObject _line = Instantiate(_train, transform);
             _lineList.Add(_line);
-            _line.transform.position = transform.position + new Vector3((i * -3f), 0);
+            _line.transform.position = transform.position + new Vector3((i * -2.25f), 0);
         }
     }
 
@@ -139,14 +140,14 @@ public class PlayerUnit : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (!_rearground)
+        if (!_rearground && !isMove)
         {
             _speed = 0.05f;
             _accel = Mathf.Lerp(_accel, _maxSpeed, _speed);
             //¿Ãµø
             _Rigid.velocity = new Vector2(1, 0) * _accel;
         }
-        else
+        else if(_rearground)
         {
             
             time += 0.05f;

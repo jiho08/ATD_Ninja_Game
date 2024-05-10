@@ -4,40 +4,73 @@ using UnityEngine;
 
 public class PlayerADUnit : MonoBehaviour
 {
-    RaycastHit2D _rangeFinder;
     [SerializeField]
     private float _fireRange;
 
-    private PoolManager poolM;
-
     private Animator _anim;
+
+    private PlayerUnit moveunit;
 
     [SerializeField]
     private float _shotColltime;
+
+    [SerializeField] private Transform pos;
+    [SerializeField] private Vector2 size;
+    [SerializeField] private LayerMask enemy;
+    [SerializeField] private Rigidbody2D rigid;
+
+    [SerializeField]
+    private GameObject bulletpre;
+
+
 
     bool _isFire = true;
 
     private void Awake()
     {
         _anim = GetComponentInChildren<Animator>();
-        poolM = GameObject.Find("Pool").GetComponent<PoolManager>();//풀 매니저 받아오기
     }
 
     void Update()
     {
-        //레이캐스트
-        Debug.DrawRay(transform.position + new Vector3(1.25f, 0), Vector3.right*_fireRange, Color.green);
-        _rangeFinder = Physics2D.Raycast(transform.position, Vector2.right, _fireRange, LayerMask.GetMask("Enemy"));
-
-        //사격 알고리즘
-        if(_rangeFinder.collider != null &&_rangeFinder.collider.gameObject.tag == "Enemy")
+        Collider2D[] hit = Physics2D.OverlapBoxAll(pos.position, size, 0, enemy);
+        foreach (Collider2D item in hit)
         {
-            if (_isFire)
+            if (item != null)
             {
-                StartCoroutine(Colltime());
-                
+                if (TryGetComponent<PlayerUnit>(out PlayerUnit move) && _isFire)
+                {
+                    moveunit = move;
+                    move.isMove = true;
+                    StartCoroutine(Colltime());
+                }
+            }
+            else if(moveunit != null)
+            {
+                moveunit.isMove = false;
             }
         }
+
+        ////레이캐스트
+        //Debug.DrawRay(transform.position + new Vector3(1.25f, 0), Vector3.right*_fireRange, Color.green);
+        //_rangeFinder = Physics2D.Raycast(transform.position, Vector2.right, _fireRange, LayerMask.GetMask("Enemy"));
+
+        ////사격 알고리즘
+        //if(_rangeFinder.collider != null &&_rangeFinder.collider.gameObject.tag == "Enemy")
+        //{
+        //    if (_isFire)
+        //    {
+        //        StartCoroutine(Colltime());
+        //        Debug.Log("맞았어!");
+
+        //    }
+        //}
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawCube(pos.position, size);
     }
 
     IEnumerator Colltime()//발사 코루틴
@@ -45,12 +78,8 @@ public class PlayerADUnit : MonoBehaviour
         _isFire = false;
         _anim.SetTrigger("Fire");
 
-        GameObject _spawnedBullet = poolM.Get(0);
-
-        _spawnedBullet.transform.SetParent(this.transform, true);
-        _spawnedBullet.transform.rotation = Quaternion.Euler(0, 0, 90);
-        _spawnedBullet.transform.position = transform.position;
-
+        GameObject bullet = Instantiate(bulletpre, transform);
+        bullet.transform.position = transform.position;
         yield return new WaitForSeconds(_shotColltime);
 
 
