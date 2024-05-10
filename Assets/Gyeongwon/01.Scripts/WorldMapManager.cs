@@ -50,7 +50,7 @@ public class WorldMapManager : MonoBehaviour
    
     public void SetTargetStage(int value)
     {
-        getStageNumber.stageNumber = value + 1;
+        getStageNumber.stageNumber = value;
         if (Reddot.transform.position == stages[currentIndex].transform.position)
         {
             OnMoving?.Invoke();
