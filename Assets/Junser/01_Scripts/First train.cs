@@ -7,6 +7,7 @@ public class Firsttrain : MonoBehaviour
     private float _dealayTime;
     private float _defaltPos;
     private PlayerUnit _unit;
+   
 
     void Start()
     {
@@ -32,6 +33,7 @@ public class Firsttrain : MonoBehaviour
     }
     private IEnumerator HitBehaveCoroutine()
     {
+
         _defaltPos = _unit.transform.position.y;
 
         yield return new WaitForSeconds(0.01f);
