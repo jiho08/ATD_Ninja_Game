@@ -18,19 +18,12 @@ public class StartBtnClick : MonoBehaviour
     public void StartBtn()
     {
         AudioManager.Instance.PlaySfx(AudioManager.Sfx.Btn);
-
-        if (getStageNumberSo.isTutorial)
-        {
-            getStageNumberSo.isTutorial = false;
-            blackScene.ExitScene(3);
-            return;
-        }
         getStageNumberSo.stageNumber = _stageNum;
-        blackScene.ExitScene(_stageNum + 2);
+        blackScene.ExitScene(_stageNum + 3);
     }
 
     private void ChangeNum(int value)
     {
-        _stageNum = value + 1;
+        _stageNum = value;
     }
 }
