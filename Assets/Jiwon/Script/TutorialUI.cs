@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using DG.Tweening;
-using System;
+using UnityEngine.SceneManagement;
 
 public class TutorialUI : MonoBehaviour
 {
@@ -24,6 +24,7 @@ public class TutorialUI : MonoBehaviour
     [SerializeField] private string[] tuto;
     [SerializeField] private float[] tutoNum;
 
+    [SerializeField] BlackSceneFade blackScene;
     private int count;
 
     private void Awake()
@@ -41,6 +42,11 @@ public class TutorialUI : MonoBehaviour
         uiInputM[0].OnUnitNumChange += Tutorial02Start;
         uiInputM[1].OnUnitNumChange += Tutorial02Start;
         uiInputM[2].OnUnitNumChange += Tutorial02Start;
+        
+        AudioManager.Instance.PlayBgm(true, 1);
+
+        uiInputM[0].gameObject.SetActive(false);
+
 
     }
 
@@ -81,9 +87,12 @@ public class TutorialUI : MonoBehaviour
             case 4:
                 StartCoroutine(Tutorial05());
                 break;
-            //case 5:
-            //    StartCoroutine(Tutorial06());
-            //    break;
+            case 6:
+                StartCoroutine(Tutorial07());
+                break;
+            case 7:
+                EndTutorial();
+                break;
         }
     }
 
@@ -116,7 +125,7 @@ public class TutorialUI : MonoBehaviour
     IEnumerator Tutorial01()
     {
         yield return new WaitForSecondsRealtime(2);
-        Debug.Log(1);
+        
         On();
         Tutori();
         yield return new WaitForSecondsRealtime(tutoNum[count] + 0.5f);
@@ -125,7 +134,7 @@ public class TutorialUI : MonoBehaviour
     }
     IEnumerator Tutorial02() 
     {
-        Debug.Log(2);
+        
         On();
         Tutori();
         yield return new WaitForSecondsRealtime(tutoNum[count] + 0.5f);
@@ -135,7 +144,6 @@ public class TutorialUI : MonoBehaviour
     IEnumerator Tutorial03()
     {
         //yield return new WaitForSecondsRealtime(3);
-        Debug.Log(3);
         On();
         Tutori();
         yield return new WaitForSecondsRealtime(tutoNum[count] + 0.5f);
@@ -146,7 +154,6 @@ public class TutorialUI : MonoBehaviour
     {
         StartCoroutine(camMove.EnemyCamMove());
         yield return new WaitForSecondsRealtime(2 + 0.5f);
-        Debug.Log(4);
         On();
         Tutori();
         yield return new WaitForSecondsRealtime(tutoNum[count] + 0.5f);
@@ -157,16 +164,15 @@ public class TutorialUI : MonoBehaviour
     {
         StartCoroutine(camMove.PlayerCamMove());
         yield return new WaitForSecondsRealtime(3);
-        Debug.Log(5);
         On();
         Tutori();
+        uiInputM[0].gameObject.SetActive(true);
         yield return new WaitForSecondsRealtime(tutoNum[count] + 0.5f);
         butten.SetActive(true);
 
     }
     IEnumerator Tutorial06()
     {
-        Debug.Log(6);
         On();
         Tutori();
         yield return new WaitForSecondsRealtime(tutoNum[count] + 0.5f);
@@ -175,6 +181,20 @@ public class TutorialUI : MonoBehaviour
         uiInputM[0].OnUnitNumChange -= Tutorial02Start;
         uiInputM[1].OnUnitNumChange -= Tutorial02Start;
         uiInputM[2].OnUnitNumChange -= Tutorial02Start;
+    }
+    IEnumerator Tutorial07()
+    {
+        yield return new WaitForSecondsRealtime(0.5f);
+        On();
+        Tutori();
+        yield return new WaitForSecondsRealtime(tutoNum[count] + 0.5f);
+        butten.SetActive(true);
+    }
+
+    private void EndTutorial()
+    {
+        blackScene.ExitScene(4);
+        //SceneManager.LoadScene(4);
     }
 
 }

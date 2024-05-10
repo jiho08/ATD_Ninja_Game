@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "SO/UnitLevelStates")]
+[CreateAssetMenu(menuName = "SO/Units/UnitLevelStates")]
 public class UnitLevelUpSO : ScriptableObject
 {
-    //ÃÖ´ë °ª :
+    //ï¿½Ö´ï¿½ ï¿½ï¿½ :
     //Hp : 100
     //Atk : 20
     //Speed : 10

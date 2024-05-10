@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyAttackCollider : MonoBehaviour
 {
-    private float _damage = 1;
+    private float _damage;
     private EnemyScript _enemy;
     private HealthManager _playerHealth;
     private ParticleSystem _particle;
@@ -21,7 +21,7 @@ public class EnemyAttackCollider : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision != null && collision.tag == "Player")
+        if(collision != null && collision.CompareTag("Player"))
         {
             _playerHealth = collision.gameObject.GetComponent<HealthManager>();
 
@@ -29,17 +29,18 @@ public class EnemyAttackCollider : MonoBehaviour
 
             if(_playerHealth.isOnEntity[0])
             {
-                _playerHealth.Health = _playerHealth.Health - _damage;
+                _playerHealth.Health -= _damage;
 
                 player.TakeDamage();
                 _enemy.Dealy();
             }
             else if (_playerHealth.isOnEntity[2])
             {
-                _playerHealth.Health = _playerHealth.Health - _damage;
+                _playerHealth.Health -= _damage;
                 _enemy.Dealy();
 
             }
         }
     }
 }
+

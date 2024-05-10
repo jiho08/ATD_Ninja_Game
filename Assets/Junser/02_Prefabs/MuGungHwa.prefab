@@ -122,11 +122,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 1
-  _AttackSpeed: 3
+  _AttackSpeed: 1.5
   _accel: 0.15
   _maxSpeed: 4
   _trainLength: 4
   _AttackCollision: {fileID: 6000538367989265758}
+  _playerHealth: {fileID: 0}
   _DealayTime: 1
   _defaltYPos: 0
   _train: {fileID: 7138588137253229628, guid: f0bb2914729f8694ebef71ea29675760, type: 3}
@@ -514,7 +515,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 147cb719aaee23843af11553a09b46f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 1
+  damage: 0
 --- !u!1001 &8370455657433323265
 PrefabInstance:
   m_ObjectHideFlags: 0

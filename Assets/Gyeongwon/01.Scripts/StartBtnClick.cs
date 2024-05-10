@@ -6,10 +6,24 @@ using UnityEngine.SceneManagement;
 public class StartBtnClick : MonoBehaviour
 {
     [SerializeField] GetStageNumberSo getStageNumberSo;
+    [SerializeField] private WorldMapManager worldM;
+    [SerializeField] BlackSceneFade blackScene;
+    int _stageNum;
 
-    public void StartBtn(int value)
+    private void Start()
     {
-        getStageNumberSo.stageNumber = value;
-        SceneManager.LoadScene(2    );
+        worldM.OnChangeStage += ChangeNum;
+    }
+
+    public void StartBtn()
+    {
+        AudioManager.Instance.PlaySfx(AudioManager.Sfx.Btn);
+        getStageNumberSo.stageNumber = _stageNum;
+        blackScene.ExitScene(_stageNum + 3);
+    }
+
+    private void ChangeNum(int value)
+    {
+        _stageNum = value;
     }
 }

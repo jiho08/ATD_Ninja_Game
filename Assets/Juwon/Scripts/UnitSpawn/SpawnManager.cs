@@ -7,9 +7,12 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private PoolManager enemyPool;
 
     [SerializeField] private UIInputManager[] uiInputM;
+    [SerializeField] private OwningUnitSO owning;
 
     [SerializeField] private UnitDataSO[] unitData; //유닛에 레벨에 맞게 스탯 가져오기
     [SerializeField] private EnemyStatsSo enemyData;
+
+    [SerializeField] private GameObject[] unitSpawnUiObj;
 
     public NotifyValue<int> currentUnitNum;
 
@@ -35,6 +38,11 @@ public class SpawnManager : MonoBehaviour
         uiInputM[0].OnUnitNumChange += HandleUnitSpawn;
         uiInputM[1].OnUnitNumChange += HandleUnitSpawn;
         uiInputM[2].OnUnitNumChange += HandleUnitSpawn;
+
+        if (owning.OwningMGH) unitSpawnUiObj[0].gameObject.SetActive(true);
+        if (owning.OwningKTX) unitSpawnUiObj[1].gameObject.SetActive(true);
+        if (owning.OwningLine1) unitSpawnUiObj[2].gameObject.SetActive(true);
+        
     }
 
     //원하는 유닛과 위치 생성
@@ -51,7 +59,9 @@ public class SpawnManager : MonoBehaviour
         _unitHealth = unit.GetComponent<HealthManager>();
         _unitHealth.Health = unitData[value].Hp; //HP설정
         _unitHealth.Damage = unitData[value].Atk; //데미지 설정
-        unit.GetComponent<PlayerUnit>()._maxSpeed = unitData[value].Speed; //Speed 설정
+        PlayerUnit unitP = unit.GetComponent<PlayerUnit>(); //Speed 설정
+        unitP._maxSpeed = unitData[value].Speed;
+        unitP._trainLength = unitData[value].length;
 
         this._unitHealth.OnUnitRepairCool += HandleRepairCoolTime;
         
@@ -63,8 +73,12 @@ public class SpawnManager : MonoBehaviour
     {
         GameObject enemy = enemyPool.Get(value);
         _enemyHealth = enemy.GetComponent<HealthManager>();
+        EnemyScript enemyS = enemy.GetComponent<EnemyScript>();
         _enemyHealth.Health = enemyData.enemysData[value].hp; //HP설정
-        
+        enemyS._maxSpeed = enemyData.enemysData[value].speed; //speed 설정
+        enemyS._GetDamage = enemyData.enemysData[value].atk;
+
+
         enemy.transform.position = enemySpawnPos[pos-1].position;
         
         return enemy;

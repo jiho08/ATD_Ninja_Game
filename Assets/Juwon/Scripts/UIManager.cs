@@ -10,13 +10,16 @@ public class UIManager : MonoBehaviour
     
     [SerializeField] private GameObject gameClearPanel;
     [SerializeField] private GameObject gameOverPanel;
-    [SerializeField] private TextMeshProUGUI curTimerScore;
+    //[SerializeField] private TextMeshProUGUI curTimerScore;
     [SerializeField] private TextMeshProUGUI clearTimerScore;
+
+    private bool _isGameDown;
 
     private void Start()
     {
         spawnM.currentUnitNum.OnValueChanged += HandleChangeUnitSpawnCount;
         gameM.OnMinValue += MaxTimeUI;
+        clearTimerScore.text = "";
     }
     
     //아군 최대 수 생성 표시
@@ -29,23 +32,27 @@ public class UIManager : MonoBehaviour
     
     public void StageClear()
     {
-        gameOverPanel.SetActive(true);
+        if (_isGameDown) return;
+        gameClearPanel.SetActive(true);
         AudioManager.Instance.PlaySfx(AudioManager.Sfx.Victory);
         AudioManager.Instance.PlayBgm(false, 1);
-        
+        _isGameDown = true;
         Time.timeScale = 0;
     }   
     
     public void GameOver()
     {
+        if (_isGameDown) return;
+
         gameOverPanel.SetActive(true);
         AudioManager.Instance.PlaySfx(AudioManager.Sfx.Defeat);
         AudioManager.Instance.PlayBgm(false, 1);
+        _isGameDown = true;
         Time.timeScale = 0;
     }
 
     public void MaxTimeUI(float value)
     {
-        clearTimerScore.text = $"{value / 60} : {value % 60}";
+        clearTimerScore.text = $"0{(int)value / 60} : {(int)value % 60}";
     }
 }

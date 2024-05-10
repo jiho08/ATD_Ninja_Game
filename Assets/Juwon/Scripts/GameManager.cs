@@ -10,16 +10,20 @@ public class GameManager : MonoBehaviour
     
     [Header("---")]
     [SerializeField] private GetStageNumberSo stageNum;
-    
+    [SerializeField] BlackSceneFade blackScene;
+    [SerializeField] toMainMenuSO toMainMenu;
+
+    [SerializeField] private TextMeshProUGUI curTimerScore;
+
     private float _currentTime;
-    private float _maxTime;
+    private float _minTime;
     private bool _isTimeOver;
 
     private void Start()
     {
         AudioManager.Instance.PlayBgm(true, 0);
 
-        _maxTime = stageNum.timer;
+        _minTime = stageNum.timer;
     }
 
     private void Update()
@@ -31,32 +35,31 @@ public class GameManager : MonoBehaviour
 
     private void LateUpdate()
     {
-        //curTimerScore.text = $"{_currentTime / 60} : {_currentTime % 60}";
+        curTimerScore.text = $"0{(int)_currentTime / 60} : {(int)_currentTime % 60}";
     }
 
     public void SetMaxTime()
     {
         //스테이지를 클리어 하면 발생하는 이벤트들 더 적기(최소 시간, 걸린시간)
         _isTimeOver = true;
-
-        if (_currentTime > _maxTime)
-        {
-            _maxTime = _currentTime;
-            stageNum.timer = _maxTime;
-            OnMinValue.Invoke(_maxTime);
-        }
+        OnMinValue.Invoke(_currentTime);
     }
 
     public void SetNextLevelUp()
     {
-        stageNum.stageNumber++;
-        stageNum.isOpenStage[stageNum.stageNumber-1] = true;
+        stageNum.isOpenStage[stageNum.stageNumber+1] = true;
     }
 
     public void BackBtn()
     {
-        
-        SceneManager.LoadScene(1);
+        toMainMenu.DidEndGame = true;
+        blackScene.ExitScene(1);
+        //SceneManager.LoadScene(1);
+    }
+
+    public void WinGame()
+    {
+        toMainMenu.DidWinGame = true;
     }
     
 }

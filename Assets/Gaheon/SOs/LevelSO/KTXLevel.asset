@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: KTXLevel
   m_EditorClassIdentifier: 
   Hp:
+  - 30
   - 35
   - 40
   - 45
   - 50
-  - 60
   Atk:
   - 9
   - 10

@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyScript : MonoBehaviour
 {
     //HP관련 변수
-
+    private HealthManager health;
     [SerializeField]
     private float _AttackSpeed;
     public float Accelation;
@@ -15,11 +15,10 @@ public class EnemyScript : MonoBehaviour
     float _speed;
     public float _maxSpeed;
 
-
     //이동 관련 변수
     
     public float _damage;
-    public float _GetDamage { get { return _damage; } set { _damage = value; } }
+    public float _GetDamage { get; set; }
     private ParticleSystem _particle;
 
     [SerializeField]
@@ -45,6 +44,7 @@ public class EnemyScript : MonoBehaviour
         _Rigid = GetComponent<Rigidbody2D>();
         _particle = GetComponentInChildren<ParticleSystem>();
         _hitBox = GetComponent<BoxCollider2D>();
+        health = GetComponent<HealthManager>();
     }
 
     private void Start()
@@ -54,6 +54,11 @@ public class EnemyScript : MonoBehaviour
         _speed = 0;
         Accelation = _maxSpeed;
     }
+
+    /*private void OnEnable()
+    {
+        _GetDamage = health.Damage;
+    }*/
 
     private void Update()
     {
@@ -165,3 +170,4 @@ public class EnemyScript : MonoBehaviour
 
     }
 }
+

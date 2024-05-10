@@ -14,6 +14,24 @@ public class HealthManager : MonoBehaviour
     [SerializeField] private int unitCode;
     public bool[] isOnEntity; //0:unit, 1:Enemy, 2:tower
 
+    public delegate void DamageChange(float damage);
+    public DamageChange OnDamage;
+
+    private float _damage;
+    public float Damage
+    {
+        get => _damage;
+        set
+        {
+            float inDef = _damage;
+            _damage = value;
+            if (_damage != inDef)
+            {
+                OnDamage?.Invoke(_damage);
+            }
+        }
+    }
+
     public float Health
     {
         get => _curHealth;
@@ -33,12 +51,7 @@ public class HealthManager : MonoBehaviour
                 OnEnemyRepairCool?.Invoke(unitCode);
                 gameObject.SetActive(false);
             }
-            
         }
     }
 
-    public float Damage { get; set; }
-
-    //자신의 HP가 0이라면 비활성화
-    
 }

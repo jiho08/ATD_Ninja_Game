@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: MugunghwaLevel
   m_EditorClassIdentifier: 
   Hp:
-  - 25
-  - 30
   - 35
   - 40
+  - 45
   - 50
+  - 60
   Atk:
   - 2
   - 3

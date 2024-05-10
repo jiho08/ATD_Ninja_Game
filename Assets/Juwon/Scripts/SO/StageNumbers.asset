@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10b680169b5c9e44295b192b5ac16a17, type: 3}
   m_Name: StageNumbers
   m_EditorClassIdentifier: 
-  stageNumber: 0
+  stageNumber: 1
+  timer: 0
+  isOpenStage: 010101000000
+  isTutorial: 1
