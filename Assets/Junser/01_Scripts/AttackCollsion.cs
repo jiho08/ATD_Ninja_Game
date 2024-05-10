@@ -7,7 +7,7 @@ public class AttackCollsion : MonoBehaviour
 {
     public float damage;
     private PlayerUnit _playerUnit;
-    private HealthManager _playerHealth;
+    private bool _canAttack = true;
 
     private void Awake()
     {
@@ -28,28 +28,52 @@ public class AttackCollsion : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            
-            _playerHealth = collision.gameObject.GetComponent<HealthManager>();
+
+            HealthManager _playerHealth = collision.gameObject.GetComponent<HealthManager>();
             
             EnemyScript enemy = collision.gameObject.GetComponent<EnemyScript>();
 
-            if (_playerHealth.isOnEntity[1])
+            Debug.Log(_canAttack);
+
+            if (_canAttack)
             {
-                AudioManager.Instance.PlaySfx(AudioManager.Sfx.Hit);
-                _playerHealth.Health -= damage;
-            
-                enemy.TakeDamage();
-            
-                _playerUnit.Dealy();
-            
-            
-            }
-            else if (_playerHealth.isOnEntity[2])
-            {
-                AudioManager.Instance.PlaySfx(AudioManager.Sfx.Tower);
-                _playerHealth.Health -= damage;
-                _playerUnit.Dealy();
+                StartCoroutine(Dealay());
+                if (_playerHealth.isOnEntity[1])
+                {
+                    
+                    _playerHealth.Health -= damage;
+
+                    _playerUnit.Dealy();
+
+                    enemy.TakeDamage();
+                    AudioManager.Instance.PlaySfx(AudioManager.Sfx.Hit);
+
+                    
+                }
+                else if (_playerHealth.isOnEntity[2])
+                {
+                    AudioManager.Instance.PlaySfx(AudioManager.Sfx.Tower);
+                    _playerHealth.Health -= damage;
+                    _playerUnit.Dealy();
+                    StartCoroutine(Dealay());
+
+                }
             }
         }
+    }
+
+    public IEnumerator Dealay()
+    {
+        _canAttack = false;
+        yield return new WaitForSeconds(0.02f);
+        try
+        {
+            _canAttack = true;
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogError("Error setting _canAttack to true: " + e.Message);
+        }
+
     }
 }

@@ -150,7 +150,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.030299127, y: 0}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -161,7 +161,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.5455116, y: 1}
+  m_Size: {x: 2, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &5725023998318947986
 MonoBehaviour:
@@ -229,7 +229,7 @@ GameObject:
   - component: {fileID: 859180225392857997}
   - component: {fileID: 7346868599315637095}
   - component: {fileID: 4175962778030224397}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: EnemyAttackCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -283,7 +283,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1, y: 0}
+  m_Offset: {x: -1.25, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -322,7 +322,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2864449849505924606, guid: dbe6cc6a5f7922545babac882773b1b0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1
+      value: -1.132
       objectReference: {fileID: 0}
     - target: {fileID: 2864449849505924606, guid: dbe6cc6a5f7922545babac882773b1b0, type: 3}
       propertyPath: m_LocalPosition.y

@@ -18,6 +18,7 @@ public class PlayerUnit : MonoBehaviour
     private float _accel;
 
     private bool _rearground;
+    public bool _canAttack;
 
     public float _maxSpeed;
 
@@ -103,7 +104,7 @@ public class PlayerUnit : MonoBehaviour
         {
             GameObject _line = Instantiate(_train, transform);
             _lineList.Add(_line);
-            _line.transform.position = transform.position + new Vector3((i * -2f), 0);
+            _line.transform.position = transform.position + new Vector3((i * -3f), 0);
         }
     }
 
@@ -126,9 +127,15 @@ public class PlayerUnit : MonoBehaviour
     private void Update()
     {
         //현재 속도
+        if (_Rigid.velocity.x < _AttackSpeed)
+        {
+            StartCoroutine(Lower());
+        }
+        else
+        {
+            _AttackCollision.SetActive(true);
+        }
 
-        //이동 속도 제한
-        _AttackCollision.gameObject.SetActive(_Rigid.velocity.x > _AttackSpeed);
     }
     private void FixedUpdate()
     {
@@ -164,6 +171,7 @@ public class PlayerUnit : MonoBehaviour
     {
         if (this.gameObject.activeSelf)
         {
+            
             _particle.Play();
             StartCoroutine("BackAway");
             _firstTrain.HitBehave();
@@ -181,20 +189,15 @@ public class PlayerUnit : MonoBehaviour
 
     IEnumerator BackAway()//피격 행동 코루틴
     {
+        yield return new WaitForSeconds(0.2f);
         time = 0;
         _rearground = true;
         _hitBox.enabled = false;
 
         _accel = 0;
 
-
-        _AttackCollision.gameObject.SetActive(false);
-
-
-
         yield return new WaitForSeconds(_DealayTime);
 
-        
         _accel = 0;
 
         _speed = 0;
@@ -206,6 +209,7 @@ public class PlayerUnit : MonoBehaviour
 
     IEnumerator AttackDealy()// 공격 딜레이 코루틴
     {
+
         _rearground = true;
 
         _accel = 0;
@@ -215,11 +219,15 @@ public class PlayerUnit : MonoBehaviour
 
         yield return new WaitForSeconds(_DealayTime);
 
-        _AttackCollision.gameObject.SetActive(true);
 
         _accel = 0;
         _speed = 0;
         _rearground = false;
 
+    }
+    IEnumerator Lower()
+    {
+        yield return new WaitForSeconds(0.02f);
+        _AttackCollision.SetActive(false);
     }
 }

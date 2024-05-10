@@ -66,7 +66,7 @@ public class EnemyScript : MonoBehaviour
         //열차 길이 설정
         
 
-        if (_Rigid.velocity.x < _AttackSpeed)
+        if (!_rearground)
         {
             _AttackCollision.SetActive(true);
         }
@@ -124,6 +124,7 @@ public class EnemyScript : MonoBehaviour
     }
     IEnumerator BackAway()
     {
+        yield return null;
         time = 0;
         _rearground = true;
         _hitBox.enabled = false;
@@ -151,6 +152,7 @@ public class EnemyScript : MonoBehaviour
 
     IEnumerator AttackDealy()
     {
+        yield return null;
 
         _rearground = true;
 
