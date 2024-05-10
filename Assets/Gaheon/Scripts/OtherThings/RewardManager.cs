@@ -19,18 +19,12 @@ public class RewardManager : MonoBehaviour
     [SerializeField] toMainMenuSO mainMenuSO;
 
     int clearStage;
-    private void Start()
+    private void Update()
     {
         if (mainMenuSO.DidWinGame == true)
         {
-            if (stageOpenSO.isOpenStage[1] == true)
-            {
-                RewardChange();
-            }
-            else
-            {
-                rewardPanel.SetActive(false);
-            }
+            rewardPanel.SetActive(true);
+            RewardChange();
         }
         else
         {
@@ -39,41 +33,24 @@ public class RewardManager : MonoBehaviour
     }
     void RewardChange()
     {
-        for (int i = 0; i < 6; i++)
-        {
-            if (stageOpenSO.isOpenStage[i] == false)
-            {
-                clearStage = i - 2;
-                break;
-            }
-        }
+        clearStage = mainMenuSO.whichStageEnded; //¿Ï·áµÈ ½ºÅ×ÀÌÁö °®°í ¿À´Â °Å, ½ºÅ×ÀÌÁö ¿­¸®´Â °Å ¼³Á¤Àº °¢ ½ºÅ×ÀÌÁöÀÇ GameManager°¡ mainMenuSO ¸¸Á®ÁÖ¸é¼­ ¹Ù²ñ
 
         stationImage.sprite = stationInfo.StationImages[clearStage];
         clearText.text = $"{stationInfo.stationNames[clearStage]}\n°ÝÆÄ!";
         rewardTexts[0].text = $"È¹µæ °íÃ¶ : {stationInfo.rewardResources[clearStage]}";
-        ResourceManager.instance.SetRsc(stationInfo.rewardResources[clearStage]);
-        if (clearStage < 3)
+        if (clearStage < 2)
         {
             rewardTexts[2].text = $"¿­¸° ½ºÅ×ÀÌÁö : {stationInfo.stationNames[clearStage + 1]}";
 
-            if (clearStage > 0)
+            rewardTexts[1].text = $"È¹µæ À¯´Ö : {stationInfo.unitSO[clearStage].TrainName}";
+            trainImageSprite.sprite = stationInfo.unitSO[clearStage].TrainHead;
+            if (stationInfo.unitSO[clearStage].TrainName == "KTX")
             {
-                rewardTexts[1].text = $"È¹µæ À¯´Ö : {stationInfo.unitSO[clearStage].TrainName}";
-                trainImageSprite.sprite = stationInfo.unitSO[clearStage].TrainHead;
-                if (clearStage == 1)
-                {
-                    owningUnit.OwningKTX = true;
-                }
-                else if (clearStage == 2)
-                {
-                    owningUnit.OwningLine1 = true;
-                }
+                owningUnit.OwningKTX = true;
             }
-            else
+            else if (stationInfo.unitSO[clearStage].TrainName == "1È£¼±")
             {
-                rewardTexts[1].text = "È¹µæ À¯´Ö ¾øÀ½";
-                rewardTexts[1].alignment = TextAlignmentOptions.Midline;
-                trainImage.SetActive(false);
+                owningUnit.OwningLine1 = true;
             }
         }
         else
@@ -86,7 +63,9 @@ public class RewardManager : MonoBehaviour
     }
     public void Confirm()
     {
+        ResourceManager.instance.SetRsc(stationInfo.rewardResources[clearStage]);
         rewardPanel.SetActive(false);
+
         mainMenuSO.DidWinGame = false;
     }
 }

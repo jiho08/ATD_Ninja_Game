@@ -22,7 +22,7 @@ MonoBehaviour:
     \uBA85\uC131\uC744 \uC77C\uBD80 \uC783\uC5B4\uBC84\uB838\uB2E4."
   TrainRole: "\uC6D0\uAC70\uB9AC \uB51C\uB7EC"
   level: 1
-  length: 1
+  length: 0
   Hp: 30
   Atk: 5
   Speed: 2

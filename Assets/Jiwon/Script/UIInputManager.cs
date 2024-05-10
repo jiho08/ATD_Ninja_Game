@@ -17,7 +17,9 @@ public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
     private BoxCollider2D collider; // 유닛의 콜라이더 
 
+    [SerializeField] private LayerMask enemyLayer;
 
+    private Rigidbody2D unitRiigd;
     private PlayerUnit UnitMovemate2; // 유닛의 움직임 스크립트
     [SerializeField]
     private SpawnManager spawnM; // 유닛 소환 스크립트
@@ -27,6 +29,7 @@ public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     [SerializeField] private Image coolTimeImage;
 
     private bool isAD; //근접 공격유닛인가 아닌가
+    private bool isDragStarte = false;
 
     private SpriteRenderer _cloneRenderer; //유닛의 색변경을 위한 스프라이트 렌더러
 
@@ -40,6 +43,8 @@ public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     private void Start()
     {
         coolTime = 0;
+        isCoolTime = false;
+        isDragStarte = false;
     }
     private void Update()
     {
@@ -47,22 +52,19 @@ public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
         if (coolTime > 0)
         {
             coolTime -= Time.deltaTime;
-            isCoolTime = true;
-
-        }
-        if (coolTime <= 0)
-        {
-            isCoolTime = false;
         }
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
+        if (isDragStarte) return;
         if (!isCoolTime)
         {
+            isDragStarte = true;
             Clone = spawnM.UnitSpawn(unitCode);
 
             if (Clone == null || isCoolTime) return;
 
+            unitRiigd = Clone.GetComponent<Rigidbody2D>();
             _cloneRenderer = Clone.GetComponentInChildren<SpriteRenderer>();
             UnitMovemate2 = Clone.GetComponent<PlayerUnit>();
             collider = Clone.GetComponent<BoxCollider2D>();
@@ -88,12 +90,17 @@ public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
             UnitMovemate2.enabled = false;
 
             collider.enabled = false;
+
+            unitRiigd.excludeLayers += enemyLayer;
+
         }
+        
 
     }
 
     public void OnDrag(PointerEventData eventData)
     {
+        if (!isDragStarte) return;
         if (!isCoolTime)
         {
             if (Clone == null) return;
@@ -109,9 +116,10 @@ public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        if (!isDragStarte) return;
         if (!isCoolTime)
         {
-
+            isDragStarte = false;
             if (Clone == null)
             {
                 //Debug.Log("생성 안돼야함");
@@ -140,8 +148,10 @@ public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
                 //아군 카운트 올리기
                 OnUnitNumChange.Invoke(unitCode);
+                unitRiigd.excludeLayers -= enemyLayer;
 
-                coolTime = maxCoolTime;
+
+                StartCoroutine(CoolTime());
             }
 
             else if (!RailInput.onRail)
@@ -150,5 +160,13 @@ public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
                 AudioManager.Instance.PlaySfx(AudioManager.Sfx.Warning);
             }
         }
+    }
+
+    IEnumerator CoolTime()
+    {
+        isCoolTime = true;
+        coolTime = maxCoolTime;
+        yield return new WaitForSeconds(maxCoolTime);
+        isCoolTime = false;
     }
 }

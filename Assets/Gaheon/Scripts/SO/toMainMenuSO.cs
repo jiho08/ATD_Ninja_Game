@@ -7,4 +7,5 @@ public class toMainMenuSO : ScriptableObject
 {
     public bool DidWinGame;
     public bool DidEndGame;
+    public int whichStageEnded;
 }

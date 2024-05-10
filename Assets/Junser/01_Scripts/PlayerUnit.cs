@@ -2,8 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Baek.Utile;
-using Cinemachine;
+
 public class PlayerUnit : MonoBehaviour
 {
     //HP관련 변수
@@ -12,6 +11,7 @@ public class PlayerUnit : MonoBehaviour
     private float _damage;
     public float _GetDamage { get; private set; }
 
+    public bool isMove;
 
     [SerializeField]
     private float _AttackSpeed;
@@ -19,12 +19,13 @@ public class PlayerUnit : MonoBehaviour
     private float _accel;
 
     private bool _rearground;
+    public bool _canAttack;
 
     public float _maxSpeed;
 
     //열차 길이
 
-
+    
     public int _trainLength;
 
     //이동 관련 변수
@@ -52,10 +53,6 @@ public class PlayerUnit : MonoBehaviour
 
     private List<GameObject> _lineList = new List<GameObject>();
 
-    //백인성이 추가한 코드임
-    private AttackCollsion _attackCollsion;
-    private Transform _cam;
-
     private void Awake()
     {
         //컴포넌트 받는 부분
@@ -64,11 +61,6 @@ public class PlayerUnit : MonoBehaviour
         _playerHealth = GetComponent<HealthManager>();
         _particle = GetComponentInChildren<ParticleSystem>();
         _hitBox = GetComponent<BoxCollider2D>();
-
-        //백인성이 추가한 코드임
-        _attackCollsion = transform.Find("First Train").transform.Find("AttackCollision").GetComponent<AttackCollsion>();
-        _cam = transform.root.transform.Find("Virtual Camera").transform;
-
     }
 
 
@@ -113,23 +105,8 @@ public class PlayerUnit : MonoBehaviour
         {
             GameObject _line = Instantiate(_train, transform);
             _lineList.Add(_line);
-            _line.transform.position = transform.position + new Vector3((i * -2f), 0);
+            _line.transform.position = transform.position + new Vector3((i * -2.25f), 0);
         }
-
-        //백인성이 추가한 코드임
-        _attackCollsion.AttackEvent += HandleAttackEvent;
-
-
-    }
-
-    private void HandleAttackEvent() //백인성이 추가한 코드임
-    {
-        CameraUtile.CameraShake(_cam.GetComponent<CinemachineVirtualCamera>(), Vector3.one * 2, 2, 2);
-        Invoke(nameof(ReSetShakeValue), 0.2f);
-    }
-    private void ReSetShakeValue()
-    {
-        CameraUtile.CameraShake(_cam.GetComponent<CinemachineVirtualCamera>(), Vector3.zero, 0, 0);
     }
 
     private void OnDisable()
@@ -146,33 +123,36 @@ public class PlayerUnit : MonoBehaviour
         {
             Destroy(_lineList[i].gameObject);
         }
-
-        //백인성이 추가한 코드임
-        _attackCollsion.AttackEvent -= HandleAttackEvent;
     }
 
     private void Update()
     {
         //현재 속도
+        if (_Rigid.velocity.x < _AttackSpeed)
+        {
+            StartCoroutine(Lower());
+        }
+        else
+        {
+            _AttackCollision.SetActive(true);
+        }
 
-        //이동 속도 제한
-        _AttackCollision.gameObject.SetActive(_Rigid.velocity.x > _AttackSpeed);
     }
     private void FixedUpdate()
     {
-        if (!_rearground)
+        if (!_rearground && !isMove)
         {
             _speed = 0.05f;
             _accel = Mathf.Lerp(_accel, _maxSpeed, _speed);
             //이동
             _Rigid.velocity = new Vector2(1, 0) * _accel;
         }
-        else
+        else if(_rearground)
         {
-
+            
             time += 0.05f;
 
-            _accel = _maxSpeed - time * _maxSpeed / _DealayTime / 3;
+            _accel = _maxSpeed - time*_maxSpeed/_DealayTime / 3;
             //이동
             _Rigid.velocity = new Vector2(-1, 0) * _accel;
         }
@@ -192,6 +172,7 @@ public class PlayerUnit : MonoBehaviour
     {
         if (this.gameObject.activeSelf)
         {
+            
             _particle.Play();
             StartCoroutine("BackAway");
             _firstTrain.HitBehave();
@@ -209,19 +190,14 @@ public class PlayerUnit : MonoBehaviour
 
     IEnumerator BackAway()//피격 행동 코루틴
     {
+        yield return new WaitForSeconds(0.2f);
         time = 0;
         _rearground = true;
         _hitBox.enabled = false;
 
         _accel = 0;
 
-
-        _AttackCollision.gameObject.SetActive(false);
-
-
-
         yield return new WaitForSeconds(_DealayTime);
-
 
         _accel = 0;
 
@@ -234,6 +210,7 @@ public class PlayerUnit : MonoBehaviour
 
     IEnumerator AttackDealy()// 공격 딜레이 코루틴
     {
+
         _rearground = true;
 
         _accel = 0;
@@ -243,11 +220,15 @@ public class PlayerUnit : MonoBehaviour
 
         yield return new WaitForSeconds(_DealayTime);
 
-        _AttackCollision.gameObject.SetActive(true);
 
         _accel = 0;
         _speed = 0;
         _rearground = false;
 
+    }
+    IEnumerator Lower()
+    {
+        yield return new WaitForSeconds(0.02f);
+        _AttackCollision.SetActive(false);
     }
 }

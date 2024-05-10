@@ -43,14 +43,14 @@ public class WorldMapManager : MonoBehaviour
         stages[0].SetActive(isOpenStages[0]);
         stages[1].SetActive(isOpenStages[1]);
         stages[2].SetActive(isOpenStages[2]);
-        stages[3].SetActive(isOpenStages[3]);
-        stages[4].SetActive(isOpenStages[4]);
-        stages[5].SetActive(isOpenStages[5]);
+        
+        getStageNumber.stageNumber = 1;
     }
 
    
     public void SetTargetStage(int value)
     {
+        getStageNumber.stageNumber = value + 1;
         if (Reddot.transform.position == stages[currentIndex].transform.position)
         {
             OnMoving?.Invoke();
