@@ -136,6 +136,7 @@ MonoBehaviour:
   _DealayTime: 1
   _defaltYPos: 0
   _train: {fileID: 5472984915105490721, guid: 2a160d64ba4d80944a5ea3c8499f8e52, type: 3}
+  _attackCollsion: {fileID: 0}
 --- !u!114 &1127476165599421729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,7 +151,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _curHealth: 4
   unitCode: 0
-  isOnEntity: 000100
+  isOnEntity: 010000
 --- !u!114 &9188588497209706504
 MonoBehaviour:
   m_ObjectHideFlags: 0
