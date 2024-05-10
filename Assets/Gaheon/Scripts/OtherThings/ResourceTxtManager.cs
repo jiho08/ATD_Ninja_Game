@@ -12,7 +12,7 @@ public class ResourceTxtManager : MonoBehaviour
 
     private void Start()
     {
-        ResourceManager.instance.SetRsc(0 - ResourceManager.instance.GetRsc());
+        //ResourceManager.instance.SetRsc(0 - ResourceManager.instance.GetRsc());
         ChangeResource();
         ChangeUpgradePrice();
         ChangeAddPrice();
@@ -20,7 +20,7 @@ public class ResourceTxtManager : MonoBehaviour
 
     public void ChangeResource()
     {
-        resourceTxt.text = $"°íÃ¶ : { ResourceManager.instance.GetRsc()}";
+        resourceTxt.text = $"°íÃ¶ : {ResourceManager.instance.GetRsc()}";
     }
     public void ChangeUpgradePrice()
     {
@@ -36,13 +36,13 @@ public class ResourceTxtManager : MonoBehaviour
 
     public void ChangeAddPrice()
     {
-        if (selectManager.selectedSO.length >= 3)
+        if (selectManager.selectedSO.length + 1 >= 3)
         {
             addPriceTxt.text = "ÃÖ´ë Ä­¼ö!";
         }
         else
         {
-            addPriceTxt.text = $"ÇÊ¿ä °íÃ¶ : {selectManager.selectedPriceSO.AddPrice[selectManager.selectedSO.length - 1]}";
+            addPriceTxt.text = $"ÇÊ¿ä °íÃ¶ : {selectManager.selectedPriceSO.AddPrice[selectManager.selectedSO.length]}";
 
         }
     }

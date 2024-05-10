@@ -7,6 +7,7 @@ public class OwningManager : MonoBehaviour
     [SerializeField] GameObject ktxButton;
     [SerializeField] GameObject line1Button;
     [SerializeField] OwningUnitSO owningUnitSO;
+    
     void Start()
     {
         ktxButton.SetActive(owningUnitSO.OwningKTX);

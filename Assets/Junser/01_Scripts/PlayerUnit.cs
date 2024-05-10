@@ -104,7 +104,7 @@ public class PlayerUnit : MonoBehaviour
         {
             GameObject _line = Instantiate(_train, transform);
             _lineList.Add(_line);
-            _line.transform.position = transform.position + new Vector3((i * -2f), 0);
+            _line.transform.position = transform.position + new Vector3((i * -3f), 0);
         }
     }
 

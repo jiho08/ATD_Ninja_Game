@@ -20,7 +20,7 @@ MonoBehaviour:
   TrainDesc: "\uB290\uB9AC\uC9C0\uB9CC \uC800\uB834\uD55C \uADC0\uC5EC\uC6B4 \uBB34\uAD81\uD654\uD638\uB2E4."
   TrainRole: "\uD0F1\uCEE4"
   level: 1
-  length: 1
+  length: 2
   Hp: 35
-  Atk: 5
+  Atk: 2
   Speed: 2
