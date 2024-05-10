@@ -33,23 +33,25 @@ public class PlayerADUnit : MonoBehaviour
 
     void Update()
     {
-        Collider2D[] hit = Physics2D.OverlapBoxAll(pos.position, size, 0, enemy);
-        foreach (Collider2D item in hit)
-        {
-            if (item != null)
-            {
-                if (TryGetComponent<PlayerUnit>(out PlayerUnit move) && _isFire)
-                {
-                    moveunit = move;
-                    move.isMove = true;
-                    StartCoroutine(Colltime());
-                }
-            }
-            else if(moveunit != null)
-            {
-                moveunit.isMove = false;
-            }
-        }
+        //Collider2D[] hit = Physics2D.OverlapBoxAll(pos.position, size, 0, enemy);
+        //foreach (Collider2D item in hit)
+        //{
+        //    if (item != null)
+        //    {
+        //        if (TryGetComponent<PlayerUnit>(out PlayerUnit move) && _isFire)
+        //        {
+        //            moveunit = move;
+        //            move.isMove = true;
+        //            StartCoroutine(Colltime());
+        //        }
+        //    }
+        //    else if(moveunit != null)
+        //    {
+        //        moveunit.isMove = false;
+        //    }
+        //}
+        if(_isFire) StartCoroutine(Colltime());
+        
 
         ////레이캐스트
         //Debug.DrawRay(transform.position + new Vector3(1.25f, 0), Vector3.right*_fireRange, Color.green);
@@ -80,8 +82,8 @@ public class PlayerADUnit : MonoBehaviour
 
         GameObject bullet = Instantiate(bulletpre, transform);
         bullet.transform.position = transform.position;
-        yield return new WaitForSeconds(_shotColltime);
 
+        yield return new WaitForSeconds(_shotColltime);
 
         _isFire = true;
     }
