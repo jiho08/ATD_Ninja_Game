@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48843f64c657d6842af1ecaaa83f6ff8, type: 3}
   m_Name: OwningTrainSO
   m_EditorClassIdentifier: 
-  OwningKTX: 1
+  OwningKTX: 0
   OwningMGH: 1
   OwningLine1: 0
