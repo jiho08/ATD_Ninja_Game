@@ -27,6 +27,7 @@ public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     [SerializeField] private Image coolTimeImage;
 
     private bool isAD; //근접 공격유닛인가 아닌가
+    private bool isDragStarte = false;
 
     private SpriteRenderer _cloneRenderer; //유닛의 색변경을 위한 스프라이트 렌더러
 
@@ -41,7 +42,7 @@ public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     {
         coolTime = 0;
         isCoolTime = false;
-        
+        isDragStarte = false;
     }
     private void Update()
     {
@@ -53,8 +54,10 @@ public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
+        if (isDragStarte) return;
         if (!isCoolTime)
         {
+            isDragStarte = true;
             Clone = spawnM.UnitSpawn(unitCode);
 
             if (Clone == null || isCoolTime) return;
@@ -85,11 +88,13 @@ public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
             collider.enabled = false;
         }
+        
 
     }
 
     public void OnDrag(PointerEventData eventData)
     {
+        if (!isDragStarte) return;
         if (!isCoolTime)
         {
             if (Clone == null) return;
@@ -105,9 +110,10 @@ public class UIInputManager : MonoBehaviour, IBeginDragHandler, IDragHandler, IE
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        if (!isDragStarte) return;
         if (!isCoolTime)
         {
-
+            isDragStarte = false;
             if (Clone == null)
             {
                 //Debug.Log("생성 안돼야함");
