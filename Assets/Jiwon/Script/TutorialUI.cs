@@ -195,6 +195,9 @@ public class TutorialUI : MonoBehaviour
     private void EndTutorial()
     {
         getStageNum.isTutorial = false;
+        DataManager.Instance.data.isTutorial = getStageNum.isTutorial;
+        DataManager.Instance.SaveGameData();
+        
         //getStageNum.isOpenStage[1] = true;
         blackScene.ExitScene(4);
         //SceneManager.LoadScene(4);

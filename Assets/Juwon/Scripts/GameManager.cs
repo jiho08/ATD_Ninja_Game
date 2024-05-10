@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour
     {
         AudioManager.Instance.PlayBgm(true, 0);
         toMainMenu.DidEndGame = true;
-        blackScene.ExitScene(1);
+        blackScene.ExitScene(2);
         //SceneManager.LoadScene(1);
     }
 
