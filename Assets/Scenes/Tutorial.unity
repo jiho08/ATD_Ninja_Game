@@ -11657,6 +11657,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitCode: 1
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
   spawnM: {fileID: 390345304}
   coolTimeImage: {fileID: 340664847}
   maxCoolTime: 1
@@ -11751,6 +11754,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitCode: 2
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
   spawnM: {fileID: 390345304}
   coolTimeImage: {fileID: 554176524}
   maxCoolTime: 1
@@ -11906,7 +11912,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3318848002371649374, guid: 4634986722326d3439947ff4f079bd4b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 3318848002371649374, guid: 4634986722326d3439947ff4f079bd4b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -12332,6 +12338,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitCode: 0
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
   spawnM: {fileID: 390345304}
   coolTimeImage: {fileID: 2060647746}
   maxCoolTime: 1
