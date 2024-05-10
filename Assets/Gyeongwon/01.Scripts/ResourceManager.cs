@@ -18,6 +18,7 @@ public class ResourceManager : MonoBehaviour
     private void Start()
     {
         resource = PlayerPrefs.GetInt("Resource",0);
+
     }
 
     public void SetRsc(int value)
