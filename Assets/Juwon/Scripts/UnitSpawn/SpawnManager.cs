@@ -12,6 +12,8 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private UnitDataSO[] unitData; //유닛에 레벨에 맞게 스탯 가져오기
     [SerializeField] private EnemyStatsSo enemyData;
 
+    [SerializeField] private GameObject[] unitSpawnUiObj;
+
     public NotifyValue<int> currentUnitNum;
 
     //[SerializeField] private Transform[] unitSpawnPos; //스폰 위치 3개 관리
@@ -37,9 +39,9 @@ public class SpawnManager : MonoBehaviour
         uiInputM[1].OnUnitNumChange += HandleUnitSpawn;
         uiInputM[2].OnUnitNumChange += HandleUnitSpawn;
 
-        if (owning.OwningMGH) uiInputM[0].gameObject.SetActive(true);
-        if (owning.OwningKTX) uiInputM[1].gameObject.SetActive(true);
-        if (owning.OwningLine1) uiInputM[2].gameObject.SetActive(true);
+        if (owning.OwningMGH) unitSpawnUiObj[0].gameObject.SetActive(true);
+        if (owning.OwningKTX) unitSpawnUiObj[1].gameObject.SetActive(true);
+        if (owning.OwningLine1) unitSpawnUiObj[2].gameObject.SetActive(true);
         
     }
 
