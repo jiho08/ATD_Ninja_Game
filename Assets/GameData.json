@@ -1,0 +1,36 @@
+{
+    "isOpenStage": [
+        true,
+        false,
+        false
+    ],
+    "isTutorial": true,
+    "level": [
+        1,
+        1,
+        1
+    ],
+    "length": [
+        0,
+        0,
+        0
+    ],
+    "hp": [
+        35.0,
+        30.0,
+        30.0
+    ],
+    "atk": [
+        2.0,
+        9.0,
+        5.0
+    ],
+    "speed": [
+        2.0,
+        5.0,
+        2.0
+    ],
+    "owningKtx": false,
+    "owningMgh": true,
+    "owningLine1": false
+}

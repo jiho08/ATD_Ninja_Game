@@ -21,6 +21,7 @@ public class MainButtonManager : MonoBehaviour
 
     public void Quit()
     {
+        DataManager.Instance.SaveGameData();
         AudioManager.Instance.PlaySfx(AudioManager.Sfx.Btn);
         Application.Quit();
     }

@@ -21,7 +21,7 @@ MonoBehaviour:
     \uC5F4\uCC28 \uBB34\uAD81\uD654\uD638\uC774\uB2E4. \uB290\uB9AC\uC9C0\uB9CC \uB2E8\uB2E8\uD558\uB2E4."
   TrainRole: "\uD0F1\uCEE4"
   level: 1
-  length: 2
+  length: 0
   Hp: 35
   Atk: 2
   Speed: 2
