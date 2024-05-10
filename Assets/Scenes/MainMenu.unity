@@ -4352,7 +4352,7 @@ MonoBehaviour:
   - {fileID: 590092940}
   - {fileID: 33915525}
   - {fileID: 190145794}
-  isOpenStages: 010101010101
+  isOpenStages: 01010101
   StageViews: {fileID: 290751335}
   OnStageChanged:
     m_PersistentCalls:
