@@ -30,7 +30,7 @@
         5.0,
         2.0
     ],
-    "owningKtx": false,
+    "owningKtx": true,
     "owningMgh": true,
-    "owningLine1": false
+    "owningLine1": true
 }
