@@ -31,13 +31,13 @@ public class AttackCollsion : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
+            AttackEvent?.Invoke();
 
             HealthManager _playerHealth = collision.gameObject.GetComponent<HealthManager>();
 
             EnemyScript enemy = collision.gameObject.GetComponent<EnemyScript>();
 
             Debug.Log(_canAttack);
-            AttackEvent?.Invoke();
             if (_canAttack)
             {
 
