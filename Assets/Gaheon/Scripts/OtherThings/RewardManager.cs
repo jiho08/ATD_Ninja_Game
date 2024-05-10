@@ -33,33 +33,24 @@ public class RewardManager : MonoBehaviour
     }
     void RewardChange()
     {
-        clearStage = mainMenuSO.whichStageEnded;
+        clearStage = mainMenuSO.whichStageEnded; //완료된 스테이지 갖고 오는 거, 스테이지 열리는 거 설정은 각 스테이지의 GameManager가 mainMenuSO 만져주면서 바뀜
 
         stationImage.sprite = stationInfo.StationImages[clearStage];
         clearText.text = $"{stationInfo.stationNames[clearStage]}\n격파!";
         rewardTexts[0].text = $"획득 고철 : {stationInfo.rewardResources[clearStage]}";
-        if (clearStage < 3)
+        if (clearStage < 2)
         {
             rewardTexts[2].text = $"열린 스테이지 : {stationInfo.stationNames[clearStage + 1]}";
 
-            if (clearStage > 0)
+            rewardTexts[1].text = $"획득 유닛 : {stationInfo.unitSO[clearStage].TrainName}";
+            trainImageSprite.sprite = stationInfo.unitSO[clearStage].TrainHead;
+            if (stationInfo.unitSO[clearStage].TrainName == "KTX")
             {
-                rewardTexts[1].text = $"획득 유닛 : {stationInfo.unitSO[clearStage].TrainName}";
-                trainImageSprite.sprite = stationInfo.unitSO[clearStage].TrainHead;
-                if (stationInfo.unitSO[clearStage].TrainName == "KTX")
-                {
-                    owningUnit.OwningKTX = true;
-                }
-                else if (stationInfo.unitSO[clearStage].TrainName == "1호선")
-                {
-                    owningUnit.OwningLine1 = true;
-                }
+                owningUnit.OwningKTX = true;
             }
-            else
+            else if (stationInfo.unitSO[clearStage].TrainName == "1호선")
             {
-                rewardTexts[1].text = "획득 유닛 없음";
-                rewardTexts[1].alignment = TextAlignmentOptions.Midline;
-                trainImage.SetActive(false);
+                owningUnit.OwningLine1 = true;
             }
         }
         else

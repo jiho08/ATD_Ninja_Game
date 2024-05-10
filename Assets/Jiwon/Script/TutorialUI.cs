@@ -36,13 +36,13 @@ public class TutorialUI : MonoBehaviour
     {
         count = 0;
         Off();
-        
+
         StartCoroutine(Tutorial01());
 
         uiInputM[0].OnUnitNumChange += Tutorial02Start;
         uiInputM[1].OnUnitNumChange += Tutorial02Start;
         uiInputM[2].OnUnitNumChange += Tutorial02Start;
-        
+
         AudioManager.Instance.PlayBgm(true, 1);
 
         uiInputM[0].gameObject.SetActive(false);
@@ -53,7 +53,7 @@ public class TutorialUI : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Mouse2)&&count ==2)
+        if (Input.GetKeyUp(KeyCode.Mouse2) && count == 2)
         {
             CamMove();
         }
@@ -115,7 +115,7 @@ public class TutorialUI : MonoBehaviour
         Sequence txt = DOTween.Sequence();
         txt.SetUpdate(true);
         txt.Append(text.DOText(tuto[count], tutoNum[count]).SetEase(Ease.Linear));
-        
+
     }
 
     private void Tutorial02Start(int value)
@@ -126,16 +126,16 @@ public class TutorialUI : MonoBehaviour
     IEnumerator Tutorial01()
     {
         yield return new WaitForSecondsRealtime(2);
-        
+
         On();
         Tutori();
         yield return new WaitForSecondsRealtime(tutoNum[count] + 0.5f);
         butten.SetActive(true);
 
     }
-    IEnumerator Tutorial02() 
+    IEnumerator Tutorial02()
     {
-        
+
         On();
         Tutori();
         yield return new WaitForSecondsRealtime(tutoNum[count] + 0.5f);
@@ -149,7 +149,7 @@ public class TutorialUI : MonoBehaviour
         Tutori();
         yield return new WaitForSecondsRealtime(tutoNum[count] + 0.5f);
         butten.SetActive(true);
-        
+
     }
     IEnumerator Tutorial04()
     {
@@ -195,7 +195,7 @@ public class TutorialUI : MonoBehaviour
     private void EndTutorial()
     {
         getStageNum.isTutorial = false;
-        getStageNum.isOpenStage[1] = true;
+        //getStageNum.isOpenStage[1] = true;
         blackScene.ExitScene(4);
         //SceneManager.LoadScene(4);
     }
