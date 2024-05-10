@@ -45,7 +45,7 @@ public class TutorialUI : MonoBehaviour
         
         AudioManager.Instance.PlayBgm(true, 1);
 
-
+        uiInputM[0].gameObject.SetActive(false);
     }
 
     private void Update()
@@ -164,9 +164,9 @@ public class TutorialUI : MonoBehaviour
         yield return new WaitForSecondsRealtime(3);
         On();
         Tutori();
+        uiInputM[0].gameObject.SetActive(true);
         yield return new WaitForSecondsRealtime(tutoNum[count] + 0.5f);
         butten.SetActive(true);
-
     }
     IEnumerator Tutorial06()
     {

@@ -101,9 +101,9 @@ public class PlayerUnit : MonoBehaviour
         //열차 길이 설정
         for (int i = 1; i <= _trainLength; i++)
         {
-            GameObject _Line = Instantiate(_train);
-            _Line.transform.SetParent(transform, false);
-            _Line.transform.position = transform.position + new Vector3((i * -2f), 0);
+            GameObject line = Instantiate(_train, transform);
+            _lineList.Add(line);
+            line.transform.position = transform.position + new Vector3((i * -2f), 0);
         }
     }
 
