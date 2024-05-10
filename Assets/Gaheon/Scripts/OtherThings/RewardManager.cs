@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class RewardManager : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class RewardManager : MonoBehaviour
     [SerializeField] OwningUnitSO owningUnit;
     [SerializeField] toMainMenuSO mainMenuSO;
 
+
+  
     int clearStage;
     private void Update()
     {
@@ -64,8 +67,10 @@ public class RewardManager : MonoBehaviour
     public void Confirm()
     {
         ResourceManager.instance.SetRsc(stationInfo.rewardResources[clearStage]);
+
         rewardPanel.SetActive(false);
 
         mainMenuSO.DidWinGame = false;
+        SceneManager.LoadScene(2);
     }
 }
