@@ -12,7 +12,7 @@ public class ResourceTxtManager : MonoBehaviour
 
     private void Start()
     {
-        ResourceManager.instance.SetRsc(0 - ResourceManager.instance.GetRsc());
+        //ResourceManager.instance.SetRsc(0 - ResourceManager.instance.GetRsc());
         ChangeResource();
         ChangeUpgradePrice();
         ChangeAddPrice();
@@ -20,7 +20,7 @@ public class ResourceTxtManager : MonoBehaviour
 
     public void ChangeResource()
     {
-        resourceTxt.text = $"ฐํรถ : { ResourceManager.instance.GetRsc()}";
+        resourceTxt.text = $"ฐํรถ : {ResourceManager.instance.GetRsc()}";
     }
     public void ChangeUpgradePrice()
     {
