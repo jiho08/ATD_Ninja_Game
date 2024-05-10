@@ -18449,7 +18449,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabs:
   - {fileID: 1405501123353516920, guid: 2053c36c978f6b24aaf04fdf2b0f8d96, type: 3}
-  - {fileID: 1405501123353516920, guid: 2053c36c978f6b24aaf04fdf2b0f8d96, type: 3}
+  - {fileID: 1405501123353516920, guid: 00efacfe95b396b438fb9107a0d45856, type: 3}
   - {fileID: 5029155322506572734, guid: 490e66a7e3fa3954aab25f969042dc22, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
