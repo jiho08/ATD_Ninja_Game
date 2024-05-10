@@ -29,13 +29,10 @@ public class EnemySpawner : MonoBehaviour
             case 1:
                 spawnM.SetDefaultCounts(0, 10);
                 spawnM.SetDefaultCounts(2, 3);
-                spawnM.SetDefaultCounts(2, 3);
-
                 break;
             case 2:
                 spawnM.SetDefaultCounts(0, 10);
                 spawnM.SetDefaultCounts(1, 5);
-                spawnM.SetDefaultCounts(2, 3);
                 break;
             case 3:
                 spawnM.SetDefaultCounts(0, 10);
