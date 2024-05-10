@@ -57,9 +57,11 @@ public class GameManager : MonoBehaviour
         //SceneManager.LoadScene(1);
     }
 
-    public void WinGame()
+    public void WinGame(int stageNumber)
     {
         toMainMenu.DidWinGame = true;
+        toMainMenu.whichStageEnded = stageNumber;
+        stageNum.isOpenStage[stageNumber + 1] = true;
         BackBtn();
     }
     

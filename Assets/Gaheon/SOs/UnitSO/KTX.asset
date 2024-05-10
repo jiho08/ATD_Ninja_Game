@@ -22,7 +22,7 @@ MonoBehaviour:
     KTX\uB2E4."
   TrainRole: "\uB51C\uB7EC"
   level: 1
-  length: 1
+  length: 0
   Hp: 30
   Atk: 9
   Speed: 5

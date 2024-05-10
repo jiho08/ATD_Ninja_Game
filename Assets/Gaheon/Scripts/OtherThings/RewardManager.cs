@@ -19,18 +19,12 @@ public class RewardManager : MonoBehaviour
     [SerializeField] toMainMenuSO mainMenuSO;
 
     int clearStage;
-    private void Start()
+    private void Update()
     {
         if (mainMenuSO.DidWinGame == true)
         {
-            if (stageOpenSO.isOpenStage[1] == true)
-            {
-                RewardChange();
-            }
-            else
-            {
-                rewardPanel.SetActive(false);
-            }
+            rewardPanel.SetActive(true);
+            RewardChange();
         }
         else
         {
@@ -39,19 +33,12 @@ public class RewardManager : MonoBehaviour
     }
     void RewardChange()
     {
-        for (int i = 0; i < 4; i++)
-        {
-            if (stageOpenSO.isOpenStage[i] == false)
-            {
-                clearStage = i - 2;
-                break;
-            }
-        }
+        clearStage = mainMenuSO.whichStageEnded;
 
         stationImage.sprite = stationInfo.StationImages[clearStage];
         clearText.text = $"{stationInfo.stationNames[clearStage]}\n°ÝÆÄ!";
         rewardTexts[0].text = $"È¹µæ °íÃ¶ : {stationInfo.rewardResources[clearStage]}";
-        if (clearStage < 2)
+        if (clearStage < 3)
         {
             rewardTexts[2].text = $"¿­¸° ½ºÅ×ÀÌÁö : {stationInfo.stationNames[clearStage + 1]}";
 
@@ -87,7 +74,6 @@ public class RewardManager : MonoBehaviour
     {
         ResourceManager.instance.SetRsc(stationInfo.rewardResources[clearStage]);
         rewardPanel.SetActive(false);
-        Debug.Log(ResourceManager.instance.GetRsc());
 
         mainMenuSO.DidWinGame = false;
     }

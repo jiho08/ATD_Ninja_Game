@@ -36,13 +36,13 @@ public class ResourceTxtManager : MonoBehaviour
 
     public void ChangeAddPrice()
     {
-        if (selectManager.selectedSO.length >= 3)
+        if (selectManager.selectedSO.length + 1 >= 3)
         {
             addPriceTxt.text = "ÃÖ´ë Ä­¼ö!";
         }
         else
         {
-            addPriceTxt.text = $"ÇÊ¿ä °íÃ¶ : {selectManager.selectedPriceSO.AddPrice[selectManager.selectedSO.length - 1]}";
+            addPriceTxt.text = $"ÇÊ¿ä °íÃ¶ : {selectManager.selectedPriceSO.AddPrice[selectManager.selectedSO.length]}";
 
         }
     }
