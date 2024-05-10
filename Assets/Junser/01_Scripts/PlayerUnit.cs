@@ -2,7 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Baek.Utile;
+using Cinemachine;
 public class PlayerUnit : MonoBehaviour
 {
     //HP관련 변수
@@ -23,7 +24,7 @@ public class PlayerUnit : MonoBehaviour
 
     //열차 길이
 
-    
+
     public int _trainLength;
 
     //이동 관련 변수
@@ -51,6 +52,10 @@ public class PlayerUnit : MonoBehaviour
 
     private List<GameObject> _lineList = new List<GameObject>();
 
+    //백인성이 추가한 코드임
+    private AttackCollsion _attackCollsion;
+    private Transform _cam;
+
     private void Awake()
     {
         //컴포넌트 받는 부분
@@ -59,6 +64,11 @@ public class PlayerUnit : MonoBehaviour
         _playerHealth = GetComponent<HealthManager>();
         _particle = GetComponentInChildren<ParticleSystem>();
         _hitBox = GetComponent<BoxCollider2D>();
+
+        //백인성이 추가한 코드임
+        _attackCollsion = transform.Find("First Train").transform.Find("AttackCollision").GetComponent<AttackCollsion>();
+        _cam = transform.root.transform.Find("Virtual Camera").transform;
+
     }
 
 
@@ -105,6 +115,21 @@ public class PlayerUnit : MonoBehaviour
             _lineList.Add(_line);
             _line.transform.position = transform.position + new Vector3((i * -2f), 0);
         }
+
+        //백인성이 추가한 코드임
+        _attackCollsion.AttackEvent += HandleAttackEvent;
+
+
+    }
+
+    private void HandleAttackEvent() //백인성이 추가한 코드임
+    {
+        CameraUtile.CameraShake(_cam.GetComponent<CinemachineVirtualCamera>(), Vector3.one * 2, 2, 2);
+        Invoke(nameof(ReSetShakeValue), 0.2f);
+    }
+    private void ReSetShakeValue()
+    {
+        CameraUtile.CameraShake(_cam.GetComponent<CinemachineVirtualCamera>(), Vector3.zero, 0, 0);
     }
 
     private void OnDisable()
@@ -121,6 +146,9 @@ public class PlayerUnit : MonoBehaviour
         {
             Destroy(_lineList[i].gameObject);
         }
+
+        //백인성이 추가한 코드임
+        _attackCollsion.AttackEvent -= HandleAttackEvent;
     }
 
     private void Update()
@@ -141,10 +169,10 @@ public class PlayerUnit : MonoBehaviour
         }
         else
         {
-            
+
             time += 0.05f;
 
-            _accel = _maxSpeed - time*_maxSpeed/_DealayTime / 3;
+            _accel = _maxSpeed - time * _maxSpeed / _DealayTime / 3;
             //이동
             _Rigid.velocity = new Vector2(-1, 0) * _accel;
         }
@@ -194,7 +222,7 @@ public class PlayerUnit : MonoBehaviour
 
         yield return new WaitForSeconds(_DealayTime);
 
-        
+
         _accel = 0;
 
         _speed = 0;

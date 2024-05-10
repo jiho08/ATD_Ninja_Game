@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,16 +10,18 @@ public class AttackCollsion : MonoBehaviour
     private PlayerUnit _playerUnit;
     private HealthManager _playerHealth;
 
+    public event Action AttackEvent;
+
     private void Awake()
     {
         _playerUnit = GetComponentInParent<PlayerUnit>();
     }
-    
+
     private void OnEnable()
     {
         _playerUnit._playerHealth.OnDamage += HandleDamageChanger;
     }
-    
+
     private void HandleDamageChanger(float value)
     {
         damage = value;
@@ -28,21 +31,23 @@ public class AttackCollsion : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            
+
             _playerHealth = collision.gameObject.GetComponent<HealthManager>();
-            
+
             EnemyScript enemy = collision.gameObject.GetComponent<EnemyScript>();
+
+            AttackEvent?.Invoke();
 
             if (_playerHealth.isOnEntity[1])
             {
                 AudioManager.Instance.PlaySfx(AudioManager.Sfx.Hit);
                 _playerHealth.Health -= damage;
-            
+
                 enemy.TakeDamage();
-            
+
                 _playerUnit.Dealy();
-            
-            
+
+
             }
             else if (_playerHealth.isOnEntity[2])
             {
@@ -52,4 +57,9 @@ public class AttackCollsion : MonoBehaviour
             }
         }
     }
+
+
+
 }
+
+

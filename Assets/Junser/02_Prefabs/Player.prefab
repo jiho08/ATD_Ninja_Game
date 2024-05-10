@@ -127,6 +127,7 @@ MonoBehaviour:
   _maxSpeed: 0
   _trainLength: 1
   _AttackCollision: {fileID: 6000538367989265758}
+  _playerHealth: {fileID: 0}
   _DealayTime: 1
   _defaltYPos: 0
   _train: {fileID: 8278483319053428087, guid: ddff43137ce356248aee41ffbc7ed701, type: 3}
@@ -199,7 +200,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 5659a7492d2f8bf42af0b15797c37636, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -261,7 +262,7 @@ TrailRenderer:
       key7: {r: 0, g: 0, b: 0, a: 0}
       ctime0: 0
       ctime1: 65535
-      ctime2: 48830
+      ctime2: 65535
       ctime3: 0
       ctime4: 0
       ctime5: 0
@@ -514,7 +515,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 147cb719aaee23843af11553a09b46f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 1
+  damage: 0
 --- !u!1001 &8370455657433323265
 PrefabInstance:
   m_ObjectHideFlags: 0
