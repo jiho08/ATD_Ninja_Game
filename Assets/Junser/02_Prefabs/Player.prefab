@@ -122,6 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 1
+  isMove: 0
   _AttackSpeed: 3
   _accel: 0.15
   _canAttack: 0
@@ -132,6 +133,7 @@ MonoBehaviour:
   _DealayTime: 1
   _defaltYPos: 0
   _train: {fileID: 8278483319053428087, guid: ddff43137ce356248aee41ffbc7ed701, type: 3}
+  _attackCollsion: {fileID: 2608741004688815314}
 --- !u!114 &3961507324100938754
 MonoBehaviour:
   m_ObjectHideFlags: 0

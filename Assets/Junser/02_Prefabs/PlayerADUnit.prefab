@@ -125,6 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 1
+  isMove: 0
   _AttackSpeed: 8
   _accel: 2
   _canAttack: 0
@@ -169,6 +170,7 @@ MonoBehaviour:
   enemy:
     serializedVersion: 2
     m_Bits: 8
+  rigid: {fileID: 0}
   bulletpre: {fileID: 8426179046975039768, guid: 7c1a3266924acb64ab74fd956480ca99, type: 3}
 --- !u!1 &5692304542896622938
 GameObject:

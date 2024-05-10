@@ -1,3 +1,5 @@
+using Baek.Utile;
+using Cinemachine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -53,6 +55,10 @@ public class PlayerUnit : MonoBehaviour
 
     private List<GameObject> _lineList = new List<GameObject>();
 
+    [SerializeField] private AttackCollsion _attackCollsion;
+    private Transform _cam;
+
+
     private void Awake()
     {
         //컴포넌트 받는 부분
@@ -61,6 +67,9 @@ public class PlayerUnit : MonoBehaviour
         _playerHealth = GetComponent<HealthManager>();
         _particle = GetComponentInChildren<ParticleSystem>();
         _hitBox = GetComponent<BoxCollider2D>();
+
+        if (_attackCollsion != null)
+            _cam = transform.root.transform.Find("Virtual Camera").transform;
     }
 
 
@@ -107,8 +116,20 @@ public class PlayerUnit : MonoBehaviour
             _lineList.Add(_line);
             _line.transform.position = transform.position + new Vector3((i * -2.25f), 0);
         }
+        if (_attackCollsion != null)
+            _attackCollsion.AttackEvent += HandleAttackEvent;
+
     }
 
+    private void HandleAttackEvent()
+    {
+        CameraUtile.CameraShake(_cam.GetComponent<CinemachineVirtualCamera>(), Vector3.one * 2, 2, 2);
+        Invoke(nameof(ReSetShakeValue), 0.2f);
+    }
+    private void ReSetShakeValue()
+    {
+        CameraUtile.CameraShake(_cam.GetComponent<CinemachineVirtualCamera>(), Vector3.zero, 0, 0);
+    }
     private void OnDisable()
     {
 
@@ -123,6 +144,8 @@ public class PlayerUnit : MonoBehaviour
         {
             Destroy(_lineList[i].gameObject);
         }
+        if (_attackCollsion != null)
+            _attackCollsion.AttackEvent -= HandleAttackEvent;
     }
 
     private void Update()
