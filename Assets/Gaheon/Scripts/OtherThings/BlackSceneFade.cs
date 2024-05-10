@@ -10,6 +10,8 @@ using UnityEngine.UI;
 public class BlackSceneFade : MonoBehaviour
 {
     [SerializeField] Image blackPanel;
+    
+    [SerializeField] private SaveSo saveSo;
 
     public float fadeSpeed = 0.25f;
     private float _timeSet;
@@ -55,7 +57,7 @@ public class BlackSceneFade : MonoBehaviour
 
     public void ExitScene(int scneneNum)
     {
-        DataManager.Instance.SaveGameData();
+        saveSo.LoadSo();
         FadeInCo(scneneNum);
         AudioManager.Instance.PlaySfx(AudioManager.Sfx.Btn);
     }

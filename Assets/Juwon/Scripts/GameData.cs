@@ -6,6 +6,8 @@ using UnityEngine.Serialization;
 
 public class Data
 {
+    public bool isFirstGame = true;
+    
     [Header("#GetStageNum")]
     public bool[] isOpenStage;
     public bool isTutorial;

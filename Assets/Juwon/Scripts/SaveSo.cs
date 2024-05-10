@@ -8,9 +8,7 @@ public class SaveSo : MonoBehaviour
 
     private void Start()
     {
-        bool isFirstGame = PlayerPrefs.GetInt("FirstGame", 0) != 1;
-        
-        if(!isFirstGame) return;
+        if(!DataManager.Instance.data.isFirstGame) return;
         
         //GetStageNumberSo
         DataManager.Instance.data.isOpenStage = getStageNum.isOpenStage;
@@ -31,9 +29,9 @@ public class SaveSo : MonoBehaviour
         DataManager.Instance.data.owningMgh = owningUnit.OwningMGH;
         DataManager.Instance.data.owningLine1 = owningUnit.OwningLine1;
 
-        DataManager.Instance.SaveGameData();
+        DataManager.Instance.data.isFirstGame = false;
         
-        PlayerPrefs.SetInt("FirstGame", 1);
+        DataManager.Instance.SaveGameData();
     }
 
     public void LoadSo()

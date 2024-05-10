@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 
 public class GameManager : MonoBehaviour
@@ -14,6 +15,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] toMainMenuSO toMainMenu;
 
     [SerializeField] private TextMeshProUGUI curTimerScore;
+
+    [SerializeField] private SaveSo saveSo;
 
     private float _currentTime;
     private float _minTime;
@@ -48,6 +51,8 @@ public class GameManager : MonoBehaviour
 
     public void BackBtn()
     {
+        saveSo.LoadSo();
+        
         AudioManager.Instance.PlayBgm(true, 0);
         toMainMenu.DidEndGame = true;
         blackScene.ExitScene(2);

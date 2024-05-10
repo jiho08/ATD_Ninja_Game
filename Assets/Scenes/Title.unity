@@ -1486,6 +1486,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data:
+    isFirstGame: 1
     isOpenStage: 
     isTutorial: 0
     level: 000000000000000000000000
@@ -4532,6 +4533,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blackPanel: {fileID: 2009088503}
+  saveSo: {fileID: 1969111750}
   fadeSpeed: 2
 --- !u!114 &2009088503
 MonoBehaviour:
