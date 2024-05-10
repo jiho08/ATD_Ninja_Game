@@ -124,6 +124,7 @@ MonoBehaviour:
   _damage: 1
   _AttackSpeed: 1.5
   _accel: 0.15
+  _canAttack: 0
   _maxSpeed: 4
   _trainLength: 4
   _AttackCollision: {fileID: 6000538367989265758}
