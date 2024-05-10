@@ -23,7 +23,7 @@ public class StartBtnClick : MonoBehaviour
             blackScene.ExitScene(3);
             return;
         }
-        blackScene.ExitScene(_stageNum + 3);
+        blackScene.ExitScene(_stageNum + 4);
     }
 
     private void ChangeNum(int value)

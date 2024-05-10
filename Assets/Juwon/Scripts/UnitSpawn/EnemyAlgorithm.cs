@@ -57,7 +57,7 @@ public class EnemyAlgorithm : MonoBehaviour
         }
 
         SpawnAI();
-        _timer = Random.Range(0f, 2.5f);
+        _timer = Random.Range(0f, 3f);
     }
 
     private void Update()
@@ -71,7 +71,7 @@ public class EnemyAlgorithm : MonoBehaviour
             SpawnAI();
 
             _coolTimer = 0;
-            _timer = 1;
+            _timer = Random.Range(0f, 3f);
         }
     }
 

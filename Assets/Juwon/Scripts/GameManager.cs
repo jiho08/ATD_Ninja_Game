@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        AudioManager.Instance.PlayBgm(true, 0);
+        AudioManager.Instance.PlayBgm(true, 1);
 
         _minTime = stageNum.timer;
     }
@@ -52,6 +52,7 @@ public class GameManager : MonoBehaviour
 
     public void BackBtn()
     {
+        AudioManager.Instance.PlayBgm(true, 0);
         toMainMenu.DidEndGame = true;
         blackScene.ExitScene(1);
         //SceneManager.LoadScene(1);
