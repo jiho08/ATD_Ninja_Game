@@ -37,7 +37,6 @@ public class AttackCollsion : MonoBehaviour
 
             EnemyScript enemy = collision.gameObject.GetComponent<EnemyScript>();
 
-            Debug.Log(_canAttack);
             if (_canAttack)
             {
 
