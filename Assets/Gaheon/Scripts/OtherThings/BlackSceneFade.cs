@@ -55,7 +55,7 @@ public class BlackSceneFade : MonoBehaviour
 
     public void ExitScene(int scneneNum)
     {
-        DataManager.Instance.ChangeSo();
+        DataManager.Instance.ChangeData();
         FadeInCo(scneneNum);
         AudioManager.Instance.PlaySfx(AudioManager.Sfx.Btn);
     }

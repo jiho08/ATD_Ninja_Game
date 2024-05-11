@@ -33,10 +33,10 @@ public class DataManager : MonoBehaviour
     {
         if (Instance.data.isFirstGame)
         {
-            LoadSo();
+            ChangeData();
         }
 
-        ChangeSo();
+        LoadSo();
     }
 
     // 불러오기
@@ -73,7 +73,7 @@ public class DataManager : MonoBehaviour
     public void LoadSo()
     {
         Instance.LoadGameData();
-        
+
         //GetStageNumberSo
         getStageNum.isOpenStage = Instance.data.isOpenStage;
         getStageNum.isTutorial = Instance.data.isTutorial;
@@ -92,11 +92,9 @@ public class DataManager : MonoBehaviour
         owningUnit.OwningKTX = Instance.data.owningKtx;
         owningUnit.OwningMGH = Instance.data.owningMgh;
         owningUnit.OwningLine1 = Instance.data.owningLine1;
-        
-        Instance.SaveGameData();
     }
 
-    public void ChangeSo()
+    public void ChangeData()
     {
         //GetStageNumberSo
         Instance.data.isOpenStage = getStageNum.isOpenStage;
@@ -118,6 +116,8 @@ public class DataManager : MonoBehaviour
         Instance.data.owningLine1 = owningUnit.OwningLine1;
 
         Instance.data.isFirstGame = false;
+        
+        Instance.SaveGameData();
 
         LoadSo();
     }

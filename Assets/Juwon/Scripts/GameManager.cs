@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
 
     public void BackBtn()
     {
-        DataManager.Instance.ChangeSo();
+        DataManager.Instance.ChangeData();
         
         AudioManager.Instance.PlayBgm(true, 0);
         toMainMenu.DidEndGame = true;
