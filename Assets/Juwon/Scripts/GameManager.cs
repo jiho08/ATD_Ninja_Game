@@ -15,9 +15,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] toMainMenuSO toMainMenu;
 
     [SerializeField] private TextMeshProUGUI curTimerScore;
-
-    [SerializeField] private SaveSo saveSo;
-
+    
     private float _currentTime;
     private float _minTime;
     private bool _isTimeOver;
@@ -51,7 +49,7 @@ public class GameManager : MonoBehaviour
 
     public void BackBtn()
     {
-        saveSo.LoadSo();
+        DataManager.Instance.ChangeSo();
         
         AudioManager.Instance.PlayBgm(true, 0);
         toMainMenu.DidEndGame = true;

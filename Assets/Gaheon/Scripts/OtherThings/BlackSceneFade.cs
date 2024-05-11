@@ -11,8 +11,6 @@ public class BlackSceneFade : MonoBehaviour
 {
     [SerializeField] Image blackPanel;
     
-    [SerializeField] private SaveSo saveSo;
-
     public float fadeSpeed = 0.25f;
     private float _timeSet;
 
@@ -57,7 +55,7 @@ public class BlackSceneFade : MonoBehaviour
 
     public void ExitScene(int scneneNum)
     {
-        saveSo.LoadSo();
+        DataManager.Instance.ChangeSo();
         FadeInCo(scneneNum);
         AudioManager.Instance.PlaySfx(AudioManager.Sfx.Btn);
     }
