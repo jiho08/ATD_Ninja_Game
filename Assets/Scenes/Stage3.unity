@@ -12761,7 +12761,7 @@ MonoBehaviour:
     m_Bits: 0
   spawnM: {fileID: 2019157692}
   coolTimeImage: {fileID: 594498145}
-  maxCoolTime: 2
+  maxCoolTime: 1.5
 --- !u!114 &782151612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13229,7 +13229,7 @@ MonoBehaviour:
     m_Bits: 0
   spawnM: {fileID: 2019157692}
   coolTimeImage: {fileID: 665802173}
-  maxCoolTime: 2
+  maxCoolTime: 1.5
 --- !u!114 &954801437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15086,7 +15086,7 @@ MonoBehaviour:
     m_Bits: 0
   spawnM: {fileID: 2019157692}
   coolTimeImage: {fileID: 54485969}
-  maxCoolTime: 2
+  maxCoolTime: 1.5
 --- !u!114 &1544939553
 MonoBehaviour:
   m_ObjectHideFlags: 0

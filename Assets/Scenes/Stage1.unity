@@ -7410,7 +7410,7 @@ MonoBehaviour:
     m_Bits: 8
   spawnM: {fileID: 250867763}
   coolTimeImage: {fileID: 105673534}
-  maxCoolTime: 2
+  maxCoolTime: 1.5
 --- !u!114 &834647979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8257,7 +8257,7 @@ MonoBehaviour:
     m_Bits: 8
   spawnM: {fileID: 250867763}
   coolTimeImage: {fileID: 1090787896}
-  maxCoolTime: 2
+  maxCoolTime: 1.5
 --- !u!114 &1308325841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9471,7 +9471,7 @@ MonoBehaviour:
     m_Bits: 8
   spawnM: {fileID: 250867763}
   coolTimeImage: {fileID: 1410332481}
-  maxCoolTime: 2
+  maxCoolTime: 1.5
 --- !u!114 &1788456537
 MonoBehaviour:
   m_ObjectHideFlags: 0

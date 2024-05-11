@@ -3235,7 +3235,7 @@ MonoBehaviour:
     m_Bits: 0
   spawnM: {fileID: 1696444984}
   coolTimeImage: {fileID: 1491959618}
-  maxCoolTime: 2
+  maxCoolTime: 1.5
 --- !u!114 &96232854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3496,7 +3496,7 @@ MonoBehaviour:
     m_Bits: 0
   spawnM: {fileID: 1696444984}
   coolTimeImage: {fileID: 190341763}
-  maxCoolTime: 2
+  maxCoolTime: 1.5
 --- !u!114 &212224096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6688,7 +6688,7 @@ MonoBehaviour:
     m_Bits: 0
   spawnM: {fileID: 1696444984}
   coolTimeImage: {fileID: 57253883}
-  maxCoolTime: 2
+  maxCoolTime: 1.5
 --- !u!114 &709451595
 MonoBehaviour:
   m_ObjectHideFlags: 0
