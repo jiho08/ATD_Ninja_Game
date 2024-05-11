@@ -1,4 +1,3 @@
-using System;
 using System.IO;
 using UnityEngine;
 
@@ -9,6 +8,7 @@ public class DataManager : MonoBehaviour
 
     // --- 게임 데이터 파일이름 설정 ("원하는 이름(영문).json") --- //
     string _gameDataFileName = "GameData.json";
+    private string _filePath;
 
     // --- 저장용 클래스 변수 --- //
     public Data data = new Data();
@@ -24,33 +24,38 @@ public class DataManager : MonoBehaviour
 
     private void Awake()
     {
-        if(Instance == null) Instance = this;
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else if(Instance != null)
+        {
+            Destroy(Instance.gameObject);
+        }
         
         DontDestroyOnLoad(gameObject);
     }
 
     private void Start()
     {
-        if (Instance.data.isFirstGame)
+        //_filePath = Application.dataPath + "/" + GameDataFileName;
+        _filePath = Application.persistentDataPath + "/" + _gameDataFileName;
+        
+        if (!File.Exists(_filePath))
         {
             ChangeData();
         }
-
         LoadSo();
     }
 
     // 불러오기
     public void LoadGameData()
     {
-        //string filePath = Application.dataPath + "/" + GameDataFileName;
-
-        string filePath = Application.persistentDataPath + "/" + _gameDataFileName;
-
         // 저장된 게임이 있다면
-        if (File.Exists(filePath))
+        if (File.Exists(_filePath))
         {
             // 저장된 파일 읽어오고 Json을 클래스 형식으로 전환해서 할당
-            string fromJsonData = File.ReadAllText(filePath);
+            string fromJsonData = File.ReadAllText(_filePath);
             data = JsonUtility.FromJson<Data>(fromJsonData);
         }
     }
@@ -66,8 +71,6 @@ public class DataManager : MonoBehaviour
 
         // 이미 저장된 파일이 있다면 덮어쓰고, 없다면 새로 만들어서 저장
         File.WriteAllText(filePath, toJsonData);
-
-        // 올바르게 저장됐는지 확인 (자유롭게 변형)
     }
     
     public void LoadSo()
@@ -92,6 +95,8 @@ public class DataManager : MonoBehaviour
         owningUnit.OwningKTX = Instance.data.owningKtx;
         owningUnit.OwningMGH = Instance.data.owningMgh;
         owningUnit.OwningLine1 = Instance.data.owningLine1;
+        
+        Instance.SaveGameData();
     }
 
     public void ChangeData()
@@ -114,8 +119,6 @@ public class DataManager : MonoBehaviour
         Instance.data.owningKtx = owningUnit.OwningKTX;
         Instance.data.owningMgh = owningUnit.OwningMGH;
         Instance.data.owningLine1 = owningUnit.OwningLine1;
-
-        Instance.data.isFirstGame = false;
         
         Instance.SaveGameData();
 
