@@ -71,6 +71,5 @@ public class RewardManager : MonoBehaviour
         rewardPanel.SetActive(false);
 
         mainMenuSO.DidWinGame = false;
-        SceneManager.LoadScene(2);
     }
 }

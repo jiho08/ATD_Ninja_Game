@@ -53,8 +53,8 @@ public class GameManager : MonoBehaviour
         
         AudioManager.Instance.PlayBgm(true, 0);
         toMainMenu.DidEndGame = true;
-        blackScene.ExitScene(1);
-        //SceneManager.LoadScene(1);
+        //blackScene.ExitScene(1);
+        SceneManager.LoadScene(1);
     }
 
     public void WinGame(int stageNumber)
