@@ -56,3 +56,6 @@ TagManager:
   - name: Train
     uniqueID: 273088991
     locked: 0
+  - name: Station
+    uniqueID: 1539351687
+    locked: 0

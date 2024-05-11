@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,16 +10,18 @@ public class AttackCollsion : MonoBehaviour
     private PlayerUnit _playerUnit;
     private bool _canAttack = true;
 
+    public event Action AttackEvent;
+
     private void Awake()
     {
         _playerUnit = GetComponentInParent<PlayerUnit>();
     }
-    
+
     private void OnEnable()
     {
         _playerUnit._playerHealth.OnDamage += HandleDamageChanger;
     }
-    
+
     private void HandleDamageChanger(float value)
     {
         damage = value;
@@ -28,19 +31,20 @@ public class AttackCollsion : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
+            AttackEvent?.Invoke();
 
             HealthManager _playerHealth = collision.gameObject.GetComponent<HealthManager>();
-            
+
             EnemyScript enemy = collision.gameObject.GetComponent<EnemyScript>();
 
             Debug.Log(_canAttack);
-
             if (_canAttack)
             {
+
                 StartCoroutine(Dealay());
                 if (_playerHealth.isOnEntity[1])
                 {
-                    
+
                     _playerHealth.Health -= damage;
 
                     _playerUnit.Dealy();
@@ -48,7 +52,7 @@ public class AttackCollsion : MonoBehaviour
                     enemy.TakeDamage();
                     AudioManager.Instance.PlaySfx(AudioManager.Sfx.Hit);
 
-                    
+
                 }
                 else if (_playerHealth.isOnEntity[2])
                 {
@@ -58,11 +62,12 @@ public class AttackCollsion : MonoBehaviour
                     StartCoroutine(Dealay());
 
                 }
+
             }
         }
     }
 
-    public IEnumerator Dealay()
+    private IEnumerator Dealay()
     {
         _canAttack = false;
         yield return new WaitForSeconds(0.02f);
@@ -77,3 +82,8 @@ public class AttackCollsion : MonoBehaviour
 
     }
 }
+
+
+
+
+

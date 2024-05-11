@@ -30,23 +30,19 @@ public class EnemyAlgorithm : MonoBehaviour
         //생성 최대 수 제한
         switch (_stageNum){
             case 0:
-                _maxSpawnCount[0] = 7;
+                _maxSpawnCount[0] = 1;
                 break;
             case 1:
-                _maxSpawnCount[0] = 13;
+                _maxSpawnCount[0] = 10;
                 break;
             case 2:
-                _maxSpawnCount[0] = 13;
+                _maxSpawnCount[0] = 12;
+                _maxSpawnCount[1] = 5;
+                break;
+            default:
+                _maxSpawnCount[0] = 14;
                 _maxSpawnCount[1] = 7;
-                break;
-            case 3:
-                _maxSpawnCount[0] = 15;
-                _maxSpawnCount[1] = 10;
                 _maxSpawnCount[2] = 5;
-                break;
-            case 4:
-                break;
-            case 5:
                 break;
         }
         
@@ -57,7 +53,7 @@ public class EnemyAlgorithm : MonoBehaviour
         }
 
         SpawnAI();
-        _timer = Random.Range(0f, 3f);
+        _timer = Random.Range(0f, 5f);
     }
 
     private void Update()
@@ -71,7 +67,7 @@ public class EnemyAlgorithm : MonoBehaviour
             SpawnAI();
 
             _coolTimer = 0;
-            _timer = Random.Range(0f, 3f);
+            _timer = Random.Range(0f, 5f);
         }
     }
 
@@ -105,21 +101,7 @@ public class EnemyAlgorithm : MonoBehaviour
                 _enemyList[_enemyNum].Add(enemy);
             }
         }
-
-        /*if (_setSpawnCounts[_enemyNum] < _maxSpawnCount[_enemyNum])
-        {
-            Debug.Log("in");
-            _spawnCoolCoru = StartCoroutine(SpawnCool());
-        }*/
     }
-
-    /*private IEnumerator SpawnCool()
-    {
-        //yield return new WaitForSeconds(Random.Range(0f, 5f));
-        yield return new WaitForSeconds(1f);
-        SpawnAI();
-        StopCoroutine(_spawnCoolCoru);
-    }*/
     
     private void HandleRepairCoolTime(int value)
     {
