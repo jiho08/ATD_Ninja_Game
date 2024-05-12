@@ -1,15 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ResourceManager : MonoBehaviour
 {
-    public static ResourceManager instance = null;
-    private static int resource = 0;
+    public static ResourceManager instance;
+    private static int _resource;
+
+    public int Resource
+    {
+        get => _resource;
+
+        set
+        {
+            _resource += value;
+            
+            if (_resource < 0) _resource = 0;
+            
+            PlayerPrefs.SetInt("Resource", _resource);
+        }
+    }
 
     private void Awake()
     {
-    if (instance == null)
+        if (instance == null)
         {
             instance = this;
         }
@@ -17,29 +29,25 @@ public class ResourceManager : MonoBehaviour
 
     private void Start()
     {
-        if (resource < 0)
-        {
-            resource = 0;
-        }
-        resource = PlayerPrefs.GetInt("Resource",0);
+        _resource = PlayerPrefs.GetInt("Resource",0);
     }
 
-    public void SetRsc(int value)
+    /*public void SetRsc(int value)
     {
-        if (resource - value >= 0)
+        if (_resource - value >= 0)
         {
-            resource += value;
-            PlayerPrefs.SetInt("Resource", resource);
+            _resource += value;
+            PlayerPrefs.SetInt("Resource", _resource);
         }
     }
     public int GetRsc()
     {
-        return resource;
-    }
+        return _resource;
+    }*/
     public void ResetRsc()
     {
-        resource = 0;
-        PlayerPrefs.SetInt("Resource", resource);
+        _resource = 0;
+        PlayerPrefs.SetInt("Resource", _resource);
     }
 
 }

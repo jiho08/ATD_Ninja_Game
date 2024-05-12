@@ -12,7 +12,7 @@ public class ResourceView : MonoBehaviour
     }
     private void Update()
     {
-        ResourceText.text = $"ฐํรถ : {ResourceManager.instance.GetRsc()}";
+        ResourceText.text = $"ฐํรถ : {ResourceManager.instance.Resource}";
         //Debug.Log(ResourceManager.instance.GetRsc());
 
         

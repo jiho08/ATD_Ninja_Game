@@ -30,19 +30,21 @@ public class EnemyAlgorithm : MonoBehaviour
         //생성 최대 수 제한
         switch (_stageNum){
             case 0:
-                _maxSpawnCount[0] = 1;
+                _maxSpawnCount[0] = 11;
                 break;
             case 1:
-                _maxSpawnCount[0] = 10;
+                _maxSpawnCount[0] = 15;
+                _maxSpawnCount[1] = 6;
                 break;
             case 2:
-                _maxSpawnCount[0] = 12;
-                _maxSpawnCount[1] = 5;
-                break;
-            default:
-                _maxSpawnCount[0] = 14;
+                _maxSpawnCount[0] = 16;
                 _maxSpawnCount[1] = 7;
                 _maxSpawnCount[2] = 5;
+                break;
+            default:
+                _maxSpawnCount[0] = 17;
+                _maxSpawnCount[1] = 9;
+                _maxSpawnCount[2] = 6;
                 break;
         }
         
