@@ -28,12 +28,12 @@ public class LengthManager : MonoBehaviour
     }
     public void LengthChange()
     {
-        if (selectManager.selectedSO.length < 2 && ResourceManager.instance.GetRsc() >= selectManager.selectedPriceSO.AddPrice[selectManager.selectedSO.length])
+        if (selectManager.selectedSO.length < 2 && ResourceManager.instance.Resource >= selectManager.selectedPriceSO.AddPrice[selectManager.selectedSO.length])
         {
             selectManager.selectedSO.length++;
             OnLengthChange();
             resourceTxtManger.ChangeAddPrice();
-            ResourceManager.instance.SetRsc(-(selectManager.selectedPriceSO.AddPrice[selectManager.selectedSO.length - 1]));
+            ResourceManager.instance.Resource = -selectManager.selectedPriceSO.AddPrice[selectManager.selectedSO.length - 1];
             resourceTxtManger.ChangeResource();
             AudioManager.Instance.PlaySfx(AudioManager.Sfx.Level);
         }

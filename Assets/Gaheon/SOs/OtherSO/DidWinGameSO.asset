@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DidWinGame: 0
   DidEndGame: 0
+  whichStageEnded: 0

@@ -22,13 +22,13 @@ public class UpgradeManager : MonoBehaviour
 
     public void Upgrade()
     {
-        currentMoney = ResourceManager.instance.GetRsc();
-        if (selectManager.selectedSO.level < 5 && ResourceManager.instance.GetRsc() >= selectManager.selectedPriceSO.UpgradePrice[selectManager.selectedSO.level - 1])
+        currentMoney = ResourceManager.instance.Resource;
+        if (selectManager.selectedSO.level < 5 && ResourceManager.instance.Resource >= selectManager.selectedPriceSO.UpgradePrice[selectManager.selectedSO.level - 1])
         {
             selectManager.selectedSO.level++;
             barManager.ChangeBar();
             ChangeLevelText();
-            ResourceManager.instance.SetRsc(-(selectManager.selectedPriceSO.UpgradePrice[selectManager.selectedSO.level - 1]));
+            ResourceManager.instance.Resource = -selectManager.selectedPriceSO.UpgradePrice[selectManager.selectedSO.level - 1];
             resourceTxtManager.ChangeResource();
             resourceTxtManager.ChangeUpgradePrice();
             AudioManager.Instance.PlaySfx(AudioManager.Sfx.Level);

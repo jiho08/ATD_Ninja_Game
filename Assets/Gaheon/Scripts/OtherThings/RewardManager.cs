@@ -66,7 +66,7 @@ public class RewardManager : MonoBehaviour
     }
     public void Confirm()
     {
-        ResourceManager.instance.SetRsc(stationInfo.rewardResources[clearStage]);
+        ResourceManager.instance.Resource = stationInfo.rewardResources[clearStage];
 
         rewardPanel.SetActive(false);
 
