@@ -355,7 +355,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _curHealth: 2
-  unitCode: 0
+  unitCode: 2
   isOnEntity: 000100
 --- !u!1001 &262734128318041150
 PrefabInstance:

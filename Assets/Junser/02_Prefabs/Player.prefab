@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _curHealth: 2
-  unitCode: 0
+  unitCode: 1
   isOnEntity: 010000
 --- !u!1 &1364220081744894535
 GameObject:

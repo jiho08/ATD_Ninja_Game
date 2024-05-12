@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _curHealth: 4
-  unitCode: 0
+  unitCode: 2
   isOnEntity: 010000
 --- !u!114 &9188588497209706504
 MonoBehaviour:

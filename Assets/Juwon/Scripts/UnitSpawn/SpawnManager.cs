@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
@@ -19,8 +20,8 @@ public class SpawnManager : MonoBehaviour
     //[SerializeField] private Transform[] unitSpawnPos; //스폰 위치 3개 관리
     [SerializeField] private Transform[] enemySpawnPos;
 
-    private readonly int[] _defaultSpawnCounts = new int[10]; //유닛 수만큼 넣기 (0 : 무궁화, 1 : 무언가, 2 : 등등)
-    private int[] _getSpawnCounts = new int[10]; //소환된 유닛 수만큼 넣기 (0 : 무궁화, 1 : 무언가, 2 : 등등)
+    private int[] _defaultSpawnCounts = new int[6]; //유닛 수만큼 넣기 (0 : 무궁화, 1 : 무언가, 2 : 등등)
+    private int[] _getSpawnCounts = new int[6]; //소환된 유닛 수만큼 넣기 (0 : 무궁화, 1 : 무언가, 2 : 등등)
 
     public int[] GetSpawnCounts
     {
@@ -48,12 +49,12 @@ public class SpawnManager : MonoBehaviour
     //원하는 유닛과 위치 생성
     public GameObject UnitSpawn(int value)
     {
-        if(_getSpawnCounts[value] >= _defaultSpawnCounts[value]) 
+        if (_getSpawnCounts[value] >= _defaultSpawnCounts[value])
         {
             AudioManager.Instance.PlaySfx(AudioManager.Sfx.Warning);
             return null; //정해진 수보다 많아지면 리턴
         }
-        
+
         GameObject unit = unitPool.Get(value);
         //unit.transform.position = unitSpawnPos[pos-1].position; //정해진 소환할 위치에 소환(우선 정함)
         _unitHealth = unit.GetComponent<HealthManager>();
@@ -64,7 +65,7 @@ public class SpawnManager : MonoBehaviour
         unitP._trainLength = unitData[value].length;
 
         this._unitHealth.OnUnitRepairCool += HandleRepairCoolTime;
-        
+
         return unit;
     }
 
@@ -79,16 +80,15 @@ public class SpawnManager : MonoBehaviour
         enemyS._GetDamage = enemyData.enemysData[value].atk;
 
 
-        enemy.transform.position = enemySpawnPos[pos-1].position;
-        
+        enemy.transform.position = enemySpawnPos[pos - 1].position;
+
         return enemy;
     }
-    
+
     //유닛이 부셔지고 일정 시간이 지나면 다시 생성할 수 있게 변경
     private void HandleRepairCoolTime(int value)
     {
         this._unitHealth.OnUnitRepairCool -= HandleRepairCoolTime;
-        
         _inCorout = StartCoroutine(UnitCool(value));
     }
 
@@ -97,11 +97,13 @@ public class SpawnManager : MonoBehaviour
         _getSpawnCounts[value]++;
         currentUnitNum.Value = GetSpawnCounts[value];
     }
+
     private IEnumerator UnitCool(int value)
     {
         yield return new WaitForSeconds(10f);
 
         _getSpawnCounts[value]--;
+        if (_getSpawnCounts[value] < 0) _getSpawnCounts[value] = 0;
         currentUnitNum.Value = GetSpawnCounts[value];
 
         StopCoroutine(_inCorout);
@@ -111,7 +113,7 @@ public class SpawnManager : MonoBehaviour
     {
         _defaultSpawnCounts[value] = count;
     }
-    
+
     public int GetDefaultCounts(int value) //value의 번호에 유닛 제한수를 count로 제한
     {
         return _defaultSpawnCounts[value];

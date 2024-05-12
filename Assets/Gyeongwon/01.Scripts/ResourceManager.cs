@@ -17,14 +17,20 @@ public class ResourceManager : MonoBehaviour
 
     private void Start()
     {
+        if (resource < 0)
+        {
+            resource = 0;
+        }
         resource = PlayerPrefs.GetInt("Resource",0);
-
     }
 
     public void SetRsc(int value)
     {
-        resource += value;
-        PlayerPrefs.SetInt("Resource", resource);
+        if (resource - value >= 0)
+        {
+            resource += value;
+            PlayerPrefs.SetInt("Resource", resource);
+        }
     }
     public int GetRsc()
     {

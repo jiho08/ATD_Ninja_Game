@@ -195,7 +195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _curHealth: 2
-  unitCode: 0
+  unitCode: 1
   isOnEntity: 000100
 --- !u!95 &5710167286846140879
 Animator:
