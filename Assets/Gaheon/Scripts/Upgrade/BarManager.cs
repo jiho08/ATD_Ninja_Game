@@ -33,7 +33,7 @@ public class BarManager : MonoBehaviour
 
     public void ChangeBar()
     {
-        selectManager.ChangeValue();
+        //selectManager.ChangeValue();
 
         currentHp = selectManager.selectedSO.Hp;
         currentAtk = selectManager.selectedSO.Atk;
@@ -50,6 +50,17 @@ public class BarManager : MonoBehaviour
             previewHp = selectManager.selectedUnitLevel.Hp[currentLv];
             previewAtk = selectManager.selectedUnitLevel.Atk[currentLv];
             previewSpeed = selectManager.selectedUnitLevel.Speed[currentLv];
+
+            previewHpBar.transform.DOScale(new Vector3(previewHp, 1, 0), 1f);
+            previewAtkBar.transform.DOScale(new Vector3(previewAtk, 1, 0), 1f);
+            previewSpeedBar.transform.DOScale(new Vector3(previewSpeed, 1, 0), 1f);
+        }
+        else
+        {
+
+            previewHp = selectManager.selectedUnitLevel.Hp[4];
+            previewAtk = selectManager.selectedUnitLevel.Atk[4];
+            previewSpeed = selectManager.selectedUnitLevel.Speed[4];
 
             previewHpBar.transform.DOScale(new Vector3(previewHp, 1, 0), 1f);
             previewAtkBar.transform.DOScale(new Vector3(previewAtk, 1, 0), 1f);
