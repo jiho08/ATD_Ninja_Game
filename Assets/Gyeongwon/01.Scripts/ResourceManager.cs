@@ -26,11 +26,8 @@ public class ResourceManager : MonoBehaviour
 
     public void SetRsc(int value)
     {
-        if (resource - value >= 0)
-        {
-            resource += value;
-            PlayerPrefs.SetInt("Resource", resource);
-        }
+        resource += value;
+        PlayerPrefs.SetInt("Resource", resource);
     }
     public int GetRsc()
     {
